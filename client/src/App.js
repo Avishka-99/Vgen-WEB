@@ -39,7 +39,7 @@ function App() {
   const [role, setRole] = useState("customer");
   const number = useSelector(state => state.CounterReducer.counter);
   const val = useSelector(state => state.ValueReducer.value)
-  console.log(user)
+ //const name =["madhawa"];
   const customerRoutes = [
     { id: 1, path: '/home', element: <Dashboard /> },
     { id: 2, path: '/category', element: <Categories /> },
