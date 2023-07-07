@@ -13,17 +13,6 @@ const User = sequelize.define('user',{
         foriegnKey: true,
 
     },
-    homeNo:{
-        type: DataTypes.STRING,
-        allowNull: true
-    },street:{
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    city:{
-        type: DataTypes.STRING,
-        allowNull: true
-    },
     age:{
         type: DataTypes.INTEGER,
         allowNull: true
