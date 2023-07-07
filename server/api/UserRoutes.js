@@ -42,7 +42,7 @@ router.post("/registeruser", (req, res) => {
     const password = req.body.password;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const age = req.body.age;
+    const nic = req.body.age;
     const userRole = req.body.userRole;
     const contactNo = req.body.contactNo;
     // const profilePicture=req.body.profilePicture;
@@ -55,7 +55,7 @@ router.post("/registeruser", (req, res) => {
                  password: hash ,
                 firstName:firstName,
                 lastName:lastName,
-                age:age,
+                nic:nic,
                 userRole:userRole,
                 contactNo:contactNo});
                    

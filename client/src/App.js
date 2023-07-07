@@ -60,7 +60,7 @@ function App() {
       </BrowserRouter> */}
       {role == "customer" ?
         <div className='outerContainer'>
-        <Sidebar/>
+        {/* <Sidebar/> */}
           <div className='container'>
             <Routes>
               {/* {role === "customer" ? customerRoutes.map((item) => (

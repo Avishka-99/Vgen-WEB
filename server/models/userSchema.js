@@ -13,8 +13,8 @@ const User = sequelize.define('user',{
         foriegnKey: true,
 
     },
-    age:{
-        type: DataTypes.INTEGER,
+    nic:{
+        type: DataTypes.STRING,
         allowNull: true
     },password: {
         type: DataTypes.STRING,
