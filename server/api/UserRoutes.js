@@ -18,7 +18,7 @@ router.post("/signinuser", (req, res) => {
             if (result_2) {
                 const type = result.toJSON().type;
                 const payload = {
-                    userId: result.toJSON().id,
+                    userId: result.toJSON().userId,
                     password: result.toJSON().password,
                     time: new Date()
                 };
@@ -45,14 +45,31 @@ router.post("/registeruser", (req, res) => {
     const homeNo = req.body.homeNo;
     const age = req.body.age;
     const userRole = req.body.userRole;
+    const contactNo = req.body.contactNo;
     // const profilePicture=req.body.profilePicture;
     bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
             res.send("unsuccessful");
         } else {
-            User.create({ email: email, password: hash ,firstName:firstName,lastName:lastName,street:street,city:city,homeNo:homeNo,age:age,userRole:userRole });
-            res.send("Successful");
-        }
-    });
-})
+            User.create({ 
+                email: email,
+                 password: hash ,
+                firstName:firstName,
+                lastName:lastName,
+                street:street,
+                city:city,
+                homeNo:homeNo,
+                age:age,
+                userRole:userRole,
+                contactNo:contactNo});
+                   
+            res.send("successful");
+          
+                
+}
+       
+       
+    }
+);
+});
 module.exports = router;

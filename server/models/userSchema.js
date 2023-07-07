@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./db');
 
+
+
 // Define the User model
 const User = sequelize.define('user',{
     userId: {
@@ -8,6 +10,7 @@ const User = sequelize.define('user',{
         allowNull: false,
         primaryKey: true,
         autoIncrement:true,
+        foriegnKey: true,
 
     },
     homeNo:{
@@ -43,6 +46,9 @@ const User = sequelize.define('user',{
     userRole: {
         type: DataTypes.STRING,
         allowNull: true
+    },contactNo:{
+        type: DataTypes.INTEGER,
+        allowNull: true
     }
     // },profilePicture:{
     //     type: DataTypes.STRING,
@@ -51,6 +57,8 @@ const User = sequelize.define('user',{
   
 }, {
    timestamps:false,
+   
 });
+
 
 module.exports = User;

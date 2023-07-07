@@ -14,11 +14,12 @@ export default function SignUp() {
   const [name,setName] = useState('');
   const[firstName,setfirstName] = useState('');
   const[lastName,setlastName] = useState('');
-  const[userRole,setuserRole] = useState('');
+  const[userRole,setuserRole] = useState();
   const[profilePicture,setProfilePicture]=useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [confirmpassword,setConfirmPassword] = useState('');
+  const [contactNo,setContactNo] = useState('');
   const navigate = useNavigate();
   useEffect(()=>{
     if(user){
@@ -45,6 +46,7 @@ export default function SignUp() {
       firstName:firstName,
       lastName:lastName,
       userRole:userRole,
+      contactNo:contactNo,
       // profilePicture:profilePicture
     }).then((response) => {
       // Axios.get("http://localhost:5000/api/get").then((response) => {
@@ -86,10 +88,11 @@ export default function SignUp() {
               <label className='signUpPlaceholder'>First Name</label>
               <input type={'text'} autoComplete="off" name="lastName" onChange={(event)=>setlastName(event.target.value)} required></input>
               <label className='signUpPlaceholder'>Last Name</label>
-              <input type={'text'} autoComplete="off" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required></input>
-              <label className='signUpPlaceholder'>user Role</label>
-              {/* <input type={'text'} autoComplete="off" name="profilePicture" onChange={(event)=>setProfilePicture(event.target.value)} required></input>
-              <label className='signUpPlaceholder'>profilePicture</label> */}
+              <input type={'radio'} autoComplete="off" value="Customer" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>Customer
+              <input type={'radio'} autoComplete="off" value="resturantManager" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>Resturant Manager
+              <input type={'radio'} autoComplete="off" value="productManufacture" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>Farmer
+              <input type={'text'} autoComplete="off" name="contacNo" onChange={(event)=>setContactNo(event.target.value)} required></input>
+              <label className='signUpPlaceholder'>Contact Number</label>
               <div className='submitButton' onClick={handleSubmit}>Sign Up</div>
             </form>
             

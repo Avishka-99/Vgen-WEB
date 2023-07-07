@@ -7,12 +7,12 @@
     flex-direction: row;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/images/black-texture.jpg');
+    /* background-image: url('../assets/images/black-texture.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
 }
 .formSignUp{
-    width: 60%;
+    width: 80%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
   font-family: poppins-regular;
   font-size: 48px;
   height: 10%;
-  background-color: darkblue;
+  background-color: transparent;
   font-weight: 800;
 }
 .divider{
@@ -51,7 +51,7 @@
 }
 .signUpFormClass{
   width: 100%;
-  height: 100%;
+  height: 80%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -59,6 +59,7 @@
   width: 100%;
   justify-content: center;
   align-items:center;
+
 }
 .signUpFormClass > input{
   border: 0;
@@ -83,3 +84,7 @@ input:focus + .signUpPlaceholder,input:not(:focus):valid +.signUpPlaceholder{
   top: -52px;
   
 }
+/* check */
+
+
+
