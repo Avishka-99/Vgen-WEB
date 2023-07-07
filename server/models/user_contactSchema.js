@@ -1,21 +1,25 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./db');
+const User = require('./userSchema');
 
-// Define the User model
-const userContact = sequelize.define('user_contact', {
+
+const UserContact = sequelize.define(
+  'user_contact',{
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        foriegnKey:true,
-        autoIncrement:true,
-
-    },contactNo:{
-        type: DataTypes.INTEGER,
-        allowNull: true
+        foriegnKey: true,
     },
-}, {
-    timestamps: false,
-});
+     contactNo: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
 
-module.exports = userContact;
+    },
+  },
+  {
+    timestamps: false,
+  }
+);
+
+module.exports = UserContact;

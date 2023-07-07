@@ -124,16 +124,15 @@ input:focus + .placeholder,input:not(:focus):valid +.placeholder{
     
 }
 .img{
-  width: 28vw;
-  height: 28vw;
-  background-position: 50%;
-  background-image: url('../assets/images/potato.png');
-    background-size: 96% 100%;
-    background-repeat: no-repeat;
-    -webkit-animation-name: rotate;
-  -webkit-animation-duration:60s;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-animation-timing-function:linear;
+ position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  background-image: url('../assets/images/SignUp.jpg');
+  background-size: cover;
+
 }
 @keyframes rotate {
   from {-webkit-transform:rotate(0deg);}

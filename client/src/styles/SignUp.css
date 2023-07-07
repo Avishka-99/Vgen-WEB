@@ -1,85 +1,31 @@
-:root{
-  --bg: #F4ECE1;
-  --signInTheme: dodgerblue;
-
-}.SignUpContainer{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../assets/images/black-texture.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.formSignUp{
-    width: 60%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.formSignUpContainer{
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 80%;
-  background-color: white;
-  opacity: 80%;
-  border-radius: 3em;
-  align-items: center;
-}
-.formSignUpTitle{
-  text-align: center;
-  font-family: poppins-regular;
-  font-size: 48px;
-  height: 10%;
-  background-color: darkblue;
-  font-weight: 800;
-}
-.divider{
-  border: 1px solid #bbb;
-  width: 90%;
-}
-.formSignUpInput{
+.SignUpContainer {
   position: relative;
   display: flex;
-  flex-direction: column;
-  height: 70%;
-  width: 100%;
-  justify-content: center;
-  align-items:center;
-}
-.signUpFormClass{
   width: 100%;
   height: 100%;
-  position: relative;
   display: flex;
-  flex-direction: column;
-  height: 70%;
-  width: 100%;
-  justify-content: center;
-  align-items:center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
 }
-.signUpFormClass > input{
-  border: 0;
-  border-bottom: 3px solid #bbb;
-  width: 60%;
-  padding: 2px 1px;
-  margin-top: 0%;
-  height: 8%;
-  font-size: 20px;
+.SignInImage{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
-.signUpPlaceholder{
-  top: -26px;
-  width: 60%;
-  pointer-events: none;
-  position: relative;
-  transition: all 0.5s ease;
-}input:focus,input:valid{
-  border-bottom: 3px solid var(--signInTheme) !important;
-  transition: all 0.7s ease;
+.img1{
+    width: 0%;
+    height: 100%;
+    background-image: url('../assets/images/SignUp.jpg');
+    background-size: cover;
 }
-input:focus + .signUpPlaceholder,input:not(:focus):valid +.signUpPlaceholder{
-  top: -52px;
-  
-}
+
+
+/* check */
+
+
+
