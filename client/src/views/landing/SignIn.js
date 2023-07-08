@@ -30,12 +30,7 @@ export default function SignIn() {
             email: email,
             password: password,
         }).then((response) => {
-            /*Axios.get("http://localhost:5000/api/get").then((response) => {
-              console.log("helo");
-            });*/
             if(response.data.type){
-                //console.log(response.data.type)
-                //console.log(JSON.parse(atob(response.data.split('.')[1])));
                 dispatch(SetUserAction(response.data.type));
                 localStorage.setItem('token',response.data.token);
                 navigate('/home');

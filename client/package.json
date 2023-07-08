@@ -18,14 +18,13 @@
     "react-native-paper": "^5.8.0",
     "react-redux": "^7.2.9",
     "react-router-dom": "^6.13.0",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^4.0.3",
     "react-transition-group": "^4.4.5",
     "redux": "^4.2.1",
-    "web-vitals": "^2.1.4",
-    "webpack": "^4.44.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

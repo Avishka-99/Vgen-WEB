@@ -4,7 +4,7 @@ import Button2 from './components/Button2';
 import { useSelector, useDispatch } from 'react-redux'
 import './styles/App.css';
 import Sidebar from './components/Sidebar';
-import { BrowserRouter, Routes, Route, useLocation ,useNavigate} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 /* CUSTOMER VIEWS */
 import Home from './views/customer/Home';
@@ -25,13 +25,13 @@ function App() {
   //localStorage.clear('type');
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       navigate('/home');
-    }else{
+    } else {
       navigate('')
     }
-  },[user])
+  }, [user])
   const [isSignedIn, setIsSignedIn] = useState(true)
   const [role, setRole] = useState("customer");
   const number = useSelector(state => state.CounterReducer.counter);
@@ -58,9 +58,9 @@ function App() {
           <Route path='/data' element={<Data/>} ></Route>
         </Routes>
       </BrowserRouter> */}
-      {role == "customer" ?
+      
         <div className='outerContainer'>
-        <Sidebar/>
+          <Sidebar/>
           <div className='container'>
             <Routes>
               {/* {role === "customer" ? customerRoutes.map((item) => (
@@ -73,26 +73,22 @@ function App() {
               <Route path='/signin' element={<SignIn />} ></Route>
               <Route path='/signup' element={<SignUp />} ></Route>
               <Route element={<ProtectedRoutes isSignedIn={user} />}>
-                {user=="customer"? customerRoutes.map((item)=>(
+                {user == "Customer" ? customerRoutes.map((item) => (
                   <Route key={item.key} path={item.path} element={item.element} ></Route>
-                )):user=="restaurant"?deliveryRoutes.map((item)=>(
+                )) : user == "restaurant" ? deliveryRoutes.map((item) => (
                   <Route key={item.key} path={item.path} element={item.element} ></Route>
-                )):<Route path='' element={<LandingPage />} ></Route>}
-                
-              </Route>
-              {/* <Route element={<ProtectedRoutes isSignedIn={user} />}> */}
-              
-              {/* </Route> */}
+                )) : <Route path='' element={<LandingPage />} ></Route>}
 
+              </Route>
             </Routes>
           </div>
-        </div> : <BrowserRouter >
-          <Routes>
-            <Route path='' element={<LandingPage />} ></Route>
-            <Route path='/signin' element={<SignIn />} ></Route>
-            <Route path='/signup' element={<SignUp />} ></Route>
-          </Routes>
-        </BrowserRouter>}
+        </div>
+        {/* {user == "customer" ?
+        <Routes>
+          <Route path='' element={<LandingPage />} ></Route>
+          <Route path='/signin' element={<SignIn />} ></Route>
+          <Route path='/signup' element={<SignUp />} ></Route>
+        </Routes>:<Text></Text>} */}
 
 
     </div>
