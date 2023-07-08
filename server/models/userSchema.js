@@ -38,7 +38,7 @@ const User = sequelize.define('user',{
     },contactNo:{
         type: DataTypes.INTEGER,
         allowNull: true
-    }
+    },
     // },profilePicture:{
     //     type: DataTypes.STRING,
     //     allowNull: true
