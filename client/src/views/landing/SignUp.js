@@ -65,6 +65,7 @@ export default function SignUp() {
       <div className='formSignUp'>
       <div className='head'><h3>Join the vegan revolution</h3><h1>Sign Up Today!</h1></div>
       <form className='signUpFormClass' >
+<<<<<<< HEAD
         <div className='con1'>
        <div className='contain_input'>
          <input type={'text'} autoComplete="off"  name="firstName" onChange={(event)=>setfirstName(event.target.value)} required></input>
@@ -73,6 +74,16 @@ export default function SignUp() {
      <div className='contain_input'>
           <input type={'text'} autoComplete="off"  name="lastName" onChange={(event)=>setlastName(event.target.value)} required></input>
           <span className='placeholder1'>Last Name</span>
+=======
+       
+        <div className='contain_1'>
+          <div className='contain_2'>
+          <label className='signUpPlaceholder'>First Name</label>
+          <input type={'text'} autoComplete="off" name="firstName" onChange={(event)=>setfirstName(event.target.value)} required></input>
+          <label className='signUpPlaceholder'>NIC</label>
+              <input type={'text'} autoComplete="off" name="nic" onChange={(event)=>setNic(event.target.value)} required></input>
+              
+>>>>>>> a9797c1cf0a0a258418272f59e21483e20cab977
           </div>
 
           <div className='contain_input'>
@@ -85,6 +96,7 @@ export default function SignUp() {
               <span className='placeholder1'>Contact No</span>
             </div>
 
+<<<<<<< HEAD
          
           
            
@@ -93,6 +105,16 @@ export default function SignUp() {
          
             <input type={'password'} autoComplete="off" name="password"  onChange={(event)=>setPassword(event.target.value)} required></input>
             <span className='placeholder1'>Password</span>
+=======
+
+             </div>
+            <div className='contain_1'>
+              <div className='contain_3'>
+              <label className='signUpPlaceholder'>Email</label>
+            <input type={'email'} autoComplete="off" name="email" onChange={(event)=>setEmail(event.target.value)} required></input>
+              
+              </div>
+>>>>>>> a9797c1cf0a0a258418272f59e21483e20cab977
             </div>
             <div className='contain_input'>
               <input type={'password'} autoComplete="off"  onChange={(event)=>setConfirmPassword(event.target.value)} required></input>
