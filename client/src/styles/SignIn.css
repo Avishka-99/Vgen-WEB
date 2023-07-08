@@ -1,41 +1,91 @@
 :root{
-  --bg: #F4ECE1;
-  --signInTheme: dodgerblue;
+  --bg: #fff;
+  --signInTheme: #fff;
 
 }.SignInContainer{
     display: flex;
     flex-direction: row;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/images/black-texture.jpg');
+    background-color: var(--bg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 .form{
     width: 60%;
+    background-color: #fff;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .formContainer{
-    width: 50%;
-    height: 70%;
-    background-color: white;
+    width: 60%;
+    height: 80%;
+    background-color: tra;
     opacity: 80%;
-    border-radius: 3em;
+    border-radius: 3px;
     justify-content: center;
 }
 .formTitle{
   text-align: center;
-  margin-top: 8%;
+  margin-top: 1%;
   font-family: poppins-regular;
   font-size: 48px;
   font-weight: 800;
 }
-.divider{
-  border: 1px solid #bbb;
-  width: 90%;
+.formtitle2{
+  text-align: center;
+  margin-top: 1%;
+  font-family: 'Yellowtail', cursive;
+  font-size: 20px;
+  font-weight: 800;
+}
+.contain_signin{
+ display: flex;
+  flex-direction: row;
+  flex-flow:wrap;
+  width: 100%;
+  height: 12%;
+  justify-content: center;
+}
+.contain_signin .child1{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  top: 50%;
+  justify-content:left;
+  margin-top: 10px;
+
+  align-items: center;
+}
+.contain_signin .child1 input{
+  width: 30%;
+  position: relative;
+  left: 0%;
+  margin-top: 10%;
+  height: 70%;
+  display: flex;
+}
+.child1 label{
+  font-size: 15px;
+  color: black;
+  height: 15%;
+  position: relative;
+  margin-left: -15px;
+  left: 0%;
+
+  position: relative;
+}
+.contain_signin .child2{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  margin-top: 3%;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
 }
 .formInput{
   position: relative;
@@ -56,18 +106,22 @@
   justify-content: center;
   align-items:center;
 }
-.signInForm > input{
+.signInForm  input{
   border: 0;
-  border-bottom: 3px solid #bbb;
+  border-bottom: 5px solid #bbb;
   width: 80%;
-  padding: 2px 1px;
+  padding: 10px;
   margin-top: 5%;
-  height: 10%;
+  font-style: normal;
+  background-color: white;
+  border-radius: 3em;
+  height: 15%;
   line-height: 42px;
   font-size: 20px;
 }
 input:first-child{
   margin-top: 20%;
+
 }
 input:focus{
   outline: none;
@@ -75,8 +129,8 @@ input:focus{
 .placeholder{
   pointer-events: none;
   position: relative;
-  top: -32px;
-  left: -145px;
+  top: -17%;
+  left: -170px;
   transition: all 0.5s ease;
 }
 input:focus,input:valid{
@@ -84,23 +138,27 @@ input:focus,input:valid{
   transition: all 0.7s ease;
 }
 input:focus + .placeholder,input:not(:focus):valid +.placeholder{
-  top: -62px;
+  top: -26%;
   
 }
+.placeholder::after{
+  color: red;
+  content: "*";
+}
 .submitButton{
-  position: relative;
   font-family:poppins-regular;
-  top:100px;
+  margin-top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 28px;
   color: white;
-  width: 80%;
+  width: 30%;
   height: 20%;
+  margin-left: 3%;
   border-radius: 5em;
-  background-color: dodgerblue;
+  background-color: #274C5B;
 }
 .submitButton:hover{
   cursor: pointer;
@@ -108,7 +166,7 @@ input:focus + .placeholder,input:not(:focus):valid +.placeholder{
 }
 .signupLink{
   position: relative;
-  top: 110px;
+  top: 11px;
 }
 .signupText{
   color: royalblue;
@@ -130,7 +188,7 @@ input:focus + .placeholder,input:not(:focus):valid +.placeholder{
   left: 0;
   top: 0;
 
-  background-image: url('../assets/images/SignUp.jpg');
+  background-image: url('../assets/images/LogIn.jpg');
   background-size: cover;
 
 }
