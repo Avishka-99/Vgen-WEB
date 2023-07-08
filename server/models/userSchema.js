@@ -13,10 +13,7 @@ const User = sequelize.define('user',{
         foriegnKey: true,
 
     },
-    age:{
-        type: DataTypes.INTEGER,
-        allowNull: true
-    },password: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -38,7 +35,7 @@ const User = sequelize.define('user',{
     },contactNo:{
         type: DataTypes.INTEGER,
         allowNull: true
-    }
+    },
     // },profilePicture:{
     //     type: DataTypes.STRING,
     //     allowNull: true
