@@ -75,7 +75,7 @@
   color: #4D5959;
 }
 
-input[type="text"],input[type="password"],input[type="email"]{
+.signUpInput{
   position: relative;
   border: 0;
   outline: 2px solid #7EB693;
@@ -89,7 +89,7 @@ input[type="text"],input[type="password"],input[type="email"]{
   font-size: 20px;
 }
 
-input:focus,input:valid{
+.input:focus,input:valid{
   border-bottom: 3px solid var(--signInTheme) !important;
   transition: all 0.7s ease;
 }
