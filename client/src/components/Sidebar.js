@@ -38,7 +38,7 @@ export default function Sidebar() {
   return (
     <div className='sidebar' onSelect={(item) => console.log(item)}>
       <div>
-        {user == "customer" ? customer.map((item) => (
+        {user == "Customer" ? customer.map((item) => (
           <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
         )) : user == "restaurant"?manager.map((item) => (
           <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />

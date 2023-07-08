@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 router.post("/signinuser", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
+    // console.log(email);
     User.findOne({
         where: {
             email: email
@@ -16,8 +17,8 @@ router.post("/signinuser", (req, res) => {
                 res.send(200);
             }
             if (result_2) {
-                
-                const type = result.toJSON().type;
+                console.log(result)
+                const type = result.toJSON().userRole;
                 const payload = {
                     userId: result.toJSON().userId,
                     password: result.toJSON().password,
