@@ -67,11 +67,11 @@
   left: 2.5%;
   top:-5.7%
 }
-input:focus,input:valid{
+.SignInContainer input:focus,.SignInContainer input:valid{
   border-bottom: 3px solid var(--signInTheme) !important;
   transition: all 0.7s ease;
 }
-input:focus + .placeholder,input:not(:focus):valid +.placeholder{
+.SignInContainer input:focus + .placeholder,.SignInContainer input:not(:focus):valid +.placeholder{
   top: -12%;
   left: 0%;
 }
