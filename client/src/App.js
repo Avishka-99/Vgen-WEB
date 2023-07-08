@@ -20,6 +20,7 @@ import LandingPage from './views/landing/LandingPage';
 import SignIn from './views/landing/SignIn';
 import SignUp from './views/landing/SignUp';
 import ResetPassword from './views/landing/ResetPassword';
+import Otp from './views/landing/Otp';
 import ProtectedRoutes from './utils/ProtectedRoutes';
 import Dashboard from './views/Dashboard';
 function App() {
@@ -60,6 +61,7 @@ function App() {
             <Route path='/signin' element={<SignIn />} ></Route>
             <Route path='/signup' element={<SignUp />} ></Route>
             <Route path='/reset' element={<ResetPassword />} ></Route>
+            <Route path='/otp' element={<Otp />} ></Route>
             <Route element={<ProtectedRoutes isSignedIn={user} />}>
               {user == "Customer" ? customerRoutes.map((item) => (
                 <Route key={item.key} path={item.path} element={item.element} ></Route>

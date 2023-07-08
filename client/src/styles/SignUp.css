@@ -89,15 +89,15 @@
   font-size: 20px;
 }
 
-.input:focus,input:valid{
+.SignUpContainer .input:focus,.SignUpContainer input:valid{
   border-bottom: 3px solid var(--signInTheme) !important;
   transition: all 0.7s ease;
 }
-input:focus + .placeholder_signup,input:not(:focus):valid +.placeholder_signup{
+.SignUpContainer input:focus + .placeholder_signup,.SignUpContainer input:not(:focus):valid +.placeholder_signup{
   top: -86%;
   left: 0%;
 }
-input:focus + .placeholder_signup_email,input:not(:focus):valid +.placeholder_signup_email{
+.SignUpContainer input:focus + .placeholder_signup_email,.SignUpContainer input:not(:focus):valid +.placeholder_signup_email{
   top: -77%;
   left: 0%;
 }

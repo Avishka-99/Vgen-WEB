@@ -14,6 +14,7 @@ export default function ResetPassword() {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    console.log(email)
     var user = localStorage.getItem('type')
     const navigate = useNavigate();
     useEffect(() => {
@@ -25,7 +26,16 @@ export default function ResetPassword() {
     const navigateTo = (page) => {
         if (page == "home") {
             navigate('');
-        } else {
+        } else if (page == "otp") {
+            if(email){
+                localStorage.setItem('otpemail', email);
+                navigate('/otp');
+            }
+            
+
+        }
+        else {
+
             navigate('/' + page);
         }
     }
@@ -61,7 +71,7 @@ export default function ResetPassword() {
                     <input style={{ marginTop: "15%" }} className='ResetInput' type="text" autoComplete="off" onChange={(event) => setEmail(event.target.value)} required></input>
                     <label className='placeholder_reset'>Email*</label>
                     <div className='ResetRow'>
-                        <div className='btn_login' onClick={handleSubmit}>
+                        <div className='btn_login' onClick={() => navigateTo("otp")}>
                             Get OTP
                             <div className='arrowCircle'></div>
                         </div>
