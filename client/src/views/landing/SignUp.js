@@ -1,3 +1,4 @@
+// this is the sign up page
 import React, { useState,useEffect } from 'react'
 import  '../../styles/SignUp.css'
 import { useNavigate } from 'react-router-dom';
@@ -108,8 +109,7 @@ export default function SignUp() {
               
   
               
-{/*          
-        new signup    */}
+
        
 </div>
 <div className='contain_category'>

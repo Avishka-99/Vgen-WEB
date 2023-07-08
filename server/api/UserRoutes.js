@@ -1,3 +1,4 @@
+// Used to handle user related requests
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
