@@ -50,25 +50,11 @@ function App() {
   ];
   const guestRoutes = [];
   return (
-    <div>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path='' element={<ProtectedRoutes isSignedIn={isSignedIn}><Home/></ProtectedRoutes>} ></Route>
-          <Route path='/order' element={<ProtectedRoutes isSignedIn={isSignedIn}><Order/></ProtectedRoutes>} ></Route>
-          <Route path='/data' element={<Data/>} ></Route>
-        </Routes>
-      </BrowserRouter> */}
-
       <div className='outerContainer'>
-        <Sidebar />
+      <Sidebar/>
         <div className='container'>
+        
           <Routes>
-            {/* {role === "customer" ? customerRoutes.map((item) => (
-                  <Route key={item.id} path={item.path} element={<ProtectedRoutes isSignedIn={isSignedIn}>{item.element}</ProtectedRoutes>} ></Route>
-                )) : deliveryRoutes.map((item) => (
-                  <Route key={item.id} path={item.path} element={item.element} ></Route>
-                ))} */}
-            {/* <Route path='/' element={<LandingPage />} ></Route> */}
             <Route path='/' element={<LandingPage />} ></Route>
             <Route path='/signin' element={<SignIn />} ></Route>
             <Route path='/signup' element={<SignUp />} ></Route>
@@ -83,15 +69,6 @@ function App() {
           </Routes>
         </div>
       </div>
-      {/* {user == "customer" ?
-        <Routes>
-          <Route path='' element={<LandingPage />} ></Route>
-          <Route path='/signin' element={<SignIn />} ></Route>
-          <Route path='/signup' element={<SignUp />} ></Route>
-        </Routes>:<Text></Text>} */}
-
-
-    </div>
   );
 }
 
