@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import '../../styles/SignUp.css'
+import  '../../styles/SignUp.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Axios from '../../api/Axios';
@@ -10,7 +10,7 @@ export default function SignUp() {
   const [homeNo, setHomeNo] = useState('');
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
-  const [age, setAge] = useState('');
+  const [nic,setNic] = useState('');
   const [name,setName] = useState('');
   const[firstName,setfirstName] = useState('');
   const[lastName,setlastName] = useState('');
@@ -38,7 +38,7 @@ export default function SignUp() {
     Axios.post(API_ENDPOINTS.SIGNUP_URL, {
       email: email,
       password: password,
-      age:age,
+      nic:nic,
       name:name,
       firstName:firstName,
       lastName:lastName,
@@ -62,14 +62,15 @@ export default function SignUp() {
         <div className='img1'></div>
       </div>
       <div className='formSignUp'>
+      <div className='head'><h3>Join the vegan revolution</h3><h1>Sign Up Today!</h1></div>
       <form className='signUpFormClass' >
-        <div className='head'><h3>Join the vegan revolution</h3><h1>Sign Up Today!</h1></div>
+       
         <div className='contain_1'>
           <div className='contain_2'>
           <label className='signUpPlaceholder'>First Name</label>
           <input type={'text'} autoComplete="off" name="firstName" onChange={(event)=>setfirstName(event.target.value)} required></input>
           <label className='signUpPlaceholder'>NIC</label>
-              <input type={'text'} autoComplete="off" name="age" onChange={(event)=>setAge(event.target.value)} required></input>
+              <input type={'text'} autoComplete="off" name="nic" onChange={(event)=>setNic(event.target.value)} required></input>
               
           </div>
           <div className='contain_2'>
@@ -82,8 +83,7 @@ export default function SignUp() {
             </div>
 
 
-           
-        </div>
+             </div>
             <div className='contain_1'>
               <div className='contain_3'>
               <label className='signUpPlaceholder'>Email</label>
