@@ -1,30 +1,265 @@
-.SignUpContainer {
+/* new UI */
+.root {
+  --bg: #F4ECE1;
+  --signInTheme: dodgerblue;
+}
+.head{
   position: relative;
-  display: flex;
+  top:0;
+  left: 0;
+  }
+.SignUpContainer {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  background-color: var(--bg);
   align-items: center;
   background-color: white;
 }
 .SignInImage{
-    width: 50%;
+    width: 40%;
     height: 100%;
-    display: flex;
+    background-size: cover;
     justify-content: center;
     align-items: center;
 
 }
 .img1{
-    width: 0%;
+  position: relative;
+   width: 100%;
+   height: 100%;
+   background-image: url('../assets/images/SignUp.jpg');
+   background-size: cover;
+ 
+ }
+ .formSignUp{
+    width: 60%;
     height: 100%;
-    background-image: url('../assets/images/SignUp.jpg');
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+ }
+ .formSignUp .head{
+  font-family:Arial, Helvetica, sans-serif;
+  top: 30px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #274C5B;
+  height: 15%;
+  
+ }
+ h3{
+ font-family: 'Yellowtail', cursive;
+  font-size: 20px;
+  font-weight: 800;
+  color: #274C5B;
+  height: 10%;
+  position: relative;
+  left: 20%;
+ }
+ h1{
+  font-family:'Poppins', sans-serif;
+ 
+  font-size: 50px;
+  font-weight: 800;
+  color: #274C5B;
+  height: 10%;
+  position: relative;
+  left: 30px;
+
+ }
+ .formSignUp form{
+  top: 40px;
+  width: 80%;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 100%;
+
+ }
+ .formSignUp form .con1{
+  display: flex;
+  flex-wrap: wrap; 
+ align-items: center;
+  margin: 20px 0 12px 0;
+  flex-direction: row;
+  column-gap: 30px;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 20px;
+ }
+ form .con1 .contain_input{
+  width: calc(100% / 2 - 20px );
+
+  height: 100%;
+  position: relative;
+ border-radius: 5px;
+
+ }
+ form .con1 .contain_input1{
+  width: calc(100% / 2 - 20px );
+  padding: auto;
+  height: 100%;
+  position: relative;
+ border-radius: 2px;
+
+ }
+ .placeholder1{
+  position: absolute;
+  top: 70%;
+  left: 2%;
+  font-size: 15px;
+  color: #666;
+  transition: all 0.3s ease;
+  pointer-events: none;
+ }
+
+
+ .con1 .contain_input input{
+   height: 30px;
+   width: 100%;
+   padding: 5px 0;
+   outline: none;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   padding-left: 10px;
+   font-size: 16px;
+   font-family:'Poppins';
+   border-bottom-width: 2px;
+   transition: 0.3s all ease;
+  
+ }
+ .con1 .contain_input1 input{
+  height: 30px;
+  width: 30vw;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 0;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+
+  left: 0px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all}
+ .con1 .contain_input input:focus,
+ .con1 .contain_input input:valid{
+  border-color: #04A46D;
+  border-width: 2px;
+
+  border-color: aqua;
+
+
+
+ }
+
+input:focus + .placeholder1,
+input:valid + .placeholder1{
+  pointer-events: none;
+  font-size: 10px;
+  top: 53%;
+  color: #04A46D;
+   background-color: #fff;
 }
+ .submitButton{
+  size: 10px;
+ }
 
 
+
+.contain_category{
+ display: flex;
+ flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: 1px;
+
+}
+.head2{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  color: #4D5959;
+  font-weight: 800;
+  padding: 0 0 0 0;
+}
+ .radioContainer{
+ 
+  justify-content: center;
+  
+  align-items: center;
+  margin-left: 10px;
+
+
+}
+.contain_category input{
+  width: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.contain_category label{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  color: #274C5B;
+  margin-left: 10px;
+  margin-top: 10px;
+  
+  margin-bottom: 10px;
+  padding: 0 0 0 0;
+}
+.contain_category input[type="radio"]:checked + label{
+  color: #04A46D;
+  font-weight: 800;
+}
+.signInLink{
+  position: relative;
+  top: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 30%;
+  height: fit-content;
+}
+a{
+  text-decoration: none;
+  color: #007074;
+  font-weight: 800;
+  transition: all 0.3s ease;
+}
+.contain_input3{
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.submitButton1{
+  position: relative;
+  justify-content: center;
+  width: 15vw;
+  margin-top: 10px;
+  height: 100%;
+  border-radius: 10px;
+  padding: 3px 3px 3px 3px;
+  text-align: center;
+ border: none;
+  margin-left: 34%;
+  background-color: #274C5B;
+  color: white;
+  font-size: 20px; 
+   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.placeholder1::after{
+  color: red;
+  content: "*";
+}
 /* check */
 
 

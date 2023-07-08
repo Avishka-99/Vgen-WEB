@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import '../../styles/SignUp.css'
+import  '../../styles/SignUp.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Axios from '../../api/Axios';
@@ -10,7 +10,7 @@ export default function SignUp() {
   const [homeNo, setHomeNo] = useState('');
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
-  const [age, setAge] = useState('');
+  const [nic,setNic] = useState('');
   const [name,setName] = useState('');
   const[firstName,setfirstName] = useState('');
   const[lastName,setlastName] = useState('');
@@ -38,7 +38,7 @@ export default function SignUp() {
     Axios.post(API_ENDPOINTS.SIGNUP_URL, {
       email: email,
       password: password,
-      age:age,
+      nic:nic,
       name:name,
       firstName:firstName,
       lastName:lastName,
@@ -62,55 +62,73 @@ export default function SignUp() {
         <div className='img1'></div>
       </div>
       <div className='formSignUp'>
+      <div className='head'><h3>Join the vegan revolution</h3><h1>Sign Up Today!</h1></div>
       <form className='signUpFormClass' >
-        <div className='head'><h3>Join the vegan revolution</h3><h1>Sign Up Today!</h1></div>
-        <div className='contain_1'>
-          <div className='contain_2'>
-          <label className='signUpPlaceholder'>First Name</label>
-          <input type={'text'} autoComplete="off" name="firstName" onChange={(event)=>setfirstName(event.target.value)} required></input>
-          <label className='signUpPlaceholder'>NIC</label>
-              <input type={'text'} autoComplete="off" name="age" onChange={(event)=>setAge(event.target.value)} required></input>
-              
+        <div className='con1'>
+       <div className='contain_input'>
+         <input type={'text'} autoComplete="off"  name="firstName" onChange={(event)=>setfirstName(event.target.value)} required></input>
+         <span className='placeholder1'>First Name</span>
+     </div>
+     <div className='contain_input'>
+          <input type={'text'} autoComplete="off"  name="lastName" onChange={(event)=>setlastName(event.target.value)} required></input>
+          <span className='placeholder1'>Last Name</span>
           </div>
-          <div className='contain_2'>
-          <label className='signUpPlaceholder'>Last Name</label>
-          <input type={'text'} autoComplete="off" name="lastName" onChange={(event)=>setlastName(event.target.value)} required></input>
-            
-          <label className='signUpPlaceholder'>Contact Number</label>
+
+          <div className='contain_input'>
+              <input type={'text'} autoComplete="off"  name="nic" onChange={(event)=>setNic(event.target.value)} required></input>
+              <span className='placeholder1'>Nic No</span>
+          </div>
+         
+          <div className='contain_input'>
               <input type={'text'} autoComplete="off" name="contacNo" onChange={(event)=>setContactNo(event.target.value)} required></input>
-             
+              <span className='placeholder1'>Contact No</span>
             </div>
 
-
+         
+          
            
-        </div>
-            <div className='contain_1'>
-              <div className='contain_3'>
-              <label className='signUpPlaceholder'>Email</label>
-            <input type={'email'} autoComplete="off" name="email" onChange={(event)=>setEmail(event.target.value)} required></input>
-              
-              </div>
+
+            <div className='contain_input'>
+         
+            <input type={'password'} autoComplete="off" name="password"  onChange={(event)=>setPassword(event.target.value)} required></input>
+            <span className='placeholder1'>Password</span>
             </div>
-            <div className='contain_4'>
-            <label className='signUpPlaceholder'>Password</label>
-            <input type={'password'} autoComplete="off" name="password" onChange={(event)=>setPassword(event.target.value)} required></input>
-            <label className='signUpPlaceholder'>Confirm password</label>
-              <input type={'password'} autoComplete="off" onChange={(event)=>setConfirmPassword(event.target.value)} required></input>
+            <div className='contain_input'>
+              <input type={'password'} autoComplete="off"  onChange={(event)=>setConfirmPassword(event.target.value)} required></input>
+              <span className='placeholder1'>confirm password</span>
+              </div>
+              
+            <div className='contain_input1'>
+           
+            
+           <input type={'email'} className='email' autoComplete="off"  name="email" onChange={(event)=>setEmail(event.target.value)} required></input>
+           <span className='placeholder1'>Email</span>
+             
+        </div>
               
   
-              </div> 
               
-             <div>
-             <input type={'radio'} autoComplete="off" value="Customer" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>Customer
-              <input type={'radio'} autoComplete="off" value="resturantManager" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>Resturant Manager
-              <input type={'radio'} autoComplete="off" value="productManufacture" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>Farmer
-             </div>
-           
+{/*          
+        new signup    */}
        
-          
-              
-            
-              <div className='submitButton' onClick={handleSubmit}>Sign Up</div>
+</div>
+<div className='contain_category'>
+  <div className='head2'>
+              <p>I am a</p>
+              </div>
+            <div className='radioContainer'>
+              <input type={'radio'} autoComplete="off" className='radio' value="Customer" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>
+              <label className='radiolbl'>Customer</label> 
+               <input type={'radio'} autoComplete="off" className='radio' value="resturantManager" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>
+               <label className='radiolbl'>Resturant Manager</label>
+               <input type={'radio'} autoComplete="off" className='radio' value="productManufacture" name="userRole" onChange={(event)=>setuserRole(event.target.value)} required/>
+               <label className='radiolbl'>Farmer</label>
+               </div>
+              </div>
+            <div className='contain_input3'>
+              <div className='submitButton1' onClick={handleSubmit}>CREATE ACCOUNT</div>
+              <div className='signInLink'>Already have an account? <a onClick={()=>navigateTo("signin")}>Sign In</a></div>
+              </div>
             </form>
       </div>
       

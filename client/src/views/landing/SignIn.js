@@ -30,12 +30,7 @@ export default function SignIn() {
             email: email,
             password: password,
         }).then((response) => {
-            /*Axios.get("http://localhost:5000/api/get").then((response) => {
-              console.log("helo");
-            });*/
             if(response.data.type){
-                //console.log(response.data.type)
-                //console.log(JSON.parse(atob(response.data.split('.')[1])));
                 dispatch(SetUserAction(response.data.type));
                 localStorage.setItem('token',response.data.token);
                 navigate('/home');
@@ -52,25 +47,37 @@ export default function SignIn() {
     }
     return (
         <div className='SignInContainer'>
+               <div className='signInImage'>
+                <div className='img'></div>
+            </div>
             <div className='form'>
                 <div className='formContainer'>
-                    <div className='formTitle'>Login</div>
-                    <hr className='divider'></hr>
+                    <div className='formtitle2'>Join the vegan revolution</div>
+                    <div className='formTitle'>Login And Connect</div>
+                   {/* new ui */}
                     <div className='formInput'>
                         <form className='signInForm'>
                             <input type={'name'} autoComplete="off" onChange={(event)=>setEmail(event.target.value)} required></input>
-                            <label className='placeholder'>User name</label>
+                            <label className='placeholder'>Email</label>
                             <input type={'password'} onChange={(event)=>setPassword(event.target.value)} required></input>
                             <label className='placeholder'>Password</label>
-                            <div className='submitButton' onClick={handleSubmit}>Sign In</div>
+                            <div className='contain_signin'>
+                           < div className='child1'>
+            
+                            <input type="checkbox" className='checkbox'></input>
+                            <label className='rememberMe'>Remember me</label>
+                            </div>
+                            <div className='child2'>
+                            <label className='forgotPassword'>Forgot Password?<a href=''>click here</a></label>
+                            </div>
+                            </div>
+                            <div className='submitButton' onClick={handleSubmit}>Log In</div>
                             <span className='signupLink'>Not registered yet? <span className='signupText' onClick={() => navigateTo("signup")}>Sign up</span> now.</span>
                         </form>
                     </div>
                 </div>
             </div>
-            <div className='signInImage'>
-                <div className='img'></div>
-            </div>
+         
         </div>
     )
 }
