@@ -66,7 +66,7 @@ export default function SignIn() {
                             <label className='rememberMe'>Remember me</label>
                         </div>
                         <div className='row_1'>
-                            <label className='forgotPassword'>Forgot Password?<div className='clickHereLink'> Click Here</div></label>
+                            <label className='forgotPassword'>Forgot Password?<div className='clickHereLink' onClick={() => navigateTo("reset")}> Click Here</div></label>
                         </div>
                     </div>
                     <div className='signInRow'>

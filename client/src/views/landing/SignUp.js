@@ -67,52 +67,52 @@ export default function SignUp() {
           <div className='Logintitle'>Sign Up Today!</div>
           <div className='signUpRow' style={{ marginTop: "3%" }}>
             <div className='leftTextBox'>
-              <input type="text" autoComplete="off" name="firstName" onChange={(event) => setfirstName(event.target.value)} required></input>
+              <input className="signUpInput" type="text" autoComplete="off" name="firstName" onChange={(event) => setfirstName(event.target.value)} required></input>
               <label className='placeholder_signup'>First Name*</label>
             </div>
             <div className='rightTextBox'>
-              <input type="text" autoComplete="off" name="lastName" onChange={(event) => setlastName(event.target.value)} required></input>
+              <input className="signUpInput" type="text" autoComplete="off" name="lastName" onChange={(event) => setlastName(event.target.value)} required></input>
               <label className='placeholder_signup'>Last Name*</label>
             </div>
           </div>
           <div className='signUpRow'>
             <div className='leftTextBox'>
-              <input type={'text'} autoComplete="off" name="nic" onChange={(event) => setNic(event.target.value)} required></input>
+              <input className="signUpInput" type={'text'} autoComplete="off" name="nic" onChange={(event) => setNic(event.target.value)} required></input>
               <label className='placeholder_signup'>NIC*</label>
             </div>
             <div className='rightTextBox'>
-              <input type={'text'} autoComplete="off" name="contacNo" onChange={(event) => setContactNo(event.target.value)} required></input>
+              <input className="signUpInput" type={'text'} autoComplete="off" name="contacNo" onChange={(event) => setContactNo(event.target.value)} required></input>
               <label className='placeholder_signup'>Contact No*</label>
             </div>
           </div>
           <div className='signUpRow' style={{ width: "100%" }}>
             <div className='leftTextBox' style={{ width: "100%" }} >
-              <input type={'email'} className='email' autoComplete="off" name="email" onChange={(event) => setEmail(event.target.value)} required></input>
+              <input className="signUpInput" type={'email'}  autoComplete="off" name="email" onChange={(event) => setEmail(event.target.value)} required></input>
               <label className='placeholder_signup_email'>Email*</label>
             </div>
           </div>
           <div className='signUpRow'>
             <div className='leftTextBox'>
-              <input type={'password'} autoComplete="off" name="password" onChange={(event) => setPassword(event.target.value)} required></input>
+              <input className="signUpInput" type={'password'} autoComplete="off" name="password" onChange={(event) => setPassword(event.target.value)} required></input>
               <label className='placeholder_signup'>Password*</label>
             </div>
             <div className='rightTextBox'>
-              <input type={'password'} autoComplete="off" onChange={(event) => setConfirmPassword(event.target.value)} required></input>
+              <input className="signUpInput" type={'password'} autoComplete="off" onChange={(event) => setConfirmPassword(event.target.value)} required></input>
               <label className='placeholder_signup'>Confirm Password*</label>
             </div>
           </div>
           <label className='iam' >I am a</label>
           <div className='signUpRadionRow'>
             <div className='signUpRadioItem'>
-              <input type={'radio'} autoComplete="off" className='radio' value="Customer" name="userRole" onChange={(event) => setuserRole(event.target.value)} checked />
+              <input type={'radio'} autoComplete="off"  value="Customer" name="userRole" onChange={(event) => setuserRole(event.target.value)} checked />
               <label className='signUpRadioOption'>Vegan User</label>
             </div>
             <div className='signUpRadioItem'>
-              <input type={'radio'} autoComplete="off" className='radio' value="resturantManager" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
+              <input type={'radio'} autoComplete="off"  value="resturantManager" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
               <label className='signUpRadioOption'>Product Manufacture</label>
             </div>
             <div className='signUpRadioItem'>
-              <input type={'radio'} autoComplete="off" className='radio' value="productManufacture" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
+              <input type={'radio'} autoComplete="off"  value="productManufacture" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
               <label className='signUpRadioOption'>Restaurant Manager</label>
             </div>
           </div>

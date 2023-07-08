@@ -46,7 +46,7 @@
   font-family: poppins-extrabold;
   font-size: 60px;
 }
-input[type="text"],input[type="password"]{
+.signInInput{
   position: relative;
   border: 0;
   outline: 2px solid #7EB693;
@@ -97,6 +97,9 @@ input:focus + .placeholder,input:not(:focus):valid +.placeholder{
   color: #274C5B;
   margin-left: 3px;
   text-decoration: underline;
+}
+.clickHereLink:hover{
+  cursor: pointer;
 }
 .signInRow{
   margin-top: 5%;
