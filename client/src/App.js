@@ -58,32 +58,32 @@ function App() {
           <Route path='/data' element={<Data/>} ></Route>
         </Routes>
       </BrowserRouter> */}
-      
-        <div className='outerContainer'>
-          <Sidebar/>
-          <div className='container'>
-            <Routes>
-              {/* {role === "customer" ? customerRoutes.map((item) => (
+
+      <div className='outerContainer'>
+        <Sidebar />
+        <div className='container'>
+          <Routes>
+            {/* {role === "customer" ? customerRoutes.map((item) => (
                   <Route key={item.id} path={item.path} element={<ProtectedRoutes isSignedIn={isSignedIn}>{item.element}</ProtectedRoutes>} ></Route>
                 )) : deliveryRoutes.map((item) => (
                   <Route key={item.id} path={item.path} element={item.element} ></Route>
                 ))} */}
-              {/* <Route path='/' element={<LandingPage />} ></Route> */}
-              <Route path='/' element={<LandingPage />} ></Route>
-              <Route path='/signin' element={<SignIn />} ></Route>
-              <Route path='/signup' element={<SignUp />} ></Route>
-              <Route element={<ProtectedRoutes isSignedIn={user} />}>
-                {user == "Customer" ? customerRoutes.map((item) => (
-                  <Route key={item.key} path={item.path} element={item.element} ></Route>
-                )) : user == "restaurant" ? deliveryRoutes.map((item) => (
-                  <Route key={item.key} path={item.path} element={item.element} ></Route>
-                )) : <Route path='' element={<LandingPage />} ></Route>}
+            {/* <Route path='/' element={<LandingPage />} ></Route> */}
+            <Route path='/' element={<LandingPage />} ></Route>
+            <Route path='/signin' element={<SignIn />} ></Route>
+            <Route path='/signup' element={<SignUp />} ></Route>
+            <Route element={<ProtectedRoutes isSignedIn={user} />}>
+              {user == "Customer" ? customerRoutes.map((item) => (
+                <Route key={item.key} path={item.path} element={item.element} ></Route>
+              )) : user == "restaurant" ? deliveryRoutes.map((item) => (
+                <Route key={item.key} path={item.path} element={item.element} ></Route>
+              )) : <Route path='' element={<LandingPage />} ></Route>}
 
-              </Route>
-            </Routes>
-          </div>
+            </Route>
+          </Routes>
         </div>
-        {/* {user == "customer" ?
+      </div>
+      {/* {user == "customer" ?
         <Routes>
           <Route path='' element={<LandingPage />} ></Route>
           <Route path='/signin' element={<SignIn />} ></Route>

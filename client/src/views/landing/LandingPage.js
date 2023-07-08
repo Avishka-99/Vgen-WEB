@@ -7,16 +7,15 @@ import { useNavigate } from 'react-router-dom';
 export default function LandingPage() {
     console.log(localStorage.getItem('type'))
     var user = localStorage.getItem('type')
-    if(!user){
-        console.log("Null value")
-    }
+    console.log(user)
+    const navigate = useNavigate();
     useEffect(()=>{
         if(user){
           navigate('/home');
         }
         //console.log("Landing");
       })
-    const navigate = useNavigate();
+    
     const navigateTo = (page) => {
         if (page == "home") {
             navigate('');
