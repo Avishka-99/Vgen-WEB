@@ -59,7 +59,7 @@ export default function SignIn() {
                 <div className='formContainer'>
                     <div className='formtitle2'>Join the vegan revolution</div>
                     <div className='formTitle'>Login And Connect</div>
-                   
+                   {/* new ui */}
                     <div className='formInput'>
                         <form className='signInForm'>
                             <input type={'name'} autoComplete="off" onChange={(event)=>setEmail(event.target.value)} required></input>

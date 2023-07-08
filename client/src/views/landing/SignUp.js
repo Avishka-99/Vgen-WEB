@@ -108,8 +108,8 @@ export default function SignUp() {
               
   
               
-         
-           
+{/*          
+        new signup    */}
        
 </div>
 <div className='contain_category'>

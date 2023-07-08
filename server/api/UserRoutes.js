@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 router.post("/signinuser", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
+    // console.log(email);
     User.findOne({
         where: {
             email: email
