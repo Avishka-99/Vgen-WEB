@@ -1,3 +1,4 @@
+// Used to handle user related requests
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
@@ -6,6 +7,7 @@ const bcrypt = require('bcrypt');
 router.post("/signinuser", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
+    // console.log(email);
     User.findOne({
         where: {
             email: email

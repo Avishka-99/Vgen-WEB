@@ -17,6 +17,7 @@ export default function Sidebar() {
   /*useEffect(() => {
     navigate('/order');
   })*/
+  //console.log(user);
   const customer = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />,link: "home" ,index: "1" },
     { id: 2, icon: <WindowIcon sx={{ fontSize: 40, fill: "#6F767F" }} />,link: "category" , index: "2" },
