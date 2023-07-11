@@ -18,7 +18,7 @@ router.post("/signinuser", (req, res) => {
                 res.send(200);
             }
             if (result_2) {
-                console.log(result)
+                console.log("Hello")
                 const type = result.toJSON().userRole;
                 const payload = {
                     userId: result.toJSON().userId,
@@ -31,7 +31,7 @@ router.post("/signinuser", (req, res) => {
                 const response = { type, token };
                 res.send(response);
             } else {
-                res.send(200);
+                res.send("202");
             }
         });
 
