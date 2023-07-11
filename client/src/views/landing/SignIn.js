@@ -34,6 +34,7 @@ export default function SignIn() {
             email: email,
             password: password,
         }).then((response) => {
+            console.log(response)
             if (response.data.type) {
                 dispatch(SetUserAction(response.data.type));
                 localStorage.setItem('token', response.data.token);
