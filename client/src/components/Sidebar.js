@@ -8,6 +8,7 @@ import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import PeopleIcon from '@mui/icons-material/People';
 import AddHomeIcon from '@mui/icons-material/AddHome';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import FastfoodIcon from '@mui/icons-material/Fastfood';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 export default function Sidebar() {
@@ -26,9 +27,9 @@ export default function Sidebar() {
     { id: 5, icon: <DynamicFeedIcon sx={{ fontSize: 40, fill: "#6F767F" }} />,link: "feed" , index: "5" },
     { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />,link: "logout" , index: "5" },
   ];
-  const manager = [
+  const restaurant = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
-    { id: 2, icon: <WindowIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "order", index: "2" },
+    { id: 2, icon: <FastfoodIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "products", index: "2" },
   ];
   const navigateTo = (page) => {
     if(page=="logout"){
@@ -41,7 +42,7 @@ export default function Sidebar() {
       <div>
         {user == "Customer" ? customer.map((item) => (
           <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
-        )) : user == "restaurant"?manager.map((item) => (
+        )) : user == "resturantManager"?restaurant.map((item) => (
           <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
         )):<div></div>}
       </div>
