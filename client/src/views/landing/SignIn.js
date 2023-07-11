@@ -1,23 +1,27 @@
-import React, { useState,useEffect } from 'react'
+// this is the sign in page
+import React, { useState, useEffect } from 'react'
 import '../../styles/SignIn.css'
 import { json, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { SetUserAction } from '../../actions/SetUserAction';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
+import googleiMG from '../../assets/icons/google.png';
+import facebookiMG from '../../assets/icons/facebook.png'
 //import Axios from 'axios';
 export default function SignIn() {
+    
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     var user = localStorage.getItem('type')
     const navigate = useNavigate();
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             navigate('/home');
         }
         //console.log("Landing");
-      },[])
+    }, [])
     const navigateTo = (page) => {
         if (page == "home") {
             navigate('');
@@ -30,17 +34,13 @@ export default function SignIn() {
             email: email,
             password: password,
         }).then((response) => {
-            /*Axios.get("http://localhost:5000/api/get").then((response) => {
-              console.log("helo");
-            });*/
-            if(response.data.type){
-                //console.log(response.data.type)
-                //console.log(JSON.parse(atob(response.data.split('.')[1])));
+            console.log(response)
+            if (response.data.type) {
                 dispatch(SetUserAction(response.data.type));
-                localStorage.setItem('token',response.data.token);
+                localStorage.setItem('token', response.data.token);
                 navigate('/home');
                 //window.location.reload(true);
-            }else{
+            } else {
                 return
             }
             //console.log(response.data);
@@ -52,24 +52,52 @@ export default function SignIn() {
     }
     return (
         <div className='SignInContainer'>
-            <div className='form'>
-                <div className='formContainer'>
-                    <div className='formTitle'>Login</div>
-                    <hr className='divider'></hr>
-                    <div className='formInput'>
-                        <form className='signInForm'>
-                            <input type={'name'} autoComplete="off" onChange={(event)=>setEmail(event.target.value)} required></input>
-                            <label className='placeholder'>User name</label>
-                            <input type={'password'} onChange={(event)=>setPassword(event.target.value)} required></input>
-                            <label className='placeholder'>Password</label>
-                            <div className='submitButton' onClick={handleSubmit}>Sign In</div>
-                            <span className='signupLink'>Not registered yet? <span className='signupText' onClick={() => navigateTo("signup")}>Sign up</span> now.</span>
-                        </form>
+            <div className='SignInleftContainer'></div>
+            <div className='SignInRightContainer'>
+                <div className='SignInForm'>
+                    <div className='Slogan'>Embrace Your Vegan Journey</div>
+                    <div className='Logintitle'>Login And Connect!</div>
+                    <input style={{marginTop:"15%"}} className='signInInput' type="text" autoComplete="off" onChange={(event) => setEmail(event.target.value)} required></input>
+                    <label className='placeholder'>Email*</label>
+                    <input className='signInInput' type="password" onChange={(event) => setPassword(event.target.value)} required></input>
+                    <label className='placeholder'>Password*</label>
+                    <div className='checkBoxAndPswdForget'>
+                        <div className='row_1'>
+                            <input type="checkbox" className='checkbox'></input>
+                            <label className='rememberMe'>Remember me</label>
+                        </div>
+                        <div className='row_1'>
+                            <label className='forgotPassword'>Forgot Password?<div className='clickHereLink' onClick={() => navigateTo("reset")}> Click Here</div></label>
+                        </div>
+                    </div>
+                    <div className='signInRow'>
+                        <div className='btn_login' onClick={handleSubmit}>
+                            Login
+                            <div className='arrowCircle'></div>
+                        </div>
+                    </div>
+                    <div className='signInRow' style={{ marginTop: "2%" }}>
+                        <div style={{
+                            fontFamily: "poppins-medium",
+                            fontSize: "32px",
+                            color: "#274C5B"
+
+                        }}>
+                            OR
+                        </div>
+                    </div>
+                    <div className='signInRowLast' style={{ marginTop: "2%" }}>
+                        <div className='signInWIthGooFb'>
+                            <div className='signInImage' style={ {backgroundImage: "url(" + googleiMG + ")"}}></div>
+                            <div className='signInText'>Login with Google</div>
+                        </div>
+                        <div className='signInWIthGooFb'>
+                            <div className='signInImage' style={ {backgroundImage: "url(" + facebookiMG + ")"}}></div>
+                            <div className='signInText'>Login with Facebook</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='signInImage'>
-                <div className='img'></div>
+
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+// Used to handle user related requests
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
@@ -6,6 +7,7 @@ const bcrypt = require('bcrypt');
 router.post("/signinuser", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
+    // console.log(email);
     User.findOne({
         where: {
             email: email
@@ -16,8 +18,8 @@ router.post("/signinuser", (req, res) => {
                 res.send(200);
             }
             if (result_2) {
-                
-                const type = result.toJSON().type;
+                console.log("Hello")
+                const type = result.toJSON().userRole;
                 const payload = {
                     userId: result.toJSON().userId,
                     password: result.toJSON().password,
@@ -29,7 +31,7 @@ router.post("/signinuser", (req, res) => {
                 const response = { type, token };
                 res.send(response);
             } else {
-                res.send(200);
+                res.send("202");
             }
         });
 

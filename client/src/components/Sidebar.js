@@ -17,6 +17,7 @@ export default function Sidebar() {
   /*useEffect(() => {
     navigate('/order');
   })*/
+  //console.log(user);
   const customer = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />,link: "home" ,index: "1" },
     { id: 2, icon: <WindowIcon sx={{ fontSize: 40, fill: "#6F767F" }} />,link: "category" , index: "2" },
@@ -38,7 +39,7 @@ export default function Sidebar() {
   return (
     <div className='sidebar' onSelect={(item) => console.log(item)}>
       <div>
-        {user == "customer" ? customer.map((item) => (
+        {user == "Customer" ? customer.map((item) => (
           <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
         )) : user == "restaurant"?manager.map((item) => (
           <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
