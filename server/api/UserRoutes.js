@@ -1,9 +1,16 @@
 // Used to handle user related requests
+const path = require('path');
 const express = require('express');
 const router = express.Router();
+
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
+const product = require('../models/productSchema');
 const bcrypt = require('bcrypt');
+const multer = require('multer');
+
+
 router.post("/signinuser", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -68,6 +75,36 @@ router.post("/registeruser", (req, res) => {
        
        
     }
+
 );
+
 });
+// product store 
+
+
+const storage=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,'/uploads');
+    }
+    ,
+    filename:(req,file,cb)=>{
+        cb(null,file.fieldname+"_"+Date.now()+path.extname(file.originalname));
+    }
+})
+const upload=multer({storage:storage});
+router.post("/productStore",upload.single('productImage'),(req, res) => {
+           console.log(req.file);
+            const quantity = req.body.quantity;
+            const description = req.body.description;
+            const productName = req.body.productName;
+            const price = req.body.price;
+            const productImage = req.file.filename;
+           //formData image 
+
+            
+            product.create({ quantity: quantity, description: description, productName: productName, price: price, productImage:productImage});
+            res.send("successful");
+        
+    });
+
 module.exports = router;

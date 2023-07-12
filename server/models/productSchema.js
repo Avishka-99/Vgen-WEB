@@ -1,4 +1,4 @@
-
+ 
 const { DataTypes } = require('sequelize');
 const sequelize = require('./db');
 
@@ -8,6 +8,8 @@ const product = sequelize.define('product', {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
+              autoIncrement: true
+
 
  },quantity:{
         type: DataTypes.INTEGER,    
@@ -22,7 +24,7 @@ const product = sequelize.define('product', {
         type: DataTypes.INTEGER,
         allowNull: true
  },productImage:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING,    
         allowNull: true
  },
 },
@@ -30,5 +32,6 @@ const product = sequelize.define('product', {
  {
     timestamps: false,
 });
+
 
 module.exports = product;
