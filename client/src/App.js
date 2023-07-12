@@ -26,7 +26,7 @@ import RestaurantHome from './views/restaurant/RestaurantHome';
 import RestaurantProducts from './views/restaurant/RestaurantProducts';
 import Dashboard from './views/Dashboard';
 function App() {
-  localStorage.clear('type');
+  //localStorage.clear('type');
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
   useEffect(() => {
