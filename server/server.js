@@ -13,4 +13,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api',userRoutes);
 
 
+
 app.listen(5001, () => { console.log("Server listening on port 5001") })
