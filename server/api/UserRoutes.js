@@ -7,6 +7,8 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
 const product = require('../models/productSchema');
+
+
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 
@@ -80,31 +82,42 @@ router.post("/registeruser", (req, res) => {
 
 });
 // product store 
-
-
-const storage=multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,'/uploads');
-    }
-    ,
-    filename:(req,file,cb)=>{
-        cb(null,file.fieldname+"_"+Date.now()+path.extname(file.originalname));
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+           cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+           cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
     }
 })
-const upload=multer({storage:storage});
-router.post("/productStore",upload.single('productImage'),(req, res) => {
+const upload = multer({ storage: storage });
+router.post("/productStore",upload.single('productImage'),async (req, res) => {
            console.log(req.file);
-            const quantity = req.body.quantity;
-            const description = req.body.description;
-            const productName = req.body.productName;
-            const price = req.body.price;
-            const productImage = req.file.filename;
-           //formData image 
+        try{
+            const {quantity,description,productName,price}=req.body;
+            const{filename,path}=req.file;
 
-            
-            product.create({ quantity: quantity, description: description, productName: productName, price: price, productImage:productImage});
-            res.send("successful");
+            await product.create({
+                quantity,
+                description,
+                productName,
+                price,
+                filename,
+                productImage:path
+            });
+        }catch(err){
+            console.log(err);
+        }
         
     });
+
+//    router.get("/productGet",async (req, res) => {
+//     try{
+//         const productData=await product.findAll();
+//         res.send(productData);
+//     }catch(err){
+//         console.log(err);
+//     }
+// });
 
 module.exports = router;

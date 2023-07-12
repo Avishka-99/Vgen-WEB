@@ -1,8 +1,13 @@
  
 const { DataTypes } = require('sequelize');
 const sequelize = require('./db');
+const multer = require('multer');
+const path = require('path');
+
 
 // Define the User model
+
+
 const product = sequelize.define('product', {
  productId:{
         type: DataTypes.INTEGER,
