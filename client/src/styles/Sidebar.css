@@ -29,3 +29,8 @@
 .menuItem:focus>svg{
     fill:#FB9300;
 }
+.sidebarButton{
+    width: 100%;
+    height: 5%;
+    background-color: dodgerblue;
+}
