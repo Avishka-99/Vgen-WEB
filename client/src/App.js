@@ -24,7 +24,7 @@ import Otp from './views/landing/Otp';
 import ProtectedRoutes from './utils/ProtectedRoutes';
 import Dashboard from './views/Dashboard';
 function App() {
-  //localStorage.clear('type');
+  // localStorage.clear('type');
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
   useEffect(() => {
