@@ -25,8 +25,12 @@ import ProtectedRoutes from './utils/ProtectedRoutes';
 import RestaurantHome from './views/restaurant/RestaurantHome';
 import RestaurantProducts from './views/restaurant/RestaurantProducts';
 import Dashboard from './views/Dashboard';
+import OrdersView from './views/restaurant/OrdersView';
+import Reservation from './views/restaurant/Reservation';
+import Shopping from './views/restaurant/Shopping';
+import Payments from './views/restaurant/Payments';
 function App() {
-  //localStorage.clear('type');
+  // localStorage.clear('type');
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
   useEffect(() => {
@@ -51,6 +55,10 @@ function App() {
   const restaurantRoutes = [
     { id: 1, path: '/home', element: <RestaurantHome /> },
     { id: 2, path: '/products', element: <RestaurantProducts /> },
+    { id: 3, path: '/orders', element: <OrdersView /> },
+    { id: 4, path: '/reservation', element: <Reservation /> },
+    { id: 5, path: '/shopping', element: <Shopping /> },
+    { id: 6, path: '/payments', element: <Payments /> },
   ];
   const guestRoutes = [];
   return (
