@@ -1,9 +1,18 @@
 // Used to handle user related requests
+const path = require('path');
 const express = require('express');
 const router = express.Router();
+
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
+const product = require('../models/productSchema');
+
+
 const bcrypt = require('bcrypt');
+const multer = require('multer');
+
+
 router.post("/signinuser", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -68,6 +77,47 @@ router.post("/registeruser", (req, res) => {
        
        
     }
+
 );
+
 });
+// product store 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+           cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+           cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
+    }
+})
+const upload = multer({ storage: storage });
+router.post("/productStore",upload.single('productImage'),async (req, res) => {
+           console.log(req.file);
+        try{
+            const {quantity,description,productName,price}=req.body;
+            const{filename,path}=req.file;
+
+            await product.create({
+                quantity,
+                description,
+                productName,
+                price,
+                filename,
+                productImage:path
+            });
+        }catch(err){
+            console.log(err);
+        }
+        
+    });
+
+//    router.get("/productGet",async (req, res) => {
+//     try{
+//         const productData=await product.findAll();
+//         res.send(productData);
+//     }catch(err){
+//         console.log(err);
+//     }
+// });
+
 module.exports = router;

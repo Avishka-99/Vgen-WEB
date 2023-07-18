@@ -108,11 +108,11 @@ export default function SignUp() {
               <label className='signUpRadioOption'>Vegan User</label>
             </div>
             <div className='signUpRadioItem'>
-              <input type={'radio'} autoComplete="off"  value="resturantManager" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
+              <input type={'radio'} autoComplete="off"  value="productManufacture" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
               <label className='signUpRadioOption'>Product Manufacture</label>
             </div>
             <div className='signUpRadioItem'>
-              <input type={'radio'} autoComplete="off"  value="productManufacture" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
+              <input type={'radio'} autoComplete="off"  value="resturantManager" name="userRole" onChange={(event) => setuserRole(event.target.value)} />
               <label className='signUpRadioOption'>Restaurant Manager</label>
             </div>
           </div>

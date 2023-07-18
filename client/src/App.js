@@ -22,9 +22,11 @@ import SignUp from './views/landing/SignUp';
 import ResetPassword from './views/landing/ResetPassword';
 import Otp from './views/landing/Otp';
 import ProtectedRoutes from './utils/ProtectedRoutes';
+import RestaurantHome from './views/restaurant/RestaurantHome';
+import RestaurantProducts from './views/restaurant/RestaurantProducts';
 import Dashboard from './views/Dashboard';
 function App() {
-  // localStorage.clear('type');
+  //localStorage.clear('type');
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
   useEffect(() => {
@@ -46,9 +48,9 @@ function App() {
     { id: 4, path: '/feed', element: <Feed /> },
     { id: 5, path: '/restaurants', element: <Restaurants /> },
   ];
-  const deliveryRoutes = [
-    { id: 1, path: '/home', element: <DeliveryHome /> },
-    { id: 2, path: '/order', element: <DeliveryOrder /> },
+  const restaurantRoutes = [
+    { id: 1, path: '/home', element: <RestaurantHome /> },
+    { id: 2, path: '/products', element: <RestaurantProducts /> },
   ];
   const guestRoutes = [];
   return (
@@ -65,7 +67,7 @@ function App() {
             <Route element={<ProtectedRoutes isSignedIn={user} />}>
               {user == "Customer" ? customerRoutes.map((item) => (
                 <Route key={item.key} path={item.path} element={item.element} ></Route>
-              )) : user == "restaurant" ? deliveryRoutes.map((item) => (
+              )) : user == "resturantManager" ? restaurantRoutes.map((item) => (
                 <Route key={item.key} path={item.path} element={item.element} ></Route>
               )) : <Route path='' element={<LandingPage />} ></Route>}
 
