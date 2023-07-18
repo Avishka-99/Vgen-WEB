@@ -30,6 +30,7 @@ const ShowSidebar = () => {
   const restaurant = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
     { id: 2, icon: <FastfoodIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "products", index: "2" },
+    { id: 3, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "3" },
   ];
   const navigateTo = (page) => {
     if (page == "logout") {
