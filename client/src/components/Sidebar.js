@@ -11,6 +11,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
+import GradingIcon from '@mui/icons-material/Grading';
+import EventSeatIcon from '@mui/icons-material/EventSeat';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 const ShowSidebar = () => {
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
@@ -30,6 +34,10 @@ const ShowSidebar = () => {
   const restaurant = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
     { id: 2, icon: <FastfoodIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "products", index: "2" },
+    { id: 3, icon: <GradingIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "orders", index: "3" },
+    { id: 4, icon: <EventSeatIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "reservation", index: "4" },
+    { id: 5, icon: <ShoppingCartIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "shopping", index: "5" },
+    { id: 6, icon: <MonetizationOnIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "payments", index: "6" },
   ];
   const navigateTo = (page) => {
     if (page == "logout") {
