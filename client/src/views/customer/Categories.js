@@ -84,7 +84,7 @@ export default function Categories() {
               <p >{data.description}</p>
               <p >{data.price}</p>
               <p>{data.quantity}</p>
-              <img src={`http://localhost:5001/uploads/${data.productImage}`} />
+              <img src={`http://localhost:5001/uploads/products/${data.productImage}`} />
              
             
               
