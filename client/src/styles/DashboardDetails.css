@@ -1,10 +1,10 @@
 .Dashboard-details{
-    background-color: #f0f0f0;
+    background-color: #BCDAC8;
     padding: 20px;
     border-radius: 15px;
     margin-top: 20px;
     width: 15%;
-    height: 15%;
+    height: 150px;
     margin-left: 5%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 2%;
@@ -21,4 +21,5 @@
     margin-bottom: 10px;
     margin-left: 20%;
 }
-  
+
+
