@@ -1,7 +1,7 @@
-import React from 'react'
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
-import HailIcon from '@mui/icons-material/Hail';
+import React, { useEffect } from 'react'
+// import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+// import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+// import HailIcon from '@mui/icons-material/Hail';
 import DashboardDetails from './DashboardDetails';
 import '../../styles/RestaurentHome.css'
 
@@ -10,20 +10,23 @@ import '../../styles/RestaurentHome.css'
 export default function RestaurantHome() {
   
     const detailsData1 = [
-      { id: 1, icon: <MonetizationOnIcon /> },
+      // { id: 1, icon: <MonetizationOnIcon /> },
       { id: 2, name: 'Rs :', value: '3 000' },
       { id: 3, name: 'Total Revenue'},
     ];
     const detailsData2 = [
-      { id: 1, icon: <DinnerDiningIcon /> },
+      // { id: 1, icon: <DinnerDiningIcon /> },
       { id: 2, value: '50' },
       { id: 3, name: 'Total Dish Ordered'},
     ];
     const detailsData3 = [
-      { id: 1, icon: <HailIcon /> },
+      // { id: 1, icon: <HailIcon /> },
       { id: 2, value: '30' },
       { id: 3, name: 'Total Customers'},
     ];
+    useEffect(()=>{
+
+    })
   
     return (
       <div>
@@ -31,6 +34,20 @@ export default function RestaurantHome() {
           <DashboardDetails data={detailsData1} />
           <DashboardDetails data={detailsData2} />
           <DashboardDetails data={detailsData3} />
+        </div>
+        <div className="table-details">
+
+          <div className="table-detail-header">
+              <p>Order summary</p>
+              <select name="" id="" >
+                  <option value="preparing">Filter order</option>
+                  <option value="preparing">Preparing</option>
+                  <option value="Complete">Complete</option>
+              </select>
+
+          </div>
+          
+          
         </div>
         
       </div>

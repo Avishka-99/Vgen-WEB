@@ -2,4 +2,28 @@
     
     display: flex;
 }
+.table-detail-header{
+    display: flex;
+}
+
+.table-detail-header p{
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+.table-detail-header select{
+    margin-top: 3%;
+    color: black;
+    font-size: 18px;
+    margin-left: 40%;
+    padding: 10px;
+    background-color: #BCDAC8;
+    width: 200px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+}
+  
 
