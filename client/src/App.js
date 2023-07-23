@@ -30,7 +30,8 @@ import Reservation from './views/restaurant/Reservation';
 import Shopping from './views/restaurant/Shopping';
 import Payments from './views/restaurant/Payments';
 function App() {
-  // localStorage.clear('type');
+  //localStorage.clear('type');
+  //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
   useEffect(() => {

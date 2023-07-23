@@ -4,6 +4,10 @@ import Button from '../../components/Button';
 import Axios from 'axios';
 import { IncrementCounterAction } from '../../actions/IncrementCounterAction';
 export default function Home() {
+    //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
+
+    //console.log(localStorage.getItem('type'))
+    //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
     const dispatch = useDispatch();
     const number = useSelector(state => state.CounterReducer.counter);
     const [name, setName] = useState('');

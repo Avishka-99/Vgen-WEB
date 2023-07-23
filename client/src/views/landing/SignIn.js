@@ -10,7 +10,7 @@ import googleiMG from '../../assets/icons/google.png';
 import facebookiMG from '../../assets/icons/facebook.png'
 //import Axios from 'axios';
 export default function SignIn() {
-    
+
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -38,6 +38,7 @@ export default function SignIn() {
             if (response.data.type) {
                 dispatch(SetUserAction(response.data.type));
                 localStorage.setItem('token', response.data.token);
+                localStorage.setItem('userId',JSON.parse(atob((localStorage.getItem('token').split('.')[1]))).userId)
                 navigate('/home');
                 //window.location.reload(true);
             } else {
@@ -57,7 +58,7 @@ export default function SignIn() {
                 <div className='SignInForm'>
                     <div className='Slogan'>Embrace Your Vegan Journey</div>
                     <div className='Logintitle'>Login And Connect!</div>
-                    <input style={{marginTop:"15%"}} className='signInInput' type="text" autoComplete="off" onChange={(event) => setEmail(event.target.value)} required></input>
+                    <input style={{ marginTop: "15%" }} className='signInInput' type="text" autoComplete="off" onChange={(event) => setEmail(event.target.value)} required></input>
                     <label className='placeholder'>Email*</label>
                     <input className='signInInput' type="password" onChange={(event) => setPassword(event.target.value)} required></input>
                     <label className='placeholder'>Password*</label>
@@ -88,11 +89,11 @@ export default function SignIn() {
                     </div>
                     <div className='signInRowLast' style={{ marginTop: "2%" }}>
                         <div className='signInWIthGooFb'>
-                            <div className='signInImage' style={ {backgroundImage: "url(" + googleiMG + ")"}}></div>
+                            <div className='signInImage' style={{ backgroundImage: "url(" + googleiMG + ")" }}></div>
                             <div className='signInText'>Login with Google</div>
                         </div>
                         <div className='signInWIthGooFb'>
-                            <div className='signInImage' style={ {backgroundImage: "url(" + facebookiMG + ")"}}></div>
+                            <div className='signInImage' style={{ backgroundImage: "url(" + facebookiMG + ")" }}></div>
                             <div className='signInText'>Login with Facebook</div>
                         </div>
                     </div>
