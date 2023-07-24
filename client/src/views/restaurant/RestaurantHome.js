@@ -74,7 +74,7 @@ export default function RestaurantHome() {
                     </tr>
                   </thead>
                   <tbody>
-                  {orders.map(o => (
+                  {/* {orders.map(o => (
                     <tr key={o.orderId}>
                       <td>o.customerName</td>
                       <td>o.orderId</td>
@@ -82,7 +82,29 @@ export default function RestaurantHome() {
                       <td>o.paymentStatus</td>
                       <td>o.orderStatus</td>
                     </tr>
-                  ))} 
+                  ))}  */}
+                     <tr >
+                      <td>Nirupana ganganath</td>
+                      <td>1</td>
+                      <td>delivery</td>
+                      <td>pending</td>
+                      <td>complete</td>
+                    </tr>
+                    <tr >
+                      <td>Nirupana ganganath</td>
+                      <td>1</td>
+                      <td>delivery</td>
+                      <td>pending</td>
+                      <td>complete</td>
+                    </tr>
+                    <tr >
+                      <td>Nirupana ganganath</td>
+                      <td>1</td>
+                      <td>delivery</td>
+                      <td>pending</td>
+                      <td>complete</td>
+                    </tr>
+                  
                   </tbody>
                   
                 </table>

@@ -4,12 +4,12 @@
 
 .Details-left{
     height: 100%;
-    width: 75%;
+    width: 70%;
 }
 
 .Details-Right{
     height: 100%;
-    width: 25%;
+    width: 30%;
 }
 
 .Upper-details{
@@ -23,7 +23,7 @@
 .table-detail-header p{
     font-weight: bold;
     font-size: 18px;
-    margin-left: 5%;
+    margin-left: 14%;
     margin-top: 3%;
 }
 
@@ -33,7 +33,7 @@
     margin-top: 3%;
     color: black;
     font-size: 18px;
-    margin-left: 50%;
+    margin-left: 52%;
     padding: 10px;
     background-color: #BCDAC8;
     width: 200px;
@@ -45,21 +45,24 @@
 
 /* Apply some basic styling to the table */
 .table-content {
-    width: 80%;
+    width: 100%;
     margin: 20px 0;
     background-color: white;
   }
   
   table {
-    width: 100%;
+    width: 86%;
+    margin-left: 14%;
     border-collapse: collapse;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    
   }
   
   th, td {
     padding: 10px;
     text-align: left;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    
   }
   
   /* Add some styles for the table header */
