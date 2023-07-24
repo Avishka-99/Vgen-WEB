@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/DashboardDetails.css'
+
+
+
 
 const DashboardDetails = ({ data }) => {
   return (
