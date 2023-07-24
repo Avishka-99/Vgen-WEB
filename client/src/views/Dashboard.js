@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-ro
 import { useSelector, useDispatch } from 'react-redux'
 import Home from './customer/Home';
 import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar';
 export default function Dashboard() {
   var user = useSelector(state => state.SetUserReducer.user)
   const navigate = useNavigate();

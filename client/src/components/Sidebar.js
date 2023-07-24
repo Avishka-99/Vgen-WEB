@@ -11,6 +11,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
+
 import GradingIcon from '@mui/icons-material/Grading';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -47,16 +48,17 @@ const ShowSidebar = () => {
     navigate('/' + page);
   }
   return (
-    <div className='sidebar' onSelect={(item) => console.log(item)}>
-      <div>
-        {user == "Customer" ? customer.map((item) => (
-          <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
-        )) : user == "resturantManager" ? restaurant.map((item) => (
-          <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
-        )) : <div></div>}
-      </div>
-
+<div className='sidebar' onSelect={(item) => console.log(item)}>
+  {user === "resturantManager" && (
+    <div>
+      {restaurant.map((item) => (
+        <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
+      ))}
     </div>
+  )}
+</div>
+
+
   )
 }
 export default function Sidebar() {
