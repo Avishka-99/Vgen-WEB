@@ -1,3 +1,17 @@
+.Details{
+    display: flex;
+}
+
+.Details-left{
+    height: 100%;
+    width: 75%;
+}
+
+.Details-Right{
+    height: 100%;
+    width: 25%;
+}
+
 .Upper-details{
     
     display: flex;
@@ -13,17 +27,55 @@
     margin-top: 3%;
 }
 
-.table-detail-header select{
+
+
+#filter-order{
     margin-top: 3%;
     color: black;
     font-size: 18px;
-    margin-left: 40%;
+    margin-left: 50%;
     padding: 10px;
     background-color: #BCDAC8;
     width: 200px;
     border-radius: 5px;
     text-align: center;
-    border: none;
+    border: none; 
 }
+
+
+/* Apply some basic styling to the table */
+.table-content {
+    width: 80%;
+    margin: 20px 0;
+    background-color: white;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  /* Add some styles for the table header */
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  /* Add alternating row colors for better readability */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Highlight the table row on hover */
+  tbody tr:hover {
+    background-color: #eaeaea;
+  }
+  
   
 
