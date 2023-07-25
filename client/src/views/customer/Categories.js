@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
-import axios from 'axios'
+
 
 
 
@@ -17,23 +17,23 @@ export default function Categories() {
   
   const [formData,setFormData]=useState([])
 
-  const fetchData=async ()=>{
-    try{
-      const res=await Axios.get(API_ENDPOINTS.productGet_URL,{
-        headers:{
-        "Content-Type":"application/json"
-        }
-      });
-      console.log(res.data);
-      setFormData(res.data);
-    }catch(err){
-      console.log('Error fetching data:', err);
-    }
-  };
-  useEffect(()=>{
-    fetchData();
+  // const fetchData=async ()=>{
+  //   try{
+  //     const res=await Axios.get(API_ENDPOINTS.productGet_URL,{
+  //       headers:{
+  //       "Content-Type":"application/json"
+  //       }
+  //     });
+  //     console.log(res.data);
+  //     setFormData(res.data);
+  //   }catch(err){
+  //     console.log('Error fetching data:', err);
+  //   }
+  // };
+  // useEffect(()=>{
+  //   fetchData();
 
-  },[]);
+  // },[]);
   //
 
   const [quantity,setQuantity]=useState('')
