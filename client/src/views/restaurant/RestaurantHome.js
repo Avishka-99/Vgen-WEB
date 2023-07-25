@@ -116,6 +116,39 @@ export default function RestaurantHome() {
             
           </div>
           <div className="Details-right">
+            <div className="most-ordered">
+              <div className="most-ordered-header">
+                 <p>Most ordered </p>
+                 <select name="" id="">
+                    <option value="today">Today</option>
+                    <option value="today">Last 7 days</option>
+                    <option value="today">Last 14 days</option>
+                    <option value="today">last 30 days</option>
+                    <option value="today">All the time</option>
+                 </select>
+              </div>
+              <div className="most-ordered-content">
+
+              </div>
+                
+            </div>
+            <div className="barChart">
+              <div className="barChart-header">
+                  <p>Most type of orders </p>
+                  <select name="" id="">
+                      <option value="today">Today</option>
+                      <option value="today">Last 7 days</option>
+                      <option value="today">Last 14 days</option>
+                      <option value="today">last 30 days</option>
+                      <option value="today">All the time</option>
+                  </select>
+                </div>
+                <div className="barChart-content">
+
+                </div>
+
+            </div>
+              
 
           </div>
         </div>
