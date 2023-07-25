@@ -80,5 +80,85 @@
     background-color: #eaeaea;
   }
   
+
+  .most-ordered{
+    height: 50%;
+    width: 100%;
+   
+    
+}
+.most-ordered-header{
+    display: flex;
+}
+
+.most-ordered-header select{
+    width: 120px;
+    height: 40px;
+   text-align: center;
+    background-color: #BCDAC8;
+    border-radius: 10px;
+    margin-left: 26%;
+    margin-top: 3%; 
+    color: black;
+}
+
+
+.most-ordered-header p{
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 14%;
+  margin-top: 3%;
+}
+
+.most-ordered-content{
+  width: 400px;
+  height: 250px;
+  background-color: rgb(224, 221, 221);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+
+.barChart{
+    height: 50%;
+    width: 100%;
+    
+}
+.barChart-header{
+  display: flex;
+}
+
+.barChart-header select{
+  width: 120px;
+  height: 40px;
+ text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 14%;
+  margin-top: 3%; 
+  color: black;
+}
+
+
+.barChart-header p{
+font-weight: bold;
+font-size: 18px;
+margin-left: 14%;
+margin-top: 3%;
+}
+
+.barChart-content{
+  width: 400px;
+  height: 250px;
+  background-color: rgb(224, 221, 221);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
   
 
