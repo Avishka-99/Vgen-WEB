@@ -28,6 +28,7 @@ import Dashboard from './views/Dashboard';
 import OrdersView from './views/restaurant/OrdersView';
 import Reservation from './views/restaurant/Reservation';
 import Shopping from './views/restaurant/Shopping';
+import RestaurantProductAdd from './views/restaurant/RestaurantProductAdd';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
     { id: 3, path: '/orders', element: <OrdersView /> },
     { id: 4, path: '/reservation', element: <Reservation /> },
     { id: 5, path: '/shopping', element: <Shopping /> },
+    { id: 6, path: '/addRestaurantProducts', element: <RestaurantProductAdd/>}
     
   ];
   const guestRoutes = [];
