@@ -29,6 +29,7 @@ import OrdersView from './views/restaurant/OrdersView';
 import Reservation from './views/restaurant/Reservation';
 import Shopping from './views/restaurant/Shopping';
 
+import Navbar from './components/Navbar';
 
 function App() {
   //localStorage.clear('type');
@@ -65,9 +66,14 @@ function App() {
   const guestRoutes = [];
   return (
       <div className='outerContainer'>
-      <Sidebar/>
+        <div className='topbar'>
+       
+        </div>
+        <Sidebar/>
+       
         <div className='container'>
-        
+       
+        <Navbar />
           <Routes>
             <Route path='/' element={<LandingPage />} ></Route>
             <Route path='/signin' element={<SignIn />} ></Route>
@@ -76,7 +82,9 @@ function App() {
             <Route path='/otp' element={<Otp />} ></Route>
             <Route element={<ProtectedRoutes isSignedIn={user} />}>
               {user == "Customer" ? customerRoutes.map((item) => (
-                <Route key={item.key} path={item.path} element={item.element} ></Route>
+              <Route key={item.id} path={item.path} element={item.element} ></Route>
+    
+             
               )) : user == "resturantManager" ? restaurantRoutes.map((item) => (
                 <Route key={item.key} path={item.path} element={item.element} ></Route>
               )) : <Route path='' element={<LandingPage />} ></Route>}

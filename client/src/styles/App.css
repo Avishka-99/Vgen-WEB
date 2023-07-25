@@ -36,6 +36,7 @@
 }
 .outerContainer{
   box-sizing: border-box;
+  
 }
 div{
   user-select: none;
