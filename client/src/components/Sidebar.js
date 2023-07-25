@@ -37,8 +37,7 @@ const ShowSidebar = () => {
     { id: 3, icon: <GradingIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "orders", index: "3" },
     { id: 4, icon: <EventSeatIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "reservation", index: "4" },
     { id: 5, icon: <ShoppingCartIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "shopping", index: "5" },
-    { id: 6, icon: <MonetizationOnIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "payments", index: "6" },
-    { id: 7, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "7" },
+    { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
   ];
   const navigateTo = (page) => {
     if (page == "logout") {
