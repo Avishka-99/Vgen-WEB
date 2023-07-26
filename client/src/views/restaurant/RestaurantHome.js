@@ -27,15 +27,24 @@ export default function RestaurantHome() {
   const [endDate, setEndDate] = useState(null);
   const [startTime, setStartTime] = useState('08:00'); // Set initial start time
   const [endTime, setEndTime] = useState('18:00'); // Set initial end time
+  
+  const getOrderDetails=async ()=>{
+    try{
+      const res=await Axios.get(API_ENDPOINTS.restaurantDetails_URL,{
+        params: {
+          user_id: user_id,
+        },
+      });
+      console.log(res.data);
+      setOrders(res.data);
+    }catch(err){
+      console.log('Error fetching data:', err);
+    }
+  };
 
   useEffect(() => {
-    Axios.get(API_ENDPOINTS.restaurentDetails_URL,{
-      user_id:user_id
-    }).then((response)=>{
-      setOrders(response.data.orders)
-    })
-
-  })
+    getOrderDetails();
+  },[])
   
     const detailsData1 = [
       // { id: 1, icon: <MonetizationOnIcon /> },
@@ -167,7 +176,7 @@ export default function RestaurantHome() {
                     minDate={startDate}
                     placeholderText="End Date"
                   /><br/>
-                  <p>Order place time</p>
+                  {/* <p>Order place time</p>
                   <TimePicker
                     value={startTime}
                     onChange={setStartTime}
@@ -178,7 +187,7 @@ export default function RestaurantHome() {
                     onChange={setEndTime}
                     disableClock={false}
                   />
-                  <br />
+                  <br /> */}
                   <button id='search-order'>Search Order</button>
               </div>
                 
