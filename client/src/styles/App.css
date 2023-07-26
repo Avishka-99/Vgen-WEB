@@ -10,19 +10,38 @@
   font-family: poppins-regular;
   src: url("../assets/fonts/Poppins-Regular.ttf");
 }
+@font-face {
+  font-family: yellowtail-regular;
+  src: url("../assets/fonts/Yellowtail-Regular.ttf");
+}
+@font-face {
+  font-family: poppins-extrabold;
+  src: url("../assets/fonts/Poppins-ExtraBold.ttf");
+}
+@font-face {
+  font-family: poppins-bold;
+  src: url("../assets/fonts/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: poppins-medium;
+  src: url("../assets/fonts/Poppins-Medium.ttf");
+}
 .outerContainer{
   display: flex;
   flex-direction: row;
 }.container{ 
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: white;
 }
 .outerContainer{
   box-sizing: border-box;
+  
 }
 div{
   user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 .buttonFillInside:hover{
   cursor: pointer;

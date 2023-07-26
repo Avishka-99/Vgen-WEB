@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+  h1 {
+    margin: 1rem auto 4rem;
+  }
+  
+  .product--image {
+   
+    height: 16em;
+    object-fit: cover;
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+  .bottom_content{
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/Bottom\ Content\ 01.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-position: center;
+  }
+  .vision_1{
+    width:100%;
+    text-align: center;
+  }
+  .vision_1 p{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 2rem;
+    font-style: oblique;
+  }
+  .vision_1 h3{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 2rem;
+    font-style: oblique;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+    margin: auto 1rem;
+    text-align: center;
+    margin: 10px;
+    border-radius: 4px;
+    font-family: arial;
+
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }

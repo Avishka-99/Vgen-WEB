@@ -1,85 +1,178 @@
-.root {
-  --bg: #F4ECE1;
-  --signInTheme: dodgerblue;
+/* signin csss */
+:root{
+  --bg: #fff;
+  --signInTheme: #fff;
+
+}.SignUpContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg);
 }
-.SignUpContainer {
-  width: 100%;
+.SignUpleftContainer{
+  width: 40%;
+  height: 100%;
+  background-image: url('../assets/images/SignUp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.SignUpRightContainer{
+  display: flex;
+  width: 60%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.SignUpForm{
+  width: 80%;
   height: 100%;
   display: flex;
-  
+  flex-direction: column;
+}
+.Slogan{
+  color: #7EB693;
+  text-align: center;
+  margin-top: 1%;
+  font-family: 'Yellowtail', yellowtail-regular;
+  font-size: 36px;
+}
+.Logintitle{
+  color: #274C5B;
+  width: 100%;
+  text-align: center;
+  margin-top: 1%;
+  font-family: poppins-extrabold;
+  font-size: 60px;
+}
+.signUpRow{
+  width: 100%;
+  display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: white;
+  justify-content: space-between;
 }
-.SignInImage{
-    width: 40%;
-    height: 100%;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
+.leftTextBox , .rightTextBox{
+  width: 45%;
 
 }
-.img1{
+
+.placeholder_signup{
   position: relative;
-   width: 100%;
-   height: 100%;
-   background-image: url('../assets/images/SignUp.jpg');
-   background-size: cover;
- 
- }
- .formSignUp{
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- }
- .contain_1{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  top:-46%;
+  left:5%;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  color: #4D5959;
 
- }
- .contain_2{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+}
+.placeholder_signup_email{
+  position: relative;
+  top:-39.5%;
+  left:2.4%;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  color: #4D5959;
+}
 
- }
- .contain_2 input{
-  width: 20vw;
-  height: 5vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.signUpInput{
+  position: relative;
+  border: 0;
+  outline: 2px solid #7EB693;
+  width: 100%;
+  padding: 5px;
+  margin-top: 3%;
+  font-style: normal;
+  background-color: white;
+  border-radius: .7em;
+  line-height: 35px;
+  font-size: 20px;
+}
 
- }
- .contain_2 input:focus{
-  outline: none;
-  border: 1px solid var(--signInTheme);
-  border-radius: 5px;
- }
-  .contain_2 input::placeholder{
-    color: var(--signInTheme);
-  }
-  .contain_2 label{
-
-    font-size: 1.5vw;
-    margin-left: 2vw;
-    margin-right: 2vw;
-  }
-
-
-/* check */
-
-
-
+.SignUpContainer .input:focus,.SignUpContainer input:valid{
+  border-bottom: 3px solid var(--signInTheme) !important;
+  transition: all 0.7s ease;
+}
+.SignUpContainer input:focus + .placeholder_signup,.SignUpContainer input:not(:focus):valid +.placeholder_signup{
+  top: -86%;
+  left: 0%;
+}
+.SignUpContainer input:focus + .placeholder_signup_email,.SignUpContainer input:not(:focus):valid +.placeholder_signup_email{
+  top: -77%;
+  left: 0%;
+}
+.iam{
+  font-family: poppins-medium;
+  color: #4D5959;
+  margin-bottom: 1%;
+}
+.signUpRadionRow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.signUpRadionRow .signUpRadioItem{
+  width: 30%;
+  align-items: center;
+}
+.signUpRadioOption{
+  font-family: poppins-medium;
+  color: #4D5959;
+}
+.btn_signup{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: poppins-bold;
+  font-size: 22px;
+  color: white;
+  height: 100%;
+  width: 35%;
+  background-color: #274C5B;
+  border-radius: 25px;
+}
+.arrowCircle{
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 5em;
+  background-color: #335B6B;
+  background-image: url('../assets/icons/next.png');
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 0.5s;
+}
+.signUpRowLast{
+  margin-top: 5%;
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: space-between;
+}
+.signUpWIthGooFb{
+  width: 44%;
+  height: 100%;
+  outline:1px solid #335B6B;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.signUpImage{
+  height: 100%;
+  width: 20%;
+  background-repeat: no-repeat;
+  background-size: 48px 48px;
+  background-position: center;
+}
+.signUpText{
+  width: 60%;
+  font-family:poppins-medium ;
+  font-size: 16px;
+  color: #043133;
+}
+.btn_signup:hover,.loginText:hover{
+  cursor: pointer;
+}

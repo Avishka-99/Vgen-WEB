@@ -4,7 +4,7 @@ import Button2 from './components/Button2';
 import { useSelector, useDispatch } from 'react-redux'
 import './styles/App.css';
 import Sidebar from './components/Sidebar';
-import { BrowserRouter, Routes, Route, useLocation ,useNavigate} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 /* CUSTOMER VIEWS */
 import Home from './views/customer/Home';
@@ -19,19 +19,31 @@ import DeliveryOrder from './views/delivery/DeliveryOrder';
 import LandingPage from './views/landing/LandingPage';
 import SignIn from './views/landing/SignIn';
 import SignUp from './views/landing/SignUp';
+import ResetPassword from './views/landing/ResetPassword';
+import Otp from './views/landing/Otp';
 import ProtectedRoutes from './utils/ProtectedRoutes';
+import RestaurantHome from './views/restaurant/RestaurantHome';
+import RestaurantProducts from './views/restaurant/RestaurantProducts';
 import Dashboard from './views/Dashboard';
+import OrdersView from './views/restaurant/OrdersView';
+import Reservation from './views/restaurant/Reservation';
+import Shopping from './views/restaurant/Shopping';
+import RestaurantProductAdd from './views/restaurant/RestaurantProductAdd';
+
+import Navbar from './components/Navbar';
+
 function App() {
   //localStorage.clear('type');
+  //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
   const navigate = useNavigate();
   var user = localStorage.getItem('type')
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       navigate('/home');
-    }else{
+    } else {
       navigate('')
     }
-  },[user])
+  }, [user])
   const [isSignedIn, setIsSignedIn] = useState(true)
   const [role, setRole] = useState("customer");
   const number = useSelector(state => state.CounterReducer.counter);
@@ -44,58 +56,45 @@ function App() {
     { id: 4, path: '/feed', element: <Feed /> },
     { id: 5, path: '/restaurants', element: <Restaurants /> },
   ];
-  const deliveryRoutes = [
-    { id: 1, path: '/home', element: <DeliveryHome /> },
-    { id: 2, path: '/order', element: <DeliveryOrder /> },
+  const restaurantRoutes = [
+    { id: 1, path: '/home', element: <RestaurantHome /> },
+    { id: 2, path: '/products', element: <RestaurantProducts /> },
+    { id: 3, path: '/orders', element: <OrdersView /> },
+    { id: 4, path: '/reservation', element: <Reservation /> },
+    { id: 5, path: '/shopping', element: <Shopping /> },
+    { id: 6, path: '/addRestaurantProducts', element: <RestaurantProductAdd/>}
+    
   ];
   const guestRoutes = [];
   return (
-    <div>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path='' element={<ProtectedRoutes isSignedIn={isSignedIn}><Home/></ProtectedRoutes>} ></Route>
-          <Route path='/order' element={<ProtectedRoutes isSignedIn={isSignedIn}><Order/></ProtectedRoutes>} ></Route>
-          <Route path='/data' element={<Data/>} ></Route>
-        </Routes>
-      </BrowserRouter> */}
-      {role == "customer" ?
-        <div className='outerContainer'>
-        {/* <Sidebar/> */}
-          <div className='container'>
-            <Routes>
-              {/* {role === "customer" ? customerRoutes.map((item) => (
-                  <Route key={item.id} path={item.path} element={<ProtectedRoutes isSignedIn={isSignedIn}>{item.element}</ProtectedRoutes>} ></Route>
-                )) : deliveryRoutes.map((item) => (
-                  <Route key={item.id} path={item.path} element={item.element} ></Route>
-                ))} */}
-              {/* <Route path='/' element={<LandingPage />} ></Route> */}
-              <Route path='/' element={<LandingPage />} ></Route>
-              <Route path='/signin' element={<SignIn />} ></Route>
-              <Route path='/signup' element={<SignUp />} ></Route>
-              <Route element={<ProtectedRoutes isSignedIn={user} />}>
-                {user=="customer"? customerRoutes.map((item)=>(
-                  <Route key={item.key} path={item.path} element={item.element} ></Route>
-                )):user=="restaurant"?deliveryRoutes.map((item)=>(
-                  <Route key={item.key} path={item.path} element={item.element} ></Route>
-                )):<Route path='' element={<LandingPage />} ></Route>}
-                
-              </Route>
-              {/* <Route element={<ProtectedRoutes isSignedIn={user} />}> */}
-              
-              {/* </Route> */}
-
-            </Routes>
-          </div>
-        </div> : <BrowserRouter >
+      <div className='outerContainer'>
+        <div className='topbar'>
+       
+        </div>
+        <Sidebar/>
+       
+        <div className='container'>
+       
+        <Navbar />
           <Routes>
-            <Route path='' element={<LandingPage />} ></Route>
+            <Route path='/' element={<LandingPage />} ></Route>
             <Route path='/signin' element={<SignIn />} ></Route>
             <Route path='/signup' element={<SignUp />} ></Route>
+            <Route path='/reset' element={<ResetPassword />} ></Route>
+            <Route path='/otp' element={<Otp />} ></Route>
+            <Route element={<ProtectedRoutes isSignedIn={user} />}>
+              {user == "Customer" ? customerRoutes.map((item) => (
+              <Route key={item.id} path={item.path} element={item.element} ></Route>
+    
+             
+              )) : user == "resturantManager" ? restaurantRoutes.map((item) => (
+                <Route key={item.key} path={item.path} element={item.element} ></Route>
+              )) : <Route path='' element={<LandingPage />} ></Route>}
+
+            </Route>
           </Routes>
-        </BrowserRouter>}
-
-
-    </div>
+        </div>
+      </div>
   );
 }
 

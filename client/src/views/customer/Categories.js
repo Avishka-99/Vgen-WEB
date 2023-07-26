@@ -1,7 +1,99 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import * as API_ENDPOINTS from '../../api/ApiEndpoints'
+import Axios from '../../api/Axios'
+
+
+
+
+
+
+
+
+
 
 export default function Categories() {
+  ////
+  //image load
+  
+  const [formData,setFormData]=useState([])
+
+  // const fetchData=async ()=>{
+  //   try{
+  //     const res=await Axios.get(API_ENDPOINTS.productGet_URL,{
+  //       headers:{
+  //       "Content-Type":"application/json"
+  //       }
+  //     });
+  //     console.log(res.data);
+  //     setFormData(res.data);
+  //   }catch(err){
+  //     console.log('Error fetching data:', err);
+  //   }
+  // };
+  // useEffect(()=>{
+  //   fetchData();
+
+  // },[]);
+  //
+
+  const [quantity,setQuantity]=useState('')
+  const [description,setDescription]=useState('')
+  const [productName,setProductName]=useState('')
+  const [price,setPrice]=useState('')
+  const [productImage,setProductImage]=useState()
+ 
+ const handleSubmit=(e)=>{
+    //upload image    
+    const formData=new FormData();
+    formData.append('productImage',productImage);
+    formData.append('quantity',quantity);
+    formData.append('description',description);
+    formData.append('productName',productName);
+    formData.append('price',price);
+    
+    Axios.post(API_ENDPOINTS.productUpload_URL,formData);
+
+  }
+   
+  const handleFiles=(e)=>{
+    setProductImage(e.target.files[0]);
+
+  }
+ 
+
+
   return (
-    <div>Categories</div>
+    <div>
+     <form>
+      <input type="text" placeholder="quantity" onChange={(e)=>{setQuantity(e.target.value)}}/>
+      <input type="text" placeholder="description" onChange={(e)=>{setDescription(e.target.value)}}/>
+      <input type="text" placeholder="productName" onChange={(e)=>{setProductName(e.target.value)}}/>
+      <input type="text" placeholder="price" onChange={(e)=>{setPrice(e.target.value)}}/>
+      <input type="file" className='productImage' placeholder="productImage" onChange={handleFiles}/>
+
+      <button onClick={()=>{handleSubmit()} }>Submit</button>
+      </form>
+
+      <div>
+      <h1>Card View</h1>
+      <div className="card-container">
+        {formData.map((data) => (
+          <div className="card" key={data.productId}>
+            <div className="card-body">
+              <h5 >{data.productName}</h5>
+              <p >{data.description}</p>
+              <p >{data.price}</p>
+              <p>{data.quantity}</p>
+              <img src={`http://localhost:5001/uploads/products/${data.productImage}`} />
+             
+            
+              
+ 
+          </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    </div>
   )
 }
