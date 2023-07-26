@@ -28,8 +28,10 @@ import Dashboard from './views/Dashboard';
 import OrdersView from './views/restaurant/OrdersView';
 import Reservation from './views/restaurant/Reservation';
 import Shopping from './views/restaurant/Shopping';
-import Payments from './views/restaurant/Payments';
+import RestaurantProductAdd from './views/restaurant/RestaurantProductAdd';
+
 import Navbar from './components/Navbar';
+
 function App() {
   //localStorage.clear('type');
   //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
@@ -60,7 +62,8 @@ function App() {
     { id: 3, path: '/orders', element: <OrdersView /> },
     { id: 4, path: '/reservation', element: <Reservation /> },
     { id: 5, path: '/shopping', element: <Shopping /> },
-    { id: 6, path: '/payments', element: <Payments /> },
+    { id: 6, path: '/addRestaurantProducts', element: <RestaurantProductAdd/>}
+    
   ];
   const guestRoutes = [];
   return (

@@ -1,3 +1,17 @@
+.Details{
+    display: flex;
+}
+
+.Details-left{
+    height: 100%;
+    width: 70%;
+}
+
+.Details-Right{
+    height: 100%;
+    width: 30%;
+}
+
 .Upper-details{
     
     display: flex;
@@ -9,21 +23,212 @@
 .table-detail-header p{
     font-weight: bold;
     font-size: 18px;
-    margin-left: 5%;
+    margin-left: 14%;
     margin-top: 3%;
 }
 
-.table-detail-header select{
+
+
+#filter-order{
     margin-top: 3%;
     color: black;
     font-size: 18px;
-    margin-left: 40%;
+    margin-left: 52%;
     padding: 10px;
     background-color: #BCDAC8;
     width: 200px;
     border-radius: 5px;
     text-align: center;
-    border: none;
+    border: none; 
+}
+
+
+/* Apply some basic styling to the table */
+.table-content {
+    width: 100%;
+    margin: 20px 0;
+    background-color: white;
+  }
+  
+  table {
+    width: 86%;
+    margin-left: 14%;
+    border-collapse: collapse;
+    /* border: 1px solid #ccc; */
+    
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    /* border: 1px solid #ccc; */
+    
+  }
+  
+  /* Add some styles for the table header */
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  /* Add alternating row colors for better readability */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Highlight the table row on hover */
+  tbody tr:hover {
+    background-color: #eaeaea;
+  }
+  
+
+  .most-ordered{
+    height: 50%;
+    width: 100%;
+   
+    
+}
+.most-ordered-header{
+    display: flex;
+}
+
+.most-ordered-header select{
+    width: 120px;
+    height: 40px;
+   text-align: center;
+    background-color: #BCDAC8;
+    border-radius: 10px;
+    margin-left: 26%;
+    margin-top: 3%; 
+    color: black;
+}
+
+
+.most-ordered-header p{
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 14%;
+  margin-top: 3%;
+}
+
+.most-ordered-content{
+  width: 400px;
+  height: 250px;
+  background-color: rgb(224, 221, 221);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+
+.barChart{
+    height: 50%;
+    width: 100%;
+    
+}
+.barChart-header{
+  display: flex;
+}
+
+.barChart-header select{
+  width: 120px;
+  height: 40px;
+ text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 14%;
+  margin-top: 3%; 
+  color: black;
+}
+
+
+.barChart-header p{
+font-weight: bold;
+font-size: 18px;
+margin-left: 14%;
+margin-top: 3%;
+}
+
+.barChart-content{
+  width: 400px;
+  height: 250px;
+  background-color: rgb(224, 221, 221);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.filter-order p{
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 14%;
+  margin-top: 3%;
+}
+
+#order-type{
+  width: 300px;
+  height: 40px;
+ text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 16%;
+  margin-top: 3%; 
+  color: black;
+}
+#payment-status{
+  width: 300px;
+  height: 40px;
+ text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 16%;
+  margin-top: 3%; 
+  color: black;
+}
+
+#order-status{
+  width: 300px;
+  height: 40px;
+ text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 16%;
+  margin-top: 3%; 
+  color: black;
+}
+
+#search-order{
+    margin-top: 10%;
+    color: black;
+    font-size: 18px;
+    margin-left: 8%;
+    padding: 10px;
+    background-color: #BCDAC8;
+    width: 350px;
+    border-radius: 5px;
+    text-align: center;
+    border: none; 
+
 }
   
+.react-datepicker__input-container input {
+  /* Add your input field styles here */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 69%;
+  text-align: center;
+  width: 180px;
+  margin-top: 3%;
+  background-color: #BCDAC8 ;
+}
+
+.react-time-picker__inputGroup__input {
+  /* Add your input field styles here */
+ 
+  border-radius: 4px;
+}
 
