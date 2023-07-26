@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/RestaurantProduct.css'
 
 const RestaurantProductAdd = () => {
-
+    const [formData,setFormData]=useState([])
     const [quantity,setQuantity]=useState('')
     const [description,setDescription]=useState('')
     const [productName,setProductName]=useState('')
@@ -23,6 +23,7 @@ const RestaurantProductAdd = () => {
       
       Axios.post(API_ENDPOINTS.productUpload_URL,formData);
   
+  
     }
      
     const handleFiles=(e)=>{
@@ -33,7 +34,7 @@ const RestaurantProductAdd = () => {
         <div className='addProduct'>
             <h1>Product add</h1>
             <Link className='Back-link' to='/products'>Back</Link>
-            <form className="form-container">
+            {/* <form className="form-container"> */}
                 <label htmlFor="productImage">Product Image:</label><br />
                 <input type="file" id="productImage" className="productImage" onChange={handleFiles} /><br />
 
@@ -49,8 +50,8 @@ const RestaurantProductAdd = () => {
                 <label htmlFor="price">Price:</label><br />
                 <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} /><br />
 
-                <button className="submit-button" onClick={() => { handleSubmit() }}>Submit</button>
-            </form>
+                <button className="submit-button" onClick={() => { handleSubmit()}}>Submit</button>
+            {/* </form> */}
 
         </div>
         
