@@ -185,3 +185,12 @@
 .btn_signup:hover,.loginText:hover{
   cursor: pointer;
 }
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+.signUpPasswordStrengthMeter{
+  animation-name: example;
+  animation-duration: 4s;
+  animation-fill-mode: forwards; 
+}
