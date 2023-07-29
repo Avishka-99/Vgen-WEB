@@ -52,7 +52,8 @@ function App() {
               UserRoutes.customerRoutes.map((item) => <Route key={item.id} path={item.path} element={item.element}></Route>)
             ) : user == "resturantManager" ? (
               UserRoutes.restaurantRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
-            ) : (
+            ) : user=="Admin"? UserRoutes.adminRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+            : (
               <Route path="" element={<LandingPage />}></Route>
             )}
           </Route>

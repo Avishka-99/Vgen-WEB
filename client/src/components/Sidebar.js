@@ -9,6 +9,10 @@ import PeopleIcon from "@mui/icons-material/People";
 import AddHomeIcon from "@mui/icons-material/AddHome";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
+import GroupsIcon from '@mui/icons-material/Groups';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -31,7 +35,7 @@ const ShowSidebar = (props) => {
     { id: 3, icon: <StoreIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "restaurants", index: "3" },
     { id: 4, icon: <PeopleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "community", index: "4" },
     { id: 5, icon: <DynamicFeedIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "feed", index: "5" },
-    { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
+    { id: 6, icon: <LogoutIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
   ];
   const restaurant = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
@@ -39,7 +43,15 @@ const ShowSidebar = (props) => {
     { id: 3, icon: <GradingIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "orders", index: "3" },
     { id: 4, icon: <EventSeatIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "reservation", index: "4" },
     { id: 5, icon: <ShoppingCartIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "shopping", index: "5" },
-    { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
+    { id: 6, icon: <LogoutIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
+  ];
+  const admin = [
+    { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
+    { id: 2, icon: <GroupsIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "staff", index: "2" },
+    { id: 3, icon: <TrendingUpIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "analytics", index: "3" },
+    { id: 4, icon: <DirectionsBikeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "riders", index: "4" },
+    { id: 5, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "profile", index: "5" },
+    { id: 6, icon: <LogoutIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
   ];
   //console.log(restaurant[0].icon.props.sx.fontSize)
   const navigateTo = (page, index) => {
@@ -51,9 +63,9 @@ const ShowSidebar = (props) => {
   };
   return (
     <div className="sidebar" onSelect={(item) => console.log(item)}>
-      {props.type === "Customer" && (
+      {props.type === "Admin" && (
         <div>
-          {customer.map((item) => (
+          {admin.map((item) => (
             <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
           ))}
         </div>

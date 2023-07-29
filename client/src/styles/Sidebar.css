@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 6vw;
     height: 100vh;
-    background-color: #BCDAC8;
+    background-color: #272727;
     align-items: center;
     justify-content: center;
 }
@@ -23,7 +23,7 @@
     transition: 0.2s ease-in;
 }
 .menuItem:hover>svg{
-    fill:#FB9300;
+    fill:#03C988;
     transition: 0.2s ease-in;
 }
 /* .menuItem:focus>svg{

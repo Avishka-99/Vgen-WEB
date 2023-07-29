@@ -14,3 +14,11 @@ export const restaurantRoutes = [
   { id: 5, path: "/shopping", element: <UserViews.Shopping/> },
   { id: 6, path: "/addRestaurantProducts", element: <UserViews.RestaurantProductAdd/> },
 ];
+export const adminRoutes = [
+  { id: 1, path: "/home", element: <UserViews.AdminHome/> },
+  { id: 2, path: "/staff", element: <UserViews.Staff/> },
+  { id: 3, path: "/analytics", element: <UserViews.Analytics/> },
+  { id: 4, path: "/riders", element: <UserViews.Riders/> },
+  // { id: 5, path: "/shopping", element: <UserViews.Shopping/> },
+  { id: 5, path: "/profile", element: <UserViews.Profile/> },
+];
