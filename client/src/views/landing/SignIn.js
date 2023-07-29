@@ -8,8 +8,8 @@ import Axios from "../../api/Axios";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import googleiMG from "../../assets/icons/google.png";
 import facebookiMG from "../../assets/icons/facebook.png";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import * as ToastMessages from '../../components/ToastMessages'
+import Toast from "../../components/Toast";
 export default function SignIn() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -29,7 +29,6 @@ export default function SignIn() {
       navigate("/" + page);
     }
   };
-  const error = (message) => toast.error(message);
   const handleSubmit = (e) => {
     Axios.post(API_ENDPOINTS.SIGNIN_URL, {
       email: email,
@@ -43,7 +42,7 @@ export default function SignIn() {
         navigate("/home");
         //window.location.reload(true);
       } else {
-        error(response.data);
+        ToastMessages.error(response.data)
       }
       //console.log(response.data);
     });
@@ -104,7 +103,7 @@ export default function SignIn() {
                     </div> */}
         </div>
       </div>
-      <ToastContainer position="bottom-right" autoClose={4000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover={false} theme="dark" />
+      <Toast/>
     </div>
   );
 }
