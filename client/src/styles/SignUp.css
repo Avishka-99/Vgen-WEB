@@ -115,10 +115,19 @@
 .signUpRadionRow .signUpRadioItem{
   width: 30%;
   align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .signUpRadioOption{
   font-family: poppins-medium;
   color: #4D5959;
+  margin-top: 0px;
+
+}
+.SignUpContainer input[type="radio"]{
+  width: 20px;
+  margin: 0px 0px;
 }
 .btn_signup{
   display: flex;
