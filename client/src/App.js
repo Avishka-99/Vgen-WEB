@@ -50,11 +50,10 @@ function App() {
           <Route element={<ProtectedRoutes isSignedIn={user} />}>
             {user == "Customer" ? (
               UserRoutes.customerRoutes.map((item) => <Route key={item.id} path={item.path} element={item.element}></Route>)
-            ) : user == "resturantManager" ? (
-              UserRoutes.restaurantRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
-            ) : user=="Admin"? UserRoutes.adminRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
-            : (
-              <Route path="" element={<LandingPage />}></Route>
+            ) : user == "resturantManager" ? (UserRoutes.restaurantRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+            ) : user=="Admin"? (UserRoutes.adminRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+            ) : user=="Staff"?(UserRoutes.staffRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>))
+            : (<Route path="" element={<LandingPage />}></Route>
             )}
           </Route>
         </Routes>
