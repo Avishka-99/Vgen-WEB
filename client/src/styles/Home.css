@@ -3,16 +3,18 @@
 .home {
   text-align: center;
 }
-.modal{
-   display: flex;
 
-}
 .quantity_add{
   display: flex;
-  
+
 }
 .close_div{
   text-align: end;
+}
+.modal{
+  display: flex;
+height: 50%;
+
 }
 
 h1 {
@@ -27,20 +29,20 @@ h1 {
   
 }
 .product--image_1{
-  width: 100%;
+  width: 50%;
   height: 100%;
   object-fit: cover;
 
 
 }
-.image_div{
-  width: 50%;
- position: relative;
+.image_div1{
+  width: 100%;
 }
+
 .details_div{
-  width: 50%;
+ 
   height: 100%;
-  position: relative;
+
  
 }
 
