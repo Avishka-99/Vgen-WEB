@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate();
   const user = localStorage.getItem("type");
   const [role, setRole] = useState(""); // Initialize the state with an empty string
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <div>
-    {role === "Customer" && (
+    {props.type === "Customer" && (
       <nav className="navbar">
         <div className="container_1">
           <ul className="nav-links">

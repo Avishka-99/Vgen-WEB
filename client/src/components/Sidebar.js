@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import MenuItem from './MenuItem';
-import '../styles/Sidebar.css'
-import HomeIcon from '@mui/icons-material/Home';
-import StoreIcon from '@mui/icons-material/Store';
-import WindowIcon from '@mui/icons-material/Window';
-import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
-import PeopleIcon from '@mui/icons-material/People';
-import AddHomeIcon from '@mui/icons-material/AddHome';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import MenuItem from "./MenuItem";
+import "../styles/Sidebar.css";
+import HomeIcon from "@mui/icons-material/Home";
+import StoreIcon from "@mui/icons-material/Store";
+import WindowIcon from "@mui/icons-material/Window";
+import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
+import PeopleIcon from "@mui/icons-material/People";
+import AddHomeIcon from "@mui/icons-material/AddHome";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-import GradingIcon from '@mui/icons-material/Grading';
-import EventSeatIcon from '@mui/icons-material/EventSeat';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-const ShowSidebar = () => {
+import GradingIcon from "@mui/icons-material/Grading";
+import EventSeatIcon from "@mui/icons-material/EventSeat";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+const ShowSidebar = (props) => {
   const navigate = useNavigate();
-  var user = localStorage.getItem('type')
+  var user = localStorage.getItem("type");
   const [role, setRole] = useState("delivery");
   /*useEffect(() => {
     navigate('/order');
@@ -44,22 +44,20 @@ const ShowSidebar = () => {
     if (page == "logout") {
       localStorage.clear("type");
     }
-    navigate('/' + page);
-  }
+    navigate("/" + page);
+  };
   return (
-<div className='sidebar' onSelect={(item) => console.log(item)}>
-  {user === "resturantManager" && (
-    <div>
-      {restaurant.map((item) => (
-        <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
-      ))}
+    <div className="sidebar" onSelect={(item) => console.log(item)}>
+      {props.type === "resturantManager" && (
+        <div>
+          {restaurant.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
+          ))}
+        </div>
+      )}
     </div>
-  )}
-</div>
-
-
-  )
-}
+  );
+};
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(true);
 
@@ -71,5 +69,5 @@ export default function Sidebar() {
       {/* <div onClick={toggleSidebar} className='sidebarButton'>Hello</div> */}
       {showSidebar && <ShowSidebar />}
     </>
-  )
+  );
 }
