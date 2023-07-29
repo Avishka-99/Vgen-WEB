@@ -24,7 +24,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [contactNo, setContactNo] = useState("");
-  const [isClean, setIsClean] = useState(true);
+  // const [isClean, setIsClean] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
@@ -54,14 +54,30 @@ export default function SignUp() {
   };
   const warn = (message) => toast.warn(message);
   const handleSubmit = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
+    var isClean = true;
     if (firstName == "" || lastName == "" || nic == "" || contactNo == "" || email == "") {
-      setIsClean(false);
-      warn("Please fill required fields");
-    } else if ((password == "" && confirmpassword == "") || password != confirmpassword) {
-      setIsClean(false);
-      warn("Please check password");
+      isClean = false;
+      error("Please fill required fields");
     }
+    if (firstName.length > 0 && lastName.length > 0 && nic.length > 0 && contactNo.length > 0 && email.length > 0) {
+      if (password == "" && confirmpassword == "") {
+        isClean = false;
+        warn("Please enter password");
+      }
+      if (password != confirmpassword) {
+        isClean = false;
+        warn("Please check password");
+      }
+      if (!checkMail()) {
+        error("Please enter valid email");
+      }
+      const passwordStrength = checkPasswordStrength();
+      if (!passwordStrength) {
+        isClean = false;
+      }
+    }
+
     if (isClean) {
       Axios.post(API_ENDPOINTS.SIGNUP_URL, {
         email: email,
@@ -77,6 +93,52 @@ export default function SignUp() {
       });
     }
   };
+  const checkPasswordStrength = () => {
+    var strength = 0;
+    if (password.match(/[a-z]+/)) {
+      strength += 1;
+    }
+    if (password.match(/[A-Z]+/)) {
+      strength += 1;
+    }
+    if (password.match(/[0-9]+/)) {
+      strength += 1;
+    }
+    if (password.match(/[$@#&!]+/)) {
+      strength += 1;
+    }
+    if (password.length < 6 && strength < 4) {
+      error("Password should be atleast 6 characters long");
+      error("Password should contain atleast one lowercase and uppercase letter, a digit , a special character");
+      return false;
+    } else if (password.length < 6) {
+      error("Password should be atleast 6 characters long");
+      return false;
+    } else if (strength < 4) {
+      error("Password should contain atleast one lowercase and uppercase letter, a digit , a special character");
+      return false;
+    } else {
+      return true;
+    }
+  };
+  const checkMail = () => {
+    var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if (email.match(mailformat)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const keyframes = `
+    @keyframes expandWidth {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 76%;
+      }
+    }
+  `;
   return (
     <div className="SignUpContainer">
       <div className="SignUpleftContainer"></div>
@@ -118,6 +180,18 @@ export default function SignUp() {
             <div className="rightTextBox">
               <input className="signUpInput" type={"password"} autoComplete="off" onChange={(event) => setConfirmPassword(event.target.value)} required></input>
               <label className="placeholder_signup">Confirm Password*</label>
+            </div>
+          </div>
+          <div className="signUpRow" style={{ height: "1vh", marginTop: "-2%" }}>
+            <div className="signUpPasswordStrength" style={{ width: "45%", height: "1vh", backgroundColor: "red", borderRadius: "1vh" }}>
+              <div
+                className="signUpPasswordStrengthMeter"
+                style={{
+                  width: "50%",
+                  height: "1vh",
+                  borderRadius: "1vh",
+                }}
+              ></div>
             </div>
           </div>
           <label className="iam">I am a</label>
@@ -172,7 +246,7 @@ export default function SignUp() {
               </span>
             </div>
           </div>
-          <div className="signUpRow" style={{ display: "flex", justifyContent: "center" }}>
+          {/* <div className="signUpRow" style={{ display: "flex", justifyContent: "center" }}>
             <div
               style={{
                 fontFamily: "poppins-medium",
@@ -182,7 +256,7 @@ export default function SignUp() {
             >
               OR
             </div>
-          </div>
+          </div> */}
           {/* <div className="signUpRowLast" style={{ marginTop: "2%" }}>
             <div className="signUpWIthGooFb">
               <div
