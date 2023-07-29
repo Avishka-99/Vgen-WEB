@@ -26,9 +26,9 @@
     fill:#FB9300;
     transition: 0.2s ease-in;
 }
-.menuItem:focus>svg{
+/* .menuItem:focus>svg{
     fill:#FB9300;
-}
+} */
 .sidebarButton{
     width: 100%;
     height: 5%;
