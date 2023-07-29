@@ -13,6 +13,8 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import LogoutIcon from '@mui/icons-material/Logout';
+import EuroIcon from '@mui/icons-material/Euro';
+import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -53,25 +55,44 @@ const ShowSidebar = (props) => {
     { id: 5, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "profile", index: "5" },
     { id: 6, icon: <LogoutIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
   ];
+  const staff = [
+    { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
+    { id: 2, icon: <EuroIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "payments", index: "2" },
+    { id: 3, icon: <RecordVoiceOverIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "complains", index: "3" },
+    { id: 4, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "profile", index: "4" },
+    { id: 5, icon: <LogoutIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "5" },
+  ];
   //console.log(restaurant[0].icon.props.sx.fontSize)
   const navigateTo = (page, index) => {
+    setActive(index);
     if (page == "logout") {
+      setActive(1)
       localStorage.clear("type");
     }
-    setActive(index);
     navigate("/" + page);
   };
-  return (
-    <div className="sidebar" onSelect={(item) => console.log(item)}>
-      {props.type === "Admin" && (
+  if(props.type=="Admin"){
+    return(
+      <div className="sidebar" onSelect={(item) => console.log(item)}>
         <div>
           {admin.map((item) => (
             <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
           ))}
         </div>
-      )}
     </div>
-  );
+    )
+  }
+  else if(props.type=="Staff"){
+    return(
+      <div className="sidebar" onSelect={(item) => console.log(item)}>
+        <div>
+          {staff.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+          ))}
+        </div>
+    </div>
+    )
+  }
 };
 export default function Sidebar(props) {
   const [showSidebar, setShowSidebar] = useState(true);

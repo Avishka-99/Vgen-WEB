@@ -22,3 +22,9 @@ export const adminRoutes = [
   // { id: 5, path: "/shopping", element: <UserViews.Shopping/> },
   { id: 5, path: "/profile", element: <UserViews.Profile/> },
 ];
+export const staffRoutes = [
+  { id: 1, path: "/home", element: <UserViews.StaffHome/> },
+  { id: 2, path: "/payments", element: <UserViews.Payments/> },
+  { id: 3, path: "/complains", element: <UserViews.Complains/> },
+  { id: 4, path: "/profile", element: <UserViews.Profile/> },
+];
