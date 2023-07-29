@@ -20,6 +20,7 @@ const ShowSidebar = (props) => {
   const navigate = useNavigate();
   var user = localStorage.getItem("type");
   const [role, setRole] = useState("delivery");
+  const [Active, setActive] = useState(1);
   /*useEffect(() => {
     navigate('/order');
   })*/
@@ -30,7 +31,7 @@ const ShowSidebar = (props) => {
     { id: 3, icon: <StoreIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "restaurants", index: "3" },
     { id: 4, icon: <PeopleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "community", index: "4" },
     { id: 5, icon: <DynamicFeedIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "feed", index: "5" },
-    { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "5" },
+    { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
   ];
   const restaurant = [
     { id: 1, icon: <HomeIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "home", index: "1" },
@@ -40,25 +41,27 @@ const ShowSidebar = (props) => {
     { id: 5, icon: <ShoppingCartIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "shopping", index: "5" },
     { id: 6, icon: <AccountCircleIcon sx={{ fontSize: 40, fill: "#6F767F" }} />, link: "logout", index: "6" },
   ];
-  const navigateTo = (page) => {
+  //console.log(restaurant[0].icon.props.sx.fontSize)
+  const navigateTo = (page, index) => {
     if (page == "logout") {
       localStorage.clear("type");
     }
+    setActive(index);
     navigate("/" + page);
   };
   return (
     <div className="sidebar" onSelect={(item) => console.log(item)}>
-      {props.type === "resturantManager" && (
+      {props.type === "Customer" && (
         <div>
-          {restaurant.map((item) => (
-            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} />
+          {customer.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
           ))}
         </div>
       )}
     </div>
   );
 };
-export default function Sidebar() {
+export default function Sidebar(props) {
   const [showSidebar, setShowSidebar] = useState(true);
 
   const toggleSidebar = () => {
@@ -67,7 +70,7 @@ export default function Sidebar() {
   return (
     <>
       {/* <div onClick={toggleSidebar} className='sidebarButton'>Hello</div> */}
-      {showSidebar && <ShowSidebar />}
+      {showSidebar && <ShowSidebar type={props.type} />}
     </>
   );
 }
