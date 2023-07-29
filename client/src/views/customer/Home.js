@@ -46,11 +46,7 @@ import '../../styles/Home.css';
 
   const fetchData=async ()=>{
     try{
-      const res=await Axios.get("http://localhost:5001/api/productGet",{
-        headers:{
-        "Content-Type":"application/json"
-        }
-      });
+      const res=await Axios.get("http://localhost:5001/api/productGet");
       console.log(res.data);
       setFormData(res.data);
 
@@ -116,7 +112,7 @@ import '../../styles/Home.css';
   close =>(
     <div className="modal">
    
-      <div className='image_div'>
+      <div className='image_div1'>
       <img className='product--image_1' src={`http://localhost:5001/uploads/products/${data.productImage}`} alt={data.productName} />
       </div>
       <div className='details_div'>
