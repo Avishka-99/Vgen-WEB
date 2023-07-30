@@ -1,79 +1,61 @@
-import React, { useEffect, useState,useRef} from 'react'
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import { useSelector, useDispatch } from 'react-redux'
-import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
+import React, { useEffect, useState, useRef } from "react";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import { useSelector, useDispatch } from "react-redux";
+import { RiAddLine, RiSubtractLine } from "react-icons/ri";
 // import Button from '../../components/Button';
-import Axios from 'axios';
-import { IncrementCounterAction } from '../../actions/IncrementCounterAction';
-import Carousel from 'react-multi-carousel';
+import Axios from "axios";
+import { IncrementCounterAction } from "../../actions/IncrementCounterAction";
+import Carousel from "react-multi-carousel";
 
-import 'react-multi-carousel/lib/styles.css';
-import * as API_ENDPOINTS from '../../api/ApiEndpoints';
-import '../../styles/Home.css';
+import "react-multi-carousel/lib/styles.css";
+import * as API_ENDPOINTS from "../../api/ApiEndpoints";
+import "../../styles/Home.css";
 
- function Home() {
-    const [modal, setModal] = useState(false);
- 
-    //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
+function Home() {
+  const [modal, setModal] = useState(false);
 
-    //console.log(localStorage.getItem('type'))
-    //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
-    const dispatch = useDispatch();
-    const number = useSelector(state => state.CounterReducer.counter);
-    const [name, setName] = useState('');
-    const val = useSelector(state => state.ValueReducer.value)
-  
+  //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
 
-    var num = "";
-    
+  //console.log(localStorage.getItem('type'))
+  //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
+  const dispatch = useDispatch();
+  const number = useSelector((state) => state.CounterReducer.counter);
+  const [name, setName] = useState("");
+  const val = useSelector((state) => state.ValueReducer.value);
+  const modalRef = useRef(null);
 
-    
-    // const increaseCounter = () => {
-    //     Axios.post("http://localhost:5001/api/registeruser", {
-    //         email: "Dasith",
-    //         password: "534rdsd",
-    //     }).then((response) => {
-    //         Axios.get("http://localhost:5001/api/data").then((response) => {
-    //             console.log(response.data[0].id);
-    //             dispatch(IncrementCounterAction(parseInt(response.data[0].id)));
-    //         });
-    //     });
-    //     //const data = Axios
+  var num = "";
+
+  // const increaseCounter = () => {
+  //     Axios.post("http://localhost:5001/api/registeruser", {
+  //         email: "Dasith",
+  //         password: "534rdsd",
+  //     }).then((response) => {
+  //         Axios.get("http://localhost:5001/api/data").then((response) => {
+  //             console.log(response.data[0].id);
+  //             dispatch(IncrementCounterAction(parseInt(response.data[0].id)));
+  //         });
+  //     });
+  //     //const data = Axios
 
     // };
     const [formData,setFormData]=useState([])
     const [formData_1,setFormData_1]=useState([])
 
-  const fetchData=async ()=>{
-    try{
-      const res=await Axios.get("http://localhost:5001/api/productGet");
+  const fetchData = async () => {
+    try {
+      const res = await Axios.get("http://localhost:5001/api/productGet");
       console.log(res.data);
       setFormData(res.data);
-
-    }catch(err){
-      console.log('Error fetching data:', err);
+    } catch (err) {
+      console.log("Error fetching data:", err);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
 
   },[]);
-  const fetchData1=async ()=>{
-    try{
-      const res=await Axios.get("http://localhost:5001/api/restaurantGet");
-      console.log(res.data);
-      setFormData_1(res.data);
-
-    }catch(err){
-      console.log('Error fetching data:', err);
-    }
-  };
-  useEffect(()=>{
-    fetchData1();
-
-  },[]);
-
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.
@@ -104,14 +86,13 @@ import '../../styles/Home.css';
      
 
       {/* The rest of your home page content */}
-      <div className='bottom_content' />
-      <div className='vision_1'>
-        <p>Teste out :)</p>
+      <div className="bottom_content" />
+      <div className="vision_1">
+        <p>Taste out :</p>
         <h3>Vegan Delight Near Me</h3>
       </div>
   {/* Food items */}
       <div>
-
         <Carousel responsive={responsive}>
           {formData.map((data,addToCart) => (
             <Popup trigger={
@@ -159,35 +140,10 @@ import '../../styles/Home.css';
        
         </Carousel>
       </div>
-
-
-      {/* restaurants */}
-      <div className='vision_1'>
-        <p>Try out :)</p>
-        <h3>Vegan Friendly Zones Near Me</h3>
-      </div>
-      <div>
-
-<Carousel responsive={responsive}>
-  {formData_1.map((data) => (
-  
-    <div className='card' key={data.resturantManagerId}>
-      <p className='vegan_type'>{data.resturantType}</p>
-      {/* <img className='product--image' src={`http://localhost:5001/uploads/Restaurant/${data.productImage}`} alt={data.productName} /> */}
-      <p className='product_name'>{data.resturantName}</p>
-      <p className='prices'>Address</p>
-      <button className='btn_cart' onClick={toggleModal}>
-        View Restaurant
-      </button>
-    </div> 
-
-))}
-</Carousel>
-</div>
     </div>
   );
 
-           // return ( )
+  // return ( )
 }
- 
+
 export default Home;

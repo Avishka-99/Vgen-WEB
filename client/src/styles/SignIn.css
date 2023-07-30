@@ -83,7 +83,7 @@
   justify-content: space-between;
 }
 
-.row_1 {
+.SignInContainer .row_1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,4 +165,7 @@
   font-family: poppins-medium;
   font-size: 16px;
   color: #043133;
+}
+.SignInContainer label{
+  margin-top: 0px;
 }

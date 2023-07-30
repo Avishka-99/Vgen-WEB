@@ -10,7 +10,7 @@ import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
 import Axios from 'axios';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate();
   const user = localStorage.getItem("type");
   const [role, setRole] = useState(""); // Initialize the state with an empty string
