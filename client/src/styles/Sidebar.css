@@ -1,7 +1,7 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    width: 6vw;
+    width: 5vw;
     height: 100vh;
     background-color: #272727;
     align-items: center;
@@ -13,11 +13,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom:15%;
+    
     height: 4.5vw;
     width: 4.5vw;
     border-radius: 1vw;
 
 }
+
 .menuItem:hover{
     cursor: pointer;
     transition: 0.2s ease-in;
