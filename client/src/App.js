@@ -68,13 +68,16 @@ function App() {
   const guestRoutes = [];
   return (
       <div className='outerContainer'>
+        
         <div className='topbar'>
+       
+      
        
         </div>
         <Sidebar/>
-       
+      
         <div className='container'>
-       
+     
         <Navbar />
           <Routes>
             <Route path='/' element={<LandingPage />} ></Route>

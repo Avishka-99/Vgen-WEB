@@ -23,11 +23,11 @@ import '../../styles/Home.css';
     const number = useSelector(state => state.CounterReducer.counter);
     const [name, setName] = useState('');
     const val = useSelector(state => state.ValueReducer.value)
-    const modalRef = useRef(null);
+  
 
     var num = "";
     
-   
+
     
     // const increaseCounter = () => {
     //     Axios.post("http://localhost:5001/api/registeruser", {
@@ -43,6 +43,7 @@ import '../../styles/Home.css';
 
     // };
     const [formData,setFormData]=useState([])
+    const [formData_1,setFormData_1]=useState([])
 
   const fetchData=async ()=>{
     try{
@@ -58,6 +59,21 @@ import '../../styles/Home.css';
     fetchData();
 
   },[]);
+  const fetchData1=async ()=>{
+    try{
+      const res=await Axios.get("http://localhost:5001/api/restaurantGet");
+      console.log(res.data);
+      setFormData_1(res.data);
+
+    }catch(err){
+      console.log('Error fetching data:', err);
+    }
+  };
+  useEffect(()=>{
+    fetchData1();
+
+  },[]);
+
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.
@@ -93,11 +109,11 @@ import '../../styles/Home.css';
         <p>Teste out :)</p>
         <h3>Vegan Delight Near Me</h3>
       </div>
-
+  {/* Food items */}
       <div>
 
         <Carousel responsive={responsive}>
-          {formData.map((data) => (
+          {formData.map((data,addToCart) => (
             <Popup trigger={
             <div className='card' key={data.productId}>
               <p className='vegan_type'>{data.veganType}</p>
@@ -132,7 +148,7 @@ import '../../styles/Home.css';
           <button><RiSubtractLine/></button> 
           </div>
          
-          <button className='add_cart' >Add to Cart</button>
+          <button className='add_cart'onClick={()=>addToCart(data)} >Add to Cart</button>
    </div>
    
    </div>
@@ -143,6 +159,31 @@ import '../../styles/Home.css';
        
         </Carousel>
       </div>
+
+
+      {/* restaurants */}
+      <div className='vision_1'>
+        <p>Try out :)</p>
+        <h3>Vegan Friendly Zones Near Me</h3>
+      </div>
+      <div>
+
+<Carousel responsive={responsive}>
+  {formData_1.map((data) => (
+  
+    <div className='card' key={data.resturantManagerId}>
+      <p className='vegan_type'>{data.resturantType}</p>
+      {/* <img className='product--image' src={`http://localhost:5001/uploads/Restaurant/${data.productImage}`} alt={data.productName} /> */}
+      <p className='product_name'>{data.resturantName}</p>
+      <p className='prices'>Address</p>
+      <button className='btn_cart' onClick={toggleModal}>
+        View Restaurant
+      </button>
+    </div> 
+
+))}
+</Carousel>
+</div>
     </div>
   );
 
