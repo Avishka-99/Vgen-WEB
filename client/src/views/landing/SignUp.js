@@ -24,6 +24,7 @@ export default function SignUp() {
 	const [password, setPassword] = useState('');
 	const [confirmpassword, setConfirmPassword] = useState('');
 	const [contactNo, setContactNo] = useState('');
+	const [isDisabled, setIsDisabled] = useState(false);
 	// const [isClean, setIsClean] = useState(true);
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -38,17 +39,31 @@ export default function SignUp() {
 			navigate('/' + page);
 		}
 	};
+	const resetFormData = () => {
+		setfirstName('');
+		setlastName('');
+		setEmail('');
+		setPassword('');
+		setNic('');
+		setContactNo('');
+		setConfirmPassword('');
+		setuserRole('Customer');
+	};
 	const showToast = (data) => {
 		if (data.type == 'success') {
 			ToastMessages.success(data.message);
+			ToastMessages.info('Redirectiong to OTP verification');
+			resetFormData();
+			setIsDisabled(true);
 			setTimeout(function () {
-				navigate('/');
+				navigate('/otp');
 			}, 6000);
 		} else if (data.type == 'error') {
 			ToastMessages.error(data.message);
 		}
 	};
 	const handleSubmit = (e) => {
+		localStorage.setItem('otpemail', email);
 		//e.preventDefault();
 		var isClean = true;
 		if (firstName == '' || lastName == '' || nic == '' || contactNo == '' || email == '') {
@@ -84,6 +99,7 @@ export default function SignUp() {
 				contactNo: contactNo,
 				// profilePicture:profilePicture
 			}).then((response) => {
+				console.log(response.data);
 				showToast(response.data);
 			});
 		}
@@ -143,37 +159,37 @@ export default function SignUp() {
 					<div className='Logintitle'>Sign Up Today!</div>
 					<div className='signUpRow' style={{marginTop: '3%'}}>
 						<div className='leftTextBox'>
-							<input className='signUpInput' type='text' autoComplete='off' name='firstName' onChange={(event) => setfirstName(event.target.value)} required></input>
+							<input className='signUpInput' type='text' autoComplete='off' name='firstName' onChange={(event) => setfirstName(event.target.value)} value={firstName} required></input>
 							<label className='placeholder_signup'>First Name*</label>
 						</div>
 						<div className='rightTextBox'>
-							<input className='signUpInput' type='text' autoComplete='off' name='lastName' onChange={(event) => setlastName(event.target.value)} required></input>
+							<input className='signUpInput' type='text' autoComplete='off' name='lastName' onChange={(event) => setlastName(event.target.value)} value={lastName} required></input>
 							<label className='placeholder_signup'>Last Name*</label>
 						</div>
 					</div>
 					<div className='signUpRow'>
 						<div className='leftTextBox'>
-							<input className='signUpInput' type={'text'} autoComplete='off' name='nic' onChange={(event) => setNic(event.target.value)} required></input>
+							<input className='signUpInput' type={'text'} autoComplete='off' name='nic' onChange={(event) => setNic(event.target.value)} value={nic} required></input>
 							<label className='placeholder_signup'>NIC*</label>
 						</div>
 						<div className='rightTextBox'>
-							<input className='signUpInput' type={'text'} autoComplete='off' name='contacNo' onChange={(event) => setContactNo(event.target.value)} required></input>
+							<input className='signUpInput' type={'text'} autoComplete='off' name='contacNo' onChange={(event) => setContactNo(event.target.value)} value={contactNo} required></input>
 							<label className='placeholder_signup'>Contact No*</label>
 						</div>
 					</div>
 					<div className='signUpRow' style={{width: '100%'}}>
 						<div className='leftTextBox' style={{width: '100%'}}>
-							<input className='signUpInput' type={'email'} autoComplete='off' name='email' onChange={(event) => setEmail(event.target.value)} required></input>
+							<input className='signUpInput' type={'email'} autoComplete='off' name='email' onChange={(event) => setEmail(event.target.value)} value={email} required></input>
 							<label className='placeholder_signup_email'>Email*</label>
 						</div>
 					</div>
 					<div className='signUpRow'>
 						<div className='leftTextBox'>
-							<input className='signUpInput' type={'password'} autoComplete='off' name='password' onChange={(event) => setPassword(event.target.value)} required></input>
+							<input className='signUpInput' type={'password'} autoComplete='off' name='password' onChange={(event) => setPassword(event.target.value)} value={password} required></input>
 							<label className='placeholder_signup'>Password*</label>
 						</div>
 						<div className='rightTextBox'>
-							<input className='signUpInput' type={'password'} autoComplete='off' onChange={(event) => setConfirmPassword(event.target.value)} required></input>
+							<input className='signUpInput' type={'password'} autoComplete='off' onChange={(event) => setConfirmPassword(event.target.value)} value={confirmpassword} required></input>
 							<label className='placeholder_signup'>Confirm Password*</label>
 						</div>
 					</div>
@@ -185,7 +201,8 @@ export default function SignUp() {
 									width: '50%',
 									height: '1vh',
 									borderRadius: '1vh',
-								}}></div>
+								}}
+							></div>
 						</div>
 					</div>
 					<label className='iam'>I am a</label>
@@ -211,19 +228,28 @@ export default function SignUp() {
 							justifyContent: 'center',
 							height: '9%',
 							alignItems: 'center',
-						}}>
-						<div className='btn_signup' onClick={handleSubmit}>
-							Create Account
-							<div className='arrowCircle'></div>
-						</div>
+						}}
+					>
+						{isDisabled ? (
+							<div className='btn_signup'>
+								Create Account
+								<div className='arrowCircle'></div>
+							</div>
+						) : (
+							<div className='btn_signup' onClick={handleSubmit}>
+								Create Account
+								<div className='arrowCircle'></div>
+							</div>
+						)}
 					</div>
 					<div className='signUpRow' style={{display: 'flex', justifyContent: 'center'}}>
 						<div
 							style={{
 								display: 'flex',
 								justifyContent: 'space-around',
-								width: '38%',
-							}}>
+								// width: '38%',
+							}}
+						>
 							<span style={{fontFamily: 'poppins-regular'}}>Already have an account?</span>
 							<span
 								className='loginText'
@@ -232,7 +258,8 @@ export default function SignUp() {
 									color: '#274C5B',
 									textDecoration: 'underline',
 								}}
-								onClick={() => navigateTo('signin')}>
+								onClick={() => navigateTo('signin')}
+							>
 								Log in
 							</span>
 						</div>
@@ -266,7 +293,7 @@ export default function SignUp() {
           </div> */}
 				</div>
 			</div>
-			<Toast />
+			<Toast duration={3000} />
 		</div>
 		// <div className='SignUpContainer'>
 		//   <div className='signInImage'>
