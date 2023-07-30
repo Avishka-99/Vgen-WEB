@@ -13,7 +13,6 @@ import Toast from '../../components/Toast';
 export default function Otp() {
 	const [otp, setOtp] = useState('');
 	const dispatch = useDispatch();
-	const [password, setPassword] = useState('');
 	const [mail, setMail] = useState('');
 	const navigate = useNavigate();
 	useEffect(() => {

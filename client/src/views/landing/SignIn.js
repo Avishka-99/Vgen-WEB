@@ -14,6 +14,7 @@ export default function SignIn() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [isDisabled, setIsDisabled] = useState(false);
 	var user = localStorage.getItem('type');
 	const navigate = useNavigate();
 	useEffect(() => {
@@ -48,6 +49,8 @@ export default function SignIn() {
 			} else if (response.data == 'Not verified') {
 				ToastMessages.warning('Please verify your account');
 				ToastMessages.info('Redirectiong to OTP verification');
+				//resetFormData();
+				setIsDisabled(true);
 				localStorage.setItem('otpemail', email);
 				setTimeout(function () {
 					navigate('/otp');
@@ -67,9 +70,9 @@ export default function SignIn() {
 				<div className='SignInForm'>
 					<div className='Slogan'>Embrace Your Vegan Journey</div>
 					<div className='Logintitle'>Login And Connect!</div>
-					<input style={{marginTop: '15%'}} className='signInInput' type='text' autoComplete='off' onChange={(event) => setEmail(event.target.value)} required></input>
+					<input style={{marginTop: '15%'}} className='signInInput' type='text' autoComplete='off' onChange={(event) => setEmail(event.target.value)} value={email} required></input>
 					<label className='placeholder'>Email*</label>
-					<input className='signInInput' type='password' onChange={(event) => setPassword(event.target.value)} required></input>
+					<input className='signInInput' type='password' onChange={(event) => setPassword(event.target.value)} value={password} required></input>
 					<label className='placeholder'>Password*</label>
 					<div className='checkBoxAndPswdForget'>
 						<div className='row_1'>
@@ -86,12 +89,22 @@ export default function SignIn() {
 							</label>
 						</div>
 					</div>
-					<div className='signInRow'>
-						<div className='btn_login' onClick={handleSubmit}>
-							Login
-							<div className='arrowCircle'></div>
+					{isDisabled ? (
+						<div className='signInRow'>
+							<div className='btn_login'>
+								Login
+								<div className='arrowCircle'></div>
+							</div>
 						</div>
-					</div>
+					) : (
+						<div className='signInRow'>
+							<div className='btn_login' onClick={handleSubmit}>
+								Login
+								<div className='arrowCircle'></div>
+							</div>
+						</div>
+					)}
+
 					{/* <div className='signInRow' style={{ marginTop: "2%" }}>
                         <div style={{
                             fontFamily: "poppins-medium",
