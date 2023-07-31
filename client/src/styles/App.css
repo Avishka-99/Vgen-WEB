@@ -28,7 +28,7 @@
 }
 .outerContainer{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
 }.container{ 
   width: 100%;
