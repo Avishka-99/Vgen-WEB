@@ -37,10 +37,15 @@ function App() {
   return (
     <div className="outerContainer">
       <div className="topbar"></div>
+      <div className="sidebar">
       <Sidebar type={user} />
-
+      </div>
+      
       <div className="container">
-        <Navbar type={user} />
+     <div className="navbar">
+     <Navbar type={user} />
+     </div>
+      
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
