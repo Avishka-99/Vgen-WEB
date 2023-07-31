@@ -1,65 +1,72 @@
-import React, { useEffect, useState,useRef} from 'react'
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import { useSelector, useDispatch } from 'react-redux'
-import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
+import React, { useEffect, useState, useRef } from "react";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import { useSelector, useDispatch } from "react-redux";
+import { RiAddLine, RiSubtractLine } from "react-icons/ri";
 // import Button from '../../components/Button';
-import Axios from 'axios';
-import { IncrementCounterAction } from '../../actions/IncrementCounterAction';
-import Carousel from 'react-multi-carousel';
+import Axios from "axios";
+import { IncrementCounterAction } from "../../actions/IncrementCounterAction";
+import Carousel from "react-multi-carousel";
 
-import 'react-multi-carousel/lib/styles.css';
-import * as API_ENDPOINTS from '../../api/ApiEndpoints';
-import '../../styles/Home.css';
+import "react-multi-carousel/lib/styles.css";
+import * as API_ENDPOINTS from "../../api/ApiEndpoints";
+import "../../styles/Home.css";
 
- function Home() {
-    const [modal, setModal] = useState(false);
- 
-    //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
+function Home() {
+  const [modal, setModal] = useState(false);
 
-    //console.log(localStorage.getItem('type'))
-    //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
-    const dispatch = useDispatch();
-    const number = useSelector(state => state.CounterReducer.counter);
-    const [name, setName] = useState('');
-    const val = useSelector(state => state.ValueReducer.value)
-    const modalRef = useRef(null);
+  //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
 
-    var num = "";
-    
-   
-    
-    // const increaseCounter = () => {
-    //     Axios.post("http://localhost:5001/api/registeruser", {
-    //         email: "Dasith",
-    //         password: "534rdsd",
-    //     }).then((response) => {
-    //         Axios.get("http://localhost:5001/api/data").then((response) => {
-    //             console.log(response.data[0].id);
-    //             dispatch(IncrementCounterAction(parseInt(response.data[0].id)));
-    //         });
-    //     });
-    //     //const data = Axios
+  //console.log(localStorage.getItem('type'))
+  //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
+  const dispatch = useDispatch();
+  const number = useSelector((state) => state.CounterReducer.counter);
+  const [name, setName] = useState("");
+  const val = useSelector((state) => state.ValueReducer.value);
+  const modalRef = useRef(null);
+
+  var num = "";
+
+  // const increaseCounter = () => {
+  //     Axios.post("http://localhost:5001/api/registeruser", {
+  //         email: "Dasith",
+  //         password: "534rdsd",
+  //     }).then((response) => {
+  //         Axios.get("http://localhost:5001/api/data").then((response) => {
+  //             console.log(response.data[0].id);
+  //             dispatch(IncrementCounterAction(parseInt(response.data[0].id)));
+  //         });
+  //     });
+  //     //const data = Axios
 
     // };
     const [formData,setFormData]=useState([])
+    const [formData_1,setFormData_1]=useState([])
 
-  const fetchData=async ()=>{
-    try{
-      const res=await Axios.get("http://localhost:5001/api/productGet",{
-        headers:{
-        "Content-Type":"application/json"
-        }
-      });
+  const fetchData = async () => {
+    try {
+      const res = await Axios.get("http://localhost:5001/api/productGet");
       console.log(res.data);
       setFormData(res.data);
-
-    }catch(err){
-      console.log('Error fetching data:', err);
+    } catch (err) {
+      console.log("Error fetching data:", err);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
+
+  },[]);
+  const fetchData1 = async () => {
+    try {
+      const res = await Axios.get("http://localhost:5001/api/restaurantGet");
+      console.log(res.data);
+      setFormData_1(res.data);
+    } catch (err) {
+      console.log("Error fetching data:", err);
+    }
+  };
+  useEffect(() => {
+    fetchData1();
 
   },[]);
     const responsive = {
@@ -92,16 +99,15 @@ import '../../styles/Home.css';
      
 
       {/* The rest of your home page content */}
-      <div className='bottom_content' />
-      <div className='vision_1'>
-        <p>Teste out :)</p>
+      <div className="bottom_content" />
+      <div className="vision_1">
+        <p>Taste out :</p>
         <h3>Vegan Delight Near Me</h3>
       </div>
-
+  {/* Food items */}
       <div>
-
         <Carousel responsive={responsive}>
-          {formData.map((data) => (
+          {formData.map((data,addToCart) => (
             <Popup trigger={
             <div className='card' key={data.productId}>
               <p className='vegan_type'>{data.veganType}</p>
@@ -116,7 +122,7 @@ import '../../styles/Home.css';
   close =>(
     <div className="modal">
    
-      <div className='image_div'>
+      <div className='image_div1'>
       <img className='product--image_1' src={`http://localhost:5001/uploads/products/${data.productImage}`} alt={data.productName} />
       </div>
       <div className='details_div'>
@@ -136,7 +142,7 @@ import '../../styles/Home.css';
           <button><RiSubtractLine/></button> 
           </div>
          
-          <button className='add_cart' >Add to Cart</button>
+          <button className='add_cart'onClick={()=>addToCart(data)} >Add to Cart</button>
    </div>
    
    </div>
@@ -147,10 +153,32 @@ import '../../styles/Home.css';
        
         </Carousel>
       </div>
+      {/* Restaurants */}
+      <div className="vision_1">
+        <p>Taste out :</p>
+        <h3>Vegan Delight Near Me</h3>
+      </div>
+      <div>
+        <Carousel responsive={responsive}>
+          {formData_1.map((data) => (
+            
+            <div className='card' key={data.restaurantId}>
+              <p className='vegan_type'>{data.veganType}</p>
+              <img className='product--image' src={`http://localhost:5001/uploads/restaurants/${data.restaurantImage}`} alt={data.restaurantName} />
+              <p className='product_name'>{data.restaurantName}</p>
+              <p className='prices'>Location</p>
+              <button className='btn_cart' onClick={toggleModal}>
+                View Restaurant
+              </button>
+            </div> 
+          ))}
+            </Carousel>
+
+            </div>
     </div>
   );
 
-           // return ( )
+  // return ( )
 }
- 
+
 export default Home;

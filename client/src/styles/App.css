@@ -29,15 +29,19 @@
 .outerContainer{
   display: flex;
   flex-direction: row;
+  height: 100vh;
 }.container{ 
   width: 100%;
+  /* flex: 1;
+  overflow-y: auto; */
   height: 100vh;
   background-color: white;
 }
 .outerContainer{
   box-sizing: border-box;
-  
+
 }
+
 div{
   user-select: none;
   -webkit-user-select: none;
