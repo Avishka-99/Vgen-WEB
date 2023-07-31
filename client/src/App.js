@@ -38,39 +38,69 @@ function App() {
     <div className="outerContainer">
       <div className="topbar"></div>
       {user==='Customer' || user==='Admin' || user==='Staff' || user==='resturantManager' || user==='productManufacture' ?(
-          <div className="sidebar">
+          <><div className="sidebar">
           <Sidebar type={user} />
           </div>
+           <div className="container" style={{ width: '95%' ,marginLeft: '5%' }}>
+           {user==='Customer'  ?(
+               <div className="navbar">
+               <Navbar type={user} />
+               </div>
+           ):(
+             null
+           )}
+          
+           
+             <Routes>
+               <Route path="/" element={<LandingPage />}></Route>
+               <Route path="/signin" element={<SignIn />}></Route>
+               <Route path="/signup" element={<SignUp />}></Route>
+               <Route path="/reset" element={<ResetPassword />}></Route>
+               <Route path="/otp" element={<Otp />}></Route>
+               <Route element={<ProtectedRoutes isSignedIn={user} />}>
+                 {user == "Customer" ? (
+                   UserRoutes.customerRoutes.map((item) => <Route key={item.id} path={item.path} element={item.element}></Route>)
+                 ) : user == "resturantManager" ? (UserRoutes.restaurantRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+                 ) : user=="Admin"? (UserRoutes.adminRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+                 ) : user=="Staff"?(UserRoutes.staffRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>))
+                 : (<Route path="" element={<LandingPage />}></Route>
+                 )}
+               </Route>
+             </Routes>
+           </div>
+           </>
       ):(
-        null
+        <>
+           <div className="container">
+           {user==='Customer'  ?(
+               <div className="navbar">
+               <Navbar type={user} />
+               </div>
+           ):(
+             null
+           )}
+          
+           
+             <Routes>
+               <Route path="/" element={<LandingPage />}></Route>
+               <Route path="/signin" element={<SignIn />}></Route>
+               <Route path="/signup" element={<SignUp />}></Route>
+               <Route path="/reset" element={<ResetPassword />}></Route>
+               <Route path="/otp" element={<Otp />}></Route>
+               <Route element={<ProtectedRoutes isSignedIn={user} />}>
+                 {user == "Customer" ? (
+                   UserRoutes.customerRoutes.map((item) => <Route key={item.id} path={item.path} element={item.element}></Route>)
+                 ) : user == "resturantManager" ? (UserRoutes.restaurantRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+                 ) : user=="Admin"? (UserRoutes.adminRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
+                 ) : user=="Staff"?(UserRoutes.staffRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>))
+                 : (<Route path="" element={<LandingPage />}></Route>
+                 )}
+               </Route>
+             </Routes>
+           </div>
+        </>
       )}
-     <div className="container">
-      {user==='Customer'  ?(
-          <div className="navbar">
-          <Navbar type={user} />
-          </div>
-      ):(
-        null
-      )}
-     
-      
-        <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
-          <Route path="/signin" element={<SignIn />}></Route>
-          <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/reset" element={<ResetPassword />}></Route>
-          <Route path="/otp" element={<Otp />}></Route>
-          <Route element={<ProtectedRoutes isSignedIn={user} />}>
-            {user == "Customer" ? (
-              UserRoutes.customerRoutes.map((item) => <Route key={item.id} path={item.path} element={item.element}></Route>)
-            ) : user == "resturantManager" ? (UserRoutes.restaurantRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
-            ) : user=="Admin"? (UserRoutes.adminRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>)
-            ) : user=="Staff"?(UserRoutes.staffRoutes.map((item) => <Route key={item.key} path={item.path} element={item.element}></Route>))
-            : (<Route path="" element={<LandingPage />}></Route>
-            )}
-          </Route>
-        </Routes>
-      </div>
+    
     </div>
   );
 }
