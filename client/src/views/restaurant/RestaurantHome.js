@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import DashboardDetails from './DashboardDetails';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker';
+// import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 
 import '../../styles/RestaurentHome.css'
@@ -25,8 +25,8 @@ export default function RestaurantHome() {
   const [filterOrder,setFilterOrder]=useState(false);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [startTime, setStartTime] = useState('08:00'); // Set initial start time
-  const [endTime, setEndTime] = useState('18:00'); // Set initial end time
+  // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
+  // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
   
   const getOrderDetails=async ()=>{
     try{
@@ -36,7 +36,7 @@ export default function RestaurantHome() {
         },
       });
       console.log(res.data);
-      setOrders(res.data);
+      setOrders(res.data.orders);
     }catch(err){
       console.log('Error fetching data:', err);
     }
@@ -44,7 +44,7 @@ export default function RestaurantHome() {
 
   useEffect(() => {
     getOrderDetails();
-  },[])
+  })
   
     const detailsData1 = [
       // { id: 1, icon: <MonetizationOnIcon /> },
@@ -103,27 +103,7 @@ export default function RestaurantHome() {
                       <td>o.orderStatus</td>
                     </tr>
                   ))}  */}
-                     <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                    <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                    <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
+                     
                   
                   </tbody>
                   
