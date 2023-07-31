@@ -103,6 +103,17 @@ const ShowSidebar = (props) => {
     </div>
     )
   }
+  else if(props.type=="resturantManager"){
+    return(
+      <div className="sidebar" onSelect={(item) => console.log(item)}>
+        <div>
+          {restaurant.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+          ))}
+        </div>
+    </div>
+    )
+  }
 };
 export default function Sidebar(props) {
   const [showSidebar, setShowSidebar] = useState(true);

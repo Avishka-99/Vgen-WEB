@@ -31,9 +31,10 @@
   flex-direction: row;
   height: 100vh;
 }.container{ 
-  width: 100%;
+  width: 95%;
   /* flex: 1;
   overflow-y: auto; */
+  margin-left: 5%;
   height: 100vh;
   background-color: white;
 }
