@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import DashboardDetails from './DashboardDetails';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker';
+// import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 
 import '../../styles/RestaurentHome.css'
@@ -19,32 +19,35 @@ import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 export default function RestaurantHome() {
 
 
-  const user_id=localStorage.getItem('userId');
-  console.log(user_id)
-  const [orders,setOrders]=useState([]);
+  
+  const [orders, setOrders] = useState([]);
   const [filterOrder,setFilterOrder]=useState(false);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [startTime, setStartTime] = useState('08:00'); // Set initial start time
-  const [endTime, setEndTime] = useState('18:00'); // Set initial end time
+  const [isLoading, setIsLoading] = useState(true);
+  // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
+  // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
   
-  const getOrderDetails=async ()=>{
-    try{
-      const res=await Axios.get(API_ENDPOINTS.restaurantDetails_URL,{
-        params: {
-          user_id: user_id,
-        },
-      });
-      console.log(res.data);
-      setOrders(res.data);
-    }catch(err){
-      console.log('Error fetching data:', err);
-    }
-  };
-
   useEffect(() => {
+    const user_id=localStorage.getItem('userId');
+    const getOrderDetails = async () => {
+      try {
+        const res = await Axios.get(API_ENDPOINTS.restaurantDetails_URL, {
+          params: {
+            user_id: user_id,
+          },
+        });
+        
+        setOrders(res.data);
+        setIsLoading(false);
+      } catch (err) {
+        console.log('Error fetching data:', err);
+        setIsLoading(false);
+      }
+    };
     getOrderDetails();
-  },[])
+   
+  }, [])
   
     const detailsData1 = [
       // { id: 1, icon: <MonetizationOnIcon /> },
@@ -67,6 +70,7 @@ export default function RestaurantHome() {
   
     return (
       <div>
+
         <div className="Details">
           <div className='Details-left'>
             <div className="Upper-details">
@@ -83,52 +87,44 @@ export default function RestaurantHome() {
               </div>
 
               <div className="table-content">
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
                 <table>
-                  <thead>
-                    <tr>
-                      <th>Customer</th>
-                      <th>Order Id</th>
-                      <th>Order Type</th>
-                      <th>Payment status</th>
-                      <th>Order status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {/* {orders.map(o => (
-                    <tr key={o.orderId}>
-                      <td>o.customerName</td>
-                      <td>o.orderId</td>
-                      <td>o.orderType</td>
-                      <td>o.paymentStatus</td>
-                      <td>o.orderStatus</td>
-                    </tr>
-                  ))}  */}
-                     <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                    <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                    <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                  
-                  </tbody>
-                  
-                </table>
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Order Id</th>
+                    <th>Order Type</th>
+                    {/* <th>Payment status</th> */}
+                    <th>Order status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {orders.map((o) => (
+                  <tr key={o.orderId}>
+                    <td>{o.fullName}</td>
+                    <td>{o.orderId}</td>
+                    <td>{o.orderType}</td>
+                    {/* <td>{o.status}</td> */}
+                    <td> {o.orderState===2 ? (
+                          <p style={{color:'green'}}>complete</p>
+                        ):o.orderState===1 ? (
+                          <p style={{color:'orange'}}>preparing</p>
+                        ): (
+                          <p style={{color:'red'}}>pending</p>
+                        )}
+                        
+                        
+                      
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
 
+                
+              </table>
+              )}
               </div>
               
               

@@ -1,16 +1,19 @@
 import React,{useState} from 'react'
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
-import { Link } from 'react-router-dom';
+import CloseIcon from '@mui/icons-material/Close';
 import '../../styles/RestaurantProduct.css'
 
-const RestaurantProductAdd = () => {
-    const [formData,setFormData]=useState([])
-    const [quantity,setQuantity]=useState('')
-    const [description,setDescription]=useState('')
-    const [productName,setProductName]=useState('')
-    const [price,setPrice]=useState('')
-    const [productImage,setProductImage]=useState()
+
+
+const RestaurantProductAdd = (props) => {
+    // const [formData,setFormData]=useState([])
+    const [quantity,setQuantity]=useState('');
+    const [description,setDescription]=useState('');
+    const [productName,setProductName]=useState('');
+    const [price,setPrice]=useState('');
+    const [productImage,setProductImage]=useState();
+  
    
    const handleSubmit=(e)=>{
       //upload image    
@@ -30,33 +33,42 @@ const RestaurantProductAdd = () => {
       setProductImage(e.target.files[0]);
   
     }
-    return ( 
+    return props.trigger ? ( 
+      <div className="product-add-popup">
+        <div className="product-add-popup-inner">
+        <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
+
+        {props.children}
         <div className='addProduct'>
-            <h1>Product add</h1>
-            <Link className='Back-link' to='/products'>Back</Link>
-            {/* <form className="form-container"> */}
-                <label htmlFor="productImage">Product Image:</label><br />
-                <input type="file" id="productImage" className="productImage" onChange={handleFiles} /><br />
+                  
+                  <h1>Product add</h1>
+                  
+              
+            
+                  <label htmlFor="productImage">Product Image:</label><br />
+                  <input type="file" id="productImage" className="productImage" onChange={handleFiles} /><br />
 
-                <label htmlFor="productName">Product Name:</label><br />
-                <input type="text" id="productName" placeholder="Product Name" onChange={(e) => { setProductName(e.target.value) }} /><br />
+                  <label htmlFor="productName">Product Name:</label><br />
+                  <input type="text" id="productName" placeholder="Product Name" onChange={(e) => { setProductName(e.target.value) }} /><br />
 
-                <label htmlFor="description">Description:</label><br />
-                <input type="text" id="description" placeholder="Description" onChange={(e) => { setDescription(e.target.value) }} /><br />
+                  <label htmlFor="description">Description:</label><br />
+                  <input type="text" id="description" placeholder="Description" onChange={(e) => { setDescription(e.target.value) }} /><br />
 
-                <label htmlFor="quantity">Quantity:</label><br />
-                <input type="text" id="quantity" placeholder="Quantity" onChange={(e) => { setQuantity(e.target.value) }} /><br />
+                  <label htmlFor="quantity">Quantity:</label><br />
+                  <input type="text" id="quantity" placeholder="Quantity" onChange={(e) => { setQuantity(e.target.value) }} /><br />
 
-                <label htmlFor="price">Price:</label><br />
-                <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} /><br />
+                  <label htmlFor="price">Price:</label><br />
+                  <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} /><br />
 
-                <button className="submit-button" onClick={() => { handleSubmit()}}>Submit</button>
-            {/* </form> */}
+                  <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>
+                </div>
 
         </div>
+      </div>
+        
         
        
-     );
+     ): null;
 }
  
 export default RestaurantProductAdd;
