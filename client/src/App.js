@@ -37,14 +37,22 @@ function App() {
   return (
     <div className="outerContainer">
       <div className="topbar"></div>
-      <div className="sidebar">
-      <Sidebar type={user} />
-      </div>
-      
-      <div className="container">
-     <div className="navbar">
-     <Navbar type={user} />
-     </div>
+      {user==='Customer' || user==='Admin' || user==='Staff' || user==='resturantManager' || user==='productManufacture' ?(
+          <div className="sidebar">
+          <Sidebar type={user} />
+          </div>
+      ):(
+        null
+      )}
+     <div className="container">
+      {user==='Customer'  ?(
+          <div className="navbar">
+          <Navbar type={user} />
+          </div>
+      ):(
+        null
+      )}
+     
       
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
