@@ -1,4 +1,5 @@
 import * as UserViews from "../constants/AllViews";
+import React from "react";
 export const customerRoutes = [
   { id: 1, path: "/home", element: <UserViews.Home /> },
   { id: 2, path: "/category", element: <UserViews.Categories/> },

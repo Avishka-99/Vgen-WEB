@@ -28,9 +28,12 @@
 }
 .outerContainer{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 100vh;
 }.container{ 
   width: 100%;
+  /* flex: 1;
+  overflow-y: auto; */
   height: 100vh;
   background-color: white;
 }
@@ -38,6 +41,7 @@
   box-sizing: border-box;
 
 }
+
 div{
   user-select: none;
   -webkit-user-select: none;

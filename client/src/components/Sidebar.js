@@ -92,6 +92,16 @@ const ShowSidebar = (props) => {
         </div>
     </div>
     )
+  }else if(props.type=="Customer"){
+    return(
+      <div className="sidebar" onSelect={(item) => console.log(item)}>
+        <div>
+          {customer.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+          ))}
+        </div>
+    </div>
+    )
   }
 };
 export default function Sidebar(props) {

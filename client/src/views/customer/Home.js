@@ -56,6 +56,19 @@ function Home() {
     fetchData();
 
   },[]);
+  const fetchData1 = async () => {
+    try {
+      const res = await Axios.get("http://localhost:5001/api/restaurantGet");
+      console.log(res.data);
+      setFormData_1(res.data);
+    } catch (err) {
+      console.log("Error fetching data:", err);
+    }
+  };
+  useEffect(() => {
+    fetchData1();
+
+  },[]);
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.
@@ -140,6 +153,28 @@ function Home() {
        
         </Carousel>
       </div>
+      {/* Restaurants */}
+      <div className="vision_1">
+        <p>Taste out :</p>
+        <h3>Vegan Delight Near Me</h3>
+      </div>
+      <div>
+        <Carousel responsive={responsive}>
+          {formData_1.map((data) => (
+            
+            <div className='card' key={data.restaurantId}>
+              <p className='vegan_type'>{data.veganType}</p>
+              <img className='product--image' src={`http://localhost:5001/uploads/restaurants/${data.restaurantImage}`} alt={data.restaurantName} />
+              <p className='product_name'>{data.restaurantName}</p>
+              <p className='prices'>Location</p>
+              <button className='btn_cart' onClick={toggleModal}>
+                View Restaurant
+              </button>
+            </div> 
+          ))}
+            </Carousel>
+
+            </div>
     </div>
   );
 

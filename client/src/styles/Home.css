@@ -36,14 +36,12 @@ h1 {
 
 }
 .image_div1{
-  width: 100%;
+  width: 50%;
 }
 
 .details_div{
- 
+  width: 50%;
   height: 100%;
-
- 
 }
 
 .vision_1 {
@@ -103,3 +101,4 @@ h1 {
   font-size: 20px;
   color: #284431;
 }
+
