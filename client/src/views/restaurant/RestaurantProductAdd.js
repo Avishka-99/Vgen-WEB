@@ -37,34 +37,33 @@ const RestaurantProductAdd = (props) => {
       <div className="product-add-popup">
         <div className="product-add-popup-inner">
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
-
         {props.children}
-        <div className='addProduct'>
-                  
-                  <h1>Product add</h1>
-                  
-              
+        <h2>Product add</h2>
+        <div className="product-add">
+          <label htmlFor="productImage" id='Product-image'>Product Image:</label><br />
+          <input type="file" id="productImage" className="productImage" onChange={handleFiles} required/><br />
+
+          <label htmlFor="productName">Product Name:</label><br />
+          <input type="text" id="productName" placeholder="Product Name" onChange={(e) => { setProductName(e.target.value) }} required/><br />
+        
+            <label htmlFor="description">Description:</label><br />
+            <input type="text" id="description" placeholder="Description" onChange={(e) => { setDescription(e.target.value) }} required/><br />
+
+            <label htmlFor="quantity">Quantity:</label><br />
+            <input type="text" id="quantity" placeholder="Quantity" onChange={(e) => { setQuantity(e.target.value) }} required/><br />
+
+            <label htmlFor="price">Price:</label><br />
+            <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} required/><br />
+
             
-                  <label htmlFor="productImage">Product Image:</label><br />
-                  <input type="file" id="productImage" className="productImage" onChange={handleFiles} /><br />
+        </div>    
+        <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
 
-                  <label htmlFor="productName">Product Name:</label><br />
-                  <input type="text" id="productName" placeholder="Product Name" onChange={(e) => { setProductName(e.target.value) }} /><br />
-
-                  <label htmlFor="description">Description:</label><br />
-                  <input type="text" id="description" placeholder="Description" onChange={(e) => { setDescription(e.target.value) }} /><br />
-
-                  <label htmlFor="quantity">Quantity:</label><br />
-                  <input type="text" id="quantity" placeholder="Quantity" onChange={(e) => { setQuantity(e.target.value) }} /><br />
-
-                  <label htmlFor="price">Price:</label><br />
-                  <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} /><br />
-
-                  <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>
-                </div>
-
-        </div>
+                  
       </div>
+
+    </div>
+      
         
         
        

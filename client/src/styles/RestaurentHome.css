@@ -113,7 +113,7 @@
 .most-ordered-content{
   width: 400px;
   height: 250px;
-  background-color: rgb(224, 221, 221);
+  background-color: #fcfbfb;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
@@ -153,7 +153,7 @@ margin-top: 3%;
 .barChart-content{
   width: 400px;
   height: 250px;
-  background-color: rgb(224, 221, 221);
+  background-color:#fcfbfb;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
