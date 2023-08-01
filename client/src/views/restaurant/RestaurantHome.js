@@ -13,13 +13,13 @@ import '../../styles/RestaurentHome.css'
 
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
-
+import { PieChart } from 'react-minimal-pie-chart';
 
 
 export default function RestaurantHome() {
 
 
-  
+  const [orderType,setOrderType]=useState([]);
   const [orders, setOrders] = useState([]);
   const [filterOrder,setFilterOrder]=useState(false);
   const [startDate, setStartDate] = useState(null);
@@ -28,26 +28,69 @@ export default function RestaurantHome() {
   // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
   // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
   
-  useEffect(() => {
-    const user_id=localStorage.getItem('userId');
-    const getOrderDetails = async () => {
-      try {
-        const res = await Axios.get(API_ENDPOINTS.restaurantDetails_URL, {
-          params: {
-            user_id: user_id,
-          },
-        });
-        
-        setOrders(res.data);
-        setIsLoading(false);
-      } catch (err) {
-        console.log('Error fetching data:', err);
-        setIsLoading(false);
-      }
-    };
+
+
+  const user_id=localStorage.getItem('userId');
+  //get order details in table view
+  const getOrderDetails = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.restaurantDetails_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setOrders(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+   //get order types details for pie chart
+      
+   const getOrderTypeDetails = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getOrderType_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setOrderType(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+useEffect(() => {
     getOrderDetails();
-   
-  }, [])
+    getOrderTypeDetails();
+},[])
+ // Use another useEffect to observe the changes in 'orders'
+useEffect(() => {
+  
+}, [orders]);
+
+// Use another useEffect to observe the changes in 'orderType'
+useEffect(() => {
+ console.log(orderType);
+}, [orderType]);
+
+const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
+
+const pieChartData = orderType.map((item, index) => ({
+  title: item.orderType,
+  value: item.countPerType,
+  color: predefinedColors[index % predefinedColors.length],
+}));
+
+
+  
+ 
   
     const detailsData1 = [
       // { id: 1, icon: <MonetizationOnIcon /> },
@@ -82,6 +125,7 @@ export default function RestaurantHome() {
 
               <div className="table-detail-header">
                   <p>Order summary</p>
+                  
                   <button id='filter-order' onClick={()=>setFilterOrder(true)}>Filter order</button>
 
               </div>
@@ -96,7 +140,7 @@ export default function RestaurantHome() {
                     <th>Customer</th>
                     <th>Order Id</th>
                     <th>Order Type</th>
-                    {/* <th>Payment status</th> */}
+                    <th>Payment status</th>
                     <th>Order status</th>
                   </tr>
                 </thead>
@@ -106,7 +150,10 @@ export default function RestaurantHome() {
                     <td>{o.fullName}</td>
                     <td>{o.orderId}</td>
                     <td>{o.orderType}</td>
-                    {/* <td>{o.status}</td> */}
+                    <td>{o.status===1 ? (
+                      <p style={{color:'green'}}>complete</p>
+                    ):(<p style={{color:'red'}}>pending</p>
+                    )}</td>
                     <td> {o.orderState===2 ? (
                           <p style={{color:'green'}}>complete</p>
                         ):o.orderState===1 ? (
@@ -221,6 +268,17 @@ export default function RestaurantHome() {
                     </select>
                   </div>
                   <div className="barChart-content">
+                    {isLoading ? (
+                      <p>Loading...</p>
+                    ) : (
+                      <PieChart 
+                           data={pieChartData} 
+                           lineWidth={50}
+                           
+                      
+                      
+                      />
+                    )}
 
                   </div>
 
