@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Button from "./components/Button";
-import Button2 from "./components/Button2";
-import { useSelector, useDispatch } from "react-redux";
-import "./styles/App.css";
-import Sidebar from "./components/Sidebar";
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import * as UserRoutes from "./routes/Routes";
-import LandingPage from "./views/landing/LandingPage";
-import SignIn from "./views/landing/SignIn";
-import SignUp from "./views/landing/SignUp";
-import ResetPassword from "./views/landing/ResetPassword";
-import Otp from "./views/landing/Otp";
-import ProtectedRoutes from "./utils/ProtectedRoutes";
+import React, {useEffect, useState} from 'react';
+import Button from './components/Button';
+import Button2 from './components/Button2';
+import {useSelector, useDispatch} from 'react-redux';
+import './styles/App.css';
+import Sidebar from './components/Sidebar';
+import {BrowserRouter, Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import * as UserRoutes from './routes/Routes';
+import LandingPage from './views/landing/LandingPage';
+import SignIn from './views/landing/SignIn';
+import SignUp from './views/landing/SignUp';
+import ResetPassword from './views/landing/ResetPassword';
+import Otp from './views/landing/Otp';
+import ProtectedRoutes from './utils/ProtectedRoutes';
 
-import Navbar from "./components/Navbar";
+import Navbar from './components/Navbar';
 
 function App() {
   console.log(localStorage.getItem("type"));

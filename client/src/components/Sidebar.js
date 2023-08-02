@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
-import MenuItem from "./MenuItem";
-import "../styles/Sidebar.css";
-import HomeIcon from "@mui/icons-material/Home";
-import StoreIcon from "@mui/icons-material/Store";
-import WindowIcon from "@mui/icons-material/Window";
-import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
-import PeopleIcon from "@mui/icons-material/People";
-import AddHomeIcon from "@mui/icons-material/AddHome";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
+import React, {useEffect, useState} from 'react';
+import MenuItem from './MenuItem';
+import '../styles/Sidebar.css';
+import HomeIcon from '@mui/icons-material/Home';
+import StoreIcon from '@mui/icons-material/Store';
+import WindowIcon from '@mui/icons-material/Window';
+import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
+import PeopleIcon from '@mui/icons-material/People';
+import AddHomeIcon from '@mui/icons-material/AddHome';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
 import GroupsIcon from '@mui/icons-material/Groups';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EuroIcon from '@mui/icons-material/Euro';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import {useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 
-import GradingIcon from "@mui/icons-material/Grading";
-import EventSeatIcon from "@mui/icons-material/EventSeat";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import GradingIcon from '@mui/icons-material/Grading';
+import EventSeatIcon from '@mui/icons-material/EventSeat';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 const ShowSidebar = (props) => {
-  const navigate = useNavigate();
-  var user = localStorage.getItem("type");
-  const [role, setRole] = useState("delivery");
-  const [Active, setActive] = useState(1);
-  /*useEffect(() => {
+	const navigate = useNavigate();
+	var user = localStorage.getItem('type');
+	const [role, setRole] = useState('delivery');
+	const [Active, setActive] = useState(1);
+	/*useEffect(() => {
     navigate('/order');
   })*/
   //console.log(user);
@@ -116,15 +116,15 @@ const ShowSidebar = (props) => {
   }
 };
 export default function Sidebar(props) {
-  const [showSidebar, setShowSidebar] = useState(true);
+	const [showSidebar, setShowSidebar] = useState(true);
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
-  return (
-    <>
-      {/* <div onClick={toggleSidebar} className='sidebarButton'>Hello</div> */}
-      {showSidebar && <ShowSidebar type={props.type} />}
-    </>
-  );
+	const toggleSidebar = () => {
+		setShowSidebar(!showSidebar);
+	};
+	return (
+		<>
+			{/* <div onClick={toggleSidebar} className='sidebarButton'>Hello</div> */}
+			{showSidebar && <ShowSidebar type={props.type} />}
+		</>
+	);
 }
