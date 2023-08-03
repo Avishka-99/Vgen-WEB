@@ -16,13 +16,13 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EuroIcon from '@mui/icons-material/Euro';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import {useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 
-import GradingIcon from "@mui/icons-material/Grading";
-import EventSeatIcon from "@mui/icons-material/EventSeat";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import GradingIcon from '@mui/icons-material/Grading';
+import EventSeatIcon from '@mui/icons-material/EventSeat';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 const ShowSidebar = (props) => {
   const navigate = useNavigate();
   var user = localStorage.getItem("type");
@@ -128,17 +128,56 @@ const ShowSidebar = (props) => {
     </div>
     )
   }
+  else if(props.type=="resturantManager"){
+    return(
+      <div className="sidebar" onSelect={(item) => console.log(item)}>
+        <div>
+          {customer.map((item) => (
+            <MenuItem key={item.id}
+            label={expanded ? item.label :null}
+             icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+          ))}
+        </div>
+       
+    </div>
+    )
+  }else if(props.type=="resturantManager"){
+    return(
+      <div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
+        <div className="expand-toggle" onClick={toggleSidebar}>
+          {expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon/>}
+          </div>
+        <div>
+          {restaurant.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} 
+            label={expanded ? item.label:null} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+          ))}
+        </div>
+    </div>
+    )
+  }
+  else if(props.type=="resturantManager"){
+    return(
+      <div className="sidebar" onSelect={(item) => console.log(item)}>
+        <div>
+          {restaurant.map((item) => (
+            <MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+          ))}
+        </div>
+    </div>
+    )
+  }
 };
 export default function Sidebar(props) {
-  const [showSidebar, setShowSidebar] = useState(true);
+	const [showSidebar, setShowSidebar] = useState(true);
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
-  return (
-    <>
-      {/* <div onClick={toggleSidebar} className='sidebarButton'>Hello</div> */}
-      {showSidebar && <ShowSidebar type={props.type} />}
-    </>
-  );
+	const toggleSidebar = () => {
+		setShowSidebar(!showSidebar);
+	};
+	return (
+		<>
+			{/* <div onClick={toggleSidebar} className='sidebarButton'>Hello</div> */}
+			{showSidebar && <ShowSidebar type={props.type} />}
+		</>
+	);
 }

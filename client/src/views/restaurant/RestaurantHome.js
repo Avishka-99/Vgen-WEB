@@ -6,59 +6,131 @@ import React, { useEffect, useState } from 'react'
 import DashboardDetails from './DashboardDetails';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker';
+// import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 
 import '../../styles/RestaurentHome.css'
 
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
-
+import { PieChart } from 'react-minimal-pie-chart';
 
 
 export default function RestaurantHome() {
 
-
-  const user_id=localStorage.getItem('userId');
-  console.log(user_id)
-  const [orders,setOrders]=useState([]);
+  const [orderCount,setOrderCount]=useState([]);
+  const [orderType,setOrderType]=useState([]);
+  const [orders, setOrders] = useState([]);
   const [filterOrder,setFilterOrder]=useState(false);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [startTime, setStartTime] = useState('08:00'); // Set initial start time
-  const [endTime, setEndTime] = useState('18:00'); // Set initial end time
+  const [isLoading, setIsLoading] = useState(true);
+  // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
+  // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
   
-  const getOrderDetails=async ()=>{
-    try{
-      const res=await Axios.get(API_ENDPOINTS.restaurantDetails_URL,{
+
+
+  const user_id=localStorage.getItem('userId');
+  //get order details in table view
+  const getOrderDetails = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.restaurantDetails_URL, {
         params: {
           user_id: user_id,
         },
       });
-      console.log(res.data);
+      
       setOrders(res.data);
-    }catch(err){
+      setIsLoading(false);
+    } catch (err) {
       console.log('Error fetching data:', err);
+      setIsLoading(false);
     }
   };
+  //
+   //get order types details for pie chart
+      
+   const getOrderTypeDetails = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getOrderType_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setOrderType(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
 
-  useEffect(() => {
-    getOrderDetails();
-  },[])
+  //get order types details for pie chart
+      
+  const getOrderCountDetails = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getOrderCountDetail_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setOrderCount(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+    useEffect(() => {
+        getOrderDetails();
+        getOrderTypeDetails();
+        getOrderCountDetails();
+    },[])
+    // Use another useEffect to observe the changes in 'orders'
+    useEffect(() => {
+      
+    }, [orders]);
+
+    // Use another useEffect to observe the changes in 'orderType'
+    useEffect(() => {
+    console.log(orderType);
+    }, [orderType]);
+
+    // Use another useEffect to observe the changes in 'orderCount'
+    useEffect(() => {
+      console.log("order count ",orderCount);
+    }, [orderCount]);
+
+    const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
+
+    const pieChartData = orderType.map((item, index) => ({
+      title: item.orderType,
+      value: item.count,
+      color: predefinedColors[index % predefinedColors.length],
+    }));
+
+    let revenue=(orderCount.total_amount)*0.9;
+    let total_count=orderCount.total_count;
+    let total_quantity=orderCount.total_quantity;
+ 
   
     const detailsData1 = [
       // { id: 1, icon: <MonetizationOnIcon /> },
-      { id: 2, name: 'Rs :', value: '3 000' },
+      { id: 2, name: 'Rs :', value: revenue.toString() },
       { id: 3, name: 'Total Revenue'},
     ];
     const detailsData2 = [
       // { id: 1, icon: <DinnerDiningIcon /> },
-      { id: 2, value: '50' },
-      { id: 3, name: 'Total Dish Ordered'},
+      { id: 2, value: total_quantity },
+      { id: 3, name: 'Total dish count'},
     ];
     const detailsData3 = [
       // { id: 1, icon: <HailIcon /> },
-      { id: 2, value: '30' },
+      { id: 2, value: total_count },
       { id: 3, name: 'Total Customers'},
     ];
   
@@ -67,6 +139,7 @@ export default function RestaurantHome() {
   
     return (
       <div>
+
         <div className="Details">
           <div className='Details-left'>
             <div className="Upper-details">
@@ -78,57 +151,53 @@ export default function RestaurantHome() {
 
               <div className="table-detail-header">
                   <p>Order summary</p>
+                  
                   <button id='filter-order' onClick={()=>setFilterOrder(true)}>Filter order</button>
 
               </div>
 
               <div className="table-content">
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
                 <table>
-                  <thead>
-                    <tr>
-                      <th>Customer</th>
-                      <th>Order Id</th>
-                      <th>Order Type</th>
-                      <th>Payment status</th>
-                      <th>Order status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {/* {orders.map(o => (
-                    <tr key={o.orderId}>
-                      <td>o.customerName</td>
-                      <td>o.orderId</td>
-                      <td>o.orderType</td>
-                      <td>o.paymentStatus</td>
-                      <td>o.orderStatus</td>
-                    </tr>
-                  ))}  */}
-                     <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                    <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                    <tr >
-                      <td>Nirupana ganganath</td>
-                      <td>1</td>
-                      <td>delivery</td>
-                      <td>pending</td>
-                      <td>complete</td>
-                    </tr>
-                  
-                  </tbody>
-                  
-                </table>
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Order Id</th>
+                    <th>Order Type</th>
+                    <th>Payment status</th>
+                    <th>Order status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {orders.map((o) => (
+                  <tr key={o.orderId}>
+                    <td>{o.fullName}</td>
+                    <td>{o.orderId}</td>
+                    <td>{o.orderType}</td>
+                    <td>{o.status===1 ? (
+                      <p style={{color:'green'}}>complete</p>
+                    ):(<p style={{color:'red'}}>pending</p>
+                    )}</td>
+                    <td> {o.orderState===2 ? (
+                          <p style={{color:'green'}}>complete</p>
+                        ):o.orderState===1 ? (
+                          <p style={{color:'orange'}}>preparing</p>
+                        ): (
+                          <p style={{color:'red'}}>pending</p>
+                        )}
+                        
+                        
+                      
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
 
+                
+              </table>
+              )}
               </div>
               
               
@@ -225,6 +294,26 @@ export default function RestaurantHome() {
                     </select>
                   </div>
                   <div className="barChart-content">
+                    {isLoading ? (
+                      <p>Loading...</p>
+                    ) : (
+                      <>
+                         <PieChart 
+                            data={pieChartData} 
+                            lineWidth={50}
+                        />
+                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                            {pieChartData.map((entry) => (
+                              <div key={entry.title} style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}>
+                                <div style={{ width: '15px', height: '15px', backgroundColor: entry.color, marginRight: '5px' }} />
+                                <span>{entry.title}</span>
+                              </div>
+                            ))}
+                        </div>
+                        
+                      </>
+                      
+                    )}
 
                   </div>
 
