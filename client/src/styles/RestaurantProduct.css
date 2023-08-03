@@ -1,3 +1,48 @@
+/*Restaurant product css*/
+.product-details{
+  width: 100%;
+  height: 100%;
+}
+
+.product-details h1{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 40%;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+.Product-add-btn{
+   margin-top: 1%;
+    color: black;
+    font-size: 18px;
+    margin-left: 80%;
+    padding: 10px;
+    background-color: #BCDAC8;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    border: none; 
+}
+
+.product-details-header{
+  width: 100%;
+  height: 10%;
+}
+.product-details-content{
+  width: 100%;
+  height: 90%;
+  margin-top: 10%;
+  
+}
+.product-card{
+  width: 80%;
+  margin-left: 10%;
+}
+/**/
+
+/*product add popup css*/
 .product-add-popup{
   position: fixed;
   top: 0;
@@ -38,29 +83,6 @@
   margin-bottom: 0px;
   margin-right: 0px;
 } 
-
-.produxt-details h1{
-  font-weight: bold;
-  font-size: 20px;
-  margin-left: 40%;
-  margin-top: 5px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-}
-
-.Product-add-btn{
-   margin-top: 1%;
-    color: black;
-    font-size: 18px;
-    margin-left: 80%;
-    padding: 10px;
-    background-color: #BCDAC8;
-    width: 150px;
-    border-radius: 5px;
-    text-align: center;
-    border: none; 
-}
-  
 
 .Close-Btn {
   background-color:white;
@@ -128,7 +150,7 @@
   width: 70%;
   height: 90%
 }
-
+/* */
 
 
 

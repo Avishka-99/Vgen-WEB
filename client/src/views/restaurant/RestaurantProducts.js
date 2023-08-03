@@ -6,31 +6,38 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
+import RestaurantItem from './RestaurantItem ';
 
 export default function RestaurantProducts() {
   const [popup,setPopup]=useState(false);
   const [products,setProducts]=useState([]);
   const [isLoading,setIsLoading]=useState(true);
+ 
+  const user_id=localStorage.getItem('userId');
+  const getProducts = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+  
+      setProducts(res.data);
+     
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+ 
+ 
   useEffect(() => {
-    const user_id=localStorage.getItem('userId');
-    const getProducts = async () => {
-      try {
-        const res = await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
-          params: {
-            user_id: user_id,
-          },
-        });
-        
-        setProducts(res.data);
-        setIsLoading(false);
-      } catch (err) {
-        console.log('Error fetching data:', err);
-        setIsLoading(false);
-      }
-    };
-    getProducts();
-   
+     getProducts();
   }, [])
+  useEffect(() => {
+    console.log(products);
+ }, [products])
 
   const responsive = {
     superLargeDesktop: {
@@ -52,19 +59,41 @@ export default function RestaurantProducts() {
     }
   };
 
+  
+
   return (
    
    
-   <div className="produxt-details">
-       <h1>Restaurant products</h1>
-       <button className='Product-add-btn' onClick={()=>setPopup(true)}>Add product</button>
-       <RestaurantProductAdd trigger={popup} setTrigger={setPopup}></RestaurantProductAdd>
-       <Carousel responsive={responsive}>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-      </Carousel>
+   <div className="product-details">
+       <div className="product-details-header">
+          <h1>Restaurant products</h1>
+          <button className='Product-add-btn' onClick={()=>setPopup(true)}>Add product</button>
+       </div>
+      <div className="product-details-content">
+        {popup===true ?(
+          <div className="popup">
+            <RestaurantProductAdd trigger={popup} setTrigger={setPopup}></RestaurantProductAdd>
+          </div>
+        ) : (
+          
+        <div className="product-card">
+          {!isLoading && (
+            products.length === 0 ? (
+              <p>No products</p>
+            ) : (
+              <Carousel responsive={responsive}>
+                {products.map(o => (<RestaurantItem key={o.id} data={o}/>))}
+              </Carousel>
+            )
+          )}
+        </div>
+        )}
+        
+        
+        
+      </div>
+      
+      
    </div>
 
 
