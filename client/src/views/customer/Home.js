@@ -4,6 +4,7 @@ import "reactjs-popup/dist/index.css";
 import { useSelector, useDispatch } from "react-redux";
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
 // import Button from '../../components/Button';
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { IncrementCounterAction } from "../../actions/IncrementCounterAction";
 import Carousel from "react-multi-carousel";
@@ -11,9 +12,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import "../../styles/Home.css";
+import Button from "../../components/Button";
 
 function Home() {
   const [modal, setModal] = useState(false);
+  
 
   //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
 
@@ -24,22 +27,14 @@ function Home() {
   const [name, setName] = useState("");
   const val = useSelector((state) => state.ValueReducer.value);
   const modalRef = useRef(null);
-
+  const navigate = useNavigate();
   var num = "";
+  const navigateTo = (page) => {
+	
+			navigate('/' + page);
+		
+	};
 
-  // const increaseCounter = () => {
-  //     Axios.post("http://localhost:5001/api/registeruser", {
-  //         email: "Dasith",
-  //         password: "534rdsd",
-  //     }).then((response) => {
-  //         Axios.get("http://localhost:5001/api/data").then((response) => {
-  //             console.log(response.data[0].id);
-  //             dispatch(IncrementCounterAction(parseInt(response.data[0].id)));
-  //         });
-  //     });
-  //     //const data = Axios
-
-    // };
     const [formData,setFormData]=useState([])
     const [formData_1,setFormData_1]=useState([])
 
@@ -152,6 +147,8 @@ function Home() {
           ))}
        
         </Carousel>
+        {/* go to category */}
+        <div className="seeMore" onClick={() => navigateTo('category')}><p><RiAddLine/>See More</p></div>
       </div>
       {/* Restaurants */}
       <div className="vision_1">
