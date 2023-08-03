@@ -18,7 +18,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 
 export default function RestaurantHome() {
 
-
+  const [orderCount,setOrderCount]=useState([]);
   const [orderType,setOrderType]=useState([]);
   const [orders, setOrders] = useState([]);
   const [filterOrder,setFilterOrder]=useState(false);
@@ -66,45 +66,71 @@ export default function RestaurantHome() {
     }
   };
   //
-useEffect(() => {
-    getOrderDetails();
-    getOrderTypeDetails();
-},[])
- // Use another useEffect to observe the changes in 'orders'
-useEffect(() => {
-  
-}, [orders]);
 
-// Use another useEffect to observe the changes in 'orderType'
-useEffect(() => {
- console.log(orderType);
-}, [orderType]);
+  //get order types details for pie chart
+      
+  const getOrderCountDetails = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getOrderCountDetail_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setOrderCount(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+    useEffect(() => {
+        getOrderDetails();
+        getOrderTypeDetails();
+        getOrderCountDetails();
+    },[])
+    // Use another useEffect to observe the changes in 'orders'
+    useEffect(() => {
+      
+    }, [orders]);
 
-const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
+    // Use another useEffect to observe the changes in 'orderType'
+    useEffect(() => {
+    console.log(orderType);
+    }, [orderType]);
 
-const pieChartData = orderType.map((item, index) => ({
-  title: item.orderType,
-  value: item.countPerType,
-  color: predefinedColors[index % predefinedColors.length],
-}));
+    // Use another useEffect to observe the changes in 'orderCount'
+    useEffect(() => {
+      console.log("order count ",orderCount);
+    }, [orderCount]);
 
+    const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
 
-  
+    const pieChartData = orderType.map((item, index) => ({
+      title: item.orderType,
+      value: item.count,
+      color: predefinedColors[index % predefinedColors.length],
+    }));
+
+    let revenue=(orderCount.total_amount)*0.9;
+    let total_count=orderCount.total_count;
+    let total_quantity=orderCount.total_quantity;
  
   
     const detailsData1 = [
       // { id: 1, icon: <MonetizationOnIcon /> },
-      { id: 2, name: 'Rs :', value: '3 000' },
+      { id: 2, name: 'Rs :', value: revenue.toString() },
       { id: 3, name: 'Total Revenue'},
     ];
     const detailsData2 = [
       // { id: 1, icon: <DinnerDiningIcon /> },
-      { id: 2, value: '50' },
-      { id: 3, name: 'Total Dish Ordered'},
+      { id: 2, value: total_quantity },
+      { id: 3, name: 'Total dish count'},
     ];
     const detailsData3 = [
       // { id: 1, icon: <HailIcon /> },
-      { id: 2, value: '30' },
+      { id: 2, value: total_count },
       { id: 3, name: 'Total Customers'},
     ];
   
@@ -271,13 +297,22 @@ const pieChartData = orderType.map((item, index) => ({
                     {isLoading ? (
                       <p>Loading...</p>
                     ) : (
-                      <PieChart 
-                           data={pieChartData} 
-                           lineWidth={50}
-                           
+                      <>
+                         <PieChart 
+                            data={pieChartData} 
+                            lineWidth={50}
+                        />
+                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                            {pieChartData.map((entry) => (
+                              <div key={entry.title} style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}>
+                                <div style={{ width: '15px', height: '15px', backgroundColor: entry.color, marginRight: '5px' }} />
+                                <span>{entry.title}</span>
+                              </div>
+                            ))}
+                        </div>
+                        
+                      </>
                       
-                      
-                      />
                     )}
 
                   </div>
