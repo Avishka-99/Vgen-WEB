@@ -1,3 +1,4 @@
+
 .sidebar {
 	height: 100%;
 	background-color: #333;
@@ -6,6 +7,7 @@
 	position: fixed;
 	z-index: 1;
 	top: 0;
+
 }
 .menuIcon {
 	display: flex;

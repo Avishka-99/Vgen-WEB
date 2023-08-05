@@ -1,23 +1,29 @@
-.product-add-link {
-  padding: 10px 20px;
-  background-color: #bcdac8;
-  color: black;
-  text-decoration: none;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  margin-left: 85%;
+/*Restaurant product css*/
+.product-details{
+  width: 100%;
+  height: 100%;
 }
 
-.Back-link {
-  padding: 10px 20px;
-  background-color: #bcdac8;
-  color: black;
-  text-decoration: none;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  margin-left: 85%;
+.product-details h1{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 40%;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+.Product-add-btn{
+   margin-top: 1%;
+    color: black;
+    font-size: 18px;
+    margin-left: 80%;
+    padding: 10px;
+    background-color: #BCDAC8;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    border: none; 
 }
 
 .product-details-header{
@@ -72,12 +78,19 @@
   right: 140px;
   font-weight: bold;
   font-size: 20px;
-  font-weight: bold;
-  color: black;
-}
+  
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+} 
 
-/* styles.css */
-.form-container {
+.Close-Btn {
+  background-color:white;
+  color: black;
+  padding: 8px;
+  border: none;
+  border-radius: 0px 15px 0px 0px;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,26 +98,28 @@
   height: 30px;
 }
 
-label {
-  margin-top: 10px;
+
+.Close-Btn:hover {
+  background-color: #dc3545;
 }
 
-.form-container input {
-  padding: 8px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 300px;
+/* 
+.product-add-right{
+  height: 100%;
+
+  width: 50%;
 }
 
-.productImage {
-  /* Custom styles for file input, you can customize this as needed */
-}
+.product-add-left{
+  height: 100%;
+  
+  width: 50%;
+} */
 
-.submit-button {
-  background-color: #bcdac8;
+.submit-button{
+  background-color: #BCDAC8;
   color: black;
-  padding: 10px 20px;
+  padding: 8px;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -137,9 +152,39 @@ label {
 }
 /* */
 
+/*Restaurant product item css*/
+.outer-frame{
+ margin-left: 20px;
+ background-color: #dc3545;
+ height: 500px;
+ border-radius: 15px;
+}
+/**/
 
 
+/*search bar css*/
+.input-wrapper{
+  background-color: white;
+  width: 600px;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  display: flex;
+  align-items: center;
+  margin-left: 400px;
+}
 
+.input-wrapper input{
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 1.25rem;
+  margin-left: 20px;
+}
 
-
-
+.input-wrapper input:focus{
+  outline: none;
+}
+/**/
