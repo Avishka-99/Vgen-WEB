@@ -7,13 +7,14 @@ import 'react-multi-carousel/lib/styles.css';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import RestaurantItem from './RestaurantItem ';
-
+import SearchIcon from '@mui/icons-material/Search';
 export default function RestaurantProducts() {
   const [popup,setPopup]=useState(false);
   const [products,setProducts]=useState([]);
   const [isLoading,setIsLoading]=useState(true);
  
   const user_id=localStorage.getItem('userId');
+  const [input,setInput]=useState("");
   const getProducts = async () => {
     try {
       const res = await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
@@ -58,6 +59,9 @@ export default function RestaurantProducts() {
       items: 1
     }
   };
+  const searchData =(value)=>{
+
+  }
 
   
 
@@ -67,7 +71,12 @@ export default function RestaurantProducts() {
    <div className="product-details">
        <div className="product-details-header">
           <h1>Restaurant products</h1>
-          <button className='Product-add-btn' onClick={()=>setPopup(true)}>Add product</button>
+          <button className='Product-add-btn' onClick={()=>setPopup(true)}>Add product</button><br />
+          <div className="input-wrapper">
+            <SearchIcon/>
+            <input type="search" placeholder='type of search' value={input} onChange={(e)=>setInput(e.target.value)}/>
+          </div>
+          
        </div>
       <div className="product-details-content">
         {popup===true ?(

@@ -14,10 +14,12 @@ const RestaurantItem = ({data}) => {
           </div>
           <div className="frame-down">
 
-            <p>{data.productId}</p>
-            <p>{data. quantity}</p>
-            <p>{data.price}</p>
-            <p>{data.products[0].productName}</p>
+            <label htmlFor="">Product Name: </label>
+            <span>{data.products[0].productName}</span><br />
+            <label htmlFor="">Product quantity: </label>
+            <span>{data. quantity}</span><br />
+            <label htmlFor="">Product price: </label>
+            <span>Rs .{data.price}</span><br />
             <p>{data.products[0].description}</p>
             <button>update</button><br />
             <button>delete</button>
