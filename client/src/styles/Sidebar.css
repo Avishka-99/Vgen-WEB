@@ -4,7 +4,7 @@
 	background-color: #333;
 	color: white;
 	transition: width 0.3s ease;
-	position: fixed;
+	position: relative;
 	z-index: 1;
 	top: 0;
 
@@ -33,9 +33,7 @@
 	align-items: center;
 	margin-top: 15%;
 	/* margin-left: 15%; */
-
 	margin-bottom: 15%;
-
 	height: 4.5vw;
 	/* width: 4.5vw; */
 	border-radius: 1vw;
@@ -63,6 +61,8 @@
 
 .sidebar .collapsed {
 	width: 80px;
+	text-align: center;
+
 }
 .sidebar .expanded {
 	width: 220px;
