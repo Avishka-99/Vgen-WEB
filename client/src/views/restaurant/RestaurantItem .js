@@ -1,9 +1,11 @@
 import React from "react";
 
 
-const RestaurantItem = ({data}) => {
+const RestaurantItem = ({data,oneProductHandle}) => {
 
-
+  const handleClick = () => {
+    oneProductHandle(data);
+  };
 
 
     return (  
@@ -20,9 +22,9 @@ const RestaurantItem = ({data}) => {
             <span>{data. quantity}</span><br />
             <label htmlFor="">Product price: </label>
             <span>Rs .{data.price}</span><br />
-            <p>{data.products[0].description}</p>
-            <button>update</button><br />
-            <button>delete</button>
+            <p>This is {data.products[0].description}</p>
+            <button className="frame-update-btn" onClick={handleClick}>update</button><br />
+            <button className="frame-delete-btn" >delete</button>
           </div>
       </div>
     );
