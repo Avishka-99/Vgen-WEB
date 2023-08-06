@@ -44,7 +44,7 @@ const Navbar = (props) => {
         <div className="container_1">
           <ul className="nav-links">
             <input placeholder="Search Items..."/>
-            <div onClick={()=>navigateTo("Cart")}><ShoppingCartIcon/><sup>{3}</sup></div>
+            <div  onClick={()=>navigateTo("Cart")}><ShoppingCartIcon/><sup>{3}</sup></div>
 
             {/* {customer.map((item) => (
               <li key={item.id}>
