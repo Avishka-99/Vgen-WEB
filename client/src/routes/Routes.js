@@ -30,3 +30,10 @@ export const staffRoutes = [
   { id: 3, path: "/complains", element: <UserViews.Complains/> },
   { id: 4, path: "/profile", element: <UserViews.Profile/> },
 ];
+export const manufactureRoutes = [
+  { id: 1, path: "/home", element: <UserViews.ManufactureHome/> },
+  { id: 2, path: "/row_products", element: <UserViews.RowProducts/> },
+  { id: 3, path: "/row_orders", element: <UserViews.RowOrderView/> },
+  { id: 4, path: "/row_complains", element: <UserViews.ManufactureComplains/> },
+  
+];

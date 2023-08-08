@@ -4,7 +4,7 @@
 	background-color: #333;
 	color: white;
 	transition: width 0.3s ease;
-	position: fixed;
+	position: relative;
 	z-index: 1;
 	top: 0;
 

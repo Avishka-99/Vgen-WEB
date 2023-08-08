@@ -14,7 +14,8 @@ const SearchResult = ({ result, oneProductHandle}) => {
             onClick={handleClick}
         >
         {result.products[0].productName}
-        
+        {/* <span>{result.products[0].productName}</span> */}
+        {/* <img src={`http://localhost:5001/uploads/products/${result.products[0].productImage}`} alt="product" style={{width: 20, height: 20}}/> */}
         </div>
         
      );
