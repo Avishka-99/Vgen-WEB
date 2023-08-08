@@ -91,19 +91,19 @@ export default function RestaurantHome() {
         getOrderCountDetails();
     },[])
     // Use another useEffect to observe the changes in 'orders'
-    useEffect(() => {
+    // useEffect(() => {
       
-    }, [orders]);
+    // }, [orders]);
 
-    // Use another useEffect to observe the changes in 'orderType'
-    useEffect(() => {
-    console.log(orderType);
-    }, [orderType]);
+    // // Use another useEffect to observe the changes in 'orderType'
+    // useEffect(() => {
+    // console.log(orderType);
+    // }, [orderType]);
 
-    // Use another useEffect to observe the changes in 'orderCount'
-    useEffect(() => {
-      console.log("order count ",orderCount);
-    }, [orderCount]);
+    // // Use another useEffect to observe the changes in 'orderCount'
+    // useEffect(() => {
+    //   console.log("order count ",orderCount);
+    // }, [orderCount]);
 
     const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
 
@@ -181,11 +181,17 @@ export default function RestaurantHome() {
                     ):(<p style={{color:'red'}}>pending</p>
                     )}</td>
                     <td> {o.orderState===2 ? (
+                          //complete the prepare
                           <p style={{color:'green'}}>complete</p>
                         ):o.orderState===1 ? (
+                          //order accept and preparing
                           <p style={{color:'orange'}}>preparing</p>
-                        ): (
-                          <p style={{color:'red'}}>pending</p>
+                        ): o.orderState===0 ? (
+                          //new orders and pending to accept
+                          <p style={{color:'yellow'}}>pending</p>
+                        ):(
+                           //orderState=-1 mean reject order
+                           <p style={{color:'red'}}>reject</p>
                         )}
                         
                         

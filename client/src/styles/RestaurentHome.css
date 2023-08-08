@@ -4,16 +4,16 @@
 
 .Details-left{
     height: 100%;
-    width: 70%;
+    width: 65%;
 }
 
 .Details-Right{
     height: 100%;
-    width: 30%;
+    width: 35%;
 }
 
 .Upper-details{
-    
+    margin-bottom: 50px;
     display: flex;
 }
 .table-detail-header{
@@ -23,7 +23,7 @@
 .table-detail-header p{
     font-weight: bold;
     font-size: 18px;
-    margin-left: 14%;
+    /* margin-left: 14%; */
     margin-top: 3%;
 }
 
@@ -52,7 +52,7 @@
   
   table {
     width: 86%;
-    margin-left: 14%;
+    /* margin-left: 14%; */
     border-collapse: collapse;
     /* border: 1px solid #ccc; */
     
@@ -94,7 +94,7 @@
 .most-ordered-header select{
     width: 120px;
     height: 40px;
-   text-align: center;
+    text-align: center;
     background-color: #BCDAC8;
     border-radius: 10px;
     margin-left: 26%;
@@ -192,7 +192,7 @@ margin-top: 3%;
 #order-status{
   width: 300px;
   height: 40px;
- text-align: center;
+  text-align: center;
   background-color: #BCDAC8;
   border-radius: 10px;
   margin-left: 16%;
