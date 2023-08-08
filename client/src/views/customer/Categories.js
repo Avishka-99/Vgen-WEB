@@ -70,6 +70,7 @@ export default function Categories() {
 
   return (
     <div>
+      <h1>Product Upload</h1>
      <form>
       <input type="text" placeholder="quantity" onChange={(e)=>{setQuantity(e.target.value)}}/>
       <input type="text" placeholder="description" onChange={(e)=>{setDescription(e.target.value)}}/>
@@ -84,23 +85,7 @@ export default function Categories() {
 
       <div>
       <h1>Card View</h1>
-      <div className="card-container">
-        {formData.map((data) => (
-          <div className="card" key={data.productId}>
-            <div className="card-body">
-              <h5 >{data.productName}</h5>
-              <p >{data.description}</p>
-              <p >{data.price}</p>
-              <p>{data.quantity}</p>
-              <img src={`http://localhost:5001/uploads/products/${data.productImage}`} />
-             
-            
-              
- 
-          </div>
-          </div>
-        ))}
-      </div>
+
     </div>
     </div>
   )
