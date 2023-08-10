@@ -4,12 +4,13 @@
 
 .Details-left{
     height: 100%;
-    width: 65%;
+    width: 64%;
 }
 
 .Details-Right{
     height: 100%;
-    width: 35%;
+    width: 36%;
+    
 }
 
 .Upper-details{
@@ -27,7 +28,17 @@
     margin-top: 3%;
 }
 
-
+.viewMoreProducts{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 36%;
+  margin-top: 15%;
+  color: black;
+  margin-bottom: 5%;
+}
 
 #filter-order{
     margin-top: 3%;

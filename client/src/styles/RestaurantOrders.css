@@ -14,6 +14,45 @@
     width: 100%;
 }
 
+.order-accept{
+  width: 90px;
+  height: 30px;
+  border: none;
+  background-color: #16bb58;
+  font-family: poppins-regular;
+  border-radius: 3px;
+  box-shadow: opx opx 8px #0cb14e;
+}
+.order-reject{
+  width: 90px;
+  height: 30px;
+  border: none;
+  background-color: #f14f4f;
+  border-radius: 3px;
+  box-shadow: opx opx 8px #f53333;
+}
+/*Dashboard three color button*/
+.clickable-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin: 2%;
+  margin-left: 5%;
+}
+
+.clickable-button:hover {
+  border-bottom: 10px solid #BCDAC8
+}
+
+
+/* */
+
 /*count order css*/
 .order-card{
   width: 20%;
@@ -59,9 +98,9 @@
     position: relative;
     padding: 32px;
     width: 100%;
-    max-width: 400px;
+    max-width: 900px;
     height: 100%;
-    max-height: 500px;
+    max-height: 600px;
     background-color: white;
     border-radius: 15px;
     display: flex;
@@ -72,11 +111,12 @@
     right: 1px;
     
   } 
+ 
   
   .more-details-popup-inner h2{
     position: absolute;
     top: 1px;
-    right: 140px;
+    right: 350px;
     font-weight: bold;
     font-size: 20px;
     font-family: poppins-regular;
@@ -103,5 +143,71 @@
   .Close-Btn:hover {
     background-color: #dc3545;
   }
+  .inner-left h3{
+    text-align: center;
+  }
+  .inner-Right h3{
+    text-align: center;
+  }
+
+
+  .inner-Right{
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+   
+  }
+  .inner-left{
+    width: 50%;
+    height: 100%;
+    
+    
+  }
   
   /* */
+
+
+  /*user card css*/
+  .user-card {
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 8px #ddd;
+    padding: 15px;
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+    background-color: #f7f7f7;
+    text-align: center;
+    border-radius: 20px;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 10px;
+    margin-top: 25%;
+  }
+  
+  .user-name {
+    font-size: 1.5rem;
+    margin: 5px 0;
+
+  }
+  
+  .address, .tel-no {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+    font-family: poppins-regular;
+  }
+  .card-label{
+    font-size: 1rem;
+    color: #121212;
+    font-weight: bold;
+    margin-bottom: 2%;
+    font-family: poppins-regular;
+  }
+  
+  /**/

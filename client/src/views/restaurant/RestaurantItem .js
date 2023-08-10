@@ -2,7 +2,7 @@ import React from "react";
 
 
 const RestaurantItem = ({data,oneProductHandle}) => {
-
+  console.log(data);
   const handleClick = () => {
     oneProductHandle(data);
   };
