@@ -9,4 +9,5 @@ export const restaurantDetails_URL = '/api/resDetailsGet';
 export const getAllProduct_URL='/api/allProduct';
 export const getOrderType_URL='api/orderTypes'
 export const getOrderCountDetail_URL='api/orderCountDetails'
+export const getOrderDetails_URL='api/getOrderDetails'
 //

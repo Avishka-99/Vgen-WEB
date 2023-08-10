@@ -14,7 +14,7 @@ import '../../styles/RestaurentHome.css'
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import { PieChart } from 'react-minimal-pie-chart';
-
+import { OrderCountCard } from './orderCountCard';
 
 export default function RestaurantHome() {
 
@@ -90,6 +90,7 @@ export default function RestaurantHome() {
         getOrderTypeDetails();
         getOrderCountDetails();
     },[])
+    
     // Use another useEffect to observe the changes in 'orders'
     // useEffect(() => {
       
@@ -118,23 +119,14 @@ export default function RestaurantHome() {
     let total_quantity=orderCount.total_quantity;
  
   
-    const detailsData1 = [
-      // { id: 1, icon: <MonetizationOnIcon /> },
-      { id: 2, name: 'Rs :', value: revenue.toString() },
-      { id: 3, name: 'Total Revenue'},
+    const upperData = [
+      { id: 1, title: 'Total Revenue',count:revenue, string:"RS: "},
+      { id: 2, title: 'Total dish count',count:total_quantity},
+      { id: 3, title: 'Total Customers',count:total_count},
     ];
-    const detailsData2 = [
-      // { id: 1, icon: <DinnerDiningIcon /> },
-      { id: 2, value: total_quantity },
-      { id: 3, name: 'Total dish count'},
-    ];
-    const detailsData3 = [
-      // { id: 1, icon: <HailIcon /> },
-      { id: 2, value: total_count },
-      { id: 3, name: 'Total Customers'},
-    ];
+     
   
-
+   
 
   
     return (
@@ -143,9 +135,9 @@ export default function RestaurantHome() {
         <div className="Details">
           <div className='Details-left'>
             <div className="Upper-details">
-              <DashboardDetails data={detailsData1} />
-              <DashboardDetails data={detailsData2} />
-              <DashboardDetails data={detailsData3} />
+              <OrderCountCard result={upperData[0]} customCss={{ marginLeft: '2%' ,height : '150px'}}/>
+              <OrderCountCard result={upperData[1]} customCss={{ marginLeft: '15%',height : '150px' }}/>
+              <OrderCountCard result={upperData[2]} customCss={{ marginLeft: '15%',height : '150px' }}/>
             </div>
             <div className="table-details">
 
