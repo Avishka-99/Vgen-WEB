@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 // import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 // import HailIcon from '@mui/icons-material/Hail';
 
-import DashboardDetails from './DashboardDetails';
+import {MostCount} from './MostCount';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 // import TimePicker from 'react-time-picker';
@@ -15,9 +15,10 @@ import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import { PieChart } from 'react-minimal-pie-chart';
 import { OrderCountCard } from './orderCountCard';
+import PopupContainer from './PopupContainer'
 
 export default function RestaurantHome() {
-
+  const [popup,setPopup]=useState(false);
   const [orderCount,setOrderCount]=useState([]);
   const [orderType,setOrderType]=useState([]);
   const [orders, setOrders] = useState([]);
@@ -27,8 +28,8 @@ export default function RestaurantHome() {
   const [isLoading, setIsLoading] = useState(true);
   // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
   // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
-  
-
+  const [mostOrders, setMostOrders] = useState([]);
+  const [mostOrdersL, setMostOrdersL] = useState([]);
 
   const user_id=localStorage.getItem('userId');
   //get order details in table view
@@ -85,26 +86,50 @@ export default function RestaurantHome() {
     }
   };
   //
+
+  //get Most order details with limit
+  const getMostOrderDetailsWithLimit = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getMostOrderCountWithLimit_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setMostOrdersL(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+
+  //get Most order details without limit
+  const getMostOrderDetailsWithOtLimit = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getMostOrderCountWithOutLimit_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      setPopup(true)
+      setMostOrders(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+
     useEffect(() => {
         getOrderDetails();
         getOrderTypeDetails();
         getOrderCountDetails();
+        getMostOrderDetailsWithLimit();
     },[])
-    
-    // Use another useEffect to observe the changes in 'orders'
-    // useEffect(() => {
-      
-    // }, [orders]);
-
-    // // Use another useEffect to observe the changes in 'orderType'
-    // useEffect(() => {
-    // console.log(orderType);
-    // }, [orderType]);
-
-    // // Use another useEffect to observe the changes in 'orderCount'
-    // useEffect(() => {
-    //   console.log("order count ",orderCount);
-    // }, [orderCount]);
+   
 
     const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
 
@@ -114,7 +139,7 @@ export default function RestaurantHome() {
       color: predefinedColors[index % predefinedColors.length],
     }));
 
-    let revenue=(orderCount.total_amount)*0.9;
+    let revenue=Math.round((orderCount.total_amount)*0.9);
     let total_count=orderCount.total_count;
     let total_quantity=orderCount.total_quantity;
  
@@ -276,7 +301,17 @@ export default function RestaurantHome() {
                   </select>
                 </div>
                 <div className="most-ordered-content">
-
+                    {isLoading ?(
+                      <p>Loading</p>
+                    ):(
+                      <>
+                      {mostOrdersL.map((p)=>(
+                        <MostCount key={p.orderId} productData={p}/>
+                    ))}
+                      <button className='viewMoreProducts'onClick={(getMostOrderDetailsWithOtLimit)} >view more</button>
+                      </>
+                    )}
+                     <PopupContainer trigger={popup} setTrigger={setPopup} title={"Most order List"} data={mostOrders}></PopupContainer>
                 </div>
                 
               </div>
