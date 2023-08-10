@@ -41,7 +41,7 @@ function App() {
           <><div className="sidebar">
           <Sidebar type={user} />
           </div>
-           <div className="container" style={{ width: '95%' ,marginLeft: '5%' }}>
+           <div className="container" style={{ width: '95%' }}>
            {user==='Customer'  ?(
                <div className="navbar">
                <Navbar type={user} />
