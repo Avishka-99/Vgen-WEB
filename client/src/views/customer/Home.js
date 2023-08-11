@@ -166,7 +166,7 @@ const decrementQuantity = () => {
         <p className='prices'>Quantity: {sellProduct.quantity}</p>
       </div>
     ))}
-                <button className='btn_cart' onClick={() => toggleModal(data1)}>
+                <button className='btn_cart_cus' onClick={() => toggleModal(data1)}>
                   View Product
                 </button>
               </div>
@@ -189,6 +189,7 @@ const decrementQuantity = () => {
                     />
 
                     {/* Render other product details here */}
+                    <div className='modal-product-details'>
                     <p className='prices'>Description:{selectedProduct.description}</p>
                     <p className='prices'>Vegan Type:{selectedProduct.veganType}</p>
                     <p className='prices'>Category:{selectedProduct.category}</p>
@@ -196,8 +197,11 @@ const decrementQuantity = () => {
                     <div key={index}>
                     <p className='prices'>Rs.{sellProduct.price}</p>
                     <p className='prices'>Quantity:{sellProduct.quantity}</p>
+                    
                     </div>
+                    
                 ))}
+                </div>
                 <div className="quantity-controls">
                   <button className="quantity-btn" onClick={decrementQuantity}>
                     <RiSubtractLine />
@@ -211,7 +215,7 @@ const decrementQuantity = () => {
                 
                 </div>
               
-                    <div className='btn_cart' onClick={()=>addToCartHandler({
+                    <div className='btn_cart_cus' onClick={()=>addToCartHandler({
                       productId: selectedProduct.productId,
                       productName: selectedProduct.productName,
                       productImage: selectedProduct.productImage,
@@ -246,7 +250,7 @@ const decrementQuantity = () => {
         
           <Carousel className="carousel" responsive={responsive1}>
             {formData_1.map((data) => (
-              <div className='card1' key={data.restaurantId}>
+              <div className='card' key={data.restaurantId}>
                 <p className='vegan_type'>{data.veganType}</p>
                 <img
                   className='product--image'
@@ -262,7 +266,11 @@ const decrementQuantity = () => {
             ))}
           </Carousel>
         </div>
-       
+        <div className='seeMore' onClick={() => navigateTo('restaurants')}>
+            <p>
+              See More
+            </p>
+          </div>
       </div>
     </div>
   );
