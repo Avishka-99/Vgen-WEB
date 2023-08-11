@@ -104,7 +104,7 @@ const ShowSidebar = (props) => {
 				</div>
 				<div>
 					{customer.map((item) => (
-						<MenuItem key={item.id} label={expanded ? item.label : null} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
 					))}
 				</div>
 			</div>
@@ -122,40 +122,7 @@ const ShowSidebar = (props) => {
 				</div>
 			</div>
 		);
-	} else if (props.type == 'resturantManager') {
-		return (
-			<div className='sidebar' onSelect={(item) => console.log(item)}>
-				<div>
-					{customer.map((item) => (
-						<MenuItem key={item.id} label={expanded ? item.label : null} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
-					))}
-				</div>
-			</div>
-		);
-	} else if (props.type == 'resturantManager') {
-		return (
-			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
-				<div className='expand-toggle' onClick={toggleSidebar}>
-					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
-				</div>
-				<div>
-					{restaurant.map((item) => (
-						<MenuItem key={item.id} icon={item.icon} label={expanded ? item.label : null} fun={navigateTo} link={item.link} index={item.index} active={Active} />
-					))}
-				</div>
-			</div>
-		);
-	} else if (props.type == 'resturantManager') {
-		return (
-			<div className='sidebar' onSelect={(item) => console.log(item)}>
-				<div>
-					{restaurant.map((item) => (
-						<MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
-					))}
-				</div>
-			</div>
-		);
-	}
+	} 
 };
 export default function Sidebar(props) {
 	const [showSidebar, setShowSidebar] = useState(true);

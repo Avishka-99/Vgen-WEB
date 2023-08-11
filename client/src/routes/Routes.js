@@ -6,6 +6,7 @@ export const customerRoutes = [
   { id: 3, path: "/community", element: <UserViews.Community/> },
   { id: 4, path: "/feed", element: <UserViews.Feed/> },
   { id: 5, path: "/restaurants", element: <UserViews.Restaurants/> },
+  { id: 6, path: "/cart", element: <UserViews.Cart/> },
 ];
 export const restaurantRoutes = [
   { id: 1, path: "/home", element: <UserViews.RestaurantHome/> },

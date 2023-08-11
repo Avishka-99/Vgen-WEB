@@ -3,11 +3,14 @@ import { combineReducers } from "@reduxjs/toolkit"
 import CounterReducer from "../reducers/CounterReducer"
 import ValueReducer from "../reducers/ValueReducer";
 import SetUserReducer from "../reducers/SetUserReducer";
+import cartReducer from "../reducers/cartReducer";
+
 
 const rootReducer = combineReducers({ 
     CounterReducer,
     ValueReducer,
-    SetUserReducer
+    SetUserReducer,
+    cartReducer
 
 })
 const Store = configureStore(
