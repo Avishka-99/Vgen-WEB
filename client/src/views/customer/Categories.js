@@ -49,6 +49,7 @@ export default function Categories() {
     //upload image    
     const formData=new FormData();
 
+
     formData.append('productImage',productImage);
     formData.append('quantity',quantity);
     formData.append('description',description);

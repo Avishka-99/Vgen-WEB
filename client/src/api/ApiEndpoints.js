@@ -3,6 +3,8 @@ export const SIGNUP_URL = '/api/registeruser';
 export const productUpload_URL = '/api/productStore';
 export const productGet_URL = '/api/productGet';
 export const verifyUser_URL = '/api/verifyuser';
+export const sellProduct_URL = '/api/sellProduct';
+export const orderPost_URL='/api/orderPost';
 //Restaurant manager apis
 export const itemAdd_url = '/api/productAdd';
 export const restaurantDetails_URL = '/api/resDetailsGet';
