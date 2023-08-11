@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 // import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 // import HailIcon from '@mui/icons-material/Hail';
 
-import DashboardDetails from './DashboardDetails';
+import {MostCount} from './MostCount';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 // import TimePicker from 'react-time-picker';
@@ -14,10 +14,11 @@ import '../../styles/RestaurentHome.css'
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import { PieChart } from 'react-minimal-pie-chart';
-
+import { OrderCountCard } from './orderCountCard';
+import PopupContainer from './PopupContainer'
 
 export default function RestaurantHome() {
-
+  const [popup,setPopup]=useState(false);
   const [orderCount,setOrderCount]=useState([]);
   const [orderType,setOrderType]=useState([]);
   const [orders, setOrders] = useState([]);
@@ -27,8 +28,8 @@ export default function RestaurantHome() {
   const [isLoading, setIsLoading] = useState(true);
   // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
   // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
-  
-
+  const [mostOrders, setMostOrders] = useState([]);
+  const [mostOrdersL, setMostOrdersL] = useState([]);
 
   const user_id=localStorage.getItem('userId');
   //get order details in table view
@@ -85,25 +86,50 @@ export default function RestaurantHome() {
     }
   };
   //
+
+  //get Most order details with limit
+  const getMostOrderDetailsWithLimit = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getMostOrderCountWithLimit_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      
+      setMostOrdersL(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+
+  //get Most order details without limit
+  const getMostOrderDetailsWithOtLimit = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getMostOrderCountWithOutLimit_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      setPopup(true)
+      setMostOrders(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+  //
+
     useEffect(() => {
         getOrderDetails();
         getOrderTypeDetails();
         getOrderCountDetails();
+        getMostOrderDetailsWithLimit();
     },[])
-    // Use another useEffect to observe the changes in 'orders'
-    useEffect(() => {
-      
-    }, [orders]);
-
-    // Use another useEffect to observe the changes in 'orderType'
-    useEffect(() => {
-    console.log(orderType);
-    }, [orderType]);
-
-    // Use another useEffect to observe the changes in 'orderCount'
-    useEffect(() => {
-      console.log("order count ",orderCount);
-    }, [orderCount]);
+   
 
     const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
 
@@ -113,28 +139,19 @@ export default function RestaurantHome() {
       color: predefinedColors[index % predefinedColors.length],
     }));
 
-    let revenue=(orderCount.total_amount)*0.9;
+    let revenue=Math.round((orderCount.total_amount)*0.9);
     let total_count=orderCount.total_count;
     let total_quantity=orderCount.total_quantity;
  
   
-    const detailsData1 = [
-      // { id: 1, icon: <MonetizationOnIcon /> },
-      { id: 2, name: 'Rs :', value: revenue.toString() },
-      { id: 3, name: 'Total Revenue'},
+    const upperData = [
+      { id: 1, title: 'Total Revenue',count:revenue, string:"RS: "},
+      { id: 2, title: 'Total dish count',count:total_quantity},
+      { id: 3, title: 'Total Customers',count:total_count},
     ];
-    const detailsData2 = [
-      // { id: 1, icon: <DinnerDiningIcon /> },
-      { id: 2, value: total_quantity },
-      { id: 3, name: 'Total dish count'},
-    ];
-    const detailsData3 = [
-      // { id: 1, icon: <HailIcon /> },
-      { id: 2, value: total_count },
-      { id: 3, name: 'Total Customers'},
-    ];
+     
   
-
+   
 
   
     return (
@@ -142,10 +159,10 @@ export default function RestaurantHome() {
 
         <div className="Details">
           <div className='Details-left'>
-            <div className="Upper-details">
-              <DashboardDetails data={detailsData1} />
-              <DashboardDetails data={detailsData2} />
-              <DashboardDetails data={detailsData3} />
+            <div className="Upper-details-home">
+              <OrderCountCard result={upperData[0]} customCss={{ marginLeft: '0%' ,height : '150px',width : '25%'}}/>
+              <OrderCountCard result={upperData[1]} customCss={{ marginLeft: '15%',height : '150px',width : '25%'}}/>
+              <OrderCountCard result={upperData[2]} customCss={{ marginLeft: '15%',height : '150px',width : '25%' }}/>
             </div>
             <div className="table-details">
 
@@ -156,7 +173,7 @@ export default function RestaurantHome() {
 
               </div>
 
-              <div className="table-content">
+              <div className="table-content-home">
               {isLoading ? (
                 <p>Loading...</p>
               ) : (
@@ -181,11 +198,17 @@ export default function RestaurantHome() {
                     ):(<p style={{color:'red'}}>pending</p>
                     )}</td>
                     <td> {o.orderState===2 ? (
+                          //complete the prepare
                           <p style={{color:'green'}}>complete</p>
                         ):o.orderState===1 ? (
+                          //order accept and preparing
                           <p style={{color:'orange'}}>preparing</p>
-                        ): (
-                          <p style={{color:'red'}}>pending</p>
+                        ): o.orderState===0 ? (
+                          //new orders and pending to accept
+                          <p style={{color:'yellow'}}>pending</p>
+                        ):(
+                           //orderState=-1 mean reject order
+                           <p style={{color:'red'}}>reject</p>
                         )}
                         
                         
@@ -278,7 +301,17 @@ export default function RestaurantHome() {
                   </select>
                 </div>
                 <div className="most-ordered-content">
-
+                    {isLoading ?(
+                      <p>Loading</p>
+                    ):(
+                      <>
+                      {mostOrdersL.map((p)=>(
+                        <MostCount key={p.orderId} productData={p}/>
+                    ))}
+                      <button className='viewMoreProducts'onClick={(getMostOrderDetailsWithOtLimit)} >view more</button>
+                      </>
+                    )}
+                     <PopupContainer trigger={popup} setTrigger={setPopup} title={"Most order List"} data={mostOrders}></PopupContainer>
                 </div>
                 
               </div>

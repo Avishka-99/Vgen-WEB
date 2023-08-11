@@ -14,7 +14,7 @@ export const restaurantRoutes = [
   { id: 3, path: "/orders", element: <UserViews.OrdersView/> },
   { id: 4, path: "/reservation", element: <UserViews.Reservation/> },
   { id: 5, path: "/shopping", element: <UserViews.Shopping/> },
-  { id: 6, path: "/addRestaurantProducts", element: <UserViews.RestaurantProductAdd/> },
+  { id: 6, path: "/Restaurant_complain", element: <UserViews.RestaurantComplain/> },
 ];
 export const adminRoutes = [
 	{id: 1, path: '/home', element: <UserViews.AdminHome />},
@@ -30,4 +30,11 @@ export const staffRoutes = [
   { id: 2, path: "/payments", element: <UserViews.Payments/> },
   { id: 3, path: "/complains", element: <UserViews.Complains/> },
   { id: 4, path: "/profile", element: <UserViews.Profile/> },
+];
+export const manufactureRoutes = [
+  { id: 1, path: "/home", element: <UserViews.ManufactureHome/> },
+  { id: 2, path: "/row_products", element: <UserViews.RowProducts/> },
+  { id: 3, path: "/row_orders", element: <UserViews.RowOrderView/> },
+  { id: 4, path: "/row_complains", element: <UserViews.ManufactureComplains/> },
+  
 ];

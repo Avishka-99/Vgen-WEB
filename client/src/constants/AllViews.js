@@ -10,6 +10,7 @@ import OrdersView from '../views/restaurant/OrdersView';
 import Reservation from '../views/restaurant/Reservation';
 import Shopping from '../views/restaurant/Shopping';
 import RestaurantProductAdd from '../views/restaurant/RestaurantProductAdd';
+import RestaurantComplain from '../views/restaurant/RestaurantComplain';
 import AdminHome from '../views/admin/AdminHome';
 import Staff from '../views/admin/Staff';
 import Analytics from '../views/admin/Analytics';
@@ -21,3 +22,8 @@ import Payments from '../views/staff/Payments';
 import Complains from '../views/staff/Complains';
 import Sales from '../views/admin/Sales';
 export {Sales, StaffHome, Payments, Complains, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Feed, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd,Cart};
+import ManufactureHome from '../views/manufacture/ManufactureHome'
+import RowProducts from '../views/manufacture/RowProducts'
+import RowOrderView from '../views/manufacture/RowOrderView'
+import ManufactureComplains from '../views/manufacture/ManufactureComplains'
+export {Sales, StaffHome, Payments, Complains, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Feed, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd, ManufactureHome,RowProducts,RowOrderView,ManufactureComplains,RestaurantComplain};

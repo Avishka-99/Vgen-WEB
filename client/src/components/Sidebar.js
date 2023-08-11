@@ -15,6 +15,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EuroIcon from '@mui/icons-material/Euro';
+import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import {useNavigate} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
@@ -50,7 +51,8 @@ const ShowSidebar = (props) => {
 		{id: 3, icon: <GradingIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Orders', link: 'orders', index: '3'},
 		{id: 4, icon: <EventSeatIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Reservation', link: 'reservation', index: '4'},
 		{id: 5, icon: <ShoppingCartIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Shopping', link: 'shopping', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '6'},
+		{id: 6, icon: <EditCalendarIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'complains', link: 'Restaurant_complain', index: '6'},
+		{id: 7, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const admin = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
@@ -66,6 +68,13 @@ const ShowSidebar = (props) => {
 		{id: 3, icon: <RecordVoiceOverIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'complains', index: '3'},
 		{id: 4, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'profile', index: '4'},
 		{id: 5, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'logout', index: '5'},
+	];
+	const manufacture = [
+		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
+		{id: 2, icon: <FastfoodIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Products', link: 'row_products', index: '2'},
+		{id: 3, icon: <GradingIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Orders', link: 'row_orders"', index: '3'},
+		{id: 4, icon: <EditCalendarIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'complains', link: 'row_complains', index: '4'},
+		{id: 5, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '6'},
 	];
 	//console.log(restaurant[0].icon.props.sx.fontSize)
 	const navigateTo = (page, index) => {
@@ -122,7 +131,22 @@ const ShowSidebar = (props) => {
 				</div>
 			</div>
 		);
+	 
+	} else if (props.type == 'productManufacture') {
+		return (
+			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
+				<div className='expand-toggle' onClick={toggleSidebar}>
+					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
+				</div>
+				<div>
+					{manufacture.map((item) => (
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+					))}
+				</div>
+			</div>
+		);
 	} 
+	
 };
 export default function Sidebar(props) {
 	const [showSidebar, setShowSidebar] = useState(true);

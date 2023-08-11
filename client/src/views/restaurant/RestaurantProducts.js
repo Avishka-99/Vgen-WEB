@@ -51,9 +51,9 @@ export default function RestaurantProducts() {
   useEffect(() => {
      getProducts();
   }, [])
-  useEffect(() => {
-    console.log(products);
- }, [products])
+ 
+  
+ 
 
   //responsive view of Carousel
   const responsive = {
@@ -102,6 +102,7 @@ export default function RestaurantProducts() {
      setInput(value);
      searchData(value);
   }
+ 
   
 
   return (
@@ -129,10 +130,10 @@ export default function RestaurantProducts() {
            ):(
              <SearchResultList  results={searchResult} oneProductHandle={oneProductHandle}/>
            )
-        ):isOneSet==true ? (
+        ):isOneSet===true ? (
              <RestaurantOneItem result={oneResult}/>
         ):(
-            <div className="product-card">
+            <div className="product-card" >
               {!isLoading && (
                 products.length === 0 ? (
                   <p>No products</p>

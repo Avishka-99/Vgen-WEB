@@ -37,7 +37,7 @@ const RestaurantProductAdd = (props) => {
       <div className="product-add-popup">
         <div className="product-add-popup-inner">
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
-        {props.children}
+        {/* {props.children} */}
         <h2>Product add</h2>
         <div className="product-add">
           <label htmlFor="productImage" id='Product-image'>Product Image:</label><br />
