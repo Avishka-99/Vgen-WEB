@@ -13,7 +13,7 @@ export const restaurantRoutes = [
   { id: 3, path: "/orders", element: <UserViews.OrdersView/> },
   { id: 4, path: "/reservation", element: <UserViews.Reservation/> },
   { id: 5, path: "/shopping", element: <UserViews.Shopping/> },
-  { id: 6, path: "/addRestaurantProducts", element: <UserViews.RestaurantProductAdd/> },
+  { id: 6, path: "/Restaurant_complain", element: <UserViews.RestaurantComplain/> },
 ];
 export const adminRoutes = [
 	{id: 1, path: '/home', element: <UserViews.AdminHome />},

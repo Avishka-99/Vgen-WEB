@@ -51,7 +51,8 @@ const ShowSidebar = (props) => {
 		{id: 3, icon: <GradingIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Orders', link: 'orders', index: '3'},
 		{id: 4, icon: <EventSeatIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Reservation', link: 'reservation', index: '4'},
 		{id: 5, icon: <ShoppingCartIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Shopping', link: 'shopping', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '6'},
+		{id: 6, icon: <EditCalendarIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'complains', link: 'Restaurant_complain', index: '6'},
+		{id: 7, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const admin = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},

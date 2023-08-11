@@ -159,10 +159,10 @@ export default function RestaurantHome() {
 
         <div className="Details">
           <div className='Details-left'>
-            <div className="Upper-details">
-              <OrderCountCard result={upperData[0]} customCss={{ marginLeft: '2%' ,height : '150px'}}/>
-              <OrderCountCard result={upperData[1]} customCss={{ marginLeft: '15%',height : '150px' }}/>
-              <OrderCountCard result={upperData[2]} customCss={{ marginLeft: '15%',height : '150px' }}/>
+            <div className="Upper-details-home">
+              <OrderCountCard result={upperData[0]} customCss={{ marginLeft: '0%' ,height : '150px',width : '25%'}}/>
+              <OrderCountCard result={upperData[1]} customCss={{ marginLeft: '15%',height : '150px',width : '25%'}}/>
+              <OrderCountCard result={upperData[2]} customCss={{ marginLeft: '15%',height : '150px',width : '25%' }}/>
             </div>
             <div className="table-details">
 
@@ -173,7 +173,7 @@ export default function RestaurantHome() {
 
               </div>
 
-              <div className="table-content">
+              <div className="table-content-home">
               {isLoading ? (
                 <p>Loading...</p>
               ) : (

@@ -43,14 +43,31 @@ export default function OrdersView() {
       orderDetails.result_1.map((or)=>{
         if (or.orderState === 0) {
           result.push({ id: 1, title: 'New order', count: or.totalCount });
-        } else if (or.orderState === 1) {
-          result.push({ id: 2, title: 'Processing order', count: or.totalCount });
-        } else {
-          result.push({ id: 3, title: 'Deliver to orders', count: or.totalCount });
+        } 
+        else if(!(or.orderState === 1) && !(or.orderState === 2) ){
+          result.push({ id: 1, title: 'New order', count: 0 });
         }
       });
+      orderDetails.result_1.map((or)=>{
+        if (or.orderState === 1) {
+          result.push({ id: 2, title: 'Processing order', count: or.totalCount });
+        } 
+        else if(!(or.orderState === 0) && !(or.orderState === 2) ){
+          result.push({ id: 2, title: 'Processing order', count: 0 });
+        }
+      });
+      orderDetails.result_1.map((or)=>{
+        if (or.orderState === 2) {
+          result.push({ id: 3, title: 'Deliver to orders', count: or.totalCount });
+        } 
+        else if(!(or.orderState === 0) && !(or.orderState === 1) ){
+          result.push({ id: 3, title: 'Deliver to orders', count: 0 });
+        }
+      });
+      console.log(result)
+     
     }
-
+    
     //row click function
     const handleRowClick = (orderId,user_id) => () => {
       try {
@@ -116,7 +133,7 @@ export default function OrdersView() {
           {orderDetails.length==0?(
             <p>No orders</p>
           ):(
-            <table>
+            <table style={{marginLeft : '2%'}}>
                   <thead>
                     <tr>
                       <th>Customer</th>
