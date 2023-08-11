@@ -3,6 +3,7 @@
 /* Basic styling for the entire page */
 .home {
   font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f7f7f7; /* Light gray background */
   padding: 20px;
 }
 
@@ -23,29 +24,21 @@
   transform: translateY(-5px);
 }
 
-
-.product--image1 {
-
+.product--image1,
+.product--image {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 5px;
 }
-.product--image{
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-
 
 .card p {
   margin: 5px 0;
 }
 
-.btn_cart {
-  background-color: #007bff;
+.btn_cart_cus,
+.quantity-btn {
+  background-color: #388e3c; /* Darker green */
   color: #fff;
   border: none;
   padding: 5px 10px;
@@ -54,13 +47,12 @@
 }
 
 /* Styling for "See More" button */
-
-.seeMore{
+.seeMore {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #007bff;
+  color: #388e3c; /* Darker green */
   font-size: 20px;
   font-weight: bold;
   margin-top: 40px;
@@ -68,14 +60,12 @@
   margin-left: 44%;
   width: 10vw;
   height: 5vh;
-
-  background-color: aquamarine;
+  background-color: #ffe082; /* Light yellow */
   border-radius: 5px;
   padding: 10px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-
 }
 
 /* Styling for the "vision_1" section */
@@ -92,7 +82,7 @@
 .vision_1 h3 {
   font-size: 24px;
   margin-top: 5px;
-  color: #007bff;
+  color: #388e3c; /* Darker green */
 }
 
 /* Styling for the restaurant cards */
@@ -118,7 +108,7 @@
 }
 
 .btn_res {
-  background-color: #007bff;
+  background-color: #388e3c; /* Darker green */
   color: #fff;
   border: none;
   padding: 5px 10px;
@@ -147,7 +137,7 @@
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 80%; /* Adjust the maximum width of the modal content */
-  position: f;
+  position: relative; /* Fixed typo "position: f" */
 }
 
 .modal-close-btn {
@@ -161,26 +151,42 @@
   color: #777;
   cursor: pointer;
 }
-.modal-product-details{
+
+.modal-product-details {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-/* Rest of your styles... */
+.modal-product-details img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-product-details p {
+  margin: 5px 0;
+  font-size: 18px;
+  color: black;
+}
+
+.quantity-controls span {
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #777;
+}
 
 
-
-
-
-/* Rest of your styles... */
-
-/* Additional styling if needed */
-/* .modal-product-details {
-  // Add styles for product details in the modal
-
-} */
-
-/* Rest of your styles... */
 
