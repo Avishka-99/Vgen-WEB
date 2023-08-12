@@ -1,19 +1,21 @@
 .Details{
     display: flex;
+    margin-left: 5%;
 }
 
 .Details-left{
     height: 100%;
-    width: 70%;
+    width: 64%;
 }
 
 .Details-Right{
     height: 100%;
-    width: 30%;
+    width: 36%;
+    
 }
 
-.Upper-details{
-    
+.Upper-details-home{
+    /* margin-bottom: 50px; */
     display: flex;
 }
 .table-detail-header{
@@ -23,17 +25,27 @@
 .table-detail-header p{
     font-weight: bold;
     font-size: 18px;
-    margin-left: 14%;
+    /* margin-left: 5%; */
     margin-top: 3%;
 }
 
-
+.viewMoreProducts{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #BCDAC8;
+  border-radius: 10px;
+  margin-left: 36%;
+  margin-top: 15%;
+  color: black;
+  margin-bottom: 5%;
+}
 
 #filter-order{
     margin-top: 3%;
     color: black;
     font-size: 18px;
-    margin-left: 52%;
+    margin-left: 57%;
     padding: 10px;
     background-color: #BCDAC8;
     width: 200px;
@@ -44,7 +56,7 @@
 
 
 /* Apply some basic styling to the table */
-.table-content {
+.table-content-home {
     width: 100%;
     margin: 20px 0;
     background-color: white;
@@ -52,7 +64,7 @@
   
   table {
     width: 86%;
-    margin-left: 14%;
+    margin-left: 7%;
     border-collapse: collapse;
     /* border: 1px solid #ccc; */
     
@@ -94,7 +106,7 @@
 .most-ordered-header select{
     width: 120px;
     height: 40px;
-   text-align: center;
+    text-align: center;
     background-color: #BCDAC8;
     border-radius: 10px;
     margin-left: 26%;
@@ -192,7 +204,7 @@ margin-top: 3%;
 #order-status{
   width: 300px;
   height: 40px;
- text-align: center;
+  text-align: center;
   background-color: #BCDAC8;
   border-radius: 10px;
   margin-left: 16%;

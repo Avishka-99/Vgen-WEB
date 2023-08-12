@@ -21,38 +21,37 @@ export default function RestaurantProducts() {
 	const [isOneSet, SetIsOneSet] = useState(false);
 	const [oneResult, SetOneResult] = useState([]);
 
-	//find one product using search bar
-	const oneProductHandle = (result) => {
-		SetIsOneSet(true);
-		setIsSearching(false);
-		SetOneResult(result);
-	};
-
-	//show the all product when page is loading
-	const getProducts = async () => {
-		try {
-			const res = await Axios.get(API_ENDPOINTS.FETCH_ALL_PRODUCTS_URL, {
-				params: {
-					user_id: user_id,
-				},
-			});
-
-			setProducts(res.data);
-
-			setIsLoading(false);
-		} catch (err) {
-			console.log('Error fetching data:', err);
-			setIsLoading(false);
-		}
-	};
-
-	useEffect(() => {
-		getProducts();
-	}, []);
-	useEffect(() => {
-		console.log(products);
-	}, [products]);
-
+  //find one product using search bar
+  const oneProductHandle=(result)=>{
+    SetIsOneSet(true);
+    setIsSearching(false);
+    SetOneResult(result);
+   
+  }
+  
+  //show the all product when page is loading
+  const getProducts = async () => {
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+  
+      setProducts(res.data);
+     
+      setIsLoading(false);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      setIsLoading(false);
+    }
+  };
+ 
+ 
+  useEffect(() => {
+     getProducts();
+  }, [])
+ 
 	//responsive view of Carousel
 	const responsive = {
 		superLargeDesktop: {

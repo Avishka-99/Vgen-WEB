@@ -11,7 +11,7 @@ const RestaurantOneItem = ({result }) => {
 
       <div className="one-outer-frame">
           <div className="one-frame-up">
-          <img src={`http://localhost:5001/uploads/products/${result.products[0].productImage}`} />
+          <img src={`http://localhost:5001/uploads/products/${result.products[0].productImage}`}  alt="product"/>
           </div>
           <div className="one-frame-down">
 
@@ -23,13 +23,13 @@ const RestaurantOneItem = ({result }) => {
             </p>
             <div className="one-quantity">
               <label htmlFor="">Product quantity: </label><br />
-              <input type="text" value={result. quantity} />
+              <input type="text" value={result.quantity} />
               <button><AddIcon></AddIcon></button>
               <button><RemoveIcon></RemoveIcon></button><br />
             </div>
             <div className="one-price">
               <label htmlFor="">Product price: </label><br />
-              <input type="text" value={result. price} />
+              <input type="text" value={result.price} />
               <button><AddIcon></AddIcon></button>
               <button><RemoveIcon></RemoveIcon></button><br />
             </div>

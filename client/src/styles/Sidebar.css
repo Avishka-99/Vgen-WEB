@@ -1,10 +1,10 @@
 
 .sidebar {
 	height: 100%;
-	background-color: #333;
-	color: white;
+	background-color: #D3D3D3;
+	color: black;
 	transition: width 0.3s ease;
-	position: fixed;
+	position: relative;
 	z-index: 1;
 	top: 0;
 
@@ -31,11 +31,9 @@
 	display: flex;
 	/* justify-content: center; */
 	align-items: center;
-	margin-top: 15%;
+	margin-top: 7%;
 	/* margin-left: 15%; */
-
-	margin-bottom: 15%;
-
+	margin-bottom: 5%;
 	height: 4.5vw;
 	/* width: 4.5vw; */
 	border-radius: 1vw;
@@ -63,25 +61,28 @@
 
 .sidebar .collapsed {
 	width: 80px;
+	
+
 }
 .sidebar .expanded {
 	width: 220px;
 }
 .sidebar .expanded .menu-item{
   justify-content: flex-start;
+  
 }
 .user-info {
 	padding: 20px;
 	text-align: center;
-	background-color: #444;
-	color: white;
+	background-color: #fff;
+	color: black;
 }
 
 .expand-toggle {
 	padding: 10px;
 	text-align: center;
-	background-color: #444;
-	color: white;
+	background-color: #D3D3D3;
+	color: black;
 	cursor: pointer;
 }
 
