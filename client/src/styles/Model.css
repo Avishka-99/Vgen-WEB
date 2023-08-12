@@ -1,0 +1,64 @@
+/* Modal Overlay */
+.modal-overlay1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal2 {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  overflow: auto;
+}
+
+/* Close Button */
+.modal-close1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: 0.3s;
+}
+
+/* Post Content */
+.modal-content1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content1 h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal-content1 p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-content1 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
