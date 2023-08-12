@@ -5,6 +5,10 @@ export const productGet_URL = '/api/productGet';
 export const verifyUser_URL = '/api/verifyuser';
 export const sellProduct_URL = '/api/sellProduct';
 export const orderPost_URL='/api/orderPost';
+export const createPost_URL='/api/createPost';
+export const getPost_URL='/api/getFeed';
+export const deletePost_URL='/api/deleteFeed/${postId}';
+export const updateFeed_URL='/api/updateFeed/${postId}';
 //Restaurant manager apis
 export const itemAdd_url = '/api/productAdd';
 export const restaurantDetails_URL = '/api/resDetailsGet';
