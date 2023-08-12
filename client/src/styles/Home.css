@@ -1,73 +1,192 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
-  h1 {
-    margin: 1rem auto 4rem;
-  }
-  
-  .product--image {
-   
-    height: 16em;
-    object-fit: cover;
-    width: 60%;
-    height: 60%;
-    margin: 0 auto;
-    display: block;
-  }
-  .bottom_content{
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/images/Bottom\ Content\ 01.png');
-    background-size: cover;
-    background-repeat: no-repeat;
 
-    background-position: center;
-  }
-  .vision_1{
-    width:100%;
-    text-align: center;
-  }
-  .vision_1 p{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000000;
-    margin-top: 2rem;
-    font-style: oblique;
-  }
-  .vision_1 h3{
-    font-size: 2rem;
-    font-weight: 600;
-    color: #000000;
-    margin-top: 2rem;
-    font-style: oblique;
-  }
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 320px;
-    margin: auto 1rem;
-    text-align: center;
-    margin: 10px;
-    border-radius: 4px;
-    font-family: arial;
+/* Basic styling for the entire page */
+.home {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f7f7f7; /* Light gray background */
+  padding: 20px;
+}
 
-  }
-  
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
-  
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-  
-  .card button:hover {
-    opacity: 0.7;
-  }
+/* Styling for the carousels */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.product--image1,
+.product--image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+.btn_cart_cus,
+.quantity-btn {
+  background-color: #388e3c; /* Darker green */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styling for "See More" button */
+.seeMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #388e3c; /* Darker green */
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 40px;
+  cursor: pointer;
+  margin-left: 44%;
+  width: 10vw;
+  height: 5vh;
+  background-color: #ffe082; /* Light yellow */
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+/* Styling for the "vision_1" section */
+.vision_1 {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.vision_1 p {
+  font-size: 18px;
+  color: #333;
+}
+
+.vision_1 h3 {
+  font-size: 24px;
+  margin-top: 5px;
+  color: #388e3c; /* Darker green */
+}
+
+/* Styling for the restaurant cards */
+.card1 {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card1:hover {
+  transform: translateY(-5px);
+}
+
+.card1 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.btn_res {
+  background-color: #388e3c; /* Darker green */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styling for the modal popup */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal appears above other content */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 80%; /* Adjust the maximum width of the modal content */
+  position: relative; /* Fixed typo "position: f" */
+}
+
+.modal-close-btn {
+  position: relative;
+  top: 2px;
+  right: 10px;
+  left: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #777;
+  cursor: pointer;
+}
+
+.modal-product-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-product-details img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-product-details p {
+  margin: 5px 0;
+  font-size: 18px;
+  color: black;
+}
+
+.quantity-controls span {
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #777;
+}
+
+
+

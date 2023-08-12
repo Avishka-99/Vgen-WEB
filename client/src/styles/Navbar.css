@@ -3,122 +3,86 @@
 
 * { 
     box-sizing: border-box;
+    
 }
 li {
    text-decoration: none;
 }
-.navbar{
- 
-    height: 10vh;
-    text-align: center;
+/* Basic styles for the navbar */
+/* Basic styles for the navbar */
+.navbar {
     background-color: #fff;
-    border-bottom: 1px solid #726f60;
-    background-color: rbga(0,0,0,0.5);
-    position: relative;
-}
+    padding: 10px;
+    position:relative;
+    justify-content: end;
+	z-index: 1;
+   color: black;
 
-
-.logo{
-    font-size: 30px;
-
-}
-.nav-links{
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  }
+  
+  .container_1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
-    justify-content:flex-end;
-    width: 75%;
-}
-.container_1{
-   
- max-width: 90%;
-    display: flex;
-  margin:10px 0 0px 10px;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-links li{
-    color: black;
+  }
+  
+  .nav-links {
     list-style: none;
-    font-size: 20px;
-    margin: 0px 10px;
-    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the search input field */
+  .nav-links input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  /* Style for the cart icon container */
+  .nav-links div {
+    display: flex;
+    align-items: center;
     cursor: pointer;
+  }
+  
+  /* Style for the cart icon */
+  .nav-links div svg {
+    font-size: 24px;
+    color: #333;
+    margin-right: 5px;
+  }
+  
+  /* Style for the cart item count */
+  .nav-links div sup {
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+  }
+  
+  /* Style for the links (if using) */
+  .nav-links li {
+    margin-right: 10px;
+  }
+  
+  /* Style for the links (if using) */
+  .nav-links a {
     text-decoration: none;
-    text-transform: capitalize;
-}
-
-.navbar Link{
-    text-decoration: none;
-    text-align: center;
-}
-.nav-links li a{
-    color: black;
-    text-decoration: none;
-}
-.nav-links li:hover{
-    color: #ffcc00;
-    transition: all 0.3s ease 0s;
-}
-.nav-links li a:hover{
-    color: #ffcc00;
-    transition: all 0.3s ease 0s;
-}
-.nav-links li::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #ffcc00;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links li:hover::after{
-    width: 100%;
-}
-.nav-links li a::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #ffcc00;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links li a:hover::after{
-    width: 100%;
-}
-.nav-links li:last-child{
-    padding-right: 0;
-}
-.nav-links li:first-child{
-    padding-left: 0;
-}
-.nav-links li.active{
-    color: #ffcc00;
-}
-.nav-links li.active::after{
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #ffcc00;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links li a.active::after{
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #ffcc00;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links li.active a{
-    color: #ffcc00;
-}
-.nav-links li.active a:hover{
-    color: #ffcc00;
-}
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  
+  /* Style for the links (if using) */
+  .nav-links a:hover {
+    color: #fff;
+  }
+  
+  

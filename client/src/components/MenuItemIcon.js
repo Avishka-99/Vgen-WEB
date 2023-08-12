@@ -1,6 +1,5 @@
 export default function MenuItemIcon(props) {
-  const Icon = props.icon;
-  return (
-    Icon
-  )
+	var Icon = props.icon;
+	Icon.props.sx.fill = props.color;
+	return Icon;
 }

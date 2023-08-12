@@ -40,16 +40,23 @@ export default function Categories() {
   const [description,setDescription]=useState('')
   const [productName,setProductName]=useState('')
   const [price,setPrice]=useState('')
+  const[productType,setProductType]=useState('')
+  const[veganType,setVeganType]=useState('')
   const [productImage,setProductImage]=useState()
+
  
  const handleSubmit=(e)=>{
     //upload image    
     const formData=new FormData();
+
+
     formData.append('productImage',productImage);
     formData.append('quantity',quantity);
     formData.append('description',description);
     formData.append('productName',productName);
     formData.append('price',price);
+    formData.append('productType',productType);
+    formData.append('veganType',veganType);
     
     Axios.post(API_ENDPOINTS.productUpload_URL,formData);
 
@@ -64,11 +71,14 @@ export default function Categories() {
 
   return (
     <div>
+      <h1>Product Upload</h1>
      <form>
       <input type="text" placeholder="quantity" onChange={(e)=>{setQuantity(e.target.value)}}/>
       <input type="text" placeholder="description" onChange={(e)=>{setDescription(e.target.value)}}/>
       <input type="text" placeholder="productName" onChange={(e)=>{setProductName(e.target.value)}}/>
       <input type="text" placeholder="price" onChange={(e)=>{setPrice(e.target.value)}}/>
+      <input type="text" placeholder="productType" onChange={(e)=>{setProductType(e.target.value)}}/>
+      <input type='text' placeholder='veganType' onChange={(e)=>{setVeganType(e.target.value)}}/>
       <input type="file" className='productImage' placeholder="productImage" onChange={handleFiles}/>
 
       <button onClick={()=>{handleSubmit()} }>Submit</button>
@@ -76,23 +86,7 @@ export default function Categories() {
 
       <div>
       <h1>Card View</h1>
-      <div className="card-container">
-        {formData.map((data) => (
-          <div className="card" key={data.productId}>
-            <div className="card-body">
-              <h5 >{data.productName}</h5>
-              <p >{data.description}</p>
-              <p >{data.price}</p>
-              <p>{data.quantity}</p>
-              <img src={`http://localhost:5001/uploads/products/${data.productImage}`} />
-             
-            
-              
- 
-          </div>
-          </div>
-        ))}
-      </div>
+
     </div>
     </div>
   )
