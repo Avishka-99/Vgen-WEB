@@ -35,7 +35,7 @@ export default function Otp() {
 	};
 	const handleSubmit = (e) => {
 		console.log(otp);
-		Axios.post(API_ENDPOINTS.verifyUser_URL, {
+		Axios.post(API_ENDPOINTS.VERIFY_USER_URL, {
 			email: mail,
 			otp: otp,
 		}).then((response) => {
@@ -76,14 +76,7 @@ export default function Otp() {
 						</span>
 					</div>
 					<div className='otpInputBoxes'>
-						<OtpInput
-							value={otp}
-							onChange={setOtp}
-							numInputs={6}
-							renderSeparator={<span style={{marginRight: '3%'}}></span>}
-							renderInput={(props) => <input {...props} />}
-							inputStyle={{width: '5.5%', height: '40px', outline: '2px solid #7EB693', borderRadius: '5px', border: '0', fontSize: '20px', fontFamily: 'poppins-regular'}}
-						/>
+						<OtpInput value={otp} onChange={setOtp} numInputs={6} renderSeparator={<span style={{marginRight: '3%'}}></span>} renderInput={(props) => <input {...props} />} inputStyle={{width: '5.5%', height: '40px', outline: '2px solid #7EB693', borderRadius: '5px', border: '0', fontSize: '20px', fontFamily: 'poppins-regular'}} />
 					</div>
 					<div style={{marginTop: '5%', fontFamily: 'poppins-regular'}} className='OtpDescription'>
 						Didn't receive the OTP ?{' '}

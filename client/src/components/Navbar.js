@@ -7,14 +7,30 @@ import { Card } from "reactstrap";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux'
 import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
+import { setSearchKeyword } from "../constants/ActionTypes";
+
 import Axios from 'axios';
 
 
-const Navbar = (props) => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const cartItemCount=useSelector((state)=>state.cartReducer.cartItemCount);
   const user = localStorage.getItem("type");
   const [role, setRole] = useState(""); // Initialize the state with an empty string
+ //search bar
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState('');
 
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      dispatch(setSearchKeyword(inputValue));
+    }
+  };
+  ////
   useEffect(() => {
     // Set the role state with the user value from local storage
     setRole(user);
@@ -43,8 +59,14 @@ const Navbar = (props) => {
       <nav className="navbar">
         <div className="container_1">
           <ul className="nav-links">
-            <input placeholder="Search Items..."/>
-            <div  onClick={()=>navigateTo("Cart")}><ShoppingCartIcon/><sup>{3}</sup></div>
+            <input
+             text="text"
+             value={inputValue}
+             onChange={handleInputChange}
+             onKeyDown={handleSearch}
+             placeholder="Search Items..."/>
+
+            <div  onClick={()=>navigateTo("Cart")}><ShoppingCartIcon/><sup>{cartItemCount}</sup></div>
 
             {/* {customer.map((item) => (
               <li key={item.id}>

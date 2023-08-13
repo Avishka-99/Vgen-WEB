@@ -4,10 +4,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 //import css
 import "../../styles/customerRestaurant.css";
+import getGeolocationAddress from "./geoAddress";
 
 export default function Restaurants() {
   const [modal, setModal] = useState(false);
   const [formData_1,setFormData_1]=useState([])
+  const [resolvedAddresses, setResolvedAddresses] = useState([]);
+  const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
 
 
   const fetchData1 = async () => {
@@ -23,6 +26,22 @@ export default function Restaurants() {
     fetchData1();
 
   },[]);
+  useEffect(() => {
+    const fetchRestaurantAddresses = async () => {
+      const addressesPromises = formData_1.map((data) => {
+        return getGeolocationAddress(data.latitude, data.longitude, apiKey);
+      });
+  
+      try {
+        const resolved = await Promise.all(addressesPromises);
+        setResolvedAddresses(resolved);
+      } catch (error) {
+        console.error('Error fetching restaurant addresses:', error);
+      }
+    };
+  
+    fetchRestaurantAddresses();
+  }, [formData_1]);
   // const responsive = {
   //   superLargeDesktop: {
   //     // the naming can be any, depends on you.
@@ -47,16 +66,21 @@ export default function Restaurants() {
   // };
   return (
     <div className="restaurants">  
-         {formData_1.map((data) => (
-    <div className='card_res' key={data.restaurantId}>
-    <p className='restaurant_type'>{data.resturantType}</p>
-    <img className='restaurant--image' src={`http://localhost:5001/uploads/restaurants/${data.restaurantImage}`} alt={data.restaurantName} />
-    <p className='restaurant_name'>{data.restaurantName}</p>
-    <p className='locations'>Location</p>
-    <button className='btn_cart'>
-      View Restaurant
-    </button>
-  </div>
-          ))} </div>
+             {formData_1.map((data,index) => (
+              <div className='card' key={data.restaurantId}>
+                <p className='vegan_type'>{data.resturantType}</p>
+                <img
+                  className='product--image'
+                  src={`http://localhost:5001/uploads/restaurants/${data.image}`}
+                  alt={data.resturantName}
+                />
+                <p className='product_name'>{data.resturantName}</p>
+                <p className='prices'>
+                Location:{resolvedAddresses[index]||'Loading address..'}</p>
+                <button className='btn_res'>
+                  View Restaurant
+                </button>
+              </div>
+            ))} </div>
   )
 }

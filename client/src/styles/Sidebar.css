@@ -1,8 +1,8 @@
 
 .sidebar {
 	height: 100%;
-	background-color: #333;
-	color: white;
+	background-color: #D3D3D3;
+	color: black;
 	transition: width 0.3s ease;
 	position: relative;
 	z-index: 1;
@@ -61,7 +61,7 @@
 
 .sidebar .collapsed {
 	width: 80px;
-	text-align: center;
+	
 
 }
 .sidebar .expanded {
@@ -69,19 +69,20 @@
 }
 .sidebar .expanded .menu-item{
   justify-content: flex-start;
+  
 }
 .user-info {
 	padding: 20px;
 	text-align: center;
-	background-color: #444;
-	color: white;
+	background-color: #fff;
+	color: black;
 }
 
 .expand-toggle {
 	padding: 10px;
 	text-align: center;
-	background-color: #444;
-	color: white;
+	background-color: #D3D3D3;
+	color: black;
 	cursor: pointer;
 }
 

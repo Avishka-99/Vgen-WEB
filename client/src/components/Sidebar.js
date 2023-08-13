@@ -43,7 +43,8 @@ const ShowSidebar = (props) => {
 		{id: 3, icon: <StoreIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Restaurants', link: 'restaurants', index: '3'},
 		{id: 4, icon: <PeopleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Community', link: 'community', index: '4'},
 		{id: 5, icon: <DynamicFeedIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Feeds', link: 'feed', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '6'},
+		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'About', link: 'About', index: '6'},
+		{id: 7, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const restaurant = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
@@ -113,7 +114,7 @@ const ShowSidebar = (props) => {
 				</div>
 				<div>
 					{customer.map((item) => (
-						<MenuItem key={item.id} label={expanded ? item.label : null} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
 					))}
 				</div>
 			</div>
