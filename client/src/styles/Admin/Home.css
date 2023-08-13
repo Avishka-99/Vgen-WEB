@@ -1,0 +1,67 @@
+.Admin_bg{
+    width: auto;
+    height: 90%;
+
+}
+.AdminContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.AdminWrapContainer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+.AdminContainer .Row_1{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.AdminContainer .Row_1 .AdminRow_1Row1{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.AdminContainer .Row_1 .AdminRow_1Row2{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+}
+.AdminContainer .Row_1 .AdminRow_1Row3{
+    width: 100%;
+    height: 19%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.AdminContainer .Row_1 .AdminRow_1Row4{
+    width: 100%;
+    height: 7%;
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+}
+.AdminContainer .Row_1 .AdminRow_1Row5{
+    background-color: rgb(255, 6, 238);
+    width: 100%;
+    height: 60%;
+}
+
+
+
+
+
+.AdminContainer .Row_2{
+    width: 30%;
+    height: 100%;
+    background-color: rgb(97, 238, 163);
+}
