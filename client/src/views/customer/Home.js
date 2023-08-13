@@ -13,6 +13,8 @@ import "react-multi-carousel/lib/styles.css";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import "../../styles/Home.css";
 import Button from "../../components/Button";
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 import Navbar from "../../components/Navbar";
 import getGeolocationAddress from "./geoAddress";
 
@@ -21,6 +23,7 @@ function Home() {
   const [resolvedAddresses, setResolvedAddresses] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [limitError, setLimitError] = useState('');
   const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
 
   const toggleModal = (product) => {
@@ -80,7 +83,14 @@ function Home() {
   const [quantity, setQuantity] = useState(1);
 
 const incrementQuantity = () => {
+ if(quantity<selectedProduct.sell_products[0].quantity){
   setQuantity(quantity + 1);
+  }
+  else{
+      setLimitError('Quantity limit reached');
+    ToastMessages.warning('Quantity limit reached');
+  }
+
 };
 
 const decrementQuantity = () => {
@@ -229,7 +239,8 @@ useEffect(() => {
                   
                   <button className="quantity-btn" onClick={incrementQuantity}>
                     <RiAddLine />
-                  </button>            
+                  </button>      
+                  {limitError && <p className="limit-error">{limitError}</p>}      
           
                 
                 </div>
@@ -248,6 +259,7 @@ useEffect(() => {
                   </div>
                 )}
               </div>
+              <Toast duration={3000} />
             </div>
           )}
           </div>

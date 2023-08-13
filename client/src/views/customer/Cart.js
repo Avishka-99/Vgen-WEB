@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
 import { incrementCounter, removeFromCart } from "../../constants/ActionTypes"; // Import your action to remove items from the cart
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 import "../../styles/Cart.css";
 import Axios from "../../api/Axios";
 
@@ -16,34 +18,45 @@ function Cart() {
     dispatch(removeFromCart(itemToRemove)); // Dispatch the action to remove item from the cart
   };
   const handleOrder = async () => {
-    try {
-      const formData = new FormData();
-      cartItems.forEach((item, index) => {
-        formData.append(`products[${index}][productId]`, item.productId);
-        formData.append(`products[${index}][quantity]`, item.quantity);
-        formData.append(`products[${index}][price]`, item.price);
+    const userId = localStorage.getItem("userId");
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+   
+    formData.append("amount", calculateTotal());
+    formData.append("quantity",countQuantity());
+
+    formData.append("productId", cartItems[0].productId);
+    formData.append("status", 1);
+    formData.append("date", new Date().toLocaleDateString());
+    formData.append("time", new Date().toLocaleTimeString());
+    try{
+
+      const res=await Axios.post(API_ENDPOINTS.orderPost_URL,formData,{
+
+        headers:{
+          "Content-Type":"application/json"
+        }
       });
-
-      formData.append('total', calculateTotal());
-      formData.append('userId', JSON.parse(atob(localStorage.getItem('token').split('.')[1])).userId);
-      formData.append('orderStatus', 'pending');
-      formData.append('orderDate', new Date());
-
-      const response = await Axios.post(API_ENDPOINTS.orderPost_URL, formData);
-
-      console.log('Order placed successfully:', response.data);
-
-      cartItems.forEach((item) => {
-        dispatch(removeFromCart(item));
-      });
-
-      navigate('/confirmation');
-    } catch (error) {
-      console.error('Error placing order:', error);
+      console.log(res.data);
+      //setFormData(res.data);
+    }catch(err){
+      console.log('Error fetching data:', err);
+      
     }
   }
-  
+   //cartItems product id
+
+
  
+const countQuantity = () => {
+    let count = 0;
+    for (const item of cartItems) {
+      count += item.quantity;
+  
+    return count;
+  };
+}
 
   const calculateTotal = () => {
     let total = 0;
@@ -102,6 +115,9 @@ function Cart() {
           </table>
         </div>
       )}
+      <div>
+        <p>Quantity: {countQuantity()}</p>
+      </div>
       <div className="total">
         <p>Total: Rs.{calculateTotal()}</p>
         <button className="btn" onClick={handleOrder}>Checkout</button> 
