@@ -90,10 +90,13 @@ const ShowSidebar = (props) => {
 	};
 	if (props.type == 'Admin') {
 		return (
-			<div className='sidebar' onSelect={(item) => console.log(item)}>
+			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
+				<div className='expand-toggle' onClick={toggleSidebar}>
+					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
+				</div>
 				<div>
 					{admin.map((item) => (
-						<MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
 					))}
 				</div>
 			</div>
