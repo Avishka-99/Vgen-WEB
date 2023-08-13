@@ -26,6 +26,10 @@
   font-family: poppins-medium;
   src: url("../assets/fonts/Poppins-Medium.ttf");
 }
+@font-face {
+  font-family: poppins-semibold;
+  src: url("../assets/fonts/Poppins-SemiBold.ttf");
+}
 .outerContainer{
   display: flex;
   flex-direction: row;
