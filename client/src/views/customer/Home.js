@@ -178,7 +178,7 @@ useEffect(() => {
                   src={`http://localhost:5001/uploads/products/${data1.productImage}`}
                   alt={data1.productName}
                 />
-                <p className='product_name'>{data1.productName}</p>
+                <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data1.productName}</p>
                 {data1.sell_products.map((sellProduct, index) => (
       <div key={index}>
         <p className='prices'>Price: Rs.{sellProduct.price}</p>

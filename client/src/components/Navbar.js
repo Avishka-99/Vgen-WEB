@@ -2,17 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
-import Cart from "../views/customer/Cart";
+
 import { Card } from "reactstrap";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux'
 import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
 import { setSearchKeyword } from "../constants/ActionTypes";
+import { Menu,MenuItem } from "@mui/material";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Axios from "../api/Axios";
 
-import Axios from 'axios';
 
 
 const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleMenuOpen=(e)=>{
+    setAnchorEl(e.currentTarget);
+  };
+  const handleMenuClose=()=>{
+    setAnchorEl(null);
+  };
+  const navigationBar=[
+    { id: 1, link:"view_profile",label:"View Profile", index: "1" },
+    { id: 2, link: "logout",label:"Log Out", index: "2" },
+  ]
   const navigate = useNavigate();
   const cartItemCount=useSelector((state)=>state.cartReducer.cartItemCount);
   const user = localStorage.getItem("type");
@@ -75,6 +88,19 @@ const Navbar = () => {
                 </Link>
               </li>
             ))} */}
+            <div onClick={handleMenuOpen}>
+              <MoreVertIcon/>
+            </div>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              >
+              {navigationBar.map((item) => (
+                <MenuItem key={item.id} onClick={() => navigateTo(item.link)}>{item.label}</MenuItem>
+              ))}
+
+              </Menu>
           </ul>
         </div>
       </nav>
