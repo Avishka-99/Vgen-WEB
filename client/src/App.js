@@ -5,16 +5,17 @@ import {useSelector, useDispatch} from 'react-redux';
 import './styles/App.css';
 import Sidebar from './components/Sidebar';
 import {BrowserRouter, Routes, Route, useLocation, useNavigate} from 'react-router-dom';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import * as UserRoutes from './routes/Routes';
 import LandingPage from './views/landing/LandingPage';
 import SignIn from './views/landing/SignIn';
 import SignUp from './views/landing/SignUp';
 import ResetPassword from './views/landing/ResetPassword';
+
 import Otp from './views/landing/Otp';
 import ProtectedRoutes from './utils/ProtectedRoutes';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   console.log(localStorage.getItem("type"));
@@ -45,6 +46,7 @@ function App() {
            {user==='Customer'  ?(
                <div className="navbar">
                <Navbar type={user} />
+              
                </div>
            ):(
              null
@@ -68,7 +70,11 @@ function App() {
                  )}
                </Route>
              </Routes>
+             {user === 'Customer' ? (
+              <Footer />
+            ) : null}
            </div>
+           
            </>
       ):(
         <>
@@ -76,6 +82,7 @@ function App() {
            {user==='Customer'  ?(
                <div className="navbar">
                <Navbar type={user} />
+               
                </div>
            ):(
              null
@@ -99,10 +106,16 @@ function App() {
                  )}
                </Route>
              </Routes>
+             {user === 'Customer' ? (
+              <Footer />
+            ) : null}
+
            </div>
+           
+
         </>
       )}
-    
+   
     </div>
   );
 }
