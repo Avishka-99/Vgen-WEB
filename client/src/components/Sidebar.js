@@ -56,12 +56,12 @@ const ShowSidebar = (props) => {
 		{id: 7, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const admin = [
-		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
-		{id: 2, icon: <GroupsIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'staff', index: '2'},
-		{id: 3, icon: <TrendingUpIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'analytics', index: '3'},
-		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'riders', index: '4'},
-		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'profile', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'logout', index: '6'},
+		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
+		{id: 2, icon: <GroupsIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Staff', link: 'staff', index: '2'},
+		{id: 3, icon: <TrendingUpIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Analytics', link: 'analytics', index: '3'},
+		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Riders', link: 'riders', index: '4'},
+		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Profile', link: 'profile', index: '5'},
+		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Logout', link: 'logout', index: '6'},
 	];
 	const staff = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
@@ -88,10 +88,13 @@ const ShowSidebar = (props) => {
 	};
 	if (props.type == 'Admin') {
 		return (
-			<div className='sidebar' onSelect={(item) => console.log(item)}>
+			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
+				<div className='expand-toggle' onClick={toggleSidebar}>
+					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
+				</div>
 				<div>
 					{admin.map((item) => (
-						<MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
 					))}
 				</div>
 			</div>
