@@ -88,10 +88,10 @@ export default function OrdersView() {
       }
     }
     const acceptHandle = (orderId) => () => {
-        setPopup(false);
+        
     }
     const rejectHandle = (orderId) => () => {
-      setPopup(false);
+      
    }
   
   var type="";
@@ -143,26 +143,28 @@ export default function OrdersView() {
                       <th>Order Type</th>
                       <th>Order status</th>
                       <th>Total amount</th>
+                      {/* <th>Total quantity</th> */}
                       <th></th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
                   {orderDetails.result_2.map((o) => (
-                    <tr key={o.orderId}  onClick={handleRowClick(o.orderId,user_id)}>
-                      <td>{o.name}</td>
-                      <td>{o.orderId}</td>
-                      <td>{o.date}</td>
-                      <td>{o.time}</td>
-                      <td>{o.orderType}</td>
-                      <td> {o.orderState===0 ? (
+                    <tr key={o.orderId}  >
+                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.name}</td>
+                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
+                      <td onClick={handleRowClick(o.orderId,user_id)}> {o.date}</td>
+                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.time}</td>
+                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
+                      <td onClick={handleRowClick(o.orderId,user_id)}>  {o.orderState===0 ? (
                             //complete the prepare
                             <p style={{color:'green'}}>new order</p>
                           ): (
                             " "
                           )}
                       </td>
-                      <td>{"Rs:"}{o.amount}</td>
+                      <td onClick={handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
+                      {/* <td>{o.totalQuantity}</td> */}
                       <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Accept</button></td>
                       <td><button className='order-reject'onClick={rejectHandle(o.orderId)}>Reject</button></td>
                     </tr>

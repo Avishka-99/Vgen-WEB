@@ -6,30 +6,28 @@ import '../../styles/RestaurantProduct.css'
 
 
 
-const RestaurantProductAdd = (props) => {
-    // const [formData,setFormData]=useState([])
+const RowProductsAdd = (props) => {
+   
     const [quantity,setQuantity]=useState('');
     const [description,setDescription]=useState('');
     const [productName,setProductName]=useState('');
     const [price,setPrice]=useState('');
-    const [productImage,setProductImage]=useState();
     const [category,setCategory]=useState('');
+    const [productImage,setProductImage]=useState();
     const user_id=localStorage.getItem('userId');
-    
    
    const handleSubmit=(e)=>{
       //upload image    
       const formData=new FormData();
-      formData.append('category',category);
-      formData.append('user_id',user_id);
       formData.append('productImage',productImage);
       formData.append('quantity',quantity);
       formData.append('description',description);
       formData.append('productName',productName);
       formData.append('price',price);
-   
-      Axios.post(API_ENDPOINTS.productUpload_URL,formData);
-    
+      formData.append('category',category);
+      formData.append('user_id',user_id);
+      Axios.post(API_ENDPOINTS.addRowProducts_URL,formData,);
+  
   
     }
      
@@ -39,9 +37,9 @@ const RestaurantProductAdd = (props) => {
     }
     return props.trigger ? ( 
       <div className="product-add-popup">
-        <div className="product-add-popup-inner">
+        <div className="product-add-popup-inner" >
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
-        {/* {props.children} */}
+        
         <h2>Product add</h2>
         <div className="product-add">
           <label htmlFor="productImage" id='Product-image'>Product Image:</label><br />
@@ -58,16 +56,17 @@ const RestaurantProductAdd = (props) => {
 
             <label htmlFor="price">Price:</label><br />
             <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} required/><br />
-            
+             
             <label htmlFor="price">Category:</label><br />
             <select onChange={(e) => { setCategory(e.target.value) }} required className='productAddSelect'>
-                <option value="vegan">vegan</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="other">Other</option>
+                <option value="vegetable">Vegetable</option>
+                <option value="fruit">Fruit</option>
+                <option value="milk">Milk</option>
+                <option value="feed">Feed</option>
             </select>
             
         </div>    
-        <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
+        <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} } >Submit</button>          
 
                   
       </div>
@@ -80,4 +79,4 @@ const RestaurantProductAdd = (props) => {
      ): null;
 }
  
-export default RestaurantProductAdd;
+export default RowProductsAdd;
