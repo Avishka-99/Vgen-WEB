@@ -11,7 +11,7 @@ export default function OrdersView() {
   const [orderDetails,SetOrderDetails]=useState([]);
   const [moreOrderDetails,SetMoreOrderDetails]=useState([]);
   const [popup,setPopup]=useState(false); 
-    
+  const [acceptOrders,setAcceptOrders]=useState(false); 
    
    
     useEffect(() => {
@@ -58,10 +58,10 @@ export default function OrdersView() {
       });
       orderDetails.result_1.map((or)=>{
         if (or.orderState === 2) {
-          result.push({ id: 3, title: 'Deliver to orders', count: or.totalCount });
+          result.push({ id: 3, title: 'Finalized orders', count: or.totalCount });
         } 
         else if(!(or.orderState === 0) && !(or.orderState === 1) ){
-          result.push({ id: 3, title: 'Deliver to orders', count: 0 });
+          result.push({ id: 3, title: 'Finalized orders', count: 0 });
         }
       });
       console.log(result)
@@ -110,7 +110,24 @@ export default function OrdersView() {
       
     }
   }
-   
+
+  const handleAcceptOrders = () => () => {
+    try {
+      setAcceptOrders(true);
+      Axios.get(API_ENDPOINTS.getAcceptOrders_URL, {
+        params: {
+          
+          user_id: user_id,
+        },
+      }).then((response) => {
+        SetOrderDetails(response.data)
+      });
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      
+    }
+  }
+   console.log(acceptOrders);
     
     
 
@@ -129,52 +146,95 @@ export default function OrdersView() {
           <button className="clickable-button" onClick={handleByOrderType(type="Delivery")}>Delivery</button>
           <button className="clickable-button" onClick={handleByOrderType(type="Take away")}>Take away</button>
         </div>
+        <button className="accept-orders" onClick={handleAcceptOrders}>Accept orders</button>
+
         <div className="table-content-details">
           {orderDetails.length==0?(
             <p>No orders</p>
+          ):(acceptOrders===true?(
+            <table style={{marginLeft : '2%'}}>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Order Id</th>
+                <th>Order date</th>
+                <th>Order time</th>
+                <th>Order Type</th>
+                <th>Order status</th>
+                <th>Total amount</th>
+                {/* <th>Total quantity</th> */}
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {orderDetails.result_2.map((o) => (
+              <tr key={o.orderId}  >
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.name}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}> {o.date}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.time}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>  {o.orderState===1 ? (
+                      //complete the prepare
+                      <p style={{color:'green'}}>accept orders</p>
+                    ): (
+                      " "
+                    )}
+                </td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
+                {/* <td>{o.totalQuantity}</td> */}
+                <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Finalized</button></td>
+               
+              </tr>
+            ))}
+          </tbody>
+
+            
+         </table>
           ):(
             <table style={{marginLeft : '2%'}}>
-                  <thead>
-                    <tr>
-                      <th>Customer</th>
-                      <th>Order Id</th>
-                      <th>Order date</th>
-                      <th>Order time</th>
-                      <th>Order Type</th>
-                      <th>Order status</th>
-                      <th>Total amount</th>
-                      {/* <th>Total quantity</th> */}
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {orderDetails.result_2.map((o) => (
-                    <tr key={o.orderId}  >
-                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.name}</td>
-                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
-                      <td onClick={handleRowClick(o.orderId,user_id)}> {o.date}</td>
-                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.time}</td>
-                      <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
-                      <td onClick={handleRowClick(o.orderId,user_id)}>  {o.orderState===0 ? (
-                            //complete the prepare
-                            <p style={{color:'green'}}>new order</p>
-                          ): (
-                            " "
-                          )}
-                      </td>
-                      <td onClick={handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
-                      {/* <td>{o.totalQuantity}</td> */}
-                      <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Accept</button></td>
-                      <td><button className='order-reject'onClick={rejectHandle(o.orderId)}>Reject</button></td>
-                    </tr>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Order Id</th>
+                <th>Order date</th>
+                <th>Order time</th>
+                <th>Order Type</th>
+                <th>Order status</th>
+                <th>Total amount</th>
+                {/* <th>Total quantity</th> */}
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {orderDetails.result_2.map((o) => (
+              <tr key={o.orderId}  >
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.name}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}> {o.date}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.time}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>  {o.orderState===0 ? (
+                      //complete the prepare
+                      <p style={{color:'green'}}>new order</p>
+                    ): (
+                      " "
+                    )}
+                </td>
+                <td onClick={handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
+                {/* <td>{o.totalQuantity}</td> */}
+                <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Accept</button></td>
+                <td><button className='order-reject'onClick={rejectHandle(o.orderId)}>Reject</button></td>
+              </tr>
                   ))}
-                </tbody>
+            </tbody>
 
                   
           </table>
 
-          )}
+          ))}
           
         </div>
         <div className="popup">

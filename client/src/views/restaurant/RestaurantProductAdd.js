@@ -27,19 +27,16 @@ const RestaurantProductAdd = (props) => {
       formData.append('price',price);
    
       Axios.post(API_ENDPOINTS.productUpload_URL,formData);
-    
-  
     }
      
     const handleFiles=(e)=>{
       setProductImage(e.target.files[0]);
-  
     }
     return props.trigger ? ( 
       <div className="product-add-popup">
         <div className="product-add-popup-inner">
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
-        {/* {props.children} */}
+        
         <h2>Product add</h2>
         <div className="product-add">
           <label htmlFor="productImage" id='Product-image'>Product Image:</label><br />
@@ -70,6 +67,18 @@ const RestaurantProductAdd = (props) => {
 						required
 					/>
 					<br />
+          <label htmlFor='description'>Quantity:</label>
+					<br />
+					<input
+						type='text'
+						id='description'
+						placeholder='Description'
+						onChange={(e) => {
+							setQuantity(e.target.value);
+						}}
+						required
+					/>
+					<br />
 
             <label htmlFor="price">Price:</label><br />
             <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} required/><br />
@@ -83,5 +92,10 @@ const RestaurantProductAdd = (props) => {
             
         </div>    
         <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
+      </div> 
+    </div> 
+    ):null;
+};
 
-export default RestaurantProductAdd;
+
+export default RestaurantProductAdd

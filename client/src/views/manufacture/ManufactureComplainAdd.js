@@ -2,11 +2,11 @@ import React,{useState,useEffect} from 'react'
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
 import CloseIcon from '@mui/icons-material/Close';
-import '../../styles/RestaurantComplain.css'
+import '../../styles/manufacture/manufactureComplain.css'
 
 
 
-const ComplainPopup = (props) => {
+const ManufactureComplainAdd = (props) => {
 
   const [orderId,setOrderId]=useState([]);
   const [description,setDescription]=useState('');
@@ -37,7 +37,7 @@ const ComplainPopup = (props) => {
   useEffect(() => {
     async function getOrdersId(){
       try {
-        const res = await Axios.get(API_ENDPOINTS.getAllComplainIDRelevantRestaurant_URL, {
+        const res = await Axios.get(API_ENDPOINTS.getAllComplainIDRelevantManufacture_URL, {
           params: {
             user_id: user_id,
           },
@@ -56,12 +56,12 @@ const ComplainPopup = (props) => {
      
    
     return props.trigger ? ( 
-      <div className="complain-add-popup">
-        <div className="complain-add-popup-inner">
+      <div className="m_complain-add-popup">
+        <div className="m_complain-add-popup-inner">
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
         
         <h2>complain add</h2>
-        <div className="complain-add">
+        <div className="m_complain-add">
             <label htmlFor="orderId" >order_id:</label><br />
             <select name="" id="" className='orderIdSelect' onChange={(e) => { setU_OrderId(e.target.value) }}>
                 <option value="">--select one--</option>
@@ -78,7 +78,7 @@ const ComplainPopup = (props) => {
 
             
         </div>    
-        <button className="complain-submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
+        <button className="m_complain-submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
 
                   
       </div>
@@ -91,4 +91,4 @@ const ComplainPopup = (props) => {
      ): null;
 }
  
-export default ComplainPopup;
+export default ManufactureComplainAdd;
