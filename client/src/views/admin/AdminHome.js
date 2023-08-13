@@ -36,14 +36,42 @@ export default function AdminHome() {
 					<div style={{width: '27.5%', fontFamily: 'poppins-bold', fontSize: 25, textAlign: 'center', alignItems: 'center'}}>
 						<div style={{color: '#242730'}}> Recent Orders</div>
 					</div>
-					<div style={{display: 'flex', flexDirection: 'row', width: '16%', height: '80%', backgroundColor: '#BCDAC8', borderRadius: 15, marginRight: '3.6%', alignItems: 'center'}}>
-						<div style={{height: '100%'}}>
+					<div style={{display: 'flex', flexDirection: 'row', width: '16%', height: '80%', backgroundColor: '#BCDAC8', borderRadius: 15, marginRight: '3.6%', alignItems: 'center', justifyContent: 'space-around'}}>
+						<div style={{height: '100%', display: 'flex', alignItems: 'center'}}>
 							<TuneIcon />
 						</div>
-						<div style={{height: '100%'}}>Filter Order</div>
+						<div style={{height: '100%', display: 'flex', alignItems: 'center', fontFamily: 'poppins-medium'}}>Filter Order</div>
 					</div>
 				</div>
-				<div className='AdminRow_1Row5'></div>
+				<div className='AdminRow_1Row5'>
+					<table>
+						<thead>
+							<tr>
+								<th>Customer ID</th>
+								<th>Order ID</th>
+								<th>Order Type</th>
+								<th>Payment</th>
+								<th>Order Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Dewmini</td>
+								<td>101</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+							<tr>
+								<td>Dewmini</td>
+								<td>101</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div className='Row_2'></div>
 		</div>
