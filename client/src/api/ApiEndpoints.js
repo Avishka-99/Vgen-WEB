@@ -6,6 +6,8 @@ export const VERIFY_USER_URL = '/api/verifyuser';
 export const FETCH_ALL_PRODUCTS_URL = '/api/allProduct';
 export const GET_ORDER_TYPE_URL = 'api/orderTypes';
 export const GET_ORDER_COUNT_URL = 'api/orderCountDetails';
+export const GET_Profile_URL ='api/getProfile/:id';
+    ;
 //
 export const productUpload_URL = '/api/productStore';
 export const productGet_URL = '/api/productGet';
