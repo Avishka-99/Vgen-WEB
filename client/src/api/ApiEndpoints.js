@@ -22,11 +22,22 @@ export const updateFeed_URL='/api/updateFeed/${postId}';
 export const itemAdd_url = '/api/productAdd';
 export const restaurantDetails_URL = '/api/resDetailsGet';
 export const getAllProduct_URL='/api/allProduct';
-export const getOrderType_URL='api/orderTypes'
-export const getOrderCountDetail_URL='api/orderCountDetails'
-export const getOrderDetails_URL='api/getOrderDetails'
-export const getOrderMoreDetails_URL='api/getOrderMoreDetails'
-export const getOrderDetailsSorted_URL='api/getOrderSortedDetails'
-export const getMostOrderCountWithOutLimit_URL='api/getMostOrderCountWithOutLimit'
-export const getMostOrderCountWithLimit_URL='api/getMostOrderCountWithLimit'
+export const getOrderType_URL='api/orderTypes';
+export const getOrderCountDetail_URL='api/orderCountDetails';
+export const getOrderDetails_URL='api/getOrderDetails';
+export const getOrderMoreDetails_URL='api/getOrderMoreDetails';
+export const getOrderDetailsSorted_URL='api/getOrderSortedDetails';
+export const getMostOrderCountWithOutLimit_URL='api/getMostOrderCountWithOutLimit';
+export const getMostOrderCountWithLimit_URL='api/getMostOrderCountWithLimit';
+export const getShopDetails_URL='api/getShopDetails';
+export const getReservationDetails_URL="api/getReservationDetails"
+export const addComplain_URL="api/addComplain"
+export const getAllComplainIDRelevantRestaurant_URL="api/getAllOrderIDRelevantRestaurant"
+export const getComplain_URL="api/getComplain"
+export const getAcceptOrders_URL="api/getAcceptOrders"
+//
+//product manufacture apis
+export const addRowProducts_URL='/api/rowProductStore';
+export const getAllRowProduct_URL='/api/allRowProduct';
+export const getAllComplainIDRelevantManufacture_URL='api/getAllOrderIDRelevantManufacture'
 //

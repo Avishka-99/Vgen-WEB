@@ -1,0 +1,81 @@
+.Sopping-details{
+  width: 100%;
+  height: 100%;
+}
+.shop_inner h1{
+    font-family: poppins-regular;
+    font-size: 25px;
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 0%;
+    font-weight: bold;
+}
+.shop-items-btb{
+    margin-top: 1%;
+    color: black;
+    font-size: 18px;
+    margin-left: 80%;
+    padding: 10px;
+    background-color: #BCDAC8;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    border: none; 
+}
+
+.mu-input-wrapperS{
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0 15px;
+    box-shadow: 0px 0px 8px #ddd;
+    display: flex;
+    align-items: center;
+    margin-left: 27.5%;
+    margin-top: 2%;
+  }
+  
+  .mu-input-wrapperS input{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.25rem;
+    margin-left: 20px;
+    
+  }
+  
+  .mu-input-wrapperS input:focus{
+    outline: none;
+  }
+
+  /* .shopCards{
+    width: 100%;
+    height: 90%;
+    display: flex;
+  }
+  .shop_inner{
+    width: 100%;
+    height: 10%;
+    margin-bottom: 10%;
+  } */
+
+  /* Update the shopCards class to style the row layout */
+.shopCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Add a width to each card to fit three cards in one row */
+.CardComponent {
+  width: calc(33.33% - 20px); /* Adjusted width and spacing */
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px #ddd;
+  /* Other card styling */
+}
+
+  
