@@ -1,26 +1,61 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .groups-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .group-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 300px;
-    background-color: #f9f9f9;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
+/* Community.css */
+
+.groups-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.group-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.group-card__image {
+  /* Add background image styles here */
+  width: 100%;
+  height: 150px;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.group-card__content {
+  margin-top: 10px;
+}
+
+.group-card__title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.group-card__description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.group-card__members {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+.group-card__button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.group-card__button:hover {
+  background-color: #0056b3;
+}

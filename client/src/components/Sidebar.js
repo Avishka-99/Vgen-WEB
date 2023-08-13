@@ -7,6 +7,7 @@ import WindowIcon from '@mui/icons-material/Window';
 import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import PeopleIcon from '@mui/icons-material/People';
 import AddHomeIcon from '@mui/icons-material/AddHome';
+import InfoIcon from '@mui/icons-material/Info';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -19,6 +20,7 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import {useNavigate} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
+import { FcAbout } from "react-icons/fc";
 
 import GradingIcon from '@mui/icons-material/Grading';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
@@ -43,8 +45,7 @@ const ShowSidebar = (props) => {
 		{id: 3, icon: <StoreIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Restaurants', link: 'restaurants', index: '3'},
 		{id: 4, icon: <PeopleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Community', link: 'community', index: '4'},
 		{id: 5, icon: <DynamicFeedIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Feeds', link: 'feed', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'About', link: 'About', index: '6'},
-		{id: 7, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
+		{id: 6, icon: <InfoIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'About', link: 'About', index: '6'},
 	];
 	const restaurant = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
@@ -62,6 +63,7 @@ const ShowSidebar = (props) => {
 		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'riders', index: '4'},
 		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'profile', index: '5'},
 		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'logout', index: '6'},
+		{id: 7, icon: <AddHomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'staffRegister', index: '7'},
 	];
 	const staff = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
@@ -88,10 +90,13 @@ const ShowSidebar = (props) => {
 	};
 	if (props.type == 'Admin') {
 		return (
-			<div className='sidebar' onSelect={(item) => console.log(item)}>
+			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
+				<div className='expand-toggle' onClick={toggleSidebar}>
+					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
+				</div>
 				<div>
 					{admin.map((item) => (
-						<MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
 					))}
 				</div>
 			</div>

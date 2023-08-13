@@ -193,18 +193,7 @@ export default function SignUp() {
 							<label className='placeholder_signup'>Confirm Password*</label>
 						</div>
 					</div>
-					<div className='signUpRow' style={{height: '1vh', marginTop: '-2%'}}>
-						<div className='signUpPasswordStrength' style={{width: '45%', height: '1vh', backgroundColor: 'red', borderRadius: '1vh'}}>
-							<div
-								className='signUpPasswordStrengthMeter'
-								style={{
-									width: '50%',
-									height: '1vh',
-									borderRadius: '1vh',
-								}}
-							></div>
-						</div>
-					</div>
+					
 					<label className='iam'>I am a</label>
 					<div className='signUpRadionRow'>
 						<div className='signUpRadioItem'>
