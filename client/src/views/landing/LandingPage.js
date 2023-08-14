@@ -2,6 +2,17 @@ import React,{useEffect} from 'react'
 import '../../styles/LandingPage.css'
 import ButtonFillBorder from '../../components/ButtonFillBorder'
 import ButtonFillInside from '../../components/ButtonFillInside'
+import image1 from './partners/1.png'
+import image2 from './partners/2.png'
+import image3 from './partners/3.png'
+import image4 from './partners/4.png'
+import image5 from './partners/5.png'
+import image6 from './partners/6.png'
+import image7 from './partners/7.jpeg'
+
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 export default function LandingPage() {
@@ -23,6 +34,27 @@ export default function LandingPage() {
             navigate('/' + page);
         }
     }
+const carouselData = [
+		{id: 1, image:image1},
+		{id: 2, image:image2},
+		{id: 3, image: image3},
+		{id: 4, image: image4},
+		{id: 5, image: image5},
+		{id: 6, image: image6},
+		{id: 7, image: image7},
+];
+const settings = {
+			dots: true,
+			infinite: true,
+			speed: 2000,
+			slidesToShow: 3,
+			autoplay: true,
+			slidesToScroll: 1,
+			arrows: false,
+			autoplaySpeed: 3000,
+			slidesToShow: 1,
+};
+
     return (
 			<div className='landingContainer'>
 				<div className='header'>
@@ -47,7 +79,19 @@ export default function LandingPage() {
 						<div className='textLine' style={{fontFamily: 'poppins-regular', fontSize: '32px', marginTop: '5%'}}>
 							Our Partners
 						</div>
-						<div className='partners'></div>
+						<div className='partners'>
+                     <Slider {...settings}>
+						{carouselData.map((data) => (
+							<div className='partner' key={data.id}>
+								<img className='image_partner' src={data.image} alt='partner' />
+
+						</div>
+						))}
+						</Slider>
+								 
+
+
+						</div>
 					</div>
 					<div className='landingRight'>
 						<div className='imageContainerOne'>

@@ -1,7 +1,10 @@
 .restaurants {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;/* Adjust as needed */
+    flex-wrap: wrap;/* Adjust as needed */
+    margin: 0 -10px;
+    padding: 20px;
+    gap: 40px;
+    margin-left: 100px;
   }
   
   .card_res {

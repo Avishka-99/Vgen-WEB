@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react';
 // import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 // import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 // import HailIcon from '@mui/icons-material/Hail';
@@ -9,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 // import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 
-import '../../styles/RestaurentHome.css'
+import '../../styles/RestaurentHome.css';
 
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
@@ -131,13 +131,13 @@ export default function RestaurantHome() {
     },[])
    
 
-    const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
+	const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
 
-    const pieChartData = orderType.map((item, index) => ({
-      title: item.orderType,
-      value: item.count,
-      color: predefinedColors[index % predefinedColors.length],
-    }));
+	const pieChartData = orderType.map((item, index) => ({
+		title: item.orderType,
+		value: item.count,
+		color: predefinedColors[index % predefinedColors.length],
+	}));
 
     let revenue=Math.round((orderCount.total_amount)*0.9);
     let total_count=orderCount.total_count;
@@ -251,24 +251,11 @@ export default function RestaurantHome() {
                   </select><br />
                   <p>Order place date</p>
 
-                  <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                    placeholderText="Start Date"
-                  /><br/>
-                  <DatePicker
-                    selected={endDate}
-                    onChange={(date) => setEndDate(date)}
-                    selectsEnd
-                    startDate={startDate}
-                    endDate={endDate}
-                    minDate={startDate}
-                    placeholderText="End Date"
-                  /><br/>
-                  {/* <p>Order place time</p>
+								<DatePicker selected={startDate} onChange={(date) => setStartDate(date)} selectsStart startDate={startDate} endDate={endDate} placeholderText='Start Date' />
+								<br />
+								<DatePicker selected={endDate} onChange={(date) => setEndDate(date)} selectsEnd startDate={startDate} endDate={endDate} minDate={startDate} placeholderText='End Date' />
+								<br />
+								{/* <p>Order place time</p>
                   <TimePicker
                     value={startTime}
                     onChange={setStartTime}

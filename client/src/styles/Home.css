@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
 
 /* Basic styling for the entire page */
 .home {
@@ -72,6 +72,7 @@
 .vision_1 {
   margin: 20px 0;
   text-align: center;
+  background-color: transparent;
 }
 
 .vision_1 p {
@@ -91,6 +92,7 @@
   border-radius: 5px;
   padding: 10px;
   margin-right: 10px;
+  font-family: poppins-medium;
   width: 200px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

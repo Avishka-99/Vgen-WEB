@@ -1,0 +1,48 @@
+/* Footer Component CSS */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer__links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .footer__app-download {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer__app-download-text {
+    margin-right: 10px;
+  }
+  
+  .footer__app-download-link img {
+    width: 40px;
+    height: auto;
+  }
+  
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .footer__phone span,
+  .footer__email span {
+    font-weight: bold;
+  }
+  
+  .footer__phone a,
+  .footer__email a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  

@@ -1,0 +1,72 @@
+.staff-registration-form {
+	margin: 0 auto;
+	padding: 20px;
+	width: 100%;
+	display: flex;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.avatar {
+	width: 200px;
+	height: 100%;
+}
+.staff-registration-form form {
+	position: relative;
+	justify-content: space-between;
+	height: 100%;
+}
+.form-div {
+	width: 100%;
+	position: relative;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.StaffRegFormRow {
+	width: 100%;
+	height: 20%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.StaffRegFormCol1 {
+	width: 48%;
+}
+.StaffRegFormCol2 {
+	width: 48%;
+}
+
+.staff-registration-form h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.staff-registration-form label {
+	display: block;
+	font-weight: bold;
+
+	margin-bottom: 5px;
+}
+
+.staff-registration-form input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.staff-registration-form button {
+	width: 100%;
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.staff-registration-form button:hover {
+	background-color: #0056b3;
+}

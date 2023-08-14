@@ -13,13 +13,18 @@ import "react-multi-carousel/lib/styles.css";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import "../../styles/Home.css";
 import Button from "../../components/Button";
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 import Navbar from "../../components/Navbar";
+import getGeolocationAddress from "./geoAddress";
 
 
 function Home() {
-  
+  const [resolvedAddresses, setResolvedAddresses] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [limitError, setLimitError] = useState('');
+  const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
 
   const toggleModal = (product) => {
     setSelectedProduct(product);
@@ -78,7 +83,14 @@ function Home() {
   const [quantity, setQuantity] = useState(1);
 
 const incrementQuantity = () => {
+ if(quantity<selectedProduct.sell_products[0].quantity){
   setQuantity(quantity + 1);
+  }
+  else{
+      setLimitError('Quantity limit reached');
+    ToastMessages.warning('Quantity limit reached');
+  }
+
 };
 
 const decrementQuantity = () => {
@@ -137,6 +149,23 @@ const decrementQuantity = () => {
           items: 1
         }
       };
+      //get address
+useEffect(() => {
+  const fetchRestaurantAddresses = async () => {
+    const addressesPromises = formData_1.map((data) => {
+      return getGeolocationAddress(data.latitude, data.longitude, apiKey);
+    });
+
+    try {
+      const resolved = await Promise.all(addressesPromises);
+      setResolvedAddresses(resolved);
+    } catch (error) {
+      console.error('Error fetching restaurant addresses:', error);
+    }
+  };
+
+  fetchRestaurantAddresses();
+}, [formData_1]);
     
     return (
       <div className='home'>
@@ -159,7 +188,7 @@ const decrementQuantity = () => {
                   src={`http://localhost:5001/uploads/products/${data1.productImage}`}
                   alt={data1.productName}
                 />
-                <p className='product_name'>{data1.productName}</p>
+                <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data1.productName}</p>
                 {data1.sell_products.map((sellProduct, index) => (
       <div key={index}>
         <p className='prices'>Price: Rs.{sellProduct.price}</p>
@@ -210,7 +239,8 @@ const decrementQuantity = () => {
                   
                   <button className="quantity-btn" onClick={incrementQuantity}>
                     <RiAddLine />
-                  </button>            
+                  </button>      
+                  {limitError && <p className="limit-error">{limitError}</p>}      
           
                 
                 </div>
@@ -229,6 +259,7 @@ const decrementQuantity = () => {
                   </div>
                 )}
               </div>
+              <Toast duration={3000} />
             </div>
           )}
           </div>
@@ -249,16 +280,17 @@ const decrementQuantity = () => {
         <div >
         
           <Carousel className="carousel" responsive={responsive1}>
-            {formData_1.map((data) => (
+            {formData_1.map((data,index) => (
               <div className='card' key={data.restaurantId}>
-                <p className='vegan_type'>{data.veganType}</p>
+                <p className='vegan_type'>{data.resturantType}</p>
                 <img
                   className='product--image'
-                  src={`http://localhost:5001/uploads/restaurants/${data.restaurantImage}`}
-                  alt={data.restaurantName}
+                  src={`http://localhost:5001/uploads/restaurants/${data.image}`}
+                  alt={data.resturantName}
                 />
-                <p className='product_name'>{data.restaurantName}</p>
-                <p className='prices'>Location</p>
+                <p className='product_name'>{data.resturantName}</p>
+                <p className='prices'>
+                Location:{resolvedAddresses[index]||'Loading address..'}</p>
                 <button className='btn_res'>
                   View Restaurant
                 </button>
