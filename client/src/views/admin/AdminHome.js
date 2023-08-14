@@ -94,29 +94,6 @@ export default function AdminHome() {
 					</table>
 				</div>
 			</div>
-			<div className='Row_2'>
-				
-				<div className='AdminRow_2Row2'>
-					<h2>Customer Review</h2>
-					<div className='pie-chart-container1'>
-						{data.map((entry, index) => (
-							<div key={index} className='pie-chart'>
-								<div className='pie-chart-title'>{entry.name}</div>
-								<div className='pie-chart-color' style={{backgroundColor: entry.COLORS}}></div>
-							</div>
-						))}
-					</div>
-					<div className='pie-chart-container'>
-						<PieChart height={250} width={400}>
-							<Pie data={data} cx={190} cy={130} innerRadius={80} outerRadius={100} fill='#8884d8' paddingAngle={5} dataKey='value'>
-								{data.map((entry, index) => (
-									<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-								))}
-							</Pie>
-						</PieChart>
-					</div>
-				</div>
-			</div>
 		</div>
 		// </div>
 	);

@@ -1,0 +1,174 @@
+.complain-add-inner h1{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    font-family: poppins-regular;
+}
+
+.add-complain-btn{
+    margin-top: 1%;
+    color: black;
+    font-size: 18px;
+    margin-left: 80%;
+    padding: 10px;
+    background-color: #BCDAC8;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+}
+
+/* 
+.product-details{
+    width: 95%;
+    height: 100%;
+    margin-left: 5%;
+  }
+  
+  .product-details h1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 40%;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    font-family: poppins-regular;
+  }
+  
+  .Product-add-btn{
+     margin-top: 1%;
+      color: black;
+      font-size: 18px;
+      margin-left: 80%;
+      padding: 10px;
+      background-color: #BCDAC8;
+      width: 150px;
+      border-radius: 5px;
+      text-align: center;
+      border: none; 
+  }
+  
+  .product-details-header{
+    width: 100%;
+    height: 10%;
+  }
+  .product-details-content{
+    width: 100%;
+    height: 90%;
+    margin-top: 10%;
+    
+  }
+  .product-card{
+    width: 80%;
+    margin-left: 5%;
+  } */
+  
+  
+  /*product add popup css*/
+  
+  .orderIdSelect{
+     width: 250px;
+     height: 30px;
+     margin-top: 15px;
+     text-align: center;
+     font-family: poppins-regular;
+  }
+  .complain-add-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+  .complain-add-popup-inner{
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 300px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+  }
+  .complain-add-popup-inner .Close-Btn{
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    
+  } 
+  
+  .complain-add-popup-inner h2{
+    position: absolute;
+    top: 1px;
+    right: 140px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: poppins-regular;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+  } 
+  
+  .Close-Btn {
+    background-color:white;
+    color: black;
+    padding: 8px;
+    border: none;
+    border-radius: 0px 15px 0px 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+  }
+  
+  
+  .Close-Btn:hover {
+    background-color: #dc3545;
+  }
+
+
+  .complain-submit-button{
+    background-color: #BCDAC8;
+    color: black;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 250px;
+    right: 105px;
+    width: 200px;
+    height: 40px;
+  }
+
+  .complain-add-popup-inner label{
+    margin-left: 15px;
+    margin-top: 15px;
+   font-family: poppins-regular;
+  
+  }
+  
+  
+  .complain-add-popup-inner input{
+    /* margin-left: 15px; */
+    margin-top: 15px;
+    width: 250px;
+    height: 30px;
+    font-family: poppins-regular;
+  }
+  .complain-add{
+    margin: auto;
+    width: 100%;
+    height: 100%
+  }
+  /**/

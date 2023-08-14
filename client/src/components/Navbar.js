@@ -23,7 +23,7 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   const navigationBar=[
-    { id: 1, link:"view_profile",label:"View Profile", index: "1" },
+    { id: 1, link:'view_profile',label:"View Profile", index: "1" },
     { id: 2, link: "logout",label:"Log Out", index: "2" },
   ]
   const navigate = useNavigate();
