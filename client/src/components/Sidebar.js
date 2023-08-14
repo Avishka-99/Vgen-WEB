@@ -20,7 +20,7 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import {useNavigate} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { FcAbout } from "react-icons/fc";
+import {FcAbout} from 'react-icons/fc';
 
 import GradingIcon from '@mui/icons-material/Grading';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
@@ -57,13 +57,13 @@ const ShowSidebar = (props) => {
 		{id: 7, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const admin = [
-		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
-		{id: 2, icon: <GroupsIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'staff', index: '2'},
-		{id: 3, icon: <TrendingUpIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'analytics', index: '3'},
-		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'riders', index: '4'},
-		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'profile', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'logout', index: '6'},
-		{id: 7, icon: <AddHomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'staffRegister', index: '7'},
+		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:'Home', link: 'home', index: '1'},
+		{id: 2, icon: <GroupsIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Staff", link: 'staff', index: '2'},
+		{id: 3, icon: <TrendingUpIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Analytics", link: 'analytics', index: '3'},
+		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Riders", link: 'riders', index: '4'},
+		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Profile", link: 'profile', index: '5'},
+		{id: 6, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"LogOut", link: 'logout', index: '6'},
+	
 	];
 	const staff = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
@@ -137,7 +137,6 @@ const ShowSidebar = (props) => {
 				</div>
 			</div>
 		);
-	 
 	} else if (props.type == 'productManufacture') {
 		return (
 			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
@@ -151,8 +150,7 @@ const ShowSidebar = (props) => {
 				</div>
 			</div>
 		);
-	} 
-	
+	}
 };
 export default function Sidebar(props) {
 	const [showSidebar, setShowSidebar] = useState(true);

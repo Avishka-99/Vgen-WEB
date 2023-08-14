@@ -1,11 +1,25 @@
 import React from 'react';
 import '../../styles/Admin/Home.css';
 import DashBoardCard from '../../components/Card';
+
 import TuneIcon from '@mui/icons-material/Tune';
 import {PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts';
 export default function AdminHome() {
 	const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const data = [
+		{ name: 'Highly Satisfied', value: 400 ,COLORS:'#0088FE'},
+		{ name: 'Satisfied', value: 300 ,COLORS:'#00C49F'},
+		{ name: 'Slightly Satisfied', value: 300,COLORS:'#FFBB28' },
+	];
+	const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+	const MostOrders = [	
+		{ name: 'KFC', value: 400 ,img:require('../../assets/images/kfc.png')},
+		{ name: 'Pizza Hut', value: 300 ,img:require('../../assets/images/pizzahut.png') },
+		{ name: 'Dominos', value: 300,img:require('../../assets/images/dominos.png') },
+		{ name: 'Burger King', value: 200 ,img:require('../../assets/images/burgerking.png') },
+	];
+	
 	const currentDate = new Date();
 	const dayOfWeek = daysOfWeek[currentDate.getDay()];
 	const dayOfMonth = currentDate.getDate();
@@ -95,7 +109,6 @@ export default function AdminHome() {
 				</div>
 			</div>
 			<div className='Row_2'>
-				
 				<div className='AdminRow_2Row2'>
 					<h2>Customer Review</h2>
 					<div className='pie-chart-container1'>
@@ -118,6 +131,6 @@ export default function AdminHome() {
 				</div>
 			</div>
 		</div>
-		// </div>
+		 </div>
 	);
 }
