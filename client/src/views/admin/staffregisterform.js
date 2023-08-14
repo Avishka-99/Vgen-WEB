@@ -42,15 +42,51 @@ const StaffRegistrationForm = ({onClose}) => {
 
 	return (
 		<div className='staff-registration-form'>
-			<div className='img-div'>
-				<img src='https://www.w3schools.com/howto/img_avatar.png' alt='Avatar' className='avatar' />
-			</div>
 			<div className='form-div'>
-				<h2>Register Staff</h2>
-				<p>Please fill in this form to create an account.</p>
+				<h2>Staff Registration</h2>
+				<p>Please fill this form to create an account.</p>
 				<hr />
-				<form onSubmit={handleSubmit}>
-					<label>Email:</label>
+				<form style={{fontFamily: 'poppins-semibold', fontSize: 13, color: 'black'}} onSubmit={handleSubmit}>
+					<div className='StaffRegFormRow'>
+						<div className='StaffRegFormCol1'>
+							<label>First Name:</label>
+							<input type='text' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+						</div>
+						<div className='StaffRegFormCol2'>
+							<label>Last Name:</label>
+							<input type='text' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+						</div>
+					</div>
+					<div className='StaffRegFormRow'>
+						<div className='StaffRegFormCol1' style={{width: '98%'}}>
+							<label>Email:</label>
+							<input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+						</div>
+					</div>
+					<div className='StaffRegFormRow'>
+						<div className='StaffRegFormCol1'>
+							<label>Contact No:</label>
+							<input type='tel' value={contactNo} onChange={(e) => setContactNo(e.target.value)} required />
+						</div>
+						<div className='StaffRegFormCol2'>
+							<label>NIC:</label>
+							<input type='text' value={nic} onChange={(e) => setNic(e.target.value)} required />
+						</div>
+					</div>
+					<div className='StaffRegFormRow'>
+						<div className='StaffRegFormCol1'>
+							<label>Password*</label>
+							<input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+						</div>
+						<div className='StaffRegFormCol2'>
+							<label>Confirm Password*</label>
+							<input type='password' value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+						</div>
+					</div>
+					<div className='StaffRegFormRow'>
+						<button type='submit'>Register</button>
+					</div>
+					{/* <label>Email:</label>
 					<input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
 
 					<label>First Name:</label>
@@ -69,7 +105,7 @@ const StaffRegistrationForm = ({onClose}) => {
 					<input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
 					<label>Confirm Password*</label>
 					<input type='password' value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-					<button type='submit'>Register</button>
+					<button type='submit'>Register</button> */}
 				</form>
 			</div>
 		</div>
