@@ -102,5 +102,15 @@
   object-fit: cover;
   border-radius: 6px;
 }
+.post-btn{
+padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  margin: 10px;
+}
+
 
 
