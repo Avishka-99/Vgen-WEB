@@ -1,69 +1,105 @@
-
-
 .cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
-.cart-container p {
-  font-size: 18px;
-  margin-bottom: 10px;
+.order-type {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.cart-items1 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-.cart-items1 th,
-.cart-items1 td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-.cart-item1 img {
-  width: 60px;
-  height: 60px;
+.order-type label {
   margin-right: 10px;
+  font-weight: bold;
 }
 
-.item-details h3 {
-  margin: 0;
+.order-type select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.cart-items {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-info {
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.product-image3 {
+  max-width: 100px;
+  height: auto;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
 }
 
 .remove-btn {
-  background-color: #ff5a5a;
-  color: #fff;
+  background-color: #ff0000;
+  color: white;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
-.remove-btn:hover {
-  background-color: #d64242;
+.cart-summary {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .total {
+  font-weight: bold;
   margin-top: 10px;
-  text-align: right;
-}
-
-.total p {
-  font-size: 18px;
 }
 
 .btn {
-  margin-top: 20px;
-  padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #0056b3;
+.btn.checkout {
+  background-color: #28a745;
+}
+
+.btn.continue-shopping {
+  background-color: #ffc107;
+}
+.checkout {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.continue-shopping {
+  margin-top: 10px;
 }

@@ -66,11 +66,11 @@ const ShowSidebar = (props) => {
 	
 	];
 	const staff = [
-		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'home', index: '1'},
-		{id: 2, icon: <EuroIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'payments', index: '2'},
-		{id: 3, icon: <RecordVoiceOverIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'complains', index: '3'},
-		{id: 4, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'profile', index: '4'},
-		{id: 5, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, link: 'logout', index: '5'},
+		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Home", link: 'home', index: '1'},
+		{id: 2, icon: <EuroIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Payments", link: 'payments', index: '2'},
+		{id: 3, icon: <RecordVoiceOverIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Complains", link: 'complains', index: '3'},
+		{id: 4, icon: <AccountCircleIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Profile", link: 'profile', index: '4'},
+		{id: 5, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />,label:"Logout", link: 'logout', index: '5'},
 	];
 	const manufacture = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
@@ -103,10 +103,13 @@ const ShowSidebar = (props) => {
 		);
 	} else if (props.type == 'Staff') {
 		return (
-			<div className='sidebar' onSelect={(item) => console.log(item)}>
+			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
+			<div className='expand-toggle' onClick={toggleSidebar}>
+					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
+				</div>
 				<div>
 					{staff.map((item) => (
-						<MenuItem key={item.id} icon={item.icon} fun={navigateTo} link={item.link} index={item.index} active={Active} />
+						<MenuItem key={item.id} icon={item.icon} labelMargin={expanded ? {marginLeft: '10%'} : {marginLeft: '0%'}} label={expanded ? item.label : null} style={expanded ? {justifyContent: 'flex-start', marginLeft: '15%'} : {justifyContent: 'center'}} fun={navigateTo} link={item.link} index={item.index} active={Active} />
 					))}
 				</div>
 			</div>
