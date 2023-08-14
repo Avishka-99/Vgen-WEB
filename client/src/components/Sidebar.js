@@ -20,7 +20,7 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import {useNavigate} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import { FcAbout } from "react-icons/fc";
+import {FcAbout} from 'react-icons/fc';
 
 import GradingIcon from '@mui/icons-material/Grading';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
@@ -137,7 +137,6 @@ const ShowSidebar = (props) => {
 				</div>
 			</div>
 		);
-	 
 	} else if (props.type == 'productManufacture') {
 		return (
 			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
@@ -151,8 +150,7 @@ const ShowSidebar = (props) => {
 				</div>
 			</div>
 		);
-	} 
-	
+	}
 };
 export default function Sidebar(props) {
 	const [showSidebar, setShowSidebar] = useState(true);
