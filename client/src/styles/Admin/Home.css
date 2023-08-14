@@ -108,7 +108,96 @@
 .AdminContainer .Row_2 {
 	width: 30%;
 	height: 100%;
-	background-color: rgb(97, 238, 163);
+	display: flex;
+	flex-direction: column;
+
+}
+.AdminRow_2Row1{
+	width: 100%;
+	height: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+/* Styling for the main card view container */
+.AdminRow_2Row1 .card_view {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the "Most Orders" heading */
+.AdminRow_2Row1 .vegan_type {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Styling for the card container */
+.AdminRow_2Row1 .card-container {
+    flex-wrap: wrap;
+
+}
+
+/* Styling for each individual card */
+.AdminRow_2Row1 .card {
+    flex: 0.5;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the card body (name and value) */
+.AdminRow_2Row1 .card-body {
+    margin-top: 10px;
+	display: flex;
+}
+
+/* Styling for the restaurant name */
+.AdminRow_2Row1 .card-body h5 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+/* Styling for the value */
+.AdminRow_2Row1 .card-body p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #777;
+}
+.card-most{
+ width: 50%;
+ object-fit: cover;
+ border-radius: 5px;
+}
+.img3{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+.card-img{
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+.AdminRow_2Row2 {
+    flex-direction: column;
+    align-items: center;
+	justify-content: center;
+	display: flex
 }
 
 .pie-chart-container {
@@ -116,45 +205,28 @@
 	flex-direction: column;
 	justify-content: space-around;
 
-	align-items: center;
+    align-items: center;
 }
 
 .pie-chart {
-	align-items: center;
+    align-items: center;
 }
 
 .pie-chart-title {
-	font-size: 16px;
-	margin-right: 8px;
+    font-size: 16px;
+    margin-right: 8px;
 }
 
 .pie-chart-color {
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
-.pie-chart-container1 {
+.pie-chart-container1{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
 }
-.card-most {
-	width: 50%;
-	object-fit: cover;
-	border-radius: 5px;
-}
-.img3 {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 5px;
-	margin-right: 20px;
-}
-.card-img {
-	width: 50%;
-	height: 50%;
-	object-fit: cover;
-	border-radius: 5px;
-	margin-right: 20px;
-}
+
+
