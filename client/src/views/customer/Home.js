@@ -87,7 +87,7 @@ const incrementQuantity = () => {
   setQuantity(quantity + 1);
   }
   else{
-      setLimitError('Quantity limit reached');
+    
     ToastMessages.warning('Quantity limit reached');
   }
 
@@ -182,7 +182,8 @@ useEffect(() => {
             {formData.map((data1,) => (
               <div className='card' key={data1.productId}>
                 {/* ...existing card content */}
-                <p className='vegan_type'>{data1.veganType}</p>
+                <div className='card-body'>
+                <p className='vegan_type'>{data1.vegan_category}</p>
                 <img
                   className='product--image'
                   src={`http://localhost:5001/uploads/products/${data1.productImage}`}
@@ -192,12 +193,21 @@ useEffect(() => {
                 {data1.sell_products.map((sellProduct, index) => (
       <div key={index}>
         <p className='prices'>Price: Rs.{sellProduct.price}</p>
+      
         <p className='prices'>Quantity: {sellProduct.quantity}</p>
+        
+        
+      
+        
       </div>
     ))}
+    
+
+    
                 <button className='btn_cart_cus' onClick={() => toggleModal(data1)}>
                   View Product
                 </button>
+                </div>
               </div>
             ))}
           </Carousel>
@@ -210,7 +220,7 @@ useEffect(() => {
                 </button>
                 {selectedProduct && (
                   <div className='modal-product-details'>
-                    <p>{selectedProduct.productName}</p>
+                    <p style={{fontFamily: 'poppins-medium'}}>{selectedProduct.productName}</p>
                     <img
                       className='product--image1'
                       src={`http://localhost:5001/uploads/products/${selectedProduct.productImage}`}
@@ -220,8 +230,9 @@ useEffect(() => {
                     {/* Render other product details here */}
                     <div className='modal-product-details'>
                     <p className='prices'>Description:{selectedProduct.description}</p>
-                    <p className='prices'>Vegan Type:{selectedProduct.veganType}</p>
-                    <p className='prices'>Category:{selectedProduct.category}</p>
+                    <p className="prices">Ingredients:{selectedProduct.ingredient}</p>
+                    <p className='prices'>Vegan Type:{selectedProduct.vegan_category}</p>
+                    <p className='prices'>Category:{selectedProduct.row_category}</p>
                     {selectedProduct.sell_products.map((sellProduct, index) => (
                     <div key={index}>
                     <p className='prices'>Rs.{sellProduct.price}</p>
@@ -230,6 +241,7 @@ useEffect(() => {
                     </div>
                     
                 ))}
+                
                 </div>
                 <div className="quantity-controls">
                   <button className="quantity-btn" onClick={decrementQuantity}>
@@ -288,7 +300,7 @@ useEffect(() => {
                   src={`http://localhost:5001/uploads/restaurants/${data.image}`}
                   alt={data.resturantName}
                 />
-                <p className='product_name'>{data.resturantName}</p>
+                <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data.resturantName}</p>
                 <p className='prices'>
                 Location:{resolvedAddresses[index]||'Loading address..'}</p>
                 <button className='btn_res'>

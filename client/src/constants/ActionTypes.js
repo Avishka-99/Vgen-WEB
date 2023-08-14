@@ -4,6 +4,7 @@ export const SET_USER='SET_USER';
 export const ADD_TO_CART='ADD_TO_CART';
 export const REMOVE_FROM_CART='REMOVE_FROM_CART';
 export const SET_SEARCH_KEYWORD='SET_SEARCH_KEYWORD';
+export const RESET_CART='RESET_CART';
 
 
 
@@ -31,5 +32,10 @@ export const setSearchKeyword=(keyword)=>{
     return {
         type: SET_SEARCH_KEYWORD,
         payload: keyword,
+    };
+}
+export const resetCart=()=>{
+    return {
+        type: RESET_CART,
     };
 }
