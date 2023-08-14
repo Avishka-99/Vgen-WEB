@@ -1,49 +1,68 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
-import { incrementCounter, removeFromCart } from "../../constants/ActionTypes"; // Import your action to remove items from the cart
+import { incrementCounter, removeFromCart,resetCart } from "../../constants/ActionTypes"; // Import your action to remove items from the cart
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 import "../../styles/Cart.css";
 import Axios from "../../api/Axios";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cartReducer.cart);
   const dispatch = useDispatch();
+  const [limitError, setLimitError] = useState('');
   const navigate = useNavigate();
+  const [orderType, setOrderType] = useState("Take Away");
 
   const removeCartItem = (itemToRemove) => {
     dispatch(removeFromCart(itemToRemove)); // Dispatch the action to remove item from the cart
   };
   const handleOrder = async () => {
-    try {
-      const formData = new FormData();
-      cartItems.forEach((item, index) => {
-        formData.append(`products[${index}][productId]`, item.productId);
-        formData.append(`products[${index}][quantity]`, item.quantity);
-        formData.append(`products[${index}][price]`, item.price);
+    const userId = localStorage.getItem("userId");
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("orderType", orderType);
+    formData.append("amount", calculateTotal());
+    formData.append("quantity",countQuantity());
+
+    formData.append("productId", cartItems[0].productId);
+    formData.append("status", 0);
+    formData.append("date",new Date().toLocaleDateString());
+    formData.append("time",new Date().toLocaleTimeString());
+    try{
+
+      const res=await Axios.post(API_ENDPOINTS.orderPost_URL,formData,{
+
+        headers:{
+          "Content-Type":"application/json"
+        }
       });
-
-      formData.append('total', calculateTotal());
-      formData.append('userId', JSON.parse(atob(localStorage.getItem('token').split('.')[1])).userId);
-      formData.append('orderStatus', 'pending');
-      formData.append('orderDate', new Date());
-
-      const response = await Axios.post(API_ENDPOINTS.orderPost_URL, formData);
-
-      console.log('Order placed successfully:', response.data);
-
-      cartItems.forEach((item) => {
-        dispatch(removeFromCart(item));
-      });
-
-      navigate('/confirmation');
-    } catch (error) {
-      console.error('Error placing order:', error);
+      console.log(res.data);
+      //setFormData(res.data);
+      dispatch(resetCart());
+      dispatch(incrementCounter(0));
+      ToastMessages.success("Order Placed Successfully");
+    }catch(err){
+      console.log('Error fetching data:', err);
+     ToastMessages.error("Something went wrong");
+      
     }
   }
-  
+   //cartItems product id
+
+
  
+const countQuantity = () => {
+    let count = 0;
+    for (const item of cartItems) {
+      count += item.quantity;
+  
+    return count;
+  };
+}
 
   const calculateTotal = () => {
     let total = 0;
@@ -59,58 +78,56 @@ function Cart() {
 
   return (
     <div className="cart-container">
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <div className="cart-items1">
-          {/* ... rest of your table */}
-          <table>
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Product Image</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item, index) => (
-                <tr key={index} className="cart-item1">
-                  {/* ... rest of your table row */}
-                  <td>{item.productName}</td>
-                  <td>
-                    <img
-                      src={`http://localhost:5001/uploads/products/${item.productImage}`}
-                      alt="product"
-                    />
-                  </td>
-                  <td>{item.quantity}</td>
-                  <td>{item.price}</td>
-
-                  <td>
-                    <button
-                      className="remove-btn"
-                      onClick={() => removeCartItem(item)}
-                    >
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-      <div className="total">
-        <p>Total: Rs.{calculateTotal()}</p>
-        <button className="btn" onClick={handleOrder}>Checkout</button> 
-      
+    {cartItems.length === 0 ? (
+      <p>Your cart is empty.</p>
+    ) : (
+      <div className="cart-items">
+        {cartItems.map((item, index) => (
+          <div key={index} className="cart-item">
+            <div className="product-info">
+              <img
+                className="product-image3"
+                src={`http://localhost:5001/uploads/products/${item.productImage}`}
+                alt="product"
+              />
+              <div className="product-details">
+                <p className="product-name">{item.productName}</p>
+                <p className="quantity">Quantity: {item.quantity}</p>
+                <p className="price">Price: Rs.{item.price}</p>
+              </div>
+            </div>
+            <button
+              className="remove-btn"
+              onClick={() => removeCartItem(item)}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
       </div>
-      <button className="btn" onClick={navigateToHome}>
-        Continue Shopping
-      </button>
+     
+    )}
+    <div className="order-type">
+      <label>
+        Order Type:
+        <select value={orderType} onChange={(e) => setOrderType(e.target.value)}>
+          <option value="Take Away">Take Away</option>
+          <option value="Dine In">Dine In</option>
+          </select>
+      </label>
+      </div>
+    <div className="cart-summary">
+      <p>Quantity: {countQuantity()}</p>
+      <p className="total">Total: Rs.{calculateTotal()}</p>
+      <button className="btn checkout" onClick={handleOrder}>Checkout</button>
+      {limitError && <p className="limit-error">{limitError}</p>}
     </div>
+    <button className="btn continue-shopping" onClick={navigateToHome}>
+      Continue Shopping
+    </button>
+    <Toast duration={3000} />
+  </div>
+  
   );
 }
 

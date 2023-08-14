@@ -1,0 +1,44 @@
+/* Categories.css */
+.button_con{
+    display: inline;
+}
+.button-container1 {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #2980b9;
+  }
+  
+  .selected-button {
+    background-color: #2ecc71;
+  }
+  
+  .selected-button:hover {
+    background-color: #27ae60;
+  }
+  .dropdown{
+    display: inline;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    margin-left: 10px;
+  }

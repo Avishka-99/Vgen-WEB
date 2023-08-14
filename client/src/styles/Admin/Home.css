@@ -1,67 +1,246 @@
-.Admin_bg{
-    width: auto;
-    height: 90%;
+.Admin_bg {
+	width: auto;
+	height: 90%;
+}
+.AdminContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.AdminWrapContainer {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+}
+.AdminContainer .Row_1 {
+	width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.AdminContainer .Row_1 .AdminRow_1Row1 {
+	width: 100%;
+	height: 7%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.AdminContainer .Row_1 .AdminRow_1Row2 {
+	width: 100%;
+	height: 7%;
+	display: flex;
+	align-items: center;
+}
+.AdminContainer .Row_1 .AdminRow_1Row3 {
+	width: 100%;
+	height: 19%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.AdminContainer .Row_1 .AdminRow_1Row4 {
+	width: 100%;
+	height: 7%;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+.AdminContainer .Row_1 .AdminRow_1Row5 {
+	width: 100%;
+	height: 60%;
+	max-height: 60%;
+	overflow-y: auto;
+}
+.AdminRow_1Row5 table {
+	border-collapse: collapse;
+}
+.AdminRow_1Row5 th,
+.AdminRow_1Row5 td {
+	/* border: 1px solid black; */
+	text-align: left;
+}
+.AdminRow_1Row5 th {
+	position: sticky;
+	top: 0;
+	background-color: #bcdac8;
+}
+.AdminRow_1Row5 th:first-child {
+	border-top-left-radius: 15px;
+}
+.AdminRow_1Row5 th:last-child {
+	border-top-right-radius: 15px;
+}
+/* tbody td:last-child{
+    width: 20px;
+} */
+.AdminDashboardTable {
+	width: 100%;
+	height: 90%;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.AdminDashboardTableHeadings {
+	width: 100%;
+	height: 15%;
+	background-color: #bcdac8;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	display: flex;
+	flex-direction: row;
+}
+.AdminTableRowHeadingTitle {
+	width: 20%;
+	height: 100%;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+.AdminDashboardTableContent {
+	background-color: burlywood;
+	width: 100%;
+	height: 85%;
+}
+
+.AdminContainer .Row_2 {
+	width: 30%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 
 }
-.AdminContainer{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+.AdminRow_2Row1{
+	width: 100%;
+	height: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
-.AdminWrapContainer{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
+/* Styling for the main card view container */
+.AdminRow_2Row1 .card_view {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.AdminContainer .Row_1{
-    width: 70%;
-    height: 100%;
-    display: flex;
+
+/* Styling for the "Most Orders" heading */
+.AdminRow_2Row1 .vegan_type {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Styling for the card container */
+.AdminRow_2Row1 .card-container {
+    flex-wrap: wrap;
+
+}
+
+/* Styling for each individual card */
+.AdminRow_2Row1 .card {
+    flex: 0.5;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the card body (name and value) */
+.AdminRow_2Row1 .card-body {
+    margin-top: 10px;
+	display: flex;
+}
+
+/* Styling for the restaurant name */
+.AdminRow_2Row1 .card-body h5 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+/* Styling for the value */
+.AdminRow_2Row1 .card-body p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #777;
+}
+.card-most{
+ width: 50%;
+ object-fit: cover;
+ border-radius: 5px;
+}
+.img3{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+.card-img{
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+.AdminRow_2Row2 {
     flex-direction: column;
-    
-}
-.AdminContainer .Row_1 .AdminRow_1Row1{
-    width: 100%;
-    height: 7%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.AdminContainer .Row_1 .AdminRow_1Row2{
-    width: 100%;
-    height: 7%;
-    display: flex;
     align-items: center;
+	justify-content: center;
+	display: flex
 }
-.AdminContainer .Row_1 .AdminRow_1Row3{
-    width: 100%;
-    height: 19%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.AdminContainer .Row_1 .AdminRow_1Row4{
-    width: 100%;
-    height: 7%;
-    align-items: center;
-    display:flex;
-    justify-content: space-between;
-}
-.AdminContainer .Row_1 .AdminRow_1Row5{
-    background-color: rgb(255, 6, 238);
-    width: 100%;
-    height: 60%;
+.pie-chart-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+	align-items: center;
 }
 
+.pie-chart {
+	align-items: center;
+}
 
+.pie-chart-title {
+	font-size: 16px;
+	margin-right: 8px;
+}
 
-
-
-.AdminContainer .Row_2{
-    width: 30%;
-    height: 100%;
-    background-color: rgb(97, 238, 163);
+.pie-chart-color {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+.pie-chart-container1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.card-most {
+	width: 50%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+.img3 {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+.card-img {
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 20px;
 }
