@@ -30,3 +30,5 @@ export const getOrderDetailsSorted_URL='api/getOrderSortedDetails'
 export const getMostOrderCountWithOutLimit_URL='api/getMostOrderCountWithOutLimit'
 export const getMostOrderCountWithLimit_URL='api/getMostOrderCountWithLimit'
 //
+
+export const FETCH_ALL_STAFF = '/api/fetchstaff';

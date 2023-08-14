@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/Admin/Home.css';
 import DashBoardCard from '../../components/Card';
 import TuneIcon from '@mui/icons-material/Tune';
+import {PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts';
 export default function AdminHome() {
 	const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -10,7 +11,27 @@ export default function AdminHome() {
 	const dayOfMonth = currentDate.getDate();
 	const month = months[currentDate.getMonth()];
 	const year = currentDate.getFullYear();
-
+	const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+	const MostOrders = [
+		{name: 'KFC', value: 400, img: require('../../assets/images/kfc.jpg')},
+		{name: 'Pizza Hut', value: 300, img: require('../../assets/images/pizzahut.jpg')},
+		{name: 'Dominos', value: 300, img: require('../../assets/images/dominos.jpg')},
+		{name: 'Burger King', value: 200, img: require('../../assets/images/burgerking.jpg')},
+	];
+	const data = [
+		{name: 'Highly Satisfied', value: 400, COLORS: '#0088FE'},
+		{name: 'Satisfied', value: 300, COLORS: '#00C49F'},
+		{name: 'Slightly Satisfied', value: 300, COLORS: '#FFBB28'},
+	];
+	const onPieEnter = (data, index) => {
+		this.setState({
+			activeIndex: index,
+		});
+	};
+	const [activeIndex, setActiveIndex] = React.useState(0);
+	const onMouseEnter = (data, index) => {
+		setActiveIndex(index);
+	};
 	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')} ${month} ${year}`;
 	return (
 		<div className='AdminContainer'>
@@ -36,16 +57,66 @@ export default function AdminHome() {
 					<div style={{width: '27.5%', fontFamily: 'poppins-bold', fontSize: 25, textAlign: 'center', alignItems: 'center'}}>
 						<div style={{color: '#242730'}}> Recent Orders</div>
 					</div>
-					<div style={{display: 'flex', flexDirection: 'row', width: '16%', height: '80%', backgroundColor: '#BCDAC8', borderRadius: 15, marginRight: '3.6%', alignItems: 'center'}}>
-						<div style={{height: '100%'}}>
+					<div style={{display: 'flex', flexDirection: 'row', width: '16%', height: '80%', backgroundColor: '#BCDAC8', borderRadius: 15, marginRight: '3.6%', alignItems: 'center', justifyContent: 'space-around'}}>
+						<div style={{height: '100%', display: 'flex', alignItems: 'center'}}>
 							<TuneIcon />
 						</div>
-						<div style={{height: '100%'}}>Filter Order</div>
+						<div style={{height: '100%', display: 'flex', alignItems: 'center', fontFamily: 'poppins-medium'}}>Filter Order</div>
 					</div>
 				</div>
-				<div className='AdminRow_1Row5'></div>
+				<div className='AdminRow_1Row5'>
+					<table>
+						<thead>
+							<tr>
+								<th>Customer ID</th>
+								<th>Order ID</th>
+								<th>Order Type</th>
+								<th>Payment</th>
+								<th>Order Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Dewmini</td>
+								<td>101</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+							<tr>
+								<td>Dewmini</td>
+								<td>101</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-			<div className='Row_2'></div>
+			<div className='Row_2'>
+				
+				<div className='AdminRow_2Row2'>
+					<h2>Customer Review</h2>
+					<div className='pie-chart-container1'>
+						{data.map((entry, index) => (
+							<div key={index} className='pie-chart'>
+								<div className='pie-chart-title'>{entry.name}</div>
+								<div className='pie-chart-color' style={{backgroundColor: entry.COLORS}}></div>
+							</div>
+						))}
+					</div>
+					<div className='pie-chart-container'>
+						<PieChart height={250} width={400}>
+							<Pie data={data} cx={190} cy={130} innerRadius={80} outerRadius={100} fill='#8884d8' paddingAngle={5} dataKey='value'>
+								{data.map((entry, index) => (
+									<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+								))}
+							</Pie>
+						</PieChart>
+					</div>
+				</div>
+			</div>
 		</div>
 		// </div>
 	);
