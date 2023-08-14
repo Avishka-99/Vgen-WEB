@@ -25,18 +25,6 @@ export default function AdminHome() {
 	const dayOfMonth = currentDate.getDate();
 	const month = months[currentDate.getMonth()];
 	const year = currentDate.getFullYear();
-	const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
-	const MostOrders = [
-		{name: 'KFC', value: 400, img: require('../../assets/images/kfc.jpg')},
-		{name: 'Pizza Hut', value: 300, img: require('../../assets/images/pizzahut.jpg')},
-		{name: 'Dominos', value: 300, img: require('../../assets/images/dominos.jpg')},
-		{name: 'Burger King', value: 200, img: require('../../assets/images/burgerking.jpg')},
-	];
-	const data = [
-		{name: 'Highly Satisfied', value: 400, COLORS: '#0088FE'},
-		{name: 'Satisfied', value: 300, COLORS: '#00C49F'},
-		{name: 'Slightly Satisfied', value: 300, COLORS: '#FFBB28'},
-	];
 	const onPieEnter = (data, index) => {
 		this.setState({
 			activeIndex: index,
@@ -131,6 +119,5 @@ export default function AdminHome() {
 				</div>
 			</div>
 		</div>
-		 </div>
 	);
 }
