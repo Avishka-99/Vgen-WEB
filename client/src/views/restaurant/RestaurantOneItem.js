@@ -2,7 +2,8 @@ import React from "react";
 import '../../styles/RestaurantProduct.css'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-const RestaurantOneItem = ({result }) => {
+import CloseIcon from '@mui/icons-material/Close';
+const RestaurantOneItem = ({result ,SetIsOneSet }) => {
 
   
 
@@ -11,10 +12,11 @@ const RestaurantOneItem = ({result }) => {
 
       <div className="one-outer-frame">
           <div className="one-frame-up">
+          
           <img src={`http://localhost:5001/uploads/products/${result.products[0].productImage}`}  alt="product"/>
           </div>
           <div className="one-frame-down">
-
+            <button className='p_Close-Btn' onClick={()=>SetIsOneSet(false)} ><CloseIcon/></button>
             <h3>{result.products[0].productName}</h3>
             
             <p>

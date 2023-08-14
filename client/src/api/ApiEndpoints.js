@@ -35,6 +35,7 @@ export const addComplain_URL="api/addComplain"
 export const getAllComplainIDRelevantRestaurant_URL="api/getAllOrderIDRelevantRestaurant"
 export const getComplain_URL="api/getComplain"
 export const getAcceptOrders_URL="api/getAcceptOrders"
+export const updateOrderState_URL="api/updateOrderState"
 //
 //product manufacture apis
 export const addRowProducts_URL='/api/rowProductStore';

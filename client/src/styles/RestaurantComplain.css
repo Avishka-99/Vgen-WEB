@@ -14,7 +14,7 @@
     font-size: 18px;
     margin-left: 80%;
     padding: 10px;
-    background-color: #BCDAC8;
+    background-color: #D3D3D3;
     width: 150px;
     border-radius: 5px;
     text-align: center;
@@ -138,7 +138,7 @@
 
 
   .complain-submit-button{
-    background-color: #BCDAC8;
+    background-color: #D3D3D3;
     color: black;
     padding: 8px;
     border: none;

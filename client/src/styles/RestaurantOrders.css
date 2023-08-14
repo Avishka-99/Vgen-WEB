@@ -22,7 +22,7 @@
   font-size: 18px;
   margin-left: 80%;
   padding: 10px;
-  background-color: #BCDAC8;
+  background-color: #D3D3D3;
   width: 150px;
   border-radius: 5px;
   text-align: center;
@@ -62,7 +62,7 @@
 }
 
 .clickable-button:hover {
-  border-bottom: 10px solid #BCDAC8
+  border-bottom: 10px solid #D3D3D3
 }
 
 
