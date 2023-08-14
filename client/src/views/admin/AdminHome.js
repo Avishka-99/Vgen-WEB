@@ -119,6 +119,29 @@ export default function AdminHome() {
 			</div>
 			<div className='Row_2'>
 				<div className='AdminRow_2Row2'>
+					
+					<div className='AdminRow_2Row1'>
+					<div  className='card_view'>
+						<p className='vegan_type'>Most Orders</p>
+						<div className='card-container'>
+							{MostOrders.map((data) => (
+								<div className='card-most' key={data.restaurantId}>
+									<div className='card-body'>
+									<div className='card-img'>
+									<img className='img3' src={data.img} alt={data.name} />
+									</div>
+									<div className='card-text'>
+										<h5>{data.name}</h5>
+										<p>{data.value} dishes ordered</p>
+										</div>
+										</div>
+										</div>
+							))}	
+							
+						
+					</div>
+					</div>
+					</div>
 					<h2>Customer Review</h2>
 					<div className='pie-chart-container1'>
 						{data.map((entry, index) => (
