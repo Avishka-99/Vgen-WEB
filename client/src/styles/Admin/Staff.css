@@ -1,0 +1,68 @@
+.AdminStaffWindowContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.AdminStaffWindowContainer .AdminStaffRow_1 {
+	height: 20%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.AdminStaffWindowContainer .AdminStaffRow_2 {
+	height: 85%;
+	width: 100%;
+    overflow-y: auto;
+}
+.AdminStaffRow_2 table {
+	border-collapse: collapse;
+    overflow-y: auto;
+}
+.AdminStaffRow_2 th,
+.AdminStaffRow_2 td {
+	/* border: 1px solid black; */
+	text-align: left;
+}
+.AdminStaffRow_2 th {
+	position: sticky;
+	top: 0;
+	background-color: #bcdac8;
+}
+.AdminStaffRow_2 th:first-child {
+	border-top-left-radius: 15px;
+}
+.AdminStaffRow_2 th:last-child {
+	border-top-right-radius: 15px;
+}
+.AdminStaffAddButton{
+    width: 15%;
+    height: 60%;
+    background-color: #6dd999;
+    margin-right: '2%';
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+.AdminStaffAddButton:hover{
+    cursor: pointer;
+}
+.close:hover{
+    cursor: pointer;
+}
+.close{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 2%;
+}
