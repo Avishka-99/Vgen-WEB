@@ -14,10 +14,10 @@ export default function AdminHome() {
 	];
 	const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 	const MostOrders = [	
-		{ name: 'KFC', value: 400 ,img:require('../../assets/images/kfc.png')},
-		{ name: 'Pizza Hut', value: 300 ,img:require('../../assets/images/pizzahut.png') },
-		{ name: 'Dominos', value: 300,img:require('../../assets/images/dominos.png') },
-		{ name: 'Burger King', value: 200 ,img:require('../../assets/images/burgerking.png') },
+		{ name: 'Keells', value: 400 ,img:require('../../assets/images/keells.png')},
+		{ name: 'Green Spoon', value: 300 ,img:require('../../assets/images/greenspoon.jpg') },
+		{ name: 'VEGAN FOOD', value: 300,img:require('../../assets/images/vegan_food.jpg') },
+		{ name: 'The Green Bowl', value: 200 ,img:require('../../assets/images/green.png') },
 	];
 	
 	const currentDate = new Date();
@@ -41,10 +41,9 @@ export default function AdminHome() {
 			{/* <div className='AdminWrapContainer'> */}
 			<div className='Row_1'>
 				<div className='AdminRow_1Row1'>
-					<div style={{marginLeft: '2%', fontFamily: 'poppins-semibold', fontSize: 32}}>VGen Dashboard</div>
+		
 					<div style={{width: '15%', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-						<div style={{width: 53, height: '96%', borderRadius: '10em', backgroundColor: 'rgb(42, 165, 159)'}}></div>
-						<div style={{width: 53, height: '96%', borderRadius: '10em', backgroundColor: 'rgb(42, 165, 159)'}}></div>
+						
 					</div>
 				</div>
 				<div className='AdminRow_1Row2'>
@@ -86,8 +85,29 @@ export default function AdminHome() {
 								<td>Preparing</td>
 							</tr>
 							<tr>
-								<td>Dewmini</td>
-								<td>101</td>
+								<td>Janadi</td>
+								<td>103</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+							<tr>
+								<td>Tharindu</td>
+								<td>104</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+							<tr>
+								<td>Tharindu</td>		
+								<td>104</td>
+								<td>Delivery</td>
+								<td>COD</td>
+								<td>Preparing</td>
+							</tr>
+							<tr>
+								<td>Tharindu</td>
+								<td>104</td>
 								<td>Delivery</td>
 								<td>COD</td>
 								<td>Preparing</td>
@@ -98,6 +118,29 @@ export default function AdminHome() {
 			</div>
 			<div className='Row_2'>
 				<div className='AdminRow_2Row2'>
+					
+					<div className='AdminRow_2Row1'>
+					<div  className='card_view'>
+						<p className='vegan_type'>Most Orders</p>
+						<div className='card-container'>
+							{MostOrders.map((data) => (
+								<div className='card-most' key={data.restaurantId}>
+									<div className='card-body'>
+									<div className='card-img'>
+									<img className='img3' src={data.img} alt={data.name} />
+									</div>
+									<div className='card-text'>
+										<h5>{data.name}</h5>
+										<p>{data.value} dishes ordered</p>
+										</div>
+										</div>
+										</div>
+							))}	
+							
+						
+					</div>
+					</div>
+					</div>
 					<h2>Customer Review</h2>
 					<div className='pie-chart-container1'>
 						{data.map((entry, index) => (

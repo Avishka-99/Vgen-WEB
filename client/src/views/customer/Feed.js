@@ -87,8 +87,8 @@ const Feed = () => {
 
   return (
     <div>
-      <h1>Feed</h1>
-      <button onClick={handleOpenModal}>Create Post</button>
+      <h1>Tell Your Own Words..</h1>
+      <button className='post-btn' onClick={handleOpenModal}>Create Post</button>
 
       {isLoading ? (
         <p>Loading...</p>

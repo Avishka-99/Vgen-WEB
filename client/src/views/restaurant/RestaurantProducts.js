@@ -21,6 +21,7 @@ export default function RestaurantProducts() {
 	const [isOneSet, SetIsOneSet] = useState(false);
 	const [oneResult, SetOneResult] = useState([]);
 
+
   //find one product using search bar
   const oneProductHandle=(result)=>{
     SetIsOneSet(true);
@@ -118,7 +119,7 @@ export default function RestaurantProducts() {
 						<SearchResultList results={searchResult} oneProductHandle={oneProductHandle} />
 					)
 				) : isOneSet == true ? (
-					<RestaurantOneItem result={oneResult} />
+					<RestaurantOneItem result={oneResult} SetIsOneSet={SetIsOneSet} />
 				) : (
 					<div className='product-card'>
 						{!isLoading &&

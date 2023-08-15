@@ -9,30 +9,44 @@ export default function OrdersView() {
   
   const user_id=localStorage.getItem('userId');
   const [orderDetails,SetOrderDetails]=useState([]);
-  const [moreOrderDetails,SetMoreOrderDetails]=useState([]);
+  const [moreOrderDetails,SetMoreOrderDetails]=useState(null);
   const [popup,setPopup]=useState(false); 
   const [acceptOrders,setAcceptOrders]=useState(false); 
+  
    
-   
+    // useEffect(() => {
+      
+      
+    //   // async function getOrdersDetails(){
+    //   //   try {
+    //   //     Axios.get(API_ENDPOINTS.getOrderDetails_URL, {
+    //   //       params: {
+    //   //         user_id: user_id,
+    //   //       },
+    //   //     });
+    //   //     SetOrderDetails(res.data);
+          
+          
+    //   //   } catch (err) {
+    //   //     console.log('Error fetching data:', err);
+          
+    //   //   }
+    //   // };
+    //   // getOrdersDetails();
+      
+    // }, []);
+
     useEffect(() => {
-      async function getOrdersDetails(){
-        try {
-          const res = await Axios.get(API_ENDPOINTS.getOrderDetails_URL, {
+      (async () => {
+        const res = await Axios.get(API_ENDPOINTS.getOrderDetails_URL, {
             params: {
               user_id: user_id,
             },
           });
           SetOrderDetails(res.data);
-          
-          
-        } catch (err) {
-          console.log('Error fetching data:', err);
-          
-        }
-      };
-      getOrdersDetails();
-      
-    }, [],[moreOrderDetails]);
+        
+      })();
+    },[]);
 
     //card details
     const result = [];
@@ -69,7 +83,8 @@ export default function OrdersView() {
     }
     
     //row click function
-    const handleRowClick = (orderId,user_id) => () => {
+    const handleRowClick = (orderId,user_id) => {
+      console.log('hello')
       try {
         Axios.get(API_ENDPOINTS.getOrderMoreDetails_URL, {
           params: {
@@ -87,15 +102,34 @@ export default function OrdersView() {
         
       }
     }
-    const acceptHandle = (orderId) => () => {
+    
+    const acceptHandle = async (orderId,orderState) => {
+
+      var newOrderState=orderState+1;
+      console.log(newOrderState);
+      console.log(orderId);
+      try {
+        const response=await Axios.post(API_ENDPOINTS.updateOrderState_URL,{
+          params:{
+            order_id:orderId,
+            order_state:newOrderState,
+          }
+        });
+        console.log("Axios Response:", response.data);
+      } catch (err) {
+        console.log('Error fetching data:', err);
         
+      }
+
     }
-    const rejectHandle = (orderId) => () => {
+
+
+    const rejectHandle = (orderId) => {
       
    }
   
   var type="";
-   const handleByOrderType = (type) => () => {
+   const handleByOrderType = (type) => {
     try {
       Axios.get(API_ENDPOINTS.getOrderDetailsSorted_URL, {
         params: {
@@ -111,7 +145,7 @@ export default function OrdersView() {
     }
   }
 
-  const handleAcceptOrders = () => () => {
+  const handleAcceptOrders=()=> {
     try {
       setAcceptOrders(true);
       Axios.get(API_ENDPOINTS.getAcceptOrders_URL, {
@@ -138,13 +172,14 @@ export default function OrdersView() {
         <OrderCountCard result={result[1]} customCss={{ marginLeft: '15%' }}/>
         <OrderCountCard result={result[2]} customCss={{ marginLeft: '15%' }}/>
 
-        <span>{}</span>
+       
       </div>
+      
       <div className="table-content">
         <div className="table-content-header">
-          <button className="clickable-button" onClick={handleByOrderType(type="Dine in")}>Dine In</button>
-          <button className="clickable-button" onClick={handleByOrderType(type="Delivery")}>Delivery</button>
-          <button className="clickable-button" onClick={handleByOrderType(type="Take away")}>Take away</button>
+          <button className="clickable-button" onClick={()=>handleByOrderType(type="Dine in")}>Dine In</button>
+          <button className="clickable-button" onClick={()=>handleByOrderType(type="Delivery")}>Delivery</button>
+          <button className="clickable-button" onClick={()=>handleByOrderType(type="Take away")}>Take away</button>
         </div>
         <button className="accept-orders" onClick={handleAcceptOrders}>Accept orders</button>
 
@@ -170,21 +205,21 @@ export default function OrdersView() {
             <tbody>
             {orderDetails.result_2.map((o) => (
               <tr key={o.orderId}  >
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.name}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}> {o.date}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.time}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>  {o.orderState===1 ? (
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.name}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}> {o.date}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.time}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>  {o.orderState===1 ? (
                       //complete the prepare
                       <p style={{color:'green'}}>accept orders</p>
                     ): (
                       " "
                     )}
                 </td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
                 {/* <td>{o.totalQuantity}</td> */}
-                <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Finalized</button></td>
+                <td><button className='order-accept' onClick={()=>acceptHandle(o.orderId,o.orderState)}>Finalized</button></td>
                
               </tr>
             ))}
@@ -211,22 +246,22 @@ export default function OrdersView() {
             <tbody>
             {orderDetails.result_2.map((o) => (
               <tr key={o.orderId}  >
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.name}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}> {o.date}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.time}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>  {o.orderState===0 ? (
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.name}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.orderId}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}> {o.date}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.time}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{o.orderType}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>  {o.orderState===0 ? (
                       //complete the prepare
                       <p style={{color:'green'}}>new order</p>
                     ): (
                       " "
                     )}
                 </td>
-                <td onClick={handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
+                <td onClick={()=>handleRowClick(o.orderId,user_id)}>{"Rs:"}{o.amount}</td>
                 {/* <td>{o.totalQuantity}</td> */}
-                <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Accept</button></td>
-                <td><button className='order-reject'onClick={rejectHandle(o.orderId)}>Reject</button></td>
+                <td><button className='order-accept' onClick={()=>acceptHandle(o.orderId,o.orderState)}>Accept</button></td>
+                <td><button className='order-reject'onClick={()=>rejectHandle(o.orderId)}>Reject</button></td>
               </tr>
                   ))}
             </tbody>

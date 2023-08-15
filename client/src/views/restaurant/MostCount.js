@@ -7,7 +7,7 @@ export const MostCount = ({ productData}) => {
  
     <div class="product-card-separate">
         <div class="product-card-left-separate">
-            <img class="product-image" src={`http://localhost:5001/uploads/products/${productData.productImage}`} alt="Product Image"/>
+            <img class="product-image" src={`http://localhost:5001/uploads/products/${productData.productImage}`}  style={{width:"70px",height:"70px"}} alt="Product Image"/>
         </div>
         <div class="product-card-right-separate">
             <h5 class="product-name">{productData.productName}</h5>

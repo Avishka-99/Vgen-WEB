@@ -1,5 +1,5 @@
 // Import any necessary action types if you have defined them
-import { ADD_TO_CART, REMOVE_FROM_CART,INCREMENT_COUNTER } from "../constants/ActionTypes";
+import { ADD_TO_CART, REMOVE_FROM_CART,INCREMENT_COUNTER,RESET_CART } from "../constants/ActionTypes";
 
 // Define your initial cart state
 
@@ -30,6 +30,13 @@ const initialState = {
                 ...state,
                 cartItemCount: action.payload,
             };
+            case RESET_CART:
+
+                return {
+                    ...state,
+                    cart: [],
+                    cartItemCount: 0,
+                };
             
     }
   };
