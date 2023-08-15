@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useState}from 'react';
 import '../../styles/Admin/Home.css';
 import DashBoardCard from '../../components/Card';
 
 import TuneIcon from '@mui/icons-material/Tune';
 import {PieChart,Pie,Sector,Cell,ResponsiveContainer} from 'recharts';
-export default function staffHome() {
+export default function StaffHome() {
 	const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	const data = [
@@ -30,7 +30,7 @@ export default function staffHome() {
 		  activeIndex: index,		
 		});
 	};
-	const [activeIndex, setActiveIndex] = React.useState(0);
+	const [activeIndex, setActiveIndex] = useState(0);
 	const onMouseEnter = (data, index) => {
 	  setActiveIndex(index);	
 	};

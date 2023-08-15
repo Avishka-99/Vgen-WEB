@@ -12,7 +12,6 @@ li {
 /* Basic styles for the navbar */
 .navbar {
     background-color: #fff;
-    padding: 10px;
     position:relative;
     justify-content: end;
 	z-index: 1;
