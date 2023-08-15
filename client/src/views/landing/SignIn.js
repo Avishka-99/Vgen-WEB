@@ -35,31 +35,36 @@ export default function SignIn() {
 		setPassword('');
 	};
 	const handleSubmit = (e) => {
-		Axios.post(API_ENDPOINTS.SIGNIN_URL, {
-			email: email,
-			password: password,
-		}).then((response) => {
-			console.log(response);
-			if (response.data.type) {
-				dispatch(SetUserAction(response.data.type));
-				localStorage.setItem('token', response.data.token);
-				localStorage.setItem('userId', JSON.parse(atob(localStorage.getItem('token').split('.')[1])).userId);
-				navigate('/home');
-				//window.location.reload(true);
-			} else if (response.data == 'Not verified') {
-				ToastMessages.warning('Please verify your account');
-				ToastMessages.info('Redirectiong to OTP verification');
-				//resetFormData();
-				setIsDisabled(true);
-				localStorage.setItem('otpemail', email);
-				setTimeout(function () {
-					navigate('/otp');
-				}, 3000);
-			} else {
-				ToastMessages.error(response.data);
-			}
-			//console.log(response.data);
-		});
+		try {
+			Axios.post(API_ENDPOINTS.SIGNIN_URL, {
+				email: email,
+				password: password,
+			}).then((response) => {
+				console.log(response);
+				if (response.data.type) {
+					dispatch(SetUserAction(response.data.type));
+					localStorage.setItem('token', response.data.token);
+					localStorage.setItem('userId', JSON.parse(atob(localStorage.getItem('token').split('.')[1])).userId);
+					navigate('/home');
+					//window.location.reload(true);
+				} else if (response.data == 'Not verified') {
+					ToastMessages.warning('Please verify your account');
+					ToastMessages.info('Redirectiong to OTP verification');
+					//resetFormData();
+					setIsDisabled(true);
+					localStorage.setItem('otpemail', email);
+					setTimeout(function () {
+						navigate('/otp');
+					}, 3000);
+				} else {
+					ToastMessages.error(response.data);
+				}
+				//console.log(response.data);
+			});
+		} catch (e) {
+			console.log('e.error');
+		}
+
 		//e.preventDefault();
 		//console.log(e.target[0].value);
 	};

@@ -25,7 +25,6 @@ export default function AdminHome() {
 	const dayOfMonth = currentDate.getDate();
 	const month = months[currentDate.getMonth()];
 	const year = currentDate.getFullYear();
-
 	const onPieEnter = (data, index) => {
 		this.setState({
 			activeIndex: index,
