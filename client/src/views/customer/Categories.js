@@ -75,7 +75,6 @@ export default function Categories() {
               onChange={event => setVegan_category(event.target.value)}
             >
               <option value='Vegan'>Vegan</option>
-              <option value='non_vegan'>Non-Vegan</option>
               <option value='Vegetarian'>Vegetarian</option>
             </select>
           </div>
@@ -99,7 +98,7 @@ export default function Categories() {
           {filteredFormData.map(data => (
             <div className='card' key={data.productId}>
               <div className='card-body'>
-              <p>{data.product_category}</p>
+              <p style={{backgroundColor:"#03c988",fontWeight:"bold",textAlign:"center"}}>{data.product_category}</p>
                 <h5>{data.productName}</h5>
                
                 {data.sell_products.map((sellProduct, index) => (

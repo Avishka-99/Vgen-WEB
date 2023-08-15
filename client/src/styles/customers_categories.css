@@ -15,7 +15,7 @@
     margin-right: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #3498db;
+    background-color: #D3D3D3;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -23,15 +23,15 @@
   }
   
   .button:hover {
-    background-color: #2980b9;
+    background-color: #03c988;
   }
   
   .selected-button {
-    background-color: #2ecc71;
+    background-color: #03c988;
   }
   
   .selected-button:hover {
-    background-color: #27ae60;
+    background-color: #03c988;
   }
   .dropdown{
     display: inline;
@@ -39,6 +39,7 @@
     margin-right: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #3498db;
+    background-color:#03c988;
     margin-left: 10px;
+    color: white;
   }
