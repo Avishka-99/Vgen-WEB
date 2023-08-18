@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/ManufactureCard.css'
+import '../../styles/Restaurant/ManufactureCard.css'
 const CardComponent = ({ imageSrc, name, description, price }) => {
     console.log(name)
   return (

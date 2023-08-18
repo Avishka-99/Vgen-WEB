@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import ComplainPopup from "./ComplainPopup";
-import '../../styles/RestaurantComplain.css'
+import '../../styles/Restaurant/RestaurantComplain.css'
 
 const RestaurantComplain = () => {
 

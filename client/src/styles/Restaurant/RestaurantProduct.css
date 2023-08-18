@@ -41,7 +41,12 @@
 .product-card{
   width: 80%;
   margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
 }
+
 /**/
 
 /*product add popup css*/
@@ -50,6 +55,7 @@
    width: 250px;
    height: 30px;
    margin-top: 15px;
+   text-align: center;
 }
 .product-add-popup{
   position: fixed;
@@ -163,12 +169,17 @@
 
 /*Restaurant product item css*/
 .outer-frame{
- margin-top: 100px;
+ /* margin-top: 100px;
  margin-left: 20px;
  background-color: #f3f3f3;
  box-shadow: 0px 0px 8px #ddd;
  height: 400px;
- border-radius: 15px;
+ border-radius: 15px; */
+ width: calc(33.33% - 20px); /* Adjusted width and spacing */
+ margin-bottom: 20px;
+ border-radius: 10px;
+ box-shadow: 0px 0px 8px #ddd;
+ height: 450px;
 }
 .frame-up{
   height: 50%;
@@ -269,13 +280,13 @@
 /*One product view css*/
 .one-outer-frame{
    width: 80%;
-   height: 85%;
+   height: 550px;
    margin-left: 6%;
    display: flex;
    background-color: #D3D3D3;
    border-radius: 20px;
    box-shadow: 0px 0px 8px #ddd;
-   margin-top: 15%;
+   margin-top: 10px;
 }
 
 .one-frame-up{

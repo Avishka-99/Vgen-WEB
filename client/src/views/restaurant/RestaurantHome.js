@@ -1,16 +1,9 @@
 import React, {useEffect, useState} from 'react';
-// import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-// import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
-// import HailIcon from '@mui/icons-material/Hail';
-
 import {MostCount} from './MostCount';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-// import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
-
-import '../../styles/RestaurentHome.css';
-
+import '../../styles/Restaurant/RestaurentHome.css';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import { PieChart } from 'react-minimal-pie-chart';
@@ -26,8 +19,6 @@ export default function RestaurantHome() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  // const [startTime, setStartTime] = useState('08:00'); // Set initial start time
-  // const [endTime, setEndTime] = useState('18:00'); // Set initial end time
   const [mostOrders, setMostOrders] = useState([]);
   const [mostOrdersL, setMostOrdersL] = useState([]);
 
@@ -205,7 +196,7 @@ export default function RestaurantHome() {
                           <p style={{color:'orange'}}>preparing</p>
                         ): o.orderState===0 ? (
                           //new orders and pending to accept
-                          <p style={{color:'yellow'}}>pending</p>
+                          <p style={{color:'blue'}}>pending</p>
                         ):(
                            //orderState=-1 mean reject order
                            <p style={{color:'red'}}>reject</p>
@@ -255,19 +246,7 @@ export default function RestaurantHome() {
 								<br />
 								<DatePicker selected={endDate} onChange={(date) => setEndDate(date)} selectsEnd startDate={startDate} endDate={endDate} minDate={startDate} placeholderText='End Date' />
 								<br />
-								{/* <p>Order place time</p>
-                  <TimePicker
-                    value={startTime}
-                    onChange={setStartTime}
-                    disableClock={false}
-                  />
-                  <TimePicker
-                    value={endTime}
-                    onChange={setEndTime}
-                    disableClock={false}
-                  />
-                  <br /> */}
-                  <button id='search-order'>Search Order</button>
+							  <button id='search-order'>Search Order</button>
               </div>
                 
 

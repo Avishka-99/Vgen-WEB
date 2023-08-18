@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
 import CloseIcon from '@mui/icons-material/Close';
-import '../../styles/RestaurantProduct.css'
+import '../../styles/Restaurant/RestaurantProduct.css'
 
 
 
@@ -59,10 +59,11 @@ const RowProductsAdd = (props) => {
              
             <label htmlFor="price">Category:</label><br />
             <select onChange={(e) => { setCategory(e.target.value) }} required className='productAddSelect'>
-                <option value="vegetable">Vegetable</option>
-                <option value="fruit">Fruit</option>
+                <option value="Vegetable">Vegetable</option>
+                <option value="fruits">Fruit</option>
                 <option value="milk">Milk</option>
                 <option value="feed">Feed</option>
+                <option value="other">Other</option>
             </select>
             
         </div>    

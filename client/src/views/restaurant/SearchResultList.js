@@ -1,4 +1,4 @@
-import '../../styles/searchResultList.css'
+import '../../styles/Restaurant/searchResultList.css'
 import React from 'react';
 import SearchResult from './SearchResult';
 
