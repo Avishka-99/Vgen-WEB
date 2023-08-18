@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import Axios from '../../api/Axios';
 import CloseIcon from '@mui/icons-material/Close';
-import '../../styles/RestaurantProduct.css';
+import '../../styles/Restaurant/RestaurantProduct.css';
 
 const RestaurantProductAdd = (props) => {
     // const [formData,setFormData]=useState([])

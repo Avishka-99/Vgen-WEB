@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/RestaurantProduct.css'
+import '../../styles/Restaurant/RestaurantProduct.css'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
@@ -26,14 +26,14 @@ const RestaurantOneItem = ({result ,SetIsOneSet }) => {
             <div className="one-quantity">
               <label htmlFor="">Product quantity: </label><br />
               <input type="text" value={result.quantity} />
-              <button><AddIcon></AddIcon></button>
-              <button><RemoveIcon></RemoveIcon></button><br />
+              <button><AddIcon style={{fontSize:"15px"}}></AddIcon></button>
+              <button><RemoveIcon style={{fontSize:"15px"}}></RemoveIcon></button><br />
             </div>
             <div className="one-price">
               <label htmlFor="">Product price: </label><br />
               <input type="text" value={result.price} />
-              <button><AddIcon></AddIcon></button>
-              <button><RemoveIcon></RemoveIcon></button><br />
+              <button><AddIcon style={{fontSize:"15px"}}></AddIcon></button>
+              <button><RemoveIcon style={{fontSize:"15px"}}></RemoveIcon></button><br />
             </div>
             <button className="one-delete">delete</button>
           </div>

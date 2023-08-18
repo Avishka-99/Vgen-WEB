@@ -7,7 +7,7 @@ import grppro from "../assets/images/grppro.png";
 const Footer = () => {
   const user = localStorage.getItem('type');
   return (
-    <div>
+    <div className='footer-con'>
       {user === "Customer" && (
         <footer className="footer">
           <div className="footer__links">

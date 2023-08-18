@@ -1,4 +1,4 @@
-.Sopping-details{
+.Shopping-details{
   width: 100%;
   height: 100%;
 }
@@ -50,17 +50,6 @@
     outline: none;
   }
 
-  /* .shopCards{
-    width: 100%;
-    height: 90%;
-    display: flex;
-  }
-  .shop_inner{
-    width: 100%;
-    height: 10%;
-    margin-bottom: 10%;
-  } */
-
   /* Update the shopCards class to style the row layout */
 .shopCards {
   display: flex;
@@ -76,6 +65,80 @@
   border-radius: 10px;
   box-shadow: 0px 0px 8px #ddd;
   /* Other card styling */
+}
+
+
+.Row-items-details{
+  width: 100%;
+  height: 100%;
+}
+.Row-items-details-inner h1{
+    font-family: poppins-regular;
+    font-size: 25px;
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 0%;
+    font-weight: bold;
+}
+
+
+.mu-items-input-wrapperS{
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0 15px;
+    box-shadow: 0px 0px 8px #ddd;
+    display: flex;
+    align-items: center;
+    margin-left: 27.5%;
+    margin-top: 2%;
+  }
+  
+  .mu-items-input-wrapperS input{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.25rem;
+    margin-left: 20px;
+    
+  }
+  
+  .mu-items-input-wrapperS input:focus{
+    outline: none;
+  }
+
+  /* Update the shopCards class to style the row layout */
+.shop-cards-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.clickable-wrapper{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+}
+
+.raw-type-clickable-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin: 2%;
+  margin-left: 5%;
+}
+
+.raw-type-clickable-btn:hover {
+  border-bottom: 10px solid #D3D3D3
 }
 
   
