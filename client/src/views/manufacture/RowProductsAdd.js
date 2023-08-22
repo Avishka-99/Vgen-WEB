@@ -3,8 +3,8 @@ import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
 import CloseIcon from '@mui/icons-material/Close';
 import '../../styles/Restaurant/RestaurantProduct.css'
-
-
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 
 const RowProductsAdd = (props) => {
    
@@ -13,20 +13,46 @@ const RowProductsAdd = (props) => {
     const [productName,setProductName]=useState('');
     const [price,setPrice]=useState('');
     const [category,setCategory]=useState('');
-    const [productImage,setProductImage]=useState();
+    const [productImage,setProductImage]=useState('');
     const user_id=localStorage.getItem('userId');
+
+    const resetData=()=>{
+      setQuantity('');
+      setDescription('');
+      setProductName('');
+      setPrice('');
+      setCategory('');
+      setProductImage('');
+    }
+    
+    const showToast=(data)=>{
+      if(data.type==='success'){
+        props.getProducts();
+        resetData();
+        ToastMessages.success(data.message);
+      }else{
+        ToastMessages.error(data.message);
+      }
+
+    }
    
    const handleSubmit=(e)=>{
-      //upload image    
-      const formData=new FormData();
-      formData.append('productImage',productImage);
-      formData.append('quantity',quantity);
-      formData.append('description',description);
-      formData.append('productName',productName);
-      formData.append('price',price);
-      formData.append('category',category);
-      formData.append('user_id',user_id);
-      Axios.post(API_ENDPOINTS.addRowProducts_URL,formData,);
+      if(quantity==='' || description==='' || productName==='' || productImage==='' || price==='' || category==='') {
+        ToastMessages.error("Please fill the all data");
+      } 
+      else{
+        const formData=new FormData();
+        formData.append('productImage',productImage);
+        formData.append('quantity',quantity);
+        formData.append('description',description);
+        formData.append('productName',productName);
+        formData.append('price',price);
+        formData.append('category',category);
+        formData.append('user_id',user_id);
+        Axios.post(API_ENDPOINTS.addRowProducts_URL,formData,).then((response)=>showToast(response.data)
+        );
+      }
+      
   
   
     }
@@ -46,19 +72,19 @@ const RowProductsAdd = (props) => {
           <input type="file" id="productImage" className="productImage" onChange={handleFiles} required/><br />
 
           <label htmlFor="productName">Product Name:</label><br />
-          <input type="text" id="productName" placeholder="Product Name" onChange={(e) => { setProductName(e.target.value) }} required/><br />
+          <input type="text" id="productName" placeholder="Product Name" value={productName} onChange={(e) => { setProductName(e.target.value) }} required/><br />
         
             <label htmlFor="description">Description:</label><br />
-            <input type="text" id="description" placeholder="Description" onChange={(e) => { setDescription(e.target.value) }} required/><br />
+            <input type="text" id="description" placeholder="Description" value={description} onChange={(e) => { setDescription(e.target.value) }} required/><br />
 
             <label htmlFor="quantity">Quantity:</label><br />
-            <input type="text" id="quantity" placeholder="Quantity" onChange={(e) => { setQuantity(e.target.value) }} required/><br />
+            <input type="text" id="quantity" placeholder="Quantity" value={quantity} onChange={(e) => { setQuantity(e.target.value) }} required/><br />
 
             <label htmlFor="price">Price:</label><br />
-            <input type="text" id="price" placeholder="Price" onChange={(e) => { setPrice(e.target.value) }} required/><br />
+            <input type="text" id="price" placeholder="Price" value={price} onChange={(e) => { setPrice(e.target.value) }} required/><br />
              
             <label htmlFor="price">Category:</label><br />
-            <select onChange={(e) => { setCategory(e.target.value) }} required className='productAddSelect'>
+            <select onChange={(e) => { setCategory(e.target.value) }} value={category} required className='productAddSelect'>
                 <option value="Vegetable">Vegetable</option>
                 <option value="fruits">Fruit</option>
                 <option value="milk">Milk</option>
@@ -67,11 +93,11 @@ const RowProductsAdd = (props) => {
             </select>
             
         </div>    
-        <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} } >Submit</button>          
+        <button className="submit-button" onClick={()=>{handleSubmit()}} >Submit</button>          
 
                   
       </div>
-
+      <Toast duration={3000} />
     </div>
       
         
