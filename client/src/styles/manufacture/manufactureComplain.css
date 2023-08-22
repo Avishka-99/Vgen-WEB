@@ -61,7 +61,7 @@
 
 
   .m_complain-submit-button{
-    background-color: #BCDAC8;
+    background-color: #D3D3D3;
     color: black;
     padding: 8px;
     border: none;
@@ -112,9 +112,18 @@
     font-size: 18px;
     margin-left: 80%;
     padding: 10px;
-    background-color: #BCDAC8;
+    background-color: #D3D3D3;
     width: 150px;
     border-radius: 5px;
     text-align: center;
     border: none;
+}
+
+.complain-delete{
+  width: 90px;
+  height: 30px;
+  border: none;
+  background-color: #f14f4f;
+  border-radius: 3px;
+  box-shadow: opx opx 8px #f53333;
 }

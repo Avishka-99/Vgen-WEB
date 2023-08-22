@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const RestaurantItem = ({data,oneProductHandle}) => {
+const RestaurantItem = ({data,oneProductHandle,setDeletePopup,setDel_productId}) => {
   console.log(data);
   const handleClick = () => {
     oneProductHandle(data);
@@ -24,7 +24,7 @@ const RestaurantItem = ({data,oneProductHandle}) => {
             <span>Rs .{data.price}</span><br /> */}
             {/* <p>This is {data.products[0].description}</p> */}
             <button className="frame-update-btn" onClick={handleClick}>update</button><br />
-            <button className="frame-delete-btn" >delete</button>
+            <button className="frame-delete-btn" onClick={()=>{setDel_productId(data.products[0].productId);setDeletePopup(true)}}>delete</button>
           </div>
       </div>
     );

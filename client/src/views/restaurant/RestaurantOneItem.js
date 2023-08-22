@@ -2,8 +2,8 @@ import React from "react";
 import '../../styles/Restaurant/RestaurantProduct.css'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import CloseIcon from '@mui/icons-material/Close';
-const RestaurantOneItem = ({result ,SetIsOneSet }) => {
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+const RestaurantOneItem = ({result ,SetIsOneSet,setDel_productId,setDeletePopup }) => {
 
   
 
@@ -12,11 +12,11 @@ const RestaurantOneItem = ({result ,SetIsOneSet }) => {
 
       <div className="one-outer-frame">
           <div className="one-frame-up">
-          
+          <button className='p_Close-Btn' onClick={()=>SetIsOneSet(false)} ><KeyboardBackspaceIcon/></button>
           <img src={`http://localhost:5001/uploads/products/${result.products[0].productImage}`}  alt="product"/>
           </div>
           <div className="one-frame-down">
-            <button className='p_Close-Btn' onClick={()=>SetIsOneSet(false)} ><CloseIcon/></button>
+            
             <h3>{result.products[0].productName}</h3>
             
             <p>
@@ -35,7 +35,7 @@ const RestaurantOneItem = ({result ,SetIsOneSet }) => {
               <button><AddIcon style={{fontSize:"15px"}}></AddIcon></button>
               <button><RemoveIcon style={{fontSize:"15px"}}></RemoveIcon></button><br />
             </div>
-            <button className="one-delete">delete</button>
+            <button className="one-delete" onClick={()=>{setDel_productId(result.products[0].productId);setDeletePopup(true)}}>delete</button>
           </div>
       </div>
     );
