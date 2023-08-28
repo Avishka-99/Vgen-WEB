@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import '../../styles/RestaurantProduct.css'
+import '../../styles/Restaurant/RestaurantProduct.css'
 import RowProductAdd from './RowProductsAdd';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import RestaurantItem from '../restaurant/RestaurantItem ';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultList from '../restaurant/SearchResultList';
 import RestaurantOneItem from '../restaurant/RestaurantOneItem';
+import CommonPopupMessage from '../restaurant/CommonPopupMessage'
 
 export default function RowProducts() {
   const [popup,setPopup]=useState(false);
@@ -20,6 +19,8 @@ export default function RowProducts() {
   const [input,setInput]=useState("");
   const [isOneSet,SetIsOneSet]=useState(false);
   const [oneResult,SetOneResult]=useState([]);
+  const [deletePopup,setDeletePopup]=useState(false);
+  const [del_productId,setDel_productId]=useState();
 
   //find one product using search bar
   const oneProductHandle=(result)=>{
@@ -48,34 +49,14 @@ export default function RowProducts() {
   };
  
  
+
   useEffect(() => {
-     getProducts();
-  }, [])
+    getProducts();
+    console.log(setProducts);
+ },[])
  
   
- 
-
-  //responsive view of Carousel
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
-
-  //fetch the data when searching
+ //fetch the data when searching
   const searchData =(value)=>{
     Axios.get(API_ENDPOINTS.getAllRowProduct_URL, {
       params: {
@@ -102,6 +83,9 @@ export default function RowProducts() {
      setInput(value);
      searchData(value);
   }
+  const handleDelete=(id)=>{
+      console.log("hi",id)
+  }
  
   
 
@@ -122,7 +106,7 @@ export default function RowProducts() {
       <div className="product-details-content">
         {popup===true ?(
           <div className="popup">
-            <RowProductAdd trigger={popup} setTrigger={setPopup}></RowProductAdd>
+            <RowProductAdd trigger={popup} setTrigger={setPopup}  getProducts={ getProducts}></RowProductAdd>
           </div>
         ):isSearching===true?(
            searchResult.length===0 ? (
@@ -132,7 +116,7 @@ export default function RowProducts() {
             
            )
         ):isOneSet===true ? (
-             <RestaurantOneItem result={oneResult}/>
+             <RestaurantOneItem result={oneResult} SetIsOneSet={SetIsOneSet} setDel_productId={setDel_productId} setDeletePopup={setDeletePopup}/>
             
         ):(
             <div className="product-card" >
@@ -140,9 +124,12 @@ export default function RowProducts() {
                 products.length === 0 ? (
                   <p>No products</p>
                 ) : (
-                  <Carousel responsive={responsive}>
-                    {products.map(o => (<RestaurantItem key={o.id} data={o} oneProductHandle={oneProductHandle}/>))}
-                  </Carousel>
+                  <>
+                    {products.map(o => (<RestaurantItem key={o.id} data={o} oneProductHandle={oneProductHandle} setDel_productId={setDel_productId} setDeletePopup={setDeletePopup}/>))}
+                  </>
+                  
+                    
+                 
                 )
               )}
             </div>
@@ -152,7 +139,7 @@ export default function RowProducts() {
         
       </div>
       
-      
+      <CommonPopupMessage setTriggerNew={setDeletePopup} triggerNew={deletePopup} action={'delete'} type={'product'} myFunction={()=>handleDelete(del_productId)} getProducts={getProducts} ></CommonPopupMessage>  
    </div>
 
 

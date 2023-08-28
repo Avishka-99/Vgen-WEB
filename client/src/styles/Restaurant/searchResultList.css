@@ -10,14 +10,15 @@
     overflow-y: auto;
     margin-left: 25%;
     text-align: center;
-    
   }
 
 
   .search-result {
     padding: 10px 20px;
+    display: flex;
   }
   
   .search-result:hover {
     background-color: #efefef;
   }
+ 

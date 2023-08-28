@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/productCard.css';
+import '../../styles/Restaurant/productCard.css';
 
 export const MostCount = ({ productData}) => {
  console.log(productData);

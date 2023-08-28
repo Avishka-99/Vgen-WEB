@@ -1,6 +1,6 @@
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close';
-import '../../styles/RestaurantOrders.css';
+import '../../styles/Restaurant/RestaurantOrders.css';
 import {UserCard} from './UserCard';
 import {ProductDetails} from './ProductDetails';
 

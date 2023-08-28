@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/RestaurantOrders.css';
+import '../../styles/Restaurant/RestaurantOrders.css';
 
 export const OrderCountCard = ({ result ,customCss }) => {
   return (

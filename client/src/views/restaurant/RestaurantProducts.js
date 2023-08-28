@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import '../../styles/RestaurantProduct.css';
+import '../../styles/Restaurant/RestaurantProduct.css';
 import RestaurantProductAdd from './RestaurantProductAdd';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+// import Carousel from 'react-multi-carousel';
+// import 'react-multi-carousel/lib/styles.css';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import RestaurantItem from './RestaurantItem ';
@@ -60,24 +60,24 @@ export default function RestaurantProducts() {
   }, [])
  
 	//responsive view of Carousel
-	const responsive = {
-		superLargeDesktop: {
-			breakpoint: {max: 4000, min: 3000},
-			items: 5,
-		},
-		desktop: {
-			breakpoint: {max: 3000, min: 1024},
-			items: 3,
-		},
-		tablet: {
-			breakpoint: {max: 1024, min: 464},
-			items: 2,
-		},
-		mobile: {
-			breakpoint: {max: 464, min: 0},
-			items: 1,
-		},
-	};
+	// const responsive = {
+	// 	superLargeDesktop: {
+	// 		breakpoint: {max: 4000, min: 3000},
+	// 		items: 5,
+	// 	},
+	// 	desktop: {
+	// 		breakpoint: {max: 3000, min: 1024},
+	// 		items: 3,
+	// 	},
+	// 	tablet: {
+	// 		breakpoint: {max: 1024, min: 464},
+	// 		items: 2,
+	// 	},
+	// 	mobile: {
+	// 		breakpoint: {max: 464, min: 0},
+	// 		items: 1,
+	// 	},
+	// };
 
 	//fetch the data when searching
 	const searchData = (value) => {
@@ -124,7 +124,7 @@ export default function RestaurantProducts() {
 					) : (
 						<SearchResultList results={searchResult} oneProductHandle={oneProductHandle} />
 					)
-				) : isOneSet == true ? (
+				) : isOneSet === true ? (
 					<RestaurantOneItem result={oneResult} SetIsOneSet={SetIsOneSet} />
 				) : (
 					<div className='product-card'>
@@ -132,11 +132,11 @@ export default function RestaurantProducts() {
 							(products.length === 0 ? (
 								<p>No products</p>
 							) : (
-								<Carousel responsive={responsive}>
+								<>
 									{products.map((o) => (
 										<RestaurantItem key={o.id} data={o} oneProductHandle={oneProductHandle} />
 									))}
-								</Carousel>
+								</>
 							))}
 					</div>
 				)}

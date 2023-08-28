@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
-import '../../styles/RestaurantOrders.css';
+import '../../styles/Restaurant/RestaurantOrders.css';
 import { OrderCountCard } from './orderCountCard';
 
 export default function Reservation() {

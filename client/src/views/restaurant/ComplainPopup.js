@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
 import CloseIcon from '@mui/icons-material/Close';
-import '../../styles/RestaurantComplain.css'
+import '../../styles/Restaurant/RestaurantComplain.css'
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close';
-import '../../styles/popupContainer.css'
+import '../../styles/Restaurant/popupContainer.css'
 import {MostCount} from './MostCount';
 const PopupContainer = (props) => {
     

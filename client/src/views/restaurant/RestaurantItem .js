@@ -1,11 +1,12 @@
 import React from 'react';
 
-const RestaurantItem = ({data, oneProductHandle}) => {
-	//console.log(data);
-	const handleClick = () => {
-		oneProductHandle(data);
-	};
-	//console.log(data.products[0]);
+
+const RestaurantItem = ({data,oneProductHandle,setDeletePopup,setDel_productId}) => {
+  console.log(data);
+  const handleClick = () => {
+    oneProductHandle(data);
+  };
+
 
 	return (
 		<div className='outer-frame'>
@@ -20,15 +21,12 @@ const RestaurantItem = ({data, oneProductHandle}) => {
             <span>{data.quantity}</span><br />
             <label htmlFor="">Product price: </label><br />
             <span>Rs .{data.price}</span><br /> */}
-				{/* <p>This is {data.products[0].description}</p> */}
-				<button className='frame-update-btn' onClick={handleClick}>
-					update
-				</button>
-				<br />
-				<button className='frame-delete-btn'>delete</button>
-			</div>
-		</div>
-	);
-};
-
+            {/* <p>This is {data.products[0].description}</p> */}
+            <button className="frame-update-btn" onClick={handleClick}>update</button><br />
+            <button className="frame-delete-btn" onClick={()=>{setDel_productId(data.products[0].productId);setDeletePopup(true)}}>delete</button>
+          </div>
+      </div>
+    );
+}
+ 
 export default RestaurantItem;
