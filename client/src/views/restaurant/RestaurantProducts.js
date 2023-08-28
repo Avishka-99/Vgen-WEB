@@ -33,13 +33,19 @@ export default function RestaurantProducts() {
   //show the all product when page is loading
   const getProducts = async () => {
     try {
-      const res = await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
+    //   const res = await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
+    //     params: {
+    //       user_id: user_id,
+    //     },
+    //   });
+		await Axios.get(API_ENDPOINTS.getAllProduct_URL, {
         params: {
           user_id: user_id,
         },
-      });
-  
-      setProducts(res.data);
+      }).then((res)=>{
+		setProducts(res.data);
+	  })
+      
      
       setIsLoading(false);
     } catch (err) {
