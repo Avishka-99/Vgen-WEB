@@ -1,0 +1,15 @@
+.manufacture-details{
+    display: flex;
+    margin-left: 5%;
+}
+
+.manufacture-details-left{
+    height: 100%;
+    width: 64%;
+}
+
+.manufacture-details-right{
+    height: 100%;
+    width: 36%;
+    
+}

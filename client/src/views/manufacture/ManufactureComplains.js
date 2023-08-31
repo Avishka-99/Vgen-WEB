@@ -71,7 +71,7 @@ const ManufactureComplains = () => {
               {complainDetails.length==0?(
                 <p>No complains</p>
               ):(
-                <table style={{marginTop:"100px"}}>
+                <table style={{marginTop:"20px"}}>
                       <thead>
                         <tr>
                           {/* <th>User</th> */}

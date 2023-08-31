@@ -9,6 +9,7 @@ import RestaurantItem from './RestaurantItem ';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchResultList from './SearchResultList';
 import RestaurantOneItem from './RestaurantOneItem';
+import CommonPopupMessage from './CommonPopupMessage'
 
 export default function RestaurantProducts() {
 	const [popup, setPopup] = useState(false);
@@ -20,7 +21,8 @@ export default function RestaurantProducts() {
 	const [input, setInput] = useState('');
 	const [isOneSet, SetIsOneSet] = useState(false);
 	const [oneResult, SetOneResult] = useState([]);
-
+	const [deletePopup,setDeletePopup]=useState(false);
+	const [del_productId,setDel_productId]=useState();
 
   //find one product using search bar
   const oneProductHandle=(result)=>{
@@ -100,6 +102,10 @@ export default function RestaurantProducts() {
 		searchData(value);
 	};
 
+	const handleDelete=(id)=>{
+		console.log("hi",id)
+	}
+
 	return (
 		<div className='product-details'>
 			<div className='product-details-header'>
@@ -125,7 +131,7 @@ export default function RestaurantProducts() {
 						<SearchResultList results={searchResult} oneProductHandle={oneProductHandle} />
 					)
 				) : isOneSet === true ? (
-					<RestaurantOneItem result={oneResult} SetIsOneSet={SetIsOneSet} />
+					<RestaurantOneItem result={oneResult} SetIsOneSet={SetIsOneSet} setDel_productId={setDel_productId} setDeletePopup={setDeletePopup} />
 				) : (
 					<div className='product-card'>
 						{!isLoading &&
@@ -134,13 +140,14 @@ export default function RestaurantProducts() {
 							) : (
 								<>
 									{products.map((o) => (
-										<RestaurantItem key={o.id} data={o} oneProductHandle={oneProductHandle} />
+										<RestaurantItem key={o.id} data={o} oneProductHandle={oneProductHandle} setDel_productId={setDel_productId} setDeletePopup={setDeletePopup}/>
 									))}
 								</>
 							))}
 					</div>
 				)}
 			</div>
+			<CommonPopupMessage setTriggerNew={setDeletePopup} triggerNew={deletePopup} action={'delete'} type={'product'} myFunction={()=>handleDelete(del_productId)} getProducts={getProducts} ></CommonPopupMessage> 
 		</div>
 	);
 }
