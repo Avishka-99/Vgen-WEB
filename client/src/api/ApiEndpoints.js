@@ -43,6 +43,8 @@ export const deleteComplain_URL="api/deleteComplain"
 export const addRowProducts_URL='/api/rowProductStore';
 export const getAllRowProduct_URL='/api/allRowProduct';
 export const getAllComplainIDRelevantManufacture_URL='api/getAllOrderIDRelevantManufacture'
+export const getManufactureOrderDetails_URL='api/manufactureOrderDetails'
+export const getManufactureOrderCountDetails_URL='api/manufactureOrderCountsDetails'
 //
 
 export const FETCH_ALL_STAFF = '/api/fetchstaff';
