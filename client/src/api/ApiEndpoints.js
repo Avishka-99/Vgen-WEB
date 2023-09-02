@@ -45,6 +45,9 @@ export const getAllRowProduct_URL='/api/allRowProduct';
 export const getAllComplainIDRelevantManufacture_URL='api/getAllOrderIDRelevantManufacture'
 export const getManufactureOrderDetails_URL='api/manufactureOrderDetails'
 export const getManufactureOrderCountDetails_URL='api/manufactureOrderCountsDetails'
+export const getManufactureMostOrderWithLimit_URL='api/getManufactureMostOrderCountWithLimit'
+export const getManufactureMostOrderWithoutLimit_URL='api/getManufactureMostOrderCountWithOutLimit'
+export const getManufactureMostOrderTypeCountToday_URL='api/getManufactureMostOrderTypeCountToday'
 //
 
 export const FETCH_ALL_STAFF = '/api/fetchstaff';
