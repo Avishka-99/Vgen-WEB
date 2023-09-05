@@ -75,9 +75,9 @@ const ShowSidebar = (props) => {
 	const manufacture = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
 		{id: 2, icon: <FastfoodIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Products', link: 'row_products', index: '2'},
-		{id: 3, icon: <GradingIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Orders', link: 'row_orders"', index: '3'},
+		{id: 3, icon: <GradingIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Orders', link: 'row_orders', index: '3'},
 		{id: 4, icon: <EditCalendarIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'complains', link: 'row_complains', index: '4'},
-		{id: 5, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '6'},
+		{id: 5, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '5'},
 	];
 	//console.log(restaurant[0].icon.props.sx.fontSize)
 	const navigateTo = (page, index) => {

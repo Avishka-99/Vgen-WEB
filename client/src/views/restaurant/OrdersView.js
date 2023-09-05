@@ -13,28 +13,7 @@ export default function OrdersView() {
   const [popup,setPopup]=useState(false); 
   const [acceptOrders,setAcceptOrders]=useState(false); 
   
-   
-    // useEffect(() => {
-      
-      
-    //   // async function getOrdersDetails(){
-    //   //   try {
-    //   //     Axios.get(API_ENDPOINTS.getOrderDetails_URL, {
-    //   //       params: {
-    //   //         user_id: user_id,
-    //   //       },
-    //   //     });
-    //   //     SetOrderDetails(res.data);
-          
-          
-    //   //   } catch (err) {
-    //   //     console.log('Error fetching data:', err);
-          
-    //   //   }
-    //   // };
-    //   // getOrdersDetails();
-      
-    // }, []);
+
 
     useEffect(() => {
       (async () => {
@@ -58,7 +37,7 @@ export default function OrdersView() {
         if (or.orderState === 0) {
           result.push({ id: 1, title: 'New order', count: or.totalCount });
         } 
-        else if(!(or.orderState === 1) && !(or.orderState === 2) ){
+        else if(!(or.orderState === 1) || !(or.orderState === 2) ){
           result.push({ id: 1, title: 'New order', count: 0 });
         }
       });
@@ -66,7 +45,7 @@ export default function OrdersView() {
         if (or.orderState === 1) {
           result.push({ id: 2, title: 'Processing order', count: or.totalCount });
         } 
-        else if(!(or.orderState === 0) && !(or.orderState === 2) ){
+        else if(!(or.orderState === 0) || !(or.orderState === 2) ){
           result.push({ id: 2, title: 'Processing order', count: 0 });
         }
       });
@@ -74,7 +53,7 @@ export default function OrdersView() {
         if (or.orderState === 2) {
           result.push({ id: 3, title: 'Finalized orders', count: or.totalCount });
         } 
-        else if(!(or.orderState === 0) && !(or.orderState === 1) ){
+        else if(!(or.orderState === 0) || !(or.orderState === 1) ){
           result.push({ id: 3, title: 'Finalized orders', count: 0 });
         }
       });
@@ -184,7 +163,7 @@ export default function OrdersView() {
         <button className="accept-orders" onClick={handleAcceptOrders}>Accept orders</button>
 
         <div className="table-content-details">
-          {orderDetails.length==0?(
+          {orderDetails.length===0?(
             <p>No orders</p>
           ):(acceptOrders===true?(
             <table style={{marginLeft : '2%'}}>
