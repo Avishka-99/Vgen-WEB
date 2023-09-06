@@ -46,40 +46,43 @@ const RowOrderView = () => {
     };
 
     //card details
-    const result = [];
-    if(orderType.length===0){
-        result.push({ id: 1, title: 'New order', count: 0 });
-        result.push({ id: 2, title: 'Finalized orders', count: 0 });
-        result.push({ id: 3, title: 'Reject orders', count: 0 });
-    }
-    else{
-        orderType.map((or)=>{
+    
+    const result = [
+        { id: 1, title: 'New orders', count: 0 },
+        { id: 2, title: 'Finalized orders', count: 0 },
+        { id: 3, title: 'Reject orders', count: 0 }
+    ];
+
+    if (orderType.length > 0) {
+        orderType.forEach((or) => {
             if (or.orderState === 0) {
-            result.push({ id: 1, title: 'New order', count: or.totalCount });
-            } 
-            else if(!(or.orderState === 1) || !(or.orderState === -1) ){
-            result.push({ id: 1, title: 'New order', count: 0 });
+                // Find the existing object with id 1 and replace it
+                const index = result.findIndex(item => item.id === 1);
+                if (index !== -1) {
+                    result[index] = { id: 1, title: 'New orders', count: or.totalCount };
+                }
             }
-        });
-        orderType.map((or)=>{
             if (or.orderState === 1) {
-            result.push({ id: 2, title: 'Finalized orders', count: or.totalCount });
-            } 
-            else if(!(or.orderState === 0) || !(or.orderState === -1) ){
-            result.push({ id: 2, title: 'Finalized orders', count: 0 });
+                // Find the existing object with id 2 and replace it
+                const index = result.findIndex(item => item.id === 2);
+                if (index !== -1) {
+                    result[index] = { id: 2, title: 'Finalized orders', count: or.totalCount };
+                }
             }
-        });
-        orderType.map((or)=>{
             if (or.orderState === -1) {
-            result.push({ id: 3, title: 'Reject orders', count: or.totalCount });
-            } 
-            else if(!(or.orderState === 0) || !(or.orderState === 1) ){
-            result.push({ id: 3, title: 'Reject orders', count: 0 });
+                // Find the existing object with id 3 and replace it
+                const index = result.findIndex(item => item.id === 3);
+                if (index !== -1) {
+                    result[index] = { id: 3, title: 'Reject orders', count: or.totalCount };
+                }
             }
         });
-        
     }
 
+    console.log(result);
+
+ 
+   console.log(result);
     var type="";
     const handleByOrderType = (type) => {
         if(acceptOrder===true){

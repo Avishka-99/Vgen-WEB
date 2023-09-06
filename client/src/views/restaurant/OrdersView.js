@@ -37,7 +37,7 @@ export default function OrdersView() {
         if (or.orderState === 0) {
           result.push({ id: 1, title: 'New order', count: or.totalCount });
         } 
-        else if(!(or.orderState === 1) || !(or.orderState === 2) ){
+        else if(!(or.orderState === 1) && !(or.orderState === 2) ){
           result.push({ id: 1, title: 'New order', count: 0 });
         }
       });
@@ -45,7 +45,7 @@ export default function OrdersView() {
         if (or.orderState === 1) {
           result.push({ id: 2, title: 'Processing order', count: or.totalCount });
         } 
-        else if(!(or.orderState === 0) || !(or.orderState === 2) ){
+        else if(!(or.orderState === 0) && !(or.orderState === 2) ){
           result.push({ id: 2, title: 'Processing order', count: 0 });
         }
       });
@@ -53,7 +53,7 @@ export default function OrdersView() {
         if (or.orderState === 2) {
           result.push({ id: 3, title: 'Finalized orders', count: or.totalCount });
         } 
-        else if(!(or.orderState === 0) || !(or.orderState === 1) ){
+        else if(!(or.orderState === 0) && !(or.orderState === 1) ){
           result.push({ id: 3, title: 'Finalized orders', count: 0 });
         }
       });
@@ -89,10 +89,10 @@ export default function OrdersView() {
       console.log(orderId);
       try {
         const response=await Axios.post(API_ENDPOINTS.updateOrderState_URL,{
-          params:{
+          
             order_id:orderId,
             order_state:newOrderState,
-          }
+         
         });
         console.log("Axios Response:", response.data);
       } catch (err) {
