@@ -33,6 +33,10 @@ const RestaurantProductAdd = (props) => {
       setProductImage(e.target.files[0]);
     }
     return props.trigger ? ( 
+      //product potion type
+      // 0=No potion only normal
+      // 1=only normal and small
+      // 2=large small normal have
       <div className="product-add-popup">
         <div className="product-add-popup-inner">
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>

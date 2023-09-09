@@ -36,6 +36,8 @@ export const getAllComplainIDRelevantRestaurant_URL="api/getAllOrderIDRelevantRe
 export const getComplain_URL="api/getComplain"
 export const getAcceptOrders_URL="api/getAcceptOrders"
 export const updateOrderState_URL="api/updateOrderState"
+export const updateOrderStateToFinal_URL="api/updateOrderStateToFinal"//oly restaurant accept state
+export const updateOrderRejectState_URL="api/updateOrderRejectState"
 export const getAllRawProductsDetails="api/getAllRawProductsDetails"
 export const deleteComplain_URL="api/deleteComplain"
 //
@@ -54,6 +56,7 @@ export const getManufactureOrderMoreDetails_URL='api/getManufactureOrderMoreDeta
 export const getManufactureOrderDetailsInSortedByType_URL='api/getManufactureOrderDetailsInSortedByType'
 export const getManufactureAcceptedOrderDetailsInTableToday_URL='api//getManufactureAcceptedOrderDetailsInTableToday'
 export const getManufactureOrderDetailsInSortedByTypeWithAccepted_URL='api/getManufactureOrderDetailsInSortedByTypeWithAccepted'
+export const deleteProduct_URL='api/deleteProduct'
 //
 
 export const FETCH_ALL_STAFF = '/api/fetchstaff';

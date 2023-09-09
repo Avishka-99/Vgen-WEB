@@ -8,6 +8,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import SearchResultList from '../restaurant/SearchResultList';
 import RestaurantOneItem from '../restaurant/RestaurantOneItem';
 import CommonPopupMessage from '../restaurant/CommonPopupMessage'
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 
 export default function RowProducts() {
   const [popup,setPopup]=useState(false);
@@ -83,10 +85,31 @@ export default function RowProducts() {
      setInput(value);
      searchData(value);
   }
-  const handleDelete=(id)=>{
-      console.log("hi",id)
+  const handleDelete=async (id)=>{
+    try {
+      const response= await Axios.post(API_ENDPOINTS.deleteProduct_URL,{
+        id:id,
+          
+      }).then((response)=>showToast(response.data));;
+      console.log("Axios Response:", response.data);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      
+    }
   }
  
+  const showToast=(data)=>{
+   
+    if(data.type==='success'){
+      SetIsOneSet(false);
+      setDeletePopup(false);
+      getProducts();
+      ToastMessages.success(data.message);
+    }else{
+      ToastMessages.error(data.message);
+    }
+
+  }
   
 
   return (
@@ -122,7 +145,7 @@ export default function RowProducts() {
             <div className="product-card" >
               {!isLoading && (
                 products.length === 0 ? (
-                  <p>No products</p>
+                  <p className="No-order-msg">No products</p>
                 ) : (
                   <>
                     {products.map(o => (<RestaurantItem key={o.id} data={o} oneProductHandle={oneProductHandle} setDel_productId={setDel_productId} setDeletePopup={setDeletePopup}/>))}
@@ -138,7 +161,7 @@ export default function RowProducts() {
         
         
       </div>
-      
+      <Toast duration={3000} />
       <CommonPopupMessage setTriggerNew={setDeletePopup} triggerNew={deletePopup} action={'delete'} type={'product'} myFunction={()=>handleDelete(del_productId)} getProducts={getProducts} ></CommonPopupMessage>  
    </div>
 
