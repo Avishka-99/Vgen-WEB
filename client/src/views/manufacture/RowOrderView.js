@@ -187,7 +187,7 @@ const RowOrderView = () => {
         console.log(newOrderState);
         console.log(orderId);
         try {
-          const response= await Axios.post(API_ENDPOINTS.updateOrderState_URL,{
+          const response= await Axios.post(API_ENDPOINTS.updateOrderRejectState_URL,{
               order_id:orderId,
               order_state:newOrderState,
           }).then((response)=>showToast(response.data));;
