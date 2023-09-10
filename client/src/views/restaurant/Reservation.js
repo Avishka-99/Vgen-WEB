@@ -3,6 +3,8 @@ import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import '../../styles/Restaurant/RestaurantOrders.css';
 import { OrderCountCard } from './orderCountCard';
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 
 export default function Reservation() {
  const user_id=localStorage.getItem('userId');
@@ -12,69 +14,118 @@ export default function Reservation() {
    
    
     useEffect(() => {
-      async function getReservationDetails(){
-        try {
-          const res = await Axios.get(API_ENDPOINTS.getReservationDetails_URL, {
-            params: {
-              user_id: user_id,
-            },
-          });
-          SetReservationDetails(res.data);
-          
-          
-        } catch (err) {
-          console.log('Error fetching data:', err);
-          
-        }
-      };
+   
       getReservationDetails();
       
     }, []);
     
-	console.log(reservationDetails);
-    //card details
-    const result = [];
-
-	if (!reservationDetails.result_1 || !reservationDetails.result_2) {
-		return <p>Loading...</p>;
-	  } else {
-		reservationDetails.result_2.map((or) => {
-		  if (or.reservationState === 0) {
-			result.push({ id: 1, title: 'New Reservation', count: or.count });
-		  } else if (!(or.reservationState === -1) && !(or.reservationState === 1)) {
-			result.push({ id: 1, title: 'New Reservation', count: 0 });
-		  }
-		});
-	  
-		reservationDetails.result_2.map((or) => {
-		  if (or.reservationState === 1) {
-			result.push({ id: 2, title: 'Accept Reservation', count: or.count });
-		  } else if (!(or.reservationState === 0) && !(or.reservationState === -1)) {
-			result.push({ id: 2, title: 'Accept Reservation', count: 0 });
-		  }
-		});
-	  
-		reservationDetails.result_2.map((or) => {
-		  if (or.reservationState === -1) {
-			result.push({ id: 3, title: 'Reject Reservation', count: or.count });
-		  } else if (!(or.reservationState === 0) && !(or.reservationState === 1)) {
-			result.push({ id: 3, title: 'Reject Reservation', count: 0 });
-		  }
-		});
-	  
-		console.log(result);
-	  }
-	  
-    
- 
-    const acceptHandle = (orderId) => () => {
+    const   getReservationDetails= async ()=>{
+      try {
+        const res = await Axios.get(API_ENDPOINTS.getReservationDetails_URL, {
+          params: {
+            user_id: user_id,
+          },
+        });
+        SetReservationDetails(res.data);
         
+        
+      } catch (err) {
+        console.log('Error fetching data:', err);
+        
+      }
+    };
+   
+	  
+  const result = [
+      { id: 1, title: 'New Reservation', count: 0 },
+      { id: 2, title: 'Accept Reservation', count: 0 },
+      { id: 3, title: 'Reject Reservation', count: 0 }
+  ];
+  if(reservationDetails.length>0){
+    if (reservationDetails.result_2.length > 0 ) {
+      reservationDetails.result_2.forEach((or) => {
+            if (or.reservationState === 0) {
+                // Find the existing object with id 1 and replace it
+                const index = result.findIndex(item => item.id === 1);
+                if (index !== -1) {
+                    result[index] = { id: 1, title: 'New Reservation', count: or.count };
+                }
+            }
+            if (or.reservationState === 1) {
+                // Find the existing object with id 2 and replace it
+                const index = result.findIndex(item => item.id === 2);
+                if (index !== -1) {
+                    result[index] = { id: 2, title: 'Accept Reservation', count: or.count };
+                }
+            }
+            if (or.reservationState === -1) {
+                // Find the existing object with id 3 and replace it
+                const index = result.findIndex(item => item.id === 3);
+                if (index !== -1) {
+                    result[index] = { id: 3, title: 'Reject Reservation', count: or.count };
+                }
+            }
+        });
     }
-    const rejectHandle = (orderId) => () => {
+  }
+  
+   
+ 
+    const acceptHandle =async (ReservationId) => {
+      var newOrderState=1;
       
+      try {
+        const response= await Axios.post(API_ENDPOINTS.updateReservationState_URL,{
+          reservation_id:ReservationId,
+          reservation_state:newOrderState,
+        }).then((response)=>showToast(response.data));;
+        console.log("Axios Response:", response.data);
+      } catch (err) {
+        console.log('Error fetching data:', err);
+        
+      }
+    }
+    const rejectHandle = async (ReservationId) => {
+      var newOrderState=-1;
+      
+      try {
+        const response= await Axios.post(API_ENDPOINTS.updateReservationState_URL,{
+          reservation_id:ReservationId,
+          reservation_state:newOrderState,
+        }).then((response)=>showToast(response.data));;
+        console.log("Axios Response:", response.data);
+      } catch (err) {
+        console.log('Error fetching data:', err);
+        
+      }
+   }
+
+   const getAcceptReservation= async()=>{
+    try {
+      const res = await Axios.get(API_ENDPOINTS.getAcceptedReservationDetails_URL, {
+        params: {
+          user_id: user_id,
+        },
+      });
+      SetReservationDetails(res.data);
+      
+      
+    } catch (err) {
+      console.log('Error fetching data:', err);
+      
+    }
    }
   
+   const showToast=(data)=>{
+ 
+    if(data.type==='success'){
+      getReservationDetails();
+      ToastMessages.success(data.message);
+    }else{
+      ToastMessages.error(data.message);
+    }
 
+  }
    
     
     
@@ -90,6 +141,7 @@ export default function Reservation() {
       </div>
       <div className="table-content">
         <div className="table-content-header">
+           <button className='accept-not-btn' style={{marginLeft:'75%'}} onClick={()=>getAcceptReservation()}>Accept reservation</button>
         </div>
         <div className="table-content-details">
           {reservationDetails.length==0?(
@@ -116,17 +168,34 @@ export default function Reservation() {
                       <td >{o.reservationId}</td>
                       <td > {o.date}</td>
                       <td >{o.time}</td>
-                      <td >  {o.reservationState===0 ? (
-                            //complete the prepare
-                            <p style={{color:'green'}}>new reservation</p>
-                          ): (
-                            " "
-                          )}
+                      <td >  
+                          {o.reservationState===0 ? (
+                             <p style={{color:'green'}}>new reservation</p>
+                            ):o.reservationState===1 ? (
+                              <p style={{color:'blue'}}>Accept reservation</p>
+                            ):(
+                              " "
+                            )
+                          }
                       </td>
                       <td >{o.timePeriod}</td>
                     
-                      <td><button className='order-accept' onClick={acceptHandle(o.orderId)}>Accept</button></td>
-                      <td><button className='order-reject'onClick={rejectHandle(o.orderId)}>Reject</button></td>
+                      <td>
+                          {o.reservationState===0 ? (
+                             <button className='order-accept' onClick={()=>acceptHandle(o.ReservationId)}>Accept</button>
+                            ):(
+                              " "
+                            )
+                          }
+                       </td>
+                      <td>
+                          {o.reservationState===0 ? (
+                             <button className='order-reject'onClick={()=>rejectHandle(o.ReservationId)}>Reject</button>
+                            ):(
+                              " "
+                            )
+                          }
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -137,7 +206,7 @@ export default function Reservation() {
           )}
           
         </div>
-        
+        <Toast duration={3000} />
       </div>
     </div>
   );

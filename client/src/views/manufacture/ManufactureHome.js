@@ -113,7 +113,7 @@ const ManufactureHome = () => {
     };
     //
    
-    const predefinedColors = ['#E38627', '#C13C37'];
+    const predefinedColors = ['#b5e550', '#abc32f'];
 
     const pieChartData = orderType.map((item, index) => ({
       title: item.orderType,
@@ -273,7 +273,7 @@ const ManufactureHome = () => {
                           <>
                           <PieChart 
                               data={pieChartData} 
-                              lineWidth={50}
+                              lineWidth={40}
                               style={{width:'60%',height:'60%',marginLeft:'20%',marginTop:'10%'}}
                           />
                           <div style={{ display: 'flex', flexWrap: 'wrap' }}>

@@ -11,6 +11,7 @@ import { OrderCountCard } from './orderCountCard';
 import PopupContainer from './PopupContainer'
 
 export default function RestaurantHome() {
+
   const [popup,setPopup]=useState(false);
   const [orderCount,setOrderCount]=useState([]);
   const [orderType,setOrderType]=useState([]);
@@ -21,80 +22,8 @@ export default function RestaurantHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [mostOrders, setMostOrders] = useState([]);
   const [mostOrdersL, setMostOrdersL] = useState([]);
-
   const user_id=localStorage.getItem('userId');
-  //get order details in table view
-  const getOrderDetails = async () => {
-    try {
-      const res = await Axios.get(API_ENDPOINTS.restaurantDetails_URL, {
-        params: {
-          user_id: user_id,
-        },
-      });
-      
-      setOrders(res.data);
-      setIsLoading(false);
-    } catch (err) {
-      console.log('Error fetching data:', err);
-      setIsLoading(false);
-    }
-  };
-  //
-   //get order types details for pie chart
-      
-   const getOrderTypeDetails = async () => {
-    try {
-      const res = await Axios.get(API_ENDPOINTS.getOrderType_URL, {
-        params: {
-          user_id: user_id,
-        },
-      });
-      
-      setOrderType(res.data);
-      setIsLoading(false);
-    } catch (err) {
-      console.log('Error fetching data:', err);
-      setIsLoading(false);
-    }
-  };
-  //
-
-  //get order types details for pie chart
-      
-  const getOrderCountDetails = async () => {
-    try {
-      const res = await Axios.get(API_ENDPOINTS.getOrderCountDetail_URL, {
-        params: {
-          user_id: user_id,
-        },
-      });
-      
-      setOrderCount(res.data);
-      setIsLoading(false);
-    } catch (err) {
-      console.log('Error fetching data:', err);
-      setIsLoading(false);
-    }
-  };
-  //
-
-  //get Most order details with limit
-  const getMostOrderDetailsWithLimit = async () => {
-    try {
-      const res = await Axios.get(API_ENDPOINTS.getMostOrderCountWithLimit_URL, {
-        params: {
-          user_id: user_id,
-        },
-      });
-      
-      setMostOrdersL(res.data);
-      setIsLoading(false);
-    } catch (err) {
-      console.log('Error fetching data:', err);
-      setIsLoading(false);
-    }
-  };
-  //
+ 
 
   //get Most order details without limit
   const getMostOrderDetailsWithOtLimit = async () => {
@@ -114,39 +43,96 @@ export default function RestaurantHome() {
   };
   //
 
-    useEffect(() => {
-        getOrderDetails();
-        getOrderTypeDetails();
-        getOrderCountDetails();
-        getMostOrderDetailsWithLimit();
-    },[])
+  
+    useEffect(()=>{
+      
+      (async () => {
+        try {
+          const [res1, res2, res3, res4] = await Promise.all([
+            Axios.get(API_ENDPOINTS.restaurantDetails_URL, {
+              params: {
+                user_id: user_id,
+              },
+            }),
+            Axios.get(API_ENDPOINTS.getOrderCountDetail_URL, {
+              params: {
+                user_id: user_id,
+              },
+            }),
+            Axios.get(API_ENDPOINTS.getMostOrderCountWithLimit_URL, {
+              params: {
+                user_id: user_id,
+              },
+            }),
+            Axios.get(API_ENDPOINTS.getOrderType_URL, {
+              params: {
+                user_id: user_id,
+              },
+            }),
+          ]);
+    
+          setOrders(res1.data);
+          setOrderCount(res2.data);
+          setMostOrdersL(res3.data);
+          setOrderType(res4.data)
+          setIsLoading(false);
+        } catch (err) {
+          console.log('Error fetching data:', err);
+          setIsLoading(false);
+        }
+      })();
+      
+    },[user_id]);
    
 
-	const predefinedColors = ['#E38627', '#C13C37', '#6A2135'];
+	const predefinedColors = ['#ececa3', '#b5e550', '#abc32f'];
 
-	const pieChartData = orderType.map((item, index) => ({
-		title: item.orderType,
-		value: item.count,
-		color: predefinedColors[index % predefinedColors.length],
-	}));
+  const pieChartData = orderType.map((item, index) => ({
+    title: item.orderType,
+    value: item.orderTypeCount,
+    color: predefinedColors[index % predefinedColors.length],
+  }));
 
-    let revenue=Math.round((orderCount.total_amount)*0.9);
-    let total_count=orderCount.total_count;
-    let total_quantity=orderCount.total_quantity;
- 
   
+      //assign a date and time
+    const time = new Date();
+    const dateOptions = { month: 'long', day: 'numeric' };
+    const timeOptions = { hour: 'numeric', minute: 'numeric' };
+    
+    const [currentDate, setCurrentDate] = useState(time.toLocaleDateString(undefined, dateOptions));
+    const [currentTime, setCurrentTime] = useState(time.toLocaleTimeString(undefined, timeOptions));
+    
+    const updateTime = () => {
+      const newTime = new Date();
+      const newCurrentDate = newTime.toLocaleDateString(undefined, dateOptions);
+      const newCurrentTime = newTime.toLocaleTimeString(undefined, timeOptions);
+    
+      setCurrentDate(newCurrentDate);
+      setCurrentTime(newCurrentTime);
+    }
+    
+    setInterval(updateTime,1000);
+    //
+
+    let revenue = 0;
+    let total_count = 0;
+
+    if (orderCount.length > 0) {
+      revenue = Math.round((orderCount[0].totalAmount) * 0.9);
+      total_count = orderCount[0].totalCount;
+    }
+      
     const upperData = [
-      { id: 1, title: 'Total Revenue',count:revenue, string:"RS: "},
-      { id: 2, title: 'Total dish count',count:total_quantity},
-      { id: 3, title: 'Total Customers',count:total_count},
+      { id: 1, title: 'Today Revenue',count:revenue, string:"RS: "},
+      { id: 2, title: 'Today Sales',count:total_count},
+      { id: 3, title: currentDate,count:currentTime},
     ];
-     
   
    
 
   
     return (
-      <div>
+      <div className='restaurant-background'>
 
         <div className="Details">
           <div className='Details-left'>
@@ -181,7 +167,7 @@ export default function RestaurantHome() {
                 <tbody>
                 {orders.map((o) => (
                   <tr key={o.orderId}>
-                    <td>{o.fullName}</td>
+                    <td>{o.customerName}</td>
                     <td>{o.orderId}</td>
                     <td>{o.orderType}</td>
                     <td>{o.status===1 ? (
@@ -222,7 +208,7 @@ export default function RestaurantHome() {
            {filterOrder ? (
             <>
               <div className="filter-order">
-                <button id='filter-order' onClick={()=>setFilterOrder(false)}>Back</button><br />
+                <button className='filter-order-back' onClick={()=>setFilterOrder(false)}>Back</button><br />
                   <p>Order Type </p>
                   <select name="" id="order-type">
                     <option value="dinIn">Dine In</option>
@@ -259,11 +245,11 @@ export default function RestaurantHome() {
                 <div className="most-ordered-header">
                   <p>Most ordered </p>
                   <select name="" id="">
-                      <option value="today">Today</option>
-                      <option value="today">Last 7 days</option>
-                      <option value="today">Last 14 days</option>
-                      <option value="today">last 30 days</option>
-                      <option value="today">All the time</option>
+                      <option value="1">Today</option>
+                      <option value="7">Last 7 days</option>
+                      <option value="14">Last 14 days</option>
+                      <option value="30">last 30 days</option>
+                      <option value="100">All the time</option>
                   </select>
                 </div>
                 <div className="most-ordered-content">
@@ -299,7 +285,8 @@ export default function RestaurantHome() {
                       <>
                          <PieChart 
                             data={pieChartData} 
-                            lineWidth={50}
+                            lineWidth={40}
+                            style={{width:'60%',height:'60%',marginLeft:'20%',marginTop:'10%'}}
                         />
                         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                             {pieChartData.map((entry) => (
