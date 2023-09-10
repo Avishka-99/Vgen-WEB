@@ -38,6 +38,7 @@ const ManufactureComplains = () => {
    
       if(data.type==='success'){
         getComplainDetails();
+        setDeletePopup(false);
         ToastMessages.success(data.message);
       }else{
         ToastMessages.error(data.message);

@@ -24,9 +24,15 @@ export const restaurantDetails_URL = '/api/resDetailsGet';
 export const getAllProduct_URL='/api/allProduct';
 export const getOrderType_URL='api/orderTypes';
 export const getOrderCountDetail_URL='api/orderCountDetails';
+
 export const getOrderDetails_URL='api/getOrderDetails';
 export const getOrderMoreDetails_URL='api/getOrderMoreDetails';
 export const getOrderDetailsSorted_URL='api/getOrderSortedDetails';
+
+export const getOrderTypeCountToday_URL='api/OrderTypeCountToday';
+export const getRestaurantAcceptedOrderDetailsInTableToday_URL='api/getRestaurantAcceptedOrderDetailsInTableToday';
+export const getRestaurantOrderDetailsInSortedByTypeWithAccepted_URL='api/getRestaurantOrderDetailsInSortedByTypeWithAccepted'
+
 export const getMostOrderCountWithOutLimit_URL='api/getMostOrderCountWithOutLimit';
 export const getMostOrderCountWithLimit_URL='api/getMostOrderCountWithLimit';
 export const getShopDetails_URL='api/getShopDetails';
@@ -36,10 +42,12 @@ export const getAllComplainIDRelevantRestaurant_URL="api/getAllOrderIDRelevantRe
 export const getComplain_URL="api/getComplain"
 export const getAcceptOrders_URL="api/getAcceptOrders"
 export const updateOrderState_URL="api/updateOrderState"
-export const updateOrderStateToFinal_URL="api/updateOrderStateToFinal"//oly restaurant accept state
+export const updateOrderStateToFinal_URL="api/updateOrderStateToFinal"
 export const updateOrderRejectState_URL="api/updateOrderRejectState"
 export const getAllRawProductsDetails="api/getAllRawProductsDetails"
 export const deleteComplain_URL="api/deleteComplain"
+export const updateReservationState_URL='api/updateReservationState'
+export const getAcceptedReservationDetails_URL='api/acceptedReservationDetails'
 //
 //product manufacture apis
 export const addRowProducts_URL='/api/rowProductStore';

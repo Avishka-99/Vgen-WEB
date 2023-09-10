@@ -1,6 +1,12 @@
+/* .restaurant-background{
+  background-image: url('../../../public/background.jpg');
+  
+} */
+
 .Details{
     display: flex;
     margin-left: 5%;
+   
 }
 
 .Details-left{
@@ -10,8 +16,9 @@
 
 .Details-Right{
     height: 100%;
-    width: 36%;
-    
+    width: 33%;
+    margin-left: 3%;
+    position: fix;
 }
 
 .Upper-details-home{
@@ -102,6 +109,8 @@
 }
 .most-ordered-header{
     display: flex;
+    height: 10%;
+    width: 100%;
 }
 
 .most-ordered-header select{
@@ -124,13 +133,14 @@
 }
 
 .most-ordered-content{
-  width: 400px;
-  height: 250px;
+  width: 100%;
+  height: 90%;
   background-color: #fcfbfb;
-  margin-left: 20px;
+  /* margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+  margin: 0%;
   border-radius: 20px;
 }
 
@@ -142,6 +152,8 @@
 }
 .barChart-header{
   display: flex;
+  height: 10%;
+  width: 100%;
 }
 
 .barChart-header select{
@@ -164,13 +176,14 @@ margin-top: 3%;
 }
 
 .barChart-content{
-  width: 400px;
-  height: 250px;
+  width: 100%;
+  height: 90%;
   background-color:#fcfbfb;
-  margin-left: 20px;
+  /* margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+  margin: 0%;
   border-radius: 20px;
 }
 
@@ -214,16 +227,16 @@ margin-top: 3%;
 }
 
 #search-order{
-    margin-top: 10%;
-    color: black;
-    font-size: 18px;
-    margin-left: 8%;
-    padding: 10px;
-    background-color: #D3D3D3;
-    width: 350px;
-    border-radius: 5px;
-    text-align: center;
-    border: none; 
+  margin-top: 10%;
+  color: black;
+  font-size: 18px;
+  margin-left: 34%;
+  padding: 10px;
+  background-color: #D3D3D3;
+  width: 150px;
+  border-radius: 5px;
+  text-align: center;
+  border: none; 
 
 }
   
@@ -244,4 +257,15 @@ margin-top: 3%;
  
   border-radius: 4px;
 }
-
+.filter-order-back{
+  margin-top: 3%;
+  color: black;
+  font-size: 18px;
+  margin-left: 75%;
+  padding: 10px;
+  background-color: #D3D3D3;
+  width: 100px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+}

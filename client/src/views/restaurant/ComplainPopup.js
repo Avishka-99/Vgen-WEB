@@ -3,7 +3,8 @@ import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import Axios from '../../api/Axios'
 import CloseIcon from '@mui/icons-material/Close';
 import '../../styles/Restaurant/RestaurantComplain.css'
-
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 
 
 const ComplainPopup = (props) => {
@@ -13,23 +14,48 @@ const ComplainPopup = (props) => {
   const [u_orderId,setU_OrderId]=useState('');
   const [Image,setPImage]=useState();
   const user_id=localStorage.getItem('userId');
-    
-  const handleSubmit=(e)=>{
-    //upload image    
+  
+const handleSubmit=(e)=>{ 
+ 
+  if(u_orderId==='' || description===''){
+     if(u_orderId===''){
+      ToastMessages.error("Please select orderId");
+     }
+     if(description===''){
+      ToastMessages.error("Please fill the description");
+     }
+  }
+  else{
     const formData=new FormData();
     formData.append('user_id',user_id);
     formData.append('photo',Image);
     formData.append('description',description);
     formData.append('orderId',u_orderId);
- 
-    Axios.post(API_ENDPOINTS.addComplain_URL,formData);
-  
-
+    Axios.post(API_ENDPOINTS.addComplain_URL,formData).then((response)=>showToast(response.data));
   }
+}
    
   const handleFiles=(e)=>{
     setPImage(e.target.files[0]);
 
+  }
+
+  const showToast=(data)=>{
+   
+    if(data.type==='success'){
+      props.getComplainDetails();
+      refreshInputs();
+      ToastMessages.success(data.message);
+    }else{
+      ToastMessages.error(data.message);
+    }
+
+  }
+
+  const refreshInputs=()=>{
+    setU_OrderId('')
+    setDescription('');
+    setPImage(null);
   }
    
 
@@ -78,11 +104,11 @@ const ComplainPopup = (props) => {
 
             
         </div>    
-        <button className="complain-submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
+        <button className="complain-submit-button" onClick={() => handleSubmit() }>Submit</button>          
 
                   
       </div>
-
+      <Toast duration={3000} />
     </div>
       
         
