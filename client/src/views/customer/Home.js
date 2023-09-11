@@ -17,19 +17,24 @@ import * as ToastMessages from '../../components/ToastMessages';
 import Toast from '../../components/Toast';
 import Navbar from "../../components/Navbar";
 import getGeolocationAddress from "./geoAddress";
+import { dark } from "@mui/material/styles/createPalette";
 
 
 function Home() {
   const [resolvedAddresses, setResolvedAddresses] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [SelectedRestaurantId, setSelectedRestaurantId] = useState(null);
   const [limitError, setLimitError] = useState('');
   const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
+ 
+  
 
   const toggleModal = (product) => {
     setSelectedProduct(product);
     setIsModalOpen(!isModalOpen);
   };
+
 
   const closeModal = () => {
     setSelectedProduct(null);
@@ -43,6 +48,7 @@ function Home() {
   const dispatch = useDispatch();
   const number = useSelector((state) => state.CounterReducer.counter);
   const [name, setName] = useState("");
+
   const val = useSelector((state) => state.ValueReducer.value);
   const modalRef = useRef(null);
   const navigate = useNavigate();
@@ -303,7 +309,7 @@ useEffect(() => {
                 <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data.resturantName}</p>
                 <p className='prices'>
                 Location:{resolvedAddresses[index]||'Loading address..'}</p>
-                <button className='btn_res'>
+                <button onClick={() => viewRestaurant(data)}className='btn_res'>
                   View Restaurant
                 </button>
               </div>

@@ -13,6 +13,7 @@ export const productUpload_URL = '/api/productStore';
 export const productGet_URL = '/api/productGet';
 export const verifyUser_URL = '/api/verifyuser';
 export const sellProduct_URL = '/api/sellProduct';
+export const FetchRestaurantProducts_URL = '/api/fetchrestaurantproducts';
 export const orderPost_URL='/api/orderPost';
 export const createPost_URL='/api/createPost';
 export const getPost_URL='/api/getFeed';
