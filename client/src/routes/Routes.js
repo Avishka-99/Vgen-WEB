@@ -10,6 +10,7 @@ export const customerRoutes = [
   { id: 6, path: "/cart", element: <UserViews.Cart/> },
   { id: 7, path: "/about", element: <UserViews.About/> },
   { id: 8, path: "/view_profile", element: <UserViews.View_Profile/> },
+  { id: 9, path: "/SelectedRestaurant", element: <UserViews.SelectedRestaurant/> },
 ];
 export const restaurantRoutes = [
   { id: 1, path: "/home", element: <UserViews.RestaurantHome/> },
