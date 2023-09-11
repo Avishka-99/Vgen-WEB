@@ -38,6 +38,7 @@ const ManufactureComplains = () => {
    
       if(data.type==='success'){
         getComplainDetails();
+        setDeletePopup(false);
         ToastMessages.success(data.message);
       }else{
         ToastMessages.error(data.message);
@@ -69,7 +70,7 @@ const ManufactureComplains = () => {
                     <ManufactureComplainAdd trigger={popup} setTrigger={setPopup} getComplainDetails={getComplainDetails}></ManufactureComplainAdd>
                     <div className="m_table-content-complain-details">
               {complainDetails.length==0?(
-                <p>No complains</p>
+                <p className="No-order-msg">No complains</p>
               ):(
                 <table style={{marginTop:"20px"}}>
                       <thead>

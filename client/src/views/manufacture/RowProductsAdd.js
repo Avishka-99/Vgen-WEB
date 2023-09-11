@@ -14,6 +14,7 @@ const RowProductsAdd = (props) => {
     const [price,setPrice]=useState('');
     const [category,setCategory]=useState('');
     const [productImage,setProductImage]=useState('');
+    const [priceBase,setPriceBase]=useState('');
     const user_id=localStorage.getItem('userId');
 
     const resetData=()=>{
@@ -23,6 +24,7 @@ const RowProductsAdd = (props) => {
       setPrice('');
       setCategory('');
       setProductImage('');
+      setPriceBase('');
     }
     
     const showToast=(data)=>{
@@ -37,7 +39,7 @@ const RowProductsAdd = (props) => {
     }
    
    const handleSubmit=(e)=>{
-      if(quantity==='' || description==='' || productName==='' || productImage==='' || price==='' || category==='') {
+      if(quantity==='' || description==='' || productName==='' || productImage==='' || price==='' || category==='' || priceBase==='') {
         ToastMessages.error("Please fill the all data");
       } 
       else{
@@ -48,6 +50,7 @@ const RowProductsAdd = (props) => {
         formData.append('productName',productName);
         formData.append('price',price);
         formData.append('category',category);
+        formData.append('priceBase',priceBase);
         formData.append('user_id',user_id);
         Axios.post(API_ENDPOINTS.addRowProducts_URL,formData,).then((response)=>showToast(response.data)
         );
@@ -63,7 +66,7 @@ const RowProductsAdd = (props) => {
     }
     return props.trigger ? ( 
       <div className="product-add-popup">
-        <div className="product-add-popup-inner" >
+        <div className="product-add-popup-inner"style={{maxHeight:'650px'}} >
         <button className='Close-Btn' onClick={() => props.setTrigger(false)}><CloseIcon/></button>
         
         <h2>Product add</h2>
@@ -83,7 +86,7 @@ const RowProductsAdd = (props) => {
             <label htmlFor="price">Price:</label><br />
             <input type="text" id="price" placeholder="Price" value={price} onChange={(e) => { setPrice(e.target.value) }} required/><br />
              
-            <label htmlFor="price">Category:</label><br />
+            <label htmlFor="category">Category:</label><br />
             <select onChange={(e) => { setCategory(e.target.value) }} value={category} required className='productAddSelect'>
                 <option value="Vegetable">Vegetable</option>
                 <option value="fruits">Fruit</option>
@@ -91,9 +94,18 @@ const RowProductsAdd = (props) => {
                 <option value="feed">Feed</option>
                 <option value="other">Other</option>
             </select>
+
+            <label htmlFor="priceBase">Price is base on:</label><br />
+            <select onChange={(e) => { setPriceBase(e.target.value) }} value={category} required className='productAddSelect'>
+                <option value="Liter">Per Liter</option>
+                <option value="Kg">Per Kg</option>
+                <option value="g">Per g</option>
+                <option value="one ">Per one item</option>
+                <option value="box">Per box</option>
+            </select>
             
         </div>    
-        <button className="submit-button" onClick={()=>{handleSubmit()}} >Submit</button>          
+        <button className="submit-button" onClick={()=>{handleSubmit()}} style={{top:"580px"}}>Submit</button>          
 
                   
       </div>

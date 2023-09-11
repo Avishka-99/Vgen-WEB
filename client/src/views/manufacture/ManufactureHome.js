@@ -113,7 +113,7 @@ const ManufactureHome = () => {
     };
     //
    
-    const predefinedColors = ['#E38627', '#C13C37'];
+    const predefinedColors = ['#b5e550', '#abc32f'];
 
     const pieChartData = orderType.map((item, index) => ({
       title: item.orderType,
@@ -136,7 +136,7 @@ const ManufactureHome = () => {
                 <div className="manufacture-table-content">
 
                   <div className="manufacture-table-detail-header">
-                    <p>Order summary</p>
+                    <p >Order summary</p>
                     <button id='manufacture-filter-order-btn' onClick={()=>setFilter(true)}>Filter order</button>
                   </div>
 
@@ -145,7 +145,7 @@ const ManufactureHome = () => {
                       <p>Loading...</p>
                     ) : (
                       orders.length===0 ?(
-                        <p>No data </p>
+                        <p className="No-order-msg">No order yet </p>
                       ):(
                         <table style={{marginLeft:"3.5%"}}>
                           <thead>
@@ -237,11 +237,11 @@ const ManufactureHome = () => {
                       ) : (
                         <>
                           {mostOrdersL.length === 0 ? (
-                            <p>No orders yet</p>
+                            <p className="No-order-msg" style={{fontSize:'20px'}}>No orders yet</p>
                           ) : (
                             <>
                               {mostOrdersL.map((p) => (
-                                <MostCount key={p.orderId} productData={p} />
+                                <MostCount key={p.orderId} productData={p}  />
                               ))}
                               <button className='ManufactureViewMoreProducts' onClick={getMostOrderDetailsWithOtLimit}>view more</button>
                             </>
@@ -268,12 +268,13 @@ const ManufactureHome = () => {
                       ) : (
                         <>
                          {orderType.length===0 ?(
-                           <p>No order yet</p>
+                           <p className="No-order-msg" style={{fontSize:'20px'}}>No order yet</p>
                          ):(
                           <>
                           <PieChart 
                               data={pieChartData} 
-                              lineWidth={50}
+                              lineWidth={40}
+                              style={{width:'60%',height:'60%',marginLeft:'20%',marginTop:'10%'}}
                           />
                           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                               {pieChartData.map((entry) => (

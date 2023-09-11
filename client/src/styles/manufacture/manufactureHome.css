@@ -10,8 +10,8 @@
 
 .manufacture-details-right{
     height: 100%;
-    width: 36%;
-    
+    width: 33%;
+    margin-left: 3%;
 }
 
 .manufacture-upper-details{
@@ -138,18 +138,20 @@
   
   .manufacture-bar-chart{
       width: 100%;
-      height: 50vh;
+      height: 50%;
       
   }
 
   .manufacture-most-order{
     width: 100%;
-    height: 50vh;
+    height: 50%;
     
   }
 
 .manufacture-most-ordered-header{
     display: flex;
+    height: 10%;
+    width: 100%;
 }
 
 .manufacture-most-ordered-header select{
@@ -172,13 +174,14 @@
 }
 
 .manufacture-most-ordered-content{
-  width: 400px;
-  height: 250px;
+  width: 100%;
+  height: 90%;
   background-color: #fcfbfb;
-  margin-left: 20px;
+  /* margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+  margin: 0%;
   border-radius: 20px;
 }
 
@@ -197,6 +200,8 @@
 
 .manufacture-barChart-header{
   display: flex;
+  height: 10%;
+  width: 100%;
 }
 
 .manufacture-barChart-header select{
@@ -219,13 +224,14 @@ margin-top: 3%;
 }
 
 .manufacture-barChart-content{
-  width: 400px;
-  height: 250px;
+  width: 100%;
+  height: 90%;
   background-color:#fcfbfb;
-  margin-left: 20px;
+  /* margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+  margin: 0%;
   border-radius: 20px;
 }
 
