@@ -1,0 +1,163 @@
+*{
+    font-family: 'poppins-regular';  
+}
+
+.AdminContainer {
+    font-family: 'poppins-regular';
+    padding-left: 5%;
+    display: inline-block;
+    /* Set the background image */
+    background-image: url('../../assets/images/staff/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+}
+
+.topline{
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.headingtext{
+    font-size: 30px;
+    font-weight: bold;
+    color:black;
+}
+
+.notification-btn{
+    margin-top: 15px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #7EB693;
+    border-radius: 50%;
+}
+
+.datetext{
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #8B7E74;
+}
+
+.subcontainer {
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px; 
+}
+
+.cardcontainer{
+    width: 250px;
+    height: 150px;
+    background-color: #BCDAC8;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+}
+
+.devider1{
+    width: 125px;
+    height: 150px; 
+    /* border: 1px solid black;
+    border-radius: 50%; */
+    align-items: center;
+    text-align: center;
+}
+
+.cardiconcontainer{
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 100px;
+    width: 100px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    /* Set the background image */
+    background-image: url('../../assets/images/staff/cardicon1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+}
+
+.cardiconcontainer2{
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 100px;
+    width: 100px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    /* Set the background image */
+    background-image: url('../../assets/images/staff/cardicon2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+} 
+
+.cardiconcontainer3{
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 100px;
+    width: 100px;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    /* Set the background image */
+    background-image: url('../../assets/images/staff/cardicon3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+} 
+
+
+.devider2{
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 125px; 
+    height: 150px;
+    /* border: 1px solid black; */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.counttext{
+    font-family: 'poppins-extrabold';
+    font-size: 60px;
+    text-align: center;
+}
+
+.midline{
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.subheadingtext{
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+}
+
+/* .filtercontainer{
+    margin-top: 15px;
+    background-color: #BCDAC8;
+} */
+
+.filter-btn{
+    border: none;
+    background-color: #BCDAC8;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+}

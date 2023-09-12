@@ -309,7 +309,7 @@ useEffect(() => {
                 <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data.resturantName}</p>
                 <p className='prices'>
                 Location:{resolvedAddresses[index]||'Loading address..'}</p>
-                <button onClick={() => viewRestaurant(data)}className='btn_res'>
+                <button className='btn_res'>
                   View Restaurant
                 </button>
               </div>
