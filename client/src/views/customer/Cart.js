@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as API_ENDPOINTS from '../../api/ApiEndpoints'
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
-import { incrementCounter, removeFromCart,resetCart } from "../../constants/ActionTypes"; // Import your action to remove items from the cart
+import { incrementCounter, removeFromCart,resetCart } from "../../reducers/SetUserReducer"; // Import your action to remove items from the cart
 import * as ToastMessages from '../../components/ToastMessages';
 import Toast from '../../components/Toast';
 import "../../styles/Cart.css";
