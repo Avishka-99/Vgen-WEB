@@ -9,33 +9,4 @@ export const RESET_CART='RESET_CART';
 
 
 
-export const addToCart = (product) => {
-    return {
-        type: ADD_TO_CART,
-        payload: product,
-    };
-}
-export const removeFromCart = (product) => {
-    return {
-        type: REMOVE_FROM_CART,
-        payload: product,
-    };
-}
-    //update items count in cart
-export const incrementCounter = (cartItemCount) => {
-    return {
-        type: INCREMENT_COUNTER,
-        payload: cartItemCount,
-    };
-}
-export const setSearchKeyword=(keyword)=>{
-    return {
-        type: SET_SEARCH_KEYWORD,
-        payload: keyword,
-    };
-}
-export const resetCart=()=>{
-    return {
-        type: RESET_CART,
-    };
-}
+

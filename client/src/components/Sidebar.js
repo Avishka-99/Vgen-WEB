@@ -17,6 +17,7 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EuroIcon from '@mui/icons-material/Euro';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
+import MenuBookIcon from '@mui/icons-material/MenuBook'; 
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import {useNavigate} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
@@ -46,6 +47,7 @@ const ShowSidebar = (props) => {
 		{id: 4, icon: <PeopleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Community', link: 'community', index: '4'},
 		{id: 5, icon: <DynamicFeedIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Feeds', link: 'feed', index: '5'},
 		{id: 6, icon: <InfoIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'About', link: 'About', index: '6'},
+        {id: 7, icon: <MenuBookIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'recipe', link: 'Recipe', index: '7'},
 	];
 	const restaurant = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},

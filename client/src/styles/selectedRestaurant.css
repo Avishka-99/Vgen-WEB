@@ -1,0 +1,59 @@
+/* Style for the card container */
+.card-container {
+    margin-left: 30px;
+    display: flex;
+    gap: 40px;
+  }
+  
+  /* Style for each product card */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 10px;
+  }
+  
+ .card-img-top {
+    width: 100;
+    height: 200px;
+    object-fit: cover;
+ }
+
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 10px;
+  }
+  
+  /* Style for the "Select" button */
+  .select-button {
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .select-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+  
+  /* Style for the heading */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
