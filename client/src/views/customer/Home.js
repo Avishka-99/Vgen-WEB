@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from "react-redux";
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
-import { addToCart,incrementCounter } from "../../constants/ActionTypes";
+import { addToCart,incrementCounter } from "../../reducers/SetUserReducer";
 
 // import Button from '../../components/Button';
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ import Toast from '../../components/Toast';
 import Navbar from "../../components/Navbar";
 import getGeolocationAddress from "./geoAddress";
 import { dark } from "@mui/material/styles/createPalette";
+import { consumers } from "stream";
 
 
 function Home() {
@@ -117,6 +118,14 @@ const decrementQuantity = () => {
     fetchData1();
 
   },[]);
+  const viewRestaurant = (data) => {
+    console.log(data);
+    console.log(data.resturantManagerId);
+    const restaurantId = data.resturantManagerId;
+    localStorage.setItem('restaurantId',restaurantId);
+    navigateTo("SelectedRestaurant");
+  
+    };
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.

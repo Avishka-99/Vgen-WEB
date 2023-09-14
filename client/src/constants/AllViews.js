@@ -27,5 +27,7 @@ import RowProducts from '../views/manufacture/RowProducts'
 import RowOrderView from '../views/manufacture/RowOrderView'
 import ManufactureComplains from '../views/manufacture/ManufactureComplains'
 import View_Profile from '../views/customer/view_profile';
+import Recipe from '../views/customer/Recipe';
 import SelectedRestaurant from '../views/customer/SelectedRestaurant';
-export {Sales, StaffHome, Payments, Complains, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Feed, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd,Cart, ManufactureHome,RowProducts,RowOrderView,ManufactureComplains,RestaurantComplain,About,View_Profile,SelectedRestaurant};
+import recipeForm from '../views/customer/recipeForm';
+export {Sales, StaffHome, Payments, Complains, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Feed, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd,Cart, ManufactureHome,RowProducts,RowOrderView,ManufactureComplains,RestaurantComplain,About,View_Profile,SelectedRestaurant,Recipe,recipeForm};
