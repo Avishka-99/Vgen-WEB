@@ -1,0 +1,33 @@
+* {
+    font-family: "poppins-regular";
+}
+
+.QAtitle{
+  margin-top: 4%;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.paymentsubcontainer {
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.paymentcardcontainer {
+    padding: 30px;
+    width: 175px;
+    height: 110px;
+    background-color: #bcdac8;
+    border-radius: 25px;
+    max-width: 175px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+}
+
+.crdtitle{
+  font-weight: bold;
+  font-size: 15px;
+}
