@@ -17,17 +17,34 @@
 }
 
 .paymentcardcontainer {
-    padding: 30px;
+    padding-top: 25px;
     width: 175px;
     height: 110px;
     background-color: #bcdac8;
     border-radius: 25px;
     max-width: 175px;
-    text-align: center;
+    display: flex;
+    text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
+.icon{
+  margin-left: -20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url("../../assets/images/staff/cardicon1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
 .crdtitle{
+  padding-top: 5px;
+  padding-left: 15px;
+  width: 115px;
+  height: 110px;
   font-weight: bold;
   font-size: 15px;
 }

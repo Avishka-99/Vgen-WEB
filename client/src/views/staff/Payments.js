@@ -19,6 +19,9 @@ export default function Payments() {
 
           <div class="paymentsubcontainer">
             <div class="paymentcardcontainer">
+              <div class="icon">
+                <div class="restuaranticon"></div>
+              </div>
               <div class="crdtitle">
                 Restaurant <br/> Payments
               </div>
