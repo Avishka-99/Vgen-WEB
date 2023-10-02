@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
-
 
 export default function Payments() {
   return (
@@ -23,7 +22,7 @@ export default function Payments() {
                 <div class="restuaranticon"></div>
               </div>
               <div class="crdtitle">
-                Restaurant <br/> Payments
+                Restaurant <br /> Payments
               </div>
             </div>
             <div class="paymentcardcontainer">
@@ -31,15 +30,15 @@ export default function Payments() {
                 <div class="restuaranticon"></div>
               </div>
               <div class="crdtitle">
-                Delivery <br/> Payments
+                Delivery <br /> Payments
               </div>
-              </div>
+            </div>
             <div class="paymentcardcontainer">
               <div class="pay-dash-icon pay-dash-icon3">
                 <div class="restuaranticon"></div>
               </div>
               <div class="crdtitle">
-                Manufacturer <br/> Payments
+                Manufacturer <br /> Payments
               </div>
             </div>
             <div class="paymentcardcontainer">
@@ -51,9 +50,70 @@ export default function Payments() {
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="top-right">
+          <div class="topline">
+            <div class="subheadingtext">[Title Here]</div>
+            <div class="filter-btn">Today</div>
+          </div>
+
+          <div class="top-right-container">[Content Here]</div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="bottom-left">
+          <div class="midline">
+            <div class="subheadingtext">Recent Transactions</div>
+            <div class="filter-btn">Filter</div>
+          </div>
+
+          <div class="table-area">
+            <table class="db-tbl">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Transaction Type</th>
+                  <th>Recipient</th>
+                  <th>Amount</th>
+                  <th>Transaction Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#3417950</td>
+                  <td>Delivery Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    Avishka Fernando
+                  </td>
+                  <td>Rs. 725.00</td>
+                  <td>Pending</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-right">
+          <div class="midline">
+            <div class="subheadingtext">[Title Here]</div>
+            <div class="filter-btn">Today</div>
+          </div>
+
+          <div class="bottom-right-container">[Content Here]</div>
         </div>
       </div>
     </div>
-  )
+  );
 }
