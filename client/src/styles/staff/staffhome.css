@@ -195,7 +195,7 @@
   padding-right: 25px;
   width: 380px;
   height: 200px;
-  background-color: wheat;
+  background-color: F4FFF8;
   border-radius: 30px;
 }
 
@@ -310,6 +310,6 @@ display: flex;
   padding-right: 25px;
   width: 380px;
   height: 350px;
-  background-color: wheat;
+  background-color: #F4FFF8;
   border-radius: 30px;
 }
