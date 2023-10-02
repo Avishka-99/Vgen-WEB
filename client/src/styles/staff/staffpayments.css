@@ -28,16 +28,31 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
-.icon{
+.pay-dash-icon{
   margin-left: -20px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-image: url("../../assets/images/staff/cardicon1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.pay-dash-icon1{
+  background-image: url("../../assets/images/staff/pay-dash-icon1.png");
+}
+
+.pay-dash-icon2{
+  background-image: url("../../assets/images/staff/pay-dash-icon2.png");
+}
+
+.pay-dash-icon3{
+  background-image: url("../../assets/images/staff/pay-dash-icon3.png");
+}
+
+.pay-dash-icon4{
+  background-image: url("../../assets/images/staff/pay-dash-icon4.png");
 }
 
 .crdtitle{

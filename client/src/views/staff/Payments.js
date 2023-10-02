@@ -19,7 +19,7 @@ export default function Payments() {
 
           <div class="paymentsubcontainer">
             <div class="paymentcardcontainer">
-              <div class="icon">
+              <div class="pay-dash-icon pay-dash-icon1">
                 <div class="restuaranticon"></div>
               </div>
               <div class="crdtitle">
@@ -27,16 +27,25 @@ export default function Payments() {
               </div>
             </div>
             <div class="paymentcardcontainer">
+              <div class="pay-dash-icon pay-dash-icon2">
+                <div class="restuaranticon"></div>
+              </div>
               <div class="crdtitle">
                 Delivery <br/> Payments
               </div>
               </div>
             <div class="paymentcardcontainer">
+              <div class="pay-dash-icon pay-dash-icon3">
+                <div class="restuaranticon"></div>
+              </div>
               <div class="crdtitle">
                 Manufacturer <br/> Payments
               </div>
             </div>
             <div class="paymentcardcontainer">
+              <div class="pay-dash-icon pay-dash-icon4">
+                <div class="restuaranticon"></div>
+              </div>
               <div class="crdtitle">
                 Donation <br /> Details
               </div>
