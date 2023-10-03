@@ -1,0 +1,57 @@
+* {
+    font-family: "poppins-regular";
+}
+
+.complaintssubcontainer {
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.complaintscardcontainer {
+    padding-top: 25px;
+    width: 380px;
+    height: 140px;
+    background-color: #bcdac8;
+    border-radius: 25px;
+    max-width: 380px;
+    display: flex;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+}
+
+.com-dash-icon{
+  margin-left: -20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.com-dash-icon1{
+  background-image: url("../../assets/images/staff/pay-dash-icon1.png");
+}
+
+.com-dash-icon2{
+  background-image: url("../../assets/images/staff/pay-dash-icon2.png");
+}
+
+.com-dash-icon3{
+  background-image: url("../../assets/images/staff/pay-dash-icon3.png");
+}
+
+.com-dash-icon4{
+  background-image: url("../../assets/images/staff/pay-dash-icon4.png");
+}
+
+.com-crdtitle{
+  padding-left: 15px;
+  width: 115px;
+  height: 110px;
+  font-weight: bold;
+  font-size: 15px;
+}
