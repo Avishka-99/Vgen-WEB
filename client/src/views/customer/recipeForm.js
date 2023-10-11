@@ -2,21 +2,64 @@ import Modal from './Modal';
 import React, { Component } from 'react';
 import "../../styles/recipe.css";
 import { useState } from 'react';
-
+import Axios from '../../api/Axios';  
+import * as API_ENDPOINTS from '../../api/ApiEndpoints';
+import {useNavigate} from 'react-router-dom';
 class recipeForm extends Component {
- cons  
+  
+userId = localStorage.getItem('userId');
 
+  state = {
+    recipeName: '',
+    cuisine: 'italian',
+    category: 'appetizer',
+    veganCategory: 'breakfast',
+    isVegan: false,
+    ingredients: '',
+    instructions: '',
+    servingSize: '',
+    preparationTime: '',
+    image: null,
+  };
   handleInputChange = (event) => {
     const { name, value, type, checked, files } = event.target;
     const inputValue = type === 'checkbox' ? checked : type === 'file' ? files[0] : value;
-
+    
     this.setState({
       [name]: inputValue,
     });
   };
 
+
+
   handleSubmit = (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append('userId', this.userId);
+    formData.append('recipeName', this.state.recipeName);
+    formData.append('cuisine', this.state.cuisine);
+    formData.append('category', this.state.category);
+    formData.append('veganCategory', this.state.veganCategory);
+    formData.append('isVegan', this.state.isVegan);
+    formData.append('ingredients', this.state.ingredients);
+    formData.append('instructions', this.state.instructions);
+    formData.append('servingSize', this.state.servingSize);
+    formData.append('preparationTime', this.state.preparationTime);
+    formData.append('image', this.state.image);
+    
+    Axios.post("http://localhost:5001/api/recipeupload", formData)
+    
+      .then((res) => {
+        console.log(res.data);
+      
+        alert('Recipe Added Successfully');
+      }
+      )
+      .catch((err) => {
+        console.log('Error in adding recipe:', err);
+        alert('Something went wrong');
+      }
+      );
     
   };
 

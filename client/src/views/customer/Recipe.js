@@ -14,7 +14,7 @@ const navigateTo = (page) => {
 
 };
   return (
-    <div>
+    <div className='recipe_con'>
       <h1>Recipe</h1>
       <button 
       onClick={()=>{

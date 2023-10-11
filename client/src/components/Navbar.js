@@ -25,6 +25,7 @@ const Navbar = () => {
   const navigationBar=[
     { id: 1, link:'view_profile',label:"View Profile", index: "1" },
     { id: 2, link: "logout",label:"Log Out", index: "2" },
+    {id: 3,  link: 'Recipe',label: 'recipe',  index: '3'},
   ]
   const navigate = useNavigate();
   const cartItemCount=useSelector((state)=>state.cartReducer.cartItemCount);

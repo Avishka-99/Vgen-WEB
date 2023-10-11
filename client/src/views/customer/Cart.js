@@ -15,6 +15,7 @@ function Cart() {
   const [limitError, setLimitError] = useState('');
   const navigate = useNavigate();
   const [orderType, setOrderType] = useState("Take Away");
+  const [paymentType, setPaymentType] = useState("Cash");
 
   const removeCartItem = (itemToRemove) => {
     dispatch(removeFromCart(itemToRemove)); // Dispatch the action to remove item from the cart
@@ -25,13 +26,17 @@ function Cart() {
     const formData = new FormData();
     formData.append("userId", userId);
     formData.append("orderType", orderType);
-    formData.append("amount", calculateTotal());
-    formData.append("quantity",countQuantity());
-
-    formData.append("productId", cartItems[0].productId);
+   formData.append("paymentType", paymentType);
+   formData.append("amount", calculateTotal());
     formData.append("status", 0);
     formData.append("date",new Date().toLocaleDateString());
     formData.append("time",new Date().toLocaleTimeString());
+    cartItems.forEach((item, index) => {
+      formData.append(`productId[${index}]`, item.productId); // Use an array to handle multiple productId values
+      formData.append(`quantity[${index}]`, item.quantity);
+      formData.append(`price[${index}]`,item.price); // Use an array to handle multiple quantity values
+    });
+   
     try{
 
       const res=await Axios.post(API_ENDPOINTS.orderPost_URL,formData,{
@@ -115,9 +120,16 @@ const countQuantity = () => {
           <option value="Dine In">Dine In</option>
           </select>
       </label>
+      <label>
+        Payment Type:
+        <select value={paymentType} onChange={(e) => setPaymentType(e.target.value)}>
+          <option value="Cash">Cash</option>
+          <option value="Online">Online</option>
+          </select>
+      </label>
       </div>
     <div className="cart-summary">
-      <p>Quantity: {countQuantity()}</p>
+      <p>Quantity: {cartItems.length}</p>
       <p className="total">Total: Rs.{calculateTotal()}</p>
       <button className="btn checkout" onClick={handleOrder}>Checkout</button>
       {limitError && <p className="limit-error">{limitError}</p>}
