@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/Navbar.css";
+import getGeolocationAddress from "../views/customer/geoAddress";
+
 
 import { Card } from "reactstrap";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -10,12 +12,59 @@ import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
 import { setSearchKeyword } from "../reducers/SetUserReducer";
 import { Menu,MenuItem } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Axios from "../api/Axios";
+import Axios from 'axios';
 
 
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [apiKey, setApiKey] = useState('AIzaSyDGf0EXb4I0BQoE2t_IsJmkOJXYTc0S5bA');
+const [location, setLocation] = useState({});
+
+
+const [formData_1,setFormData_1]=useState([]);
+
+const [address, setAddress] = useState([]);
+//get longitude and latitude in the backend "localhost:5001/api/getlocation using userId"
+//set into address that is used in getLocationButton
+useEffect(() => {
+  const userId=localStorage.getItem("userId");
+
+  const getLocation = async () => {
+    try {
+      const response = await Axios.get(
+        `http://localhost:5001/api/getlocation/`,
+        {
+          params: {
+            userId: userId,
+          },
+        }
+      );
+      const { latitude, longitude } = response.data;
+      const address = await getGeolocationAddress(latitude,longitude,apiKey);
+      console.log(address);
+      setAddress(address);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  getLocation();
+},[]);
+  const getLocationButton = () => {
+   
+      return (
+        <div className="location" onClick={() => navigateTo("location")}>
+        <div className="location-icon">
+          <i className="fas fa-map-marker-alt"></i>
+        </div>
+        <div className="location-text">
+      <p>{address}</p>  
+        </div>
+      </div>
+      );
+    
+  };
   const handleMenuOpen=(e)=>{
     setAnchorEl(e.currentTarget);
   };
@@ -73,6 +122,16 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="container_1">
           <ul className="nav-links">
+             <div
+             style={
+{
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+}
+             } onClick={()=>navigateTo("location")}>
+              {getLocationButton()}
+             </div>
             <input
              text="text"
              value={inputValue}
