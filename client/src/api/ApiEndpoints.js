@@ -19,6 +19,7 @@ export const createPost_URL='/api/createPost';
 export const getPost_URL='/api/getFeed';
 export const deletePost_URL='/api/deleteFeed/${postId}';
 export const updateFeed_URL='/api/updateFeed/${postId}';
+export const UpdateLocation_URL='/api/UpdateLocation';
 //Restaurant manager apis
 export const itemAdd_url = '/api/productAdd';
 export const restaurantDetails_URL = '/api/resDetailsGet';

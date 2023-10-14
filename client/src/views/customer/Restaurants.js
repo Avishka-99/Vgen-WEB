@@ -5,13 +5,27 @@ import { useSelector, useDispatch } from "react-redux";
 //import css
 import "../../styles/customerRestaurant.css";
 import getGeolocationAddress from "./geoAddress";
+import { useNavigate } from "react-router-dom";
 
 export default function Restaurants() {
   const [modal, setModal] = useState(false);
   const [formData_1,setFormData_1]=useState([])
   const [resolvedAddresses, setResolvedAddresses] = useState([]);
   const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
-
+  const navigate = useNavigate();
+  const navigateTo = (page) => {
+	
+    navigate('/' + page);
+  
+};
+  const viewRestaurant = (data) => {
+ 
+    const restaurantId = data.resturantManagerId;
+    console.log(restaurantId);
+    localStorage.setItem('restaurantId',data.resturantManagerId);
+    navigateTo("SelectedRestaurant");
+  
+    };
 
   const fetchData1 = async () => {
     try {
@@ -77,7 +91,7 @@ export default function Restaurants() {
                 <p className='product_name'>{data.resturantName}</p>
                 <p className='prices'>
                 Location:{resolvedAddresses[index]||'Loading address..'}</p>
-                <button className='btn_res'>
+                <button onClick={() => viewRestaurant(data)} className='btn_res'>
                   View Restaurant
                 </button>
               </div>

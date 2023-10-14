@@ -9,9 +9,7 @@ function SelectedRestaurant() {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
-  
     const restaurantId = localStorage.getItem('restaurantId');
-   console.log(restaurantId);
     useEffect(() => {
       
       console.log(restaurantId);

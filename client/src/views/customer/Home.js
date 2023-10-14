@@ -119,10 +119,10 @@ const decrementQuantity = () => {
 
   },[]);
   const viewRestaurant = (data) => {
-    console.log(data);
-    console.log(data.resturantManagerId);
+ 
     const restaurantId = data.resturantManagerId;
-    localStorage.setItem('restaurantId',restaurantId);
+    console.log(restaurantId);
+    localStorage.setItem('restaurantId',data.resturantManagerId);
     navigateTo("SelectedRestaurant");
   
     };
@@ -308,7 +308,7 @@ useEffect(() => {
         
           <Carousel className="carousel" responsive={responsive1}>
             {formData_1.map((data,index) => (
-              <div className='card' key={data.restaurantId}>
+              <div className='card' key={data.restaurantManagerId}>
                 <p className='vegan_type'>{data.resturantType}</p>
                 <img
                   className='product--image'
@@ -318,7 +318,7 @@ useEffect(() => {
                 <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data.resturantName}</p>
                 <p className='prices'>
                 Location:{resolvedAddresses[index]||'Loading address..'}</p>
-                <button className='btn_res'>
+                <button onClick={() => viewRestaurant(data)} className='btn_res'>
                   View Restaurant
                 </button>
               </div>
