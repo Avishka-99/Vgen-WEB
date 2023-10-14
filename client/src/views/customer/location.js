@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
-
+import { GOOGLE_API } from "../../keys/Keys";
 import axios from "axios";
 
 const mapStyles = {
@@ -50,7 +50,7 @@ const Location = () => {
     
   };
 const confirmLocation=()=>{
-    axios.post("http://localhost:5001/api/UpdateLocation", {
+    axios.post(GOOGLE_API, {
     latitude: markerPosition.lat,
     longitude: markerPosition.lng,
     userId: localStorage.getItem("userId"),
