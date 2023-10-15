@@ -4,13 +4,15 @@ import CounterReducer from "../reducers/CounterReducer"
 import ValueReducer from "../reducers/ValueReducer";
 import SetUserReducer from "../reducers/SetUserReducer";
 import cartReducer from "../reducers/cartReducer";
+import searchReducer from "../reducers/searchReducer";
 
 
 const rootReducer = combineReducers({ 
     CounterReducer,
     ValueReducer,
     SetUserReducer,
-    cartReducer
+    cartReducer,
+    searchReducer
 
 })
 const Store = configureStore(

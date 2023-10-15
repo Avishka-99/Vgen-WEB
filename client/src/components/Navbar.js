@@ -4,15 +4,17 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import getGeolocationAddress from "../views/customer/geoAddress";
 
-
+import {setSearchKeyword} from "../reducers/SetUserReducer";
 import { Card } from "reactstrap";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux'
 import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
-import { setSearchKeyword } from "../reducers/SetUserReducer";
+
 import { Menu,MenuItem } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Axios from 'axios';
+import axios from "axios";
+import SearchResults from "../views/customer/SearchResults";
 
 
 
@@ -42,6 +44,9 @@ useEffect(() => {
       );
       const { latitude, longitude } = response.data;
       const address = await getGeolocationAddress(latitude,longitude,apiKey);
+      console.log(latitude,longitude);
+      localStorage.setItem("latitude",latitude);
+      localStorage.setItem("longitude",longitude);
       console.log(address);
       setAddress(address);
 
@@ -83,16 +88,31 @@ useEffect(() => {
  //search bar
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+ 
+const [showSearchResults, setShowSearchResults] = useState(false);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+  const handleSearch = async () => {
+   
+      try {
+        const response = await Axios.get(`http://localhost:5001/api/search`, {
+          params: {
+            search: inputValue,
+          },
+        });
+  
+        if (response.data) {
+          console.log(response.data);
+       
+          dispatch(setSearchKeyword(response.data));
+          navigateTo("SearchResults");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    
   };
-
-  const handleSearch = (e) => {
-    if (e.key === 'Enter') {
-      dispatch(setSearchKeyword(inputValue));
-    }
-  };
+  
   ////
   useEffect(() => {
     // Set the role state with the user value from local storage
@@ -115,6 +135,20 @@ useEffect(() => {
     }
     navigate("/" + page);
   };
+//search
+const handleSearchChange = (e) => {
+  Axios.get(`http://localhost:5001/api/search`, {
+    params: {
+      search: e.target.value,
+    },
+  }).then((response) => {
+    if (response.data) {
+      setSearchKeyword(response.data);
+    }
+  });
+  setInputValue(e.target.value);
+}
+
 
   return (
     <div>
@@ -132,13 +166,15 @@ useEffect(() => {
              } onClick={()=>navigateTo("location")}>
               {getLocationButton()}
              </div>
-            <input
-             text="text"
-             value={inputValue}
-             onChange={handleInputChange}
-             onKeyDown={handleSearch}
-             placeholder="Search Items..."/>
-
+             <input
+        type="text"
+        value={searchQuery}
+        onChange={(e)=>setSearchQuery(e.target.value)}
+/>
+<button onClick={()=>handleSearch()}>Search</button>
+    
+                
+            
             <div  onClick={()=>navigateTo("Cart")}><ShoppingCartIcon/><sup>{cartItemCount}</sup></div>
 
             {/* {customer.map((item) => (
