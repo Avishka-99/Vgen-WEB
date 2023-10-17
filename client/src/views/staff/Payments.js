@@ -54,7 +54,7 @@ export default function Payments() {
 
         <div class="top-right">
           <div class="topline">
-            <div class="subheadingtext">[Title Here]</div>
+            <div class="subheadingtext">Refund Requests</div>
             <div class="filter-btn">Today</div>
           </div>
 
