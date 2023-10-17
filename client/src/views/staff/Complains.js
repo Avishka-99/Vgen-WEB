@@ -22,14 +22,24 @@ export default function Complains() {
               <div class="com-dash-icon com-dash-icon1">
               </div>
               <div class="com-crdtitle">
-                Pending Complaints
+                <div class="line1">
+                  Pending Complaints
+                </div>
+                <div class="line2">
+                  07
+                </div>
               </div>
             </div>
             <div class="complaintscardcontainer">
-              <div class="com-dash-icon com-dash-icon1">
+              <div class="com-dash-icon com-dash-icon2">
               </div>
               <div class="com-crdtitle">
-                Resolved Complaints
+                <div class="line1">
+                  Resolved Complaints
+                </div>
+                <div class="line2">
+                  02
+                </div>
               </div>
             </div>
           </div>
