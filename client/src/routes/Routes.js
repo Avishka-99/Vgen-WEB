@@ -5,12 +5,19 @@ export const customerRoutes = [
   { id: 2, path: "/category", element: <UserViews.Categories/> },
   { id: 3, path: "/community", element: <UserViews.Community/> },
   { id: 4, path: "/feed", element: <UserViews.Feed/> },
-
+  
   { id: 5, path: "/restaurants", element: <UserViews.Restaurants/> },
   { id: 6, path: "/cart", element: <UserViews.Cart/> },
   { id: 7, path: "/about", element: <UserViews.About/> },
   { id: 8, path: "/view_profile", element: <UserViews.View_Profile/> },
   { id: 9, path: "/SelectedRestaurant", element: <UserViews.SelectedRestaurant/> },
+  { id: 10, path: "/Recipe", element: <UserViews.Recipe/> },
+  {id:11,path:"/recipeForm",element:<UserViews.recipeForm/>},
+  {id:12,path:"/location",element:<UserViews.location/>},
+  {id:13,path:"/communityOrganizerForm",element:<UserViews.communityOrganizerForm/>},
+  {id:14,path:"/SearchResults",element:<UserViews.SearchResults/>},
+
+
 ];
 export const restaurantRoutes = [
   { id: 1, path: "/home", element: <UserViews.RestaurantHome/> },

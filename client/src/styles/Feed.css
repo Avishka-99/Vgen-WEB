@@ -1,5 +1,7 @@
 /* Feed.css */
-
+.recipe_con{
+  min-height: calc(100% - 170px);
+}
 
 .feed-header {
   display: flex;
