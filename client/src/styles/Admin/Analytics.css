@@ -372,9 +372,7 @@
 
 /* Styles for the bottom-right container */
 .anl-bottomRightContainer {
-  position: absolute;
-  top: 0;
-  right: 0;
+  
   margin-top: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -430,25 +428,27 @@
 }
 
 /* Styles for the search bar container */
-.anl-searchContainer {
+.anl-searchBar {
+  width: 250px;
+  height: 40px;
+  background-color: #fff; /* Set the background color to white */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 20px; /* Apply rounded corners */
   display: flex;
   align-items: center;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  padding: 5px;
-  background-color: #fff;
-  width: 300px;
-  max-width: 100%;
+  padding: 0 10px; /* Add padding to the left and right */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  position: absolute; /* Position the search bar absolutely */
+  bottom: 200px; /* Adjust the top position to align it correctly */
+  margin-left: 450px;
 }
 
-/* Styles for the search button */
-.anl-searchButton {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin-left: 5px;
-  cursor: pointer;
-  padding: 5px 10px;
-  font-size: 16px;
+/* Styles for the search icon */
+.anl-searchBar::after {
+  content: "\1F50D"; /* Unicode for a search icon (you can replace with your preferred icon) */
+  font-size: 18px; /* Adjust the size of the icon */
+  margin-left: 10px; /* Add some space between the icon and the text */
+  cursor: pointer; 
 }
+
+
