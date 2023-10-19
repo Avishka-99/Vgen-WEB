@@ -72,6 +72,10 @@ export default function Analytics() {
                     <div className="anl-activityIconContainer"></div>
                     <div className="anl-bodyText">Overview of Latest Month</div>
                   </div>
+                  <div className="anl-activities">
+                    <div className="anl-activityIconContainer"></div>
+                    <div className="anl-bodyText">Overview of Latest Month</div>
+                  </div>
                 </div>
               </div>
             </div>
