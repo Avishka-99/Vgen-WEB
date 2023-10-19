@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/Admin/Analytics.css';
+import "../../styles/Admin/Analytics.css";
 
 export default function Analytics() {
   return (
@@ -8,12 +8,12 @@ export default function Analytics() {
         <div className="anl-topLeft">
           <div className="anl-topLine">
             <div className="anl-headingText">VGen Analytics</div>
-            <div className="anl-notificationButton"></div>           
-          </div> 
+            <div className="anl-notificationButton"></div>
+          </div>
           <div>
             <div className="anl-dateText">Tuesday 07 July 2023</div>
-            <div className="anl-filterButton1">Filter</div>   
-          </div>         
+            <div className="anl-filterButton1">Filter</div>
+          </div>
           <div className="anl-subContainer">
             <div className="anl-topLeftContainer">
               <div className="anl-bodyText">Overview of Latest Month</div>
@@ -27,8 +27,8 @@ export default function Analytics() {
                 <div className="anl-countText">Rs.150,000</div>
               </div>
               <div className="anl-secondDivider">
-              <br />
-              <font className="anl-countGoesUp"> +11.15% </font>
+                <br />
+                <font className="anl-countGoesUp"> +11.15% </font>
                 <br />
                 Total Sales
               </div>
@@ -56,8 +56,8 @@ export default function Analytics() {
                 <br />
                 Total Expenses
               </div>
-            </div>    
-          </div>          
+            </div>
+          </div>
           <div class="anl-bottom">
             <div class="anl-bottomLeft">
               <div class="anl-midLine"></div>
@@ -67,8 +67,22 @@ export default function Analytics() {
               </div>
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">hiii</div>
-              </div>      
+              </div>
             </div>
+          </div>
+        </div>
+        <div class="anl-right">
+        <div class="anl-topRight-heading">
+            [Top Right Heading goes Here]
+          </div>
+          <div className="anl-topRight">
+            [Top Right Contents goes Here]
+          </div>
+          <div class="anl-bottomRight-heading">
+            [Bottom Right Heading goes Here]
+          </div>
+          <div className="anl-bottomRight">
+            [Bottom Right Contents goes Here]
           </div>
         </div>
       </div>
