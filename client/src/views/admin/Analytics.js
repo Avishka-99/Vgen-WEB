@@ -63,8 +63,10 @@ export default function Analytics() {
               <div class="anl-midLine"></div>
               <div>
                 <div className="anl-subHeadingText">Recent Activities</div>
+                <div class="anl-searchBar"></div>
                 <div className="anl-filterButton1">Filter</div>
               </div>
+              
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">hiii</div>
               </div>      
@@ -72,6 +74,7 @@ export default function Analytics() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
