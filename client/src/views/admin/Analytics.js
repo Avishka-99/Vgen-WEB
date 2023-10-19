@@ -66,29 +66,39 @@ export default function Analytics() {
                 <div class="anl-searchBar"></div>
                 <div className="anl-filterButton1">Filter</div>
               </div>
-              
               <div className="anl-subContainer">
-                <div className="anl-bottomLeftContainer">hiii</div>
+                <div className="anl-bottomLeftContainer">
+                  <div className="anl-activities">
+                    <div className="anl-activityIconContainer"></div>
+                    <div className="anl-bodyText">Overview of Latest Month</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="anl-right">
-        <div class="anl-topRight-heading">
-            [Top Right Heading goes Here]
+        <div class="anl-subHeadingText">
+            Web Surfers
+            <div className="anl-summaryButton">Last Month Summary</div>
           </div>
-          <div className="anl-topRight">
-            [Top Right Contents goes Here]
+          <div>
+          <div className="anl-topRightContainer">
+             <div className="anl-filterButton2">Filter</div>
           </div>
-          <div class="anl-bottomRight-heading">
-            [Bottom Right Heading goes Here]
+          
           </div>
-          <div className="anl-bottomRight">
-            [Bottom Right Contents goes Here]
+          <div class="anl-subHeadingText">
+            Expenses
+            <div className="anl-summaryButton">Last Month Summary</div>
+          </div>
+          <div>
+            <div className="anl-bottomRightContainer">
+              <div className="anl-filterButton2">Filter</div>
+            </div>
           </div>
         </div>
-      </div>
-      
+      </div>     
     </div>
   );
 }
