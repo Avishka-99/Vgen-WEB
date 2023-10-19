@@ -27,6 +27,11 @@
   justify-content: space-between; /* Align child elements to be evenly spaced within the container */
 }
 
+.anl-right{
+  margin-left: 2%;
+  display: inline-block;
+}
+
 /* Styles for the top-left element */
 .anl-topLeft {
   width: 800px; /* Set the width to 800 pixels */
@@ -35,6 +40,10 @@
 /* Styles for the top-right element */
 .anl-topRight {
   width: 380px; /* Set the width to 380 pixels */
+  height: 300px;
+  background-color: #F4FFF8;
+  border-radius: 25px;
+  padding: 25px;
 }
 
 /* Styles for the bottom container */
@@ -51,8 +60,24 @@
 }
 
 /* Styles for the bottom-right element */
+.anl-topRight-heading{
+  margin-bottom: 15px;
+  font-weight: bolder;
+}
+
+.anl-bottomRight-heading {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: bolder;
+}
+
 .anl-bottomRight {
+  margin-top: 2%;
   width: 380px; /* Set the width to 380 pixels */
+  height: 250px;
+  background-color: #F4FFF8;
+  border-radius: 25px;
+  padding: 25px;
 }
 
 /* Styles for the topline element */
