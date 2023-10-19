@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../styles/Admin/Home.css';
 import DashBoardCard from '../../components/Card';
-
 import TuneIcon from '@mui/icons-material/Tune';
 import {PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts';
 export default function AdminHome() {
