@@ -13,10 +13,9 @@
 	flex-direction: row;
   /* Set the background image */
   background-image: url("../../assets/images/Admin/background-image.png");
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
 
@@ -348,6 +347,9 @@
 
 /* Styles for the bottom-right container */
 .anl-bottomRightContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
   margin-top: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -357,6 +359,7 @@
   height: 350px;
   background-color: #F4FFF8;
   border-radius: 30px;
+  margin-left: auto; /* Move the container to the right */
 }
 
 /* Styles for the customer container */
@@ -388,3 +391,39 @@
   border-radius: 30px;
 }
 
+/* Styles for the bottom-left container */
+.anl-bottomLeftContainer {
+  margin-top: 3px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 800px;
+  height: 200px;
+  background-color: #F4FFF8;
+  border-radius: 30px;
+}
+
+/* Styles for the search bar container */
+.anl-searchContainer {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #fff;
+  width: 300px;
+  max-width: 100%;
+}
+
+/* Styles for the search button */
+.anl-searchButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+}
