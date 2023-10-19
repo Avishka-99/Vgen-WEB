@@ -56,9 +56,20 @@ export default function Analytics() {
                 <br />
                 Total Expenses
               </div>
+            </div>    
+          </div>          
+          <div class="anl-bottom">
+            <div class="anl-bottomLeft">
+              <div class="anl-midLine"></div>
+              <div>
+                <div className="anl-subHeadingText">Recent Activities</div>
+                <div className="anl-filterButton1">Filter</div>
+              </div>
+              <div className="anl-subContainer">
+                <div className="anl-bottomLeftContainer">hiii</div>
+              </div>      
             </div>
           </div>
-          
         </div>
       </div>
     </div>
