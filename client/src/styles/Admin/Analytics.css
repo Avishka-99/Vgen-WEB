@@ -1,0 +1,390 @@
+* {
+  font-family: "poppins-regular";
+}
+
+.Analytics-Container {
+  font-family: "poppins-regular";
+  padding-left: 5%;
+  padding-right: 2%;
+  display: inline-block;
+  width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+  /* Set the background image */
+  background-image: url("../../assets/images/Admin/background-image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+}
+
+
+/* Styles for an element with class "anl-top" */
+.anl-top {
+  max-width: 1920px; /* Set the maximum width to 1920 pixels */
+  margin-top: 2%; /* Add a 2% margin at the top */
+  display: flex; /* Use a flex display to arrange child elements */
+  justify-content: space-between; /* Align child elements to be evenly spaced within the container */
+}
+
+/* Styles for the top-left element */
+.anl-topLeft {
+  width: 800px; /* Set the width to 800 pixels */
+}
+
+/* Styles for the top-right element */
+.anl-topRight {
+  width: 380px; /* Set the width to 380 pixels */
+}
+
+/* Styles for the bottom container */
+.anl-bottom {
+  max-width: 1920px; /* Set the maximum width to 1920 pixels */
+  /* margin-top: 2%; (Commented out margin for future reference) */
+  display: flex; /* Use a flex display to arrange child elements */
+  justify-content: space-between; /* Align child elements to be evenly spaced within the container */
+}
+
+/* Styles for the bottom-left element */
+.anl-bottomLeft {
+  width: 800px; /* Set the width to 800 pixels */
+}
+
+/* Styles for the bottom-right element */
+.anl-bottomRight {
+  width: 380px; /* Set the width to 380 pixels */
+}
+
+/* Styles for the topline element */
+.anl-topLine {
+  /* padding-top: 2%; (Commented out padding for future reference) */
+  display: flex; /* Use a flex display to arrange child elements */
+  justify-content: space-between; /* Align child elements to be evenly spaced within the container */
+  max-width: 800px; /* Set the maximum width to 800 pixels */
+}
+
+/* Styles for the heading text */
+.anl-headingText {
+  font-size: 30px; /* Set the font size to 30 pixels */
+  font-weight: bold; /* Apply bold font weight */
+  color: black; /* Set the text color to black */
+}
+
+/* Styles for notification button */
+.anl-notificationButton {
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #7eb693;
+  border-radius: 50%;
+}
+
+/* Styles for subheading text */
+.anl-subHeadingText {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: black;
+}
+
+/* Styles for last month summary button*/
+.anl-summaryButton {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+  margin-top: 5px;
+  height: 30px;
+  width: 160px;
+  background-color: #bcdac8;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  margin-left: auto; /* Push the filter button to the right */
+  margin-top: -25px;
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  align-self: flex-start; /* Align it to the top of the container */
+}
+
+/* Styles for filter button 1*/
+.anl-filterButton1 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+  margin-top: 5px;
+  height: 30px;
+  width: 90px;
+  background-color: #bcdac8;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  margin-left: auto; /* Push the filter button to the right */
+  margin-top: -25px;
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  align-self: flex-start; /* Align it to the top of the container */
+}
+
+/* Styles for filter button 2*/
+.anl-filterButton2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+  margin-top: 5px;
+  height: 30px;
+  width: 90px;
+  background-color: #bcdac8;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  margin-left: auto; /* Push the filter button to the right */
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  align-self: flex-start; /* Align it to the top of the container */
+}
+
+/* Styles for date text */
+.anl-dateText {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #8b7e74;
+}
+
+/* Styles for date text */
+.anl-bodyText {
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Styles for the subcontainer */
+.anl-subContainer {
+  padding-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+/* Styles for card container */
+.anl-cardContainer {
+  width: 250px;
+  height: 150px;
+  background-color: #bcdac8;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 250px;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for divider element 1 */
+.anl-firstDivider {
+  width: 125px;
+  height: 150px;
+  align-items: center;
+  text-align: center;
+}
+
+/* Styles for card icon container 1*/
+.anl-cardIconContainer {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: url("../../assets/images/Admin/Total Sales.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for card icon container 2*/
+.anl-cardIconContainer2 {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: url("../../assets/images/Admin/Total Revenue.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for card icon container 3*/
+.anl-cardIconContainer3 {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: url("../../assets/images/Admin/Expenses.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+/* Styles for divider element 2 */
+.anl-secondDivider {
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 125px;
+  height: 150px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Styles for count text */
+.anl-countText {
+  font-family: "poppins-extrabold";
+  font-size: 30px;
+  text-align: center;
+  margin-left: 40px;
+}
+
+/* Styles for count goes up */
+.anl-countGoesUp {
+  font-family: "poppins-extrabold";
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: green;
+}
+
+/* Styles for count goes down */
+.anl-countGoesDown {
+  font-family: "poppins-extrabold";
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: crimson;
+}
+
+/* Styles for the top-right container */
+.anl-topRightContainer {
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 380px;
+  height: 200px;
+  background-color: #F4FFF8;
+  border-radius: 30px;
+}
+
+/* Styles for the midline container */
+.anl-midLine {
+  padding-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+/* Styles for the table area */
+.anl-tableArea {
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+/* Styles for the database table */
+.anl-dbTable {
+  max-width: 960px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 960px;
+}
+
+/* Styles for table headers */
+.anl-dbTable th {
+  background-color: #BCDAC8;
+  color: black;
+  font-size: 15px;
+}
+
+/* Styles for first and last table headers */
+.anl-dbTable th:first-child {
+  border-top-left-radius: 25px;
+}
+
+.anl-dbTable th:last-child {
+  border-top-right-radius: 25px;
+}
+
+/* Styles for table headers and data cells */
+.anl-dbTable th,
+.anl-dbTable td {
+  padding: 8px;
+  text-align: center;
+  width: max-content; /* Adjust the width as needed */
+  height: 40px;
+  color: black;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Styles for even and odd rows in the table */
+.anl-dbTable tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+.anl-dbTable tbody tr:nth-child(odd) {
+  background-color: #F4FFF8;
+  color: white;
+}
+
+/* Styles for the bottom-right container */
+.anl-bottomRightContainer {
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 380px;
+  height: 350px;
+  background-color: #F4FFF8;
+  border-radius: 30px;
+}
+
+/* Styles for the customer container */
+.anl-customer {
+  display: flex;
+}
+
+/* Styles for image icon */
+.anl-imgIcon {
+  margin-top: -4px;
+  margin-left: 5px;
+  margin-right: 10px;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #7EB693;
+  border-radius: 50%;
+}
+
+/* Styles for the top-left container */
+.anl-topLeftContainer {
+  margin-top: 3px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 800px;
+  height: 250px;
+  background-color: #F4FFF8;
+  border-radius: 30px;
+}
+
