@@ -15,32 +15,97 @@ export default function Complains() {
 
           <div class="datetext">Tuesday 07 July 2023</div>
 
-          {/* <div class="QAtitle">Quick Access</div> */}
+          <div class="QAtitle">Quick Access</div>
 
           <div class="complaintssubcontainer">
-            <div class="complaintscardcontainer">
-              <div class="com-dash-icon com-dash-icon1">
-              </div>
-              <div class="com-crdtitle">
-                <div class="line1">
-                  Pending Complaints
+            <div class="complaintcardrow">
+              <div class="complaintscardcontainer">
+                <div class="complaintscardLeft com-icon1">
                 </div>
-                <div class="line2">
-                  07
+                <div class="complaintscardRight">
+                  <div class="complaintscardRightTop">
+                    <div class="comcard-name">
+                      Customer <br/> Complaints
+                      <div class="comcard-new">
+                        07 New Complaints
+                      </div>
+                    </div>
+                    <div class="comcard-arrowlink">
+                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
+                    </div>
+                  </div>
+                  <div class="comcard-pending">
+                    <div class="comcard-pendinghead"> Pending to Response </div>
+                    <div class="comcard-pendingcount"> 11 </div>
+                  </div>
+                </div>
+              </div>
+              <div class="complaintscardcontainer">
+                <div class="complaintscardLeft com-icon2">
+                </div>
+                <div class="complaintscardRight">
+                  <div class="complaintscardRightTop">
+                    <div class="comcard-name">
+                      Delivery <br/> Complaints
+                      <div class="comcard-new">
+                      <span style={{ color: '#8b7e74', fontStyle: 'italic' }}>No New Complaints</span>
+                      </div>
+                    </div>
+                    <div class="comcard-arrowlink">
+                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
+                    </div>
+                  </div>
+                  <div class="comcard-pending">
+                    <div class="comcard-pendinghead"> Pending to Response </div>
+                    <div class="comcard-pendingcount"> 07 </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="com-card-seperate"></div>
+            <div class="complaintcardrow">
             <div class="complaintscardcontainer">
-              <div class="com-dash-icon com-dash-icon2">
-              </div>
-              <div class="com-crdtitle">
-                <div class="line1">
-                  Resolved Complaints
+                <div class="complaintscardLeft com-icon3">
                 </div>
-                <div class="line2">
-                  02
+                <div class="complaintscardRight">
+                  <div class="complaintscardRightTop">
+                    <div class="comcard-name">
+                      Restaurant <br/> Complaints
+                      <div class="comcard-new">
+                        14 New Complaints
+                      </div>
+                    </div>
+                    <div class="comcard-arrowlink">
+                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
+                    </div>
+                  </div>
+                  <div class="comcard-pending">
+                    <div class="comcard-pendinghead"> Pending to Response </div>
+                    <div class="comcard-pendingcount"> 21 </div>
+                  </div>
                 </div>
               </div>
+              <div class="complaintscardcontainer">
+                <div class="complaintscardLeft com-icon4">
+                </div>
+                <div class="complaintscardRight">
+                  <div class="complaintscardRightTop">
+                    <div class="comcard-name">
+                      Manufacturer <br/> Complaints
+                      <div class="comcard-new">
+                        20 New Complaints
+                      </div>
+                    </div>
+                    <div class="comcard-arrowlink">
+                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
+                    </div>
+                  </div>
+                  <div class="comcard-pending">
+                    <div class="comcard-pendinghead"> Pending to Response </div>
+                    <div class="comcard-pendingcount"> 25 </div>
+                  </div>
+                </div>
+              </div>              
             </div>
           </div>
         </div>
@@ -56,56 +121,15 @@ export default function Complains() {
       </div>
 
       <div class="bottom">
-        <div class="bottom-left">
-          <div class="midline">
-            <div class="subheadingtext">Recent Complaints</div>
-            <div class="filter-btn">Filter</div>
-          </div>
-
-          <div class="table-area">
-            <table class="db-tbl">
-              <thead>
-                <tr>
-                  <th>Table Coloumn Title</th>
-                  <th>Table Coloumn Title</th>
-                  <th>Table Coloumn Title</th>
-                  <th>Table Coloumn Title</th>
-                  <th>Table Coloumn Title</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Data 1</td>
-                  <td>Data 2</td>
-                  <td class="customer">
-                    <div class="img-icon"></div>
-                    Data 3
-                  </td>
-                  <td>Data 4</td>
-                  <td>Data 5</td>
-                </tr>
-                <tr>
-                  <td>Data 1</td>
-                  <td>Data 2</td>
-                  <td class="customer">
-                    <div class="img-icon"></div>
-                    Data 3
-                  </td>
-                  <td>Data 4</td>
-                  <td>Data 5</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="bottom-right">
+        
+        {/* <div class="bottom-right">
           <div class="midline">
             <div class="subheadingtext">[Title Here]</div>
             <div class="filter-btn">Today</div>
           </div>
 
           <div class="bottom-right-container">[Content Here]</div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

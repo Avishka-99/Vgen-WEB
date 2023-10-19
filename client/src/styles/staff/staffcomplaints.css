@@ -4,60 +4,115 @@
 
 .complaintssubcontainer {
     padding-top: 3%;
-    display: flex;
+    display: inline-block;
     justify-content: space-between;
     max-width: 800px;
 }
 
-.complaintscardcontainer {
-    padding-top: 18px;
-    width: 380px;
-    height: 140px;
-    background-color: #bcdac8;
-    border-radius: 25px;
-    max-width: 380px;
+.complaintcardrow{
     display: flex;
-    text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+    justify-content: space-between;
+    width: 800px;
 }
 
-.com-dash-icon{
-  margin-left: 18px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.com-card-seperate{
+  height: 50px;
+}
+
+.complaintscardcontainer {
+  width: 375px;
+  height: 200px;
+  align-items: center;
+  background: linear-gradient(to right, #bcdac8, #bcdac8,  #F4FFF8);
+  border-radius: 25px;
+  max-width: 380px;
+  display: flex;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.complaintscardLeft{
+  border-radius: 25px;
+  width: 190px;
+  height: 190px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.com-dash-icon1{
-  background-image: url("../../assets/images/staff/com-dash-pending.png");
+.com-icon1{
+  margin-top: 10px;
+  background-image: url("../../assets/images/staff/comcard-icon01.png");
 }
 
-.com-dash-icon2{
-  background-image: url("../../assets/images/staff/com-dash-resolve.png");
+.com-icon2{
+  margin-top: 18px;
+  height: 182px;
+  background-image: url("../../assets/images/staff/comcard-icon02.png");
 }
 
-.com-crdtitle{
-  /* padding-top: 10px; */
-  width: 262px;
-  height: 55px;
+.com-icon3{
+  margin-top: 5px;
+  height: 195px;
+  background-image: url("../../assets/images/staff/comcard-icon03.png");
+}
+
+.com-icon4{
+  margin-top: 5px;
+  height: 195px;
+  background-image: url("../../assets/images/staff/comcard-icon04.png");
+}
+
+.complaintscardRight{
   align-items: center;
-  text-align: center;
+  width: 185px;
+  height: 200px;
 }
 
-.line1{
-  font-weight: bold;
-  font-size: 20px;
+.complaintscardRightTop{
+  display: flex;
 }
 
-.line2{
+.comcard-name{
+  margin-top: 20px;
+  width: 165px;
+  height: 80px;
+  font-size: 15px;
+  font-weight: bolder;
+  text-align: left;
+  color: rgb(26, 33, 26);
+}
+
+.comcard-new{
+  margin-top: 10px;
+  font-size: 10px;
+  color: #54B435;
+}
+
+.comcard-pending{
   margin-top: -10px;
-  font-family: "poppins-extrabold";
-  font-weight: bolder ;
-  font-size: 65px;
-  align-items: center;
+  margin-right: 20px;
+  height: 100px;
+  text-align: right;
+}
+
+.comcard-pendinghead{
+  margin-top: 30px;
+  font-size: 15px;
+  font-family: 'poppins-semibold';
+}
+
+.comcard-pendingcount{
+  margin-top: -10px;
+  font-size: 40px;
+  font-family: 'poppins-extrabold';
+}
+
+.comcard-arrowlink{
+  margin-left: -30px;
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid black;
   text-align: center;
 }
