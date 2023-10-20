@@ -12,6 +12,14 @@ export default function Analytics() {
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
+  const expensesData = [
+    { name: 'Vegan Products', value: 1000 },
+    { name: 'Vegan Events', value: 500 },
+    { name: 'Donations', value: 300 },
+  ];
+
+  const expensesColors = ['#dc143c', '#FFC300', '#FF5733'];
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
@@ -25,9 +33,14 @@ export default function Analytics() {
   };
 
   const [activeIndex, setActiveIndex] = useState(null);
+  const [activeExpensesIndex, setActiveExpensesIndex] = useState(null);
 
   const handlePieClick = (data, index) => {
     setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const handleExpensesPieClick = (data, index) => {
+    setActiveExpensesIndex(activeExpensesIndex === index ? null : index);
   };
 
   return (
@@ -112,7 +125,7 @@ export default function Analytics() {
               <div className='pie-chart-container'>
                 <ResponsiveContainer width={450} height={450}>
                   <PieChart>
-                    <Pie data={data} cx={210} cy={130} innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
+                    <Pie data={data} cx={210} cy={130} innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
                       {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
@@ -135,6 +148,23 @@ export default function Analytics() {
           <div>
             <div className="anl-bottomRightContainer">
               <div className="anl-filterButton2">Filter</div>
+              <div className='pie-chart-container'>
+            <ResponsiveContainer width={450} height={450}>
+              <PieChart>
+                <Pie data={expensesData} cx={210} cy={130} innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
+                  {expensesData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
+                  ))}
+                </Pie>
+                <Tooltip content={<CustomTooltip />} />
+              </PieChart>
+            </ResponsiveContainer>
+            {activeExpensesIndex !== null && (
+              <div className="selected-label">
+                Selected: {expensesData[activeExpensesIndex].name}
+              </div>
+            )}
+          </div>
             </div>
           </div>
         </div>
