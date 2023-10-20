@@ -175,3 +175,19 @@
 .legend-item span {
   font-size: 14px;
 }
+
+/* FAQs */
+
+.seeall-btn {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+  height: 30px;
+  width: 90px;
+  /* border: 1px solid #7EB693; */
+  background-color: #bcdac8;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+}
