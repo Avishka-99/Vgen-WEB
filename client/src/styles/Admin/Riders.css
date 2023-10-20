@@ -158,6 +158,19 @@
     z-index: 1;
   }
   
+  .Ride-Filter-menu2 {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 150px;
+    background-color: #bcdac8;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
   .Ride-Filter-container {
     padding: 10px;
     border-bottom: 1px solid #fff;
@@ -167,6 +180,7 @@
   .Ride-Filter-container:last-child {
     border-bottom: none;
   }
+
   
   .Ride-DateText {
     padding-top: 10px;
@@ -244,6 +258,28 @@
     height: 80%;
     background-color: #F4FFF8;
     border-radius: 30px;
+    cursor: pointer;
+    overflow-y: scroll; /* Add a vertical scrollbar */
+  }
+
+  /* Webkit-based browsers (Google Chrome) */
+  .Ride-RightContainer::-webkit-scrollbar {
+    width: 8px; /* Width of the entire scrollbar */
+  }
+
+  .Ride-RightContainer::-webkit-scrollbar-thumb {
+    background: #7EB693; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners of the thumb */
+  }
+
+  .Ride-RightContainer::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color of the thumb on hover */
+  }
+
+  .Ride-RightContainer::-webkit-scrollbar-track {
+    background: #bcdac8; /* Color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners of the track */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   }
   
   .Ride-MidLine {
@@ -291,6 +327,26 @@
     border-radius: 30px;
   }
 
+  /* Webkit-based browsers (Google Chrome) */
+  .anl-bottomLeftContainer::-webkit-scrollbar {
+    width: 8px; /* Width of the entire scrollbar */
+  }
+
+  .anl-bottomLeftContainer::-webkit-scrollbar-thumb {
+    background: #7EB693; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners of the thumb */
+  }
+
+  .anl-bottomLeftContainer::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color of the thumb on hover */
+  }
+
+  .anl-bottomLeftContainer::-webkit-scrollbar-track {
+    background: #bcdac8; /* Color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners of the track */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
   .Ride-SearchBar {
     width: 100%; /* Use 100% to fill the container */
     height: 40px;
@@ -311,7 +367,7 @@
   }
   
   .Ride-Activities {
-    width: 350px;
+    width: 300px;
     height: 50px;
     background-color: #fff;
     border: 1px solid #ccc;
