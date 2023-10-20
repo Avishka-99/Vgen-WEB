@@ -108,7 +108,26 @@ export default function Analytics() {
               </div>
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">
-                  {/* Recent Activities  */}
+                <div className="anl-activities-row">
+                   <div className="anl-activities">
+                      {/* Content */}
+                   </div>
+                   <div className="anl-activities">
+                      {/* Content */}
+                   </div>
+                   <div className="anl-activities">
+                      {/* Content  */}
+                   </div>
+                   <div className="anl-activities">
+                      {/* Content  */}
+                   </div>
+                   <div className="anl-activities">
+                      {/* Content  */}
+                   </div>
+                   <div className="anl-activities">
+                      {/* Content  */}
+                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -133,11 +152,11 @@ export default function Analytics() {
                     <Tooltip content={<CustomTooltip />} />
                   </PieChart>
                 </ResponsiveContainer>
-                {activeIndex !== null && (
+                {/* {activeIndex !== null && (
                   <div className="selected-label">
                     Selected: {data[activeIndex].name}
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
@@ -159,11 +178,11 @@ export default function Analytics() {
                 <Tooltip content={<CustomTooltip />} />
               </PieChart>
             </ResponsiveContainer>
-            {activeExpensesIndex !== null && (
+            {/* {activeExpensesIndex !== null && (
               <div className="selected-label">
                 Selected: {expensesData[activeExpensesIndex].name}
               </div>
-            )}
+            )} */}
           </div>
             </div>
           </div>
