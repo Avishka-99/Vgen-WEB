@@ -454,7 +454,6 @@
   align-items: center;
   padding: 0 10px; /* Add padding to the left and right */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
-  position: fixed; 
   bottom: 200px; /* Adjust the top position to align it correctly */
   margin-left: 450px;
   float: none;
@@ -474,12 +473,20 @@
   background-color: #fff; /* Set the background color to white */
   border: 1px solid #ccc; /* Add a border */
   border-radius: 5px; /* Add a small border radius for slightly rounded corners */
-  display: flex;
+  /* display: flex; */
   align-items: center;
   padding: 0 10px; /* Add padding to the left and right */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
-  position: fixed;
-  float: none;
+  /* position: fixed;
+  float: none; */
+  margin: 10px; /* Add margin to create gaps between containers */
+}
+
+.anl-activities-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between; /* Spread items evenly across the row */
+  margin-bottom: 20px; /* Add margin to create spacing between rows */
 }
 
 /* Styles for card icon container 1*/
@@ -494,4 +501,5 @@
   background-repeat: no-repeat;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
 
