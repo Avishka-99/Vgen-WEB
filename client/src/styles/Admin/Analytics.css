@@ -105,23 +105,22 @@
 }
 
 /* Styles for last month summary button*/
-.anl-summaryButton {
+.anl-summary {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 15px;
   margin-top: 5px;
   height: 30px;
   width: 160px;
-  background-color: #bcdac8;
+  background-color: #ccc;
   border-radius: 10px;
   font-size: 12px;
   font-weight: bold;
   text-align: right;
   margin-left: auto; /* Push the filter button to the right */
   margin-top: -25px;
-  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
   align-self: flex-start; /* Align it to the top of the container */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); */
 }
 
 /* Styles for filter button 1*/
@@ -456,7 +455,7 @@
 
 .anl-bottomLeftContainer::-webkit-scrollbar-thumb {
   background: #7EB693; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners of the thumb */
+  border-radius: 5px; /* Rounded corners of the thumb */
 }
 
 .anl-bottomLeftContainer::-webkit-scrollbar-thumb:hover {
