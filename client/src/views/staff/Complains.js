@@ -2,6 +2,18 @@ import React from 'react'
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
 import "../../styles/staff/staffcomplaints.css";
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'; // Import the necessary components
+
+// Your complaints data
+const data = [
+  { name: '✩', value: 100 },
+  { name: '✩✩', value: 150 },
+  { name: '✩✩✩', value: 200 },
+  { name: '✩✩✩✩', value: 250 },
+  { name: '✩✩✩✩✩', value: 300 },
+];
+
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
 export default function Complains() {
   return (
@@ -112,16 +124,44 @@ export default function Complains() {
 
         <div class="top-right">
           <div class="topline">
-            <div class="subheadingtext">[Title Here]</div>
-            <div class="filter-btn">Today</div>
+            <div class="subheadingtext">Overall System Rating</div>
+            <div class="filter-btn">Last Week</div>
           </div>
 
-          <div class="top-right-container">[Content Here]</div>
+          <div class="com-top-right-container">
+            <div className="pie-chart-container">
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={data}
+                    innerRadius={50}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {data.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="pie-chart-legend-container">
+            <div className="legend">
+              {data.map((entry, index) => (
+                <div key={`legend-${index}`} className="legend-item">
+                  <div className="legend-square" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
+                  {entry.name}
+                </div>
+              ))}
+            </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="bottom">
-        
         {/* <div class="bottom-right">
           <div class="midline">
             <div class="subheadingtext">[Title Here]</div>
