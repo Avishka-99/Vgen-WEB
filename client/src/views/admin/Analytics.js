@@ -217,9 +217,9 @@ export default function Analytics() {
                 )}
               </div>
               <div className='pie-chart-container'>
-                <ResponsiveContainer width={300} height={450}>
+                <ResponsiveContainer width={320} height={450}>
                   <PieChart>
-                    <Pie data={data} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
+                    <Pie data={data} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={15} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
                       {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
@@ -253,9 +253,9 @@ export default function Analytics() {
                 )}
               </div>
               <div className='pie-chart-container'>
-                <ResponsiveContainer width={300} height={450}>
+                <ResponsiveContainer width={320} height={450}>
                   <PieChart>
-                    <Pie data={expensesData} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
+                    <Pie data={expensesData} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={15} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
                       {expensesData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
                       ))}
