@@ -121,7 +121,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   text-align: center;
 }
 
@@ -153,10 +153,10 @@
   text-align: center;
 }
 
-/* Style for the entire legend */
+/* Style for the legend */
 .legend {
   display: flex;
-  flex-wrap: wrap; /* Wrap legend items to the next line if necessary */
+  flex-wrap: wrap; 
   margin-top: 10px;
 }
 
@@ -178,10 +178,14 @@
 
 /* FAQs */
 
+.faq-ctl-btn{
+  margin-top: 10px;
+}
+
 .seeall-btn {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 15px;
+  margin-top: 10px;
+  text-align: center;
+  padding: 5px;
   height: 30px;
   width: 90px;
   /* border: 1px solid #7EB693; */
@@ -189,5 +193,42 @@
   border-radius: 10px;
   font-size: 12px;
   font-weight: bold;
-  text-align: right;
+}
+
+.faq-tbl{
+  margin: 0;
+  width: 100%;
+  border: 1px solid #C8DBBE;
+  border-radius: 25px;
+  border-collapse: separate;
+}
+
+.faq-tbl-tdL{
+  width: 12%;
+}
+
+.faq-tbl-tdR{
+  width: 88%;
+}
+
+.faq-QHead{
+  font-family: 'poppins-Bold';
+  font-size: 12px;
+}
+
+.faq-Q{
+  font-family: 'poppins-Medium';
+  font-size: 12px;
+}
+
+.faq-AHead{
+  font-family: 'poppins-Bold';
+  font-size: 12px;
+}
+
+.faq-A{
+  font-family: 'poppins-regular';
+  font-size: 12px;
+  font-style: italic;
+  background-color: white;
 }
