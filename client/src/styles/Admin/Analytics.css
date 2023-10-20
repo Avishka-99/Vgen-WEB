@@ -444,7 +444,7 @@
   padding-left: 25px;
   padding-right: 25px;
   width: 800px;
-  height: 180px;
+  height: 150px;
   background-color: #F4FFF8;
   border-radius: 30px;
   overflow-y: scroll; /* Add a vertical scrollbar */
@@ -539,4 +539,3 @@
   font-weight: bold;
   color: #000000;
 }
-
