@@ -51,10 +51,10 @@ export default function Riders() {
                 <div className="Ride-FilterButton2" onClick={toggleFilterMenu}>
                   Filter
                   {showFilterMenu && (
-                    <div className="anl-filter-menu">
-                      <div className="anl-filter-container">Today</div>
-                      <div className="anl-filter-container">Last Month</div>
-                      <div className="anl-filter-container">Last 5 Months</div>
+                    <div className="Ride-Filter-menu">
+                      <div className="Ride-Filter-container">Today</div>
+                      <div className="Ride-Filter-container">Last Month</div>
+                      <div className="Ride-Filter-container">Last 5 Months</div>
                     </div>
                   )}
                 </div>
@@ -83,15 +83,64 @@ export default function Riders() {
             <div className="Ride-FilterButton1" onClick={toggleFilterMenu2}>
                   Filter
                   {showFilterMenu2 && (
-                    <div className="anl-filter-menu">
-                      <div className="anl-filter-container">Today</div>
-                      <div className="anl-filter-container">Last Month</div>
-                      <div className="anl-filter-container">Last 5 Months</div>
+                    <div className="Ride-Filter-menu2">
+                      <div className="Ride-Filter-container">Active Now</div>
+                      <div className="Ride-Filter-container">Active 5 mins ago</div>
+                      <div className="Ride-Filter-container">Active 30 mins ago</div>
+                      <div className="Ride-Filter-container">Active 1 hour ago</div>
+                      <div className="Ride-Filter-container">Recently Active</div>
                     </div>
                   )}
                 </div>
           <div className="Ride-RightContainer">
-            {/* Add content for the right container here */}
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer"></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer"></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer "></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer "></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer "></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+               <div className="Ride-ActivityIconContainer "></div>
+               <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer"></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer"></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer "></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer "></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+                <div className="Ride-ActivityIconContainer "></div>
+                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
+            <div className="Ride-Activities">
+               <div className="Ride-ActivityIconContainer "></div>
+               <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+            </div>
           </div>
         </div>
       </div>
