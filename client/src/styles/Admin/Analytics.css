@@ -171,7 +171,7 @@
   color: #8b7e74;
 }
 
-/* Styles for date text */
+/* Styles for body text */
 .anl-bodyText {
   padding-top: 10px;
   margin-left: 15px;
@@ -492,14 +492,24 @@
 /* Styles for card icon container 1*/
 .anl-activityIconContainer {
   margin-left: 10px;
+  margin-top: 5px;
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  background-image: url("../../assets/images/Admin/Total Sales.jpg");
+  background-image: url("../../assets/images/Admin/event.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Styles for body text */
+.anl-activityText {
+  margin-top: -25px;
+  padding-top: -10px;
+  margin-left: 65px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
 
