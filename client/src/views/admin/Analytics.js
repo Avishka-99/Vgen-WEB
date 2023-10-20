@@ -48,6 +48,30 @@ export default function Analytics() {
     setActiveExpensesIndex(activeExpensesIndex === index ? null : index);
   };
 
+  const [showFilterMenu, setShowFilterMenu] = useState(false);
+
+  const toggleFilterMenu = () => {
+    setShowFilterMenu(!showFilterMenu);
+  };
+
+  const [showFilterMenu2, setShowFilterMenu2] = useState(false);
+
+  const toggleFilterMenu2 = () => {
+    setShowFilterMenu2(!showFilterMenu2);
+  };
+
+  const [showFilterMenu3, setShowFilterMenu3] = useState(false);
+
+  const toggleFilterMenu3 = () => {
+    setShowFilterMenu3(!showFilterMenu3);
+  };
+ 
+  const [showFilterMenu4, setShowFilterMenu4] = useState(false);
+
+  const toggleFilterMenu4 = () => {
+    setShowFilterMenu4(!showFilterMenu4);
+  };
+
   return (
     <div className="Analytics-Container">
       <div className="anl-top">
@@ -58,7 +82,17 @@ export default function Analytics() {
           </div>
           <div>
             <div className="anl-dateText">Tuesday 07 July 2023</div>
-            <div className="anl-filterButton1">Filter</div>
+              <div className="anl-filterButton1" onClick={toggleFilterMenu}>
+                Filter
+                {showFilterMenu && (
+                  <div className="anl-filter-menu">
+                    <div className="anl-filter-container">Daily</div>
+                    <div className="anl-filter-container">Weekly</div>
+                    <div className="anl-filter-container">Monthly</div>
+                    <div className="anl-filter-container">Yearly</div>
+                 </div>
+                )}
+             </div>
           </div>
           <div className="anl-subContainer">
             <div className="anl-topLeftContainer">
@@ -119,7 +153,17 @@ export default function Analytics() {
               <div className="anl-midLine"></div>
               <div>
                 <div className="anl-subHeadingText">Recent Activities</div>
-                <div className="anl-filterButton1">Filter</div>
+                 <div className="anl-filterButton1" onClick={toggleFilterMenu2}>
+                    Filter
+                    {showFilterMenu2 && (
+                      <div className="anl-filter-menu">
+                        <div className="anl-filter-container">Daily</div>
+                        <div className="anl-filter-container">Weekly</div>
+                        <div className="anl-filter-container">Monthly</div>
+                        <div className="anl-filter-container">Yearly</div>
+                     </div>
+                    )}
+                 </div>
               </div>
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">
@@ -161,7 +205,17 @@ export default function Analytics() {
           </div>
           <div>
             <div className="anl-topRightContainer">
-              <div className="anl-filterButton2">Filter</div>
+              <div className="anl-filterButton2" onClick={toggleFilterMenu3}>
+                  Filter
+                  {showFilterMenu3 && (
+                    <div className="anl-filter-menu">
+                        <div className="anl-filter-container">Daily</div>
+                        <div className="anl-filter-container">Weekly</div>
+                        <div className="anl-filter-container">Monthly</div>
+                        <div className="anl-filter-container">Yearly</div>
+                    </div>
+                  )}
+              </div>
               <div className='pie-chart-container'>
                 <ResponsiveContainer width={450} height={450}>
                   <PieChart>
@@ -187,8 +241,18 @@ export default function Analytics() {
           </div>
           <div>
             <div className="anl-bottomRightContainer">
-              <div className="anl-filterButton2">Filter</div>
-              <div className='pie-chart-container'>
+            <div className="anl-filterButton2" onClick={toggleFilterMenu4}>
+                Filter
+                {showFilterMenu4 && (
+                  <div className="anl-filter-menu">
+                    <div className="anl-filter-container">Daily</div>
+                    <div className="anl-filter-container">Weekly</div>
+                    <div className="anl-filter-container">Monthly</div>
+                    <div className="anl-filter-container">Yearly</div>
+                 </div>
+                )}
+             </div>
+            <div className='pie-chart-container'>
             <ResponsiveContainer width={450} height={450}>
               <PieChart>
                 <Pie data={expensesData} cx={210} cy={130} innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
