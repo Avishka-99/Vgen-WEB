@@ -4,6 +4,14 @@ import "../../styles/Admin/Riders.css";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Riders() {
+  const bardata = [
+    { name: 'Very Dissatisfied', value: 1 },
+    { name: 'Dissatisfied', value: 3 },
+    { name: 'Neutral', value: 10 },
+    { name: 'Satisfied', value: 25 },
+    { name: 'Very Satisfied', value: 40 },
+  ];
+
   return (
     <div className="Ride-Container">
       <div className="Ride-top">
@@ -32,6 +40,17 @@ export default function Riders() {
               </div>
               <div className="Ride-subContainer">
                 <div className="Ride-bottomLeftContainer">
+                <br/>
+                <ResponsiveContainer width={700} height={200}>
+                <BarChart data={bardata}>
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value" fill="#6A9C89" />
+                </BarChart>
+              </ResponsiveContainer>
                 </div>
               </div>
             </div>
