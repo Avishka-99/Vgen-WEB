@@ -3,8 +3,9 @@ import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
 import "../../styles/staff/staffcomplaints.css";
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'; // Import the necessary components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// Your complaints data
+// Rating Data
 const data = [
   { name: '✩', value: 100 },
   { name: '✩✩', value: 150 },
@@ -162,25 +163,58 @@ export default function Complains() {
             <div class="bottom-right">
               <div class="midline">
                 <div class="subheadingtext">FAQs</div>
-                <div class="seeall-btn">See All</div>
+                <div class="faq-ctl-btn">
+                  {/* 
+                  icon1
+                  icon2
+                  icon3 
+                  */}
+                </div>
+                <div class="seeall-btn">See All FAQs</div>
               </div>
-
-              <div class="bottom-right-container">[Content Here]</div>
+              <div class="bottom-right-container">
+                <table class="faq-tbl">
+                  <tr>
+                    <td class="faq-tbl-tdL"><div class="faq-QHead"> Q : </div></td>
+                    <td class="faq-tbl-tdR">
+                      <div class="faq-Q">
+                        How can I find vegan raw products using this system?
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="faq-tbl-tdL"><div class="faq-AHead"> A : </div></td>
+                    <td class="faq-tbl-tdR">
+                    <div class="faq-A">
+                      You can search for vegan raw products by product name or manufacturer.
+                    </div>
+                    </td>
+                  </tr>
+                </table>
+                <br />
+                <table class="faq-tbl">
+                  <tr>
+                    <td class="faq-tbl-tdL"><div class="faq-QHead"> Q : </div></td>
+                    <td class="faq-tbl-tdR">
+                      <div class="faq-Q">
+                        How can I request to promote my farm business through the system?
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="faq-tbl-tdL"><div class="faq-AHead"> A : </div></td>
+                    <td class="faq-tbl-tdR">
+                    <div class="faq-A">
+                    To promote your farm business, log in, provide details in the "Request to Promote Business" section, and our system staff will review and advise on promotions.
+                    </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* <div class="bottom">
-        <div class="bottom-right">
-          <div class="midline">
-            <div class="subheadingtext">[Title Here]</div>
-            <div class="filter-btn">Today</div>
-          </div>
-
-          <div class="bottom-right-container">[Content Here]</div>
-        </div>
-      </div> */}
     </div>
   )
 }
