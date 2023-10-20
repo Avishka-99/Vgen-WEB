@@ -89,6 +89,22 @@
     font-weight: bolder;
     color: black;
   }
+
+  .Ride-nameText {
+    padding-top: 10px;
+    margin-left: 25px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+  }
+
+  .Ride-subNameText {
+    padding-top: 10px;
+    margin-left: 60px;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #8b7e74;
+  }
   
   .Ride-FilterButton1 {
     padding-top: 5px;
@@ -187,6 +203,19 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   }
   
+  .Ride-IconContainer {
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    background-image: url("../../assets/images/Admin/DP.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
   .Ride-FirstDivider {
     width: 125px;
     height: 150px;

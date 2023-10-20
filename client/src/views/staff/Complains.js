@@ -3,7 +3,7 @@ import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
 import "../../styles/staff/staffcomplaints.css";
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'; // Import the necessary components
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Rating Data
 const data = [

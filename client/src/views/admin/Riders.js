@@ -17,7 +17,9 @@ export default function Riders() {
           </div>
           <div className="Ride-subContainer">
             <div className="Ride-topLeftContainer">
-              <div className="Ride-bodyText">Contact</div>
+              <div className="Ride-IconContainer"></div>
+              <div className="Ride-nameText">Nayomi Karunaratne</div>
+              <div className="Ride-subNameText">Product Manufacturer</div>
             </div>
           </div>
           <div className="Ride-subContainer">
