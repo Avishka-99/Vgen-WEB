@@ -110,22 +110,28 @@ export default function Analytics() {
                 <div className="anl-bottomLeftContainer">
                 <div className="anl-activities-row">
                    <div className="anl-activities">
-                      {/* Content */}
+                      <div className="anl-activityIconContainer"></div>
+                      <div className="anl-activityText">Vegen Cooking Workshop</div>
                    </div>
                    <div className="anl-activities">
-                      {/* Content */}
+                      <div className="anl-activityIconContainer"></div>
+                      <div className="anl-activityText">Vegen Cooking Workshop</div>
                    </div>
                    <div className="anl-activities">
-                      {/* Content  */}
+                      <div className="anl-activityIconContainer"></div>
+                      <div className="anl-activityText">Vegen Cooking Workshop</div>
                    </div>
                    <div className="anl-activities">
-                      {/* Content  */}
+                      <div className="anl-activityIconContainer"></div>
+                      <div className="anl-activityText">Vegen Cooking Workshop</div>
                    </div>
                    <div className="anl-activities">
-                      {/* Content  */}
+                      <div className="anl-activityIconContainer"></div>
+                      <div className="anl-activityText">Vegen Cooking Workshop</div>
                    </div>
                    <div className="anl-activities">
-                      {/* Content  */}
+                      <div className="anl-activityIconContainer"></div>
+                      <div className="anl-activityText">Vegen Cooking Workshop</div>
                    </div>
                 </div>
                 </div>
