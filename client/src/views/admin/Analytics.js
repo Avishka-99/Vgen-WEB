@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Analytics.css";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Analytics() {
+  const bardata = [
+    { name: 'Total Sales', value: 550},
+    { name: 'Total Revenue', value: 300},
+  ];
+  
   const data = [
     { name: 'Views', value: 550},
     { name: 'Followers', value: 300},
     { name: 'Reposts', value: 150},
   ];
 
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+  const COLORS = ['#78D6C6', '#419197', '#12486B'];
 
   const expensesData = [
     { name: 'Vegan Products', value: 1000 },
@@ -18,7 +23,7 @@ export default function Analytics() {
     { name: 'Donations', value: 300 },
   ];
 
-  const expensesColors = ['#dc143c', '#FFC300', '#FF5733'];
+  const expensesColors = ['#CD6688', '#7A316F', '#461959'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -59,6 +64,16 @@ export default function Analytics() {
             <div className="anl-topLeftContainer">
               <div className="anl-bodyText">Overview of Latest Month</div>
               <div className="anl-summaryButton">Last Month Summary</div>
+              <ResponsiveContainer width={700} height={200}>
+                <BarChart data={bardata}>
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value" fill="#76549A" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
           <div className="anl-subContainer">
