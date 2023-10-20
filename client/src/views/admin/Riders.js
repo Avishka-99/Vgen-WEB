@@ -12,6 +12,18 @@ export default function Riders() {
     { name: 'Very Satisfied', value: 40 },
   ];
 
+  const [showFilterMenu, setShowFilterMenu] = useState(false);
+
+  const toggleFilterMenu = () => {
+    setShowFilterMenu(!showFilterMenu);
+  };
+
+  const [showFilterMenu2, setShowFilterMenu2] = useState(false);
+
+  const toggleFilterMenu2 = () => {
+    setShowFilterMenu2(!showFilterMenu2);
+  };
+
   return (
     <div className="Ride-Container">
       <div className="Ride-top">
@@ -36,7 +48,16 @@ export default function Riders() {
             <div className="Ride-bottomLeft">
               <div>
                 <div className="Ride-subHeadingText">Customer Reviews</div>
-                <div className="Ride-FilterButton2">Filter</div>
+                <div className="Ride-FilterButton2" onClick={toggleFilterMenu}>
+                  Filter
+                  {showFilterMenu && (
+                    <div className="anl-filter-menu">
+                      <div className="anl-filter-container">Today</div>
+                      <div className="anl-filter-container">Last Month</div>
+                      <div className="anl-filter-container">Last 5 Months</div>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="Ride-subContainer">
                 <div className="Ride-bottomLeftContainer">
@@ -48,7 +69,7 @@ export default function Riders() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#6A9C89" />
+                  <Bar dataKey="value" fill="#183D3D" />
                 </BarChart>
               </ResponsiveContainer>
                 </div>
@@ -59,7 +80,16 @@ export default function Riders() {
         <div className="Ride-right">
           <div className="Ride-SearchBar"></div>
             <br/>
-            <div className="Ride-FilterButton1">Filter</div>
+            <div className="Ride-FilterButton1" onClick={toggleFilterMenu2}>
+                  Filter
+                  {showFilterMenu2 && (
+                    <div className="anl-filter-menu">
+                      <div className="anl-filter-container">Today</div>
+                      <div className="anl-filter-container">Last Month</div>
+                      <div className="anl-filter-container">Last 5 Months</div>
+                    </div>
+                  )}
+                </div>
           <div className="Ride-RightContainer">
             {/* Add content for the right container here */}
           </div>
