@@ -29,6 +29,14 @@
   display: flex;
   text-align: left;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  cursor: pointer; 
+}
+
+.complaintscardcontainer:hover {
+  /* Scale and slightly elevate the card on hover */
+  transform: scale(1.05) translateY(-5px);
+  cursor: pointer;
 }
 
 .complaintscardLeft{
@@ -115,4 +123,55 @@
   border-radius: 50px;
   border: 1px solid black;
   text-align: center;
+}
+
+.com-top-right-container {
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 380px;
+  height: 200px;
+  background-color: F4FFF8;
+  border-radius: 30px;
+  display: flex;
+}
+
+.pie-chart-container {
+  margin-top: -20px;
+  align-items: center;
+  width: 50%;
+  height: 200px;
+  text-align: center;
+}
+
+.pie-chart-legend-container {
+  padding-left: 40px;
+  width: 50%;
+  height: 200px;
+  text-align: center;
+}
+
+/* Style for the entire legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap; /* Wrap legend items to the next line if necessary */
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.legend-square {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.legend-item span {
+  font-size: 14px;
 }
