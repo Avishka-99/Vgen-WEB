@@ -158,19 +158,29 @@ export default function Complains() {
             </div>
             </div>
           </div>
+          <div class="bottom">
+            <div class="bottom-right">
+              <div class="midline">
+                <div class="subheadingtext">FAQs</div>
+                <div class="seeall-btn">See All</div>
+              </div>
+
+              <div class="bottom-right-container">[Content Here]</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="bottom">
-        {/* <div class="bottom-right">
+      {/* <div class="bottom">
+        <div class="bottom-right">
           <div class="midline">
             <div class="subheadingtext">[Title Here]</div>
             <div class="filter-btn">Today</div>
           </div>
 
           <div class="bottom-right-container">[Content Here]</div>
-        </div> */}
-      </div>
+        </div>
+      </div> */}
     </div>
   )
 }
