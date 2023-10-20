@@ -5,14 +5,14 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis
 
 export default function Analytics() {
   const bardata = [
-    { name: 'Total Sales', value: 150000},
-    { name: 'Total Revenue', value: 250000},
+    { name: 'Total Sales', value: 150000 },
+    { name: 'Total Revenue', value: 250000 },
   ];
-  
+
   const data = [
-    { name: 'Views', value: 550},
-    { name: 'Followers', value: 300},
-    { name: 'Reposts', value: 150},
+    { name: 'Views', value: 550 },
+    { name: 'Followers', value: 300 },
+    { name: 'Reposts', value: 150 },
   ];
 
   const COLORS = ['#78D6C6', '#419197', '#12486B'];
@@ -65,7 +65,7 @@ export default function Analytics() {
   const toggleFilterMenu3 = () => {
     setShowFilterMenu3(!showFilterMenu3);
   };
- 
+
   const [showFilterMenu4, setShowFilterMenu4] = useState(false);
 
   const toggleFilterMenu4 = () => {
@@ -82,17 +82,17 @@ export default function Analytics() {
           </div>
           <div>
             <div className="anl-dateText">Tuesday 07 July 2023</div>
-              <div className="anl-filterButton1" onClick={toggleFilterMenu}>
-                Filter
-                {showFilterMenu && (
-                  <div className="anl-filter-menu">
-                    <div className="anl-filter-container">Daily</div>
-                    <div className="anl-filter-container">Weekly</div>
-                    <div className="anl-filter-container">Monthly</div>
-                    <div className="anl-filter-container">Yearly</div>
-                 </div>
-                )}
-             </div>
+            <div className="anl-filterButton1" onClick={toggleFilterMenu}>
+              Filter
+              {showFilterMenu && (
+                <div className="anl-filter-menu">
+                  <div className="anl-filter-container">Daily</div>
+                  <div className="anl-filter-container">Weekly</div>
+                  <div className="anl-filter-container">Monthly</div>
+                  <div className="anl-filter-container">Yearly</div>
+                </div>
+              )}
+            </div>
           </div>
           <div className="anl-subContainer">
             <div className="anl-topLeftContainer">
@@ -153,46 +153,46 @@ export default function Analytics() {
               <div className="anl-midLine"></div>
               <div>
                 <div className="anl-subHeadingText">Recent Activities</div>
-                 <div className="anl-filterButton1" onClick={toggleFilterMenu2}>
-                    Filter
-                    {showFilterMenu2 && (
-                      <div className="anl-filter-menu">
-                        <div className="anl-filter-container">Daily</div>
-                        <div className="anl-filter-container">Weekly</div>
-                        <div className="anl-filter-container">Monthly</div>
-                        <div className="anl-filter-container">Yearly</div>
-                     </div>
-                    )}
-                 </div>
+                <div className="anl-filterButton1" onClick={toggleFilterMenu2}>
+                  Filter
+                  {showFilterMenu2 && (
+                    <div className="anl-filter-menu">
+                      <div className="anl-filter-container">Daily</div>
+                      <div className="anl-filter-container">Weekly</div>
+                      <div className="anl-filter-container">Monthly</div>
+                      <div className="anl-filter-container">Yearly</div>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">
-                <div className="anl-activities-row">
-                   <div className="anl-activities">
+                  <div className="anl-activities-row">
+                    <div className="anl-activities">
                       <div className="anl-activityIconContainer"></div>
                       <div className="anl-activityText">Vegen Cooking Workshop</div>
-                   </div>
-                   <div className="anl-activities">
+                    </div>
+                    <div className="anl-activities">
                       <div className="anl-activityIconContainer"></div>
                       <div className="anl-activityText">Vegen Cooking Workshop</div>
-                   </div>
-                   <div className="anl-activities">
+                    </div>
+                    <div className="anl-activities">
                       <div className="anl-activityIconContainer"></div>
                       <div className="anl-activityText">Vegen Cooking Workshop</div>
-                   </div>
-                   <div className="anl-activities">
+                    </div>
+                    <div className="anl-activities">
                       <div className="anl-activityIconContainer"></div>
                       <div className="anl-activityText">Vegen Cooking Workshop</div>
-                   </div>
-                   <div className="anl-activities">
+                    </div>
+                    <div className="anl-activities">
                       <div className="anl-activityIconContainer"></div>
                       <div className="anl-activityText">Vegen Cooking Workshop</div>
-                   </div>
-                   <div className="anl-activities">
+                    </div>
+                    <div className="anl-activities">
                       <div className="anl-activityIconContainer"></div>
                       <div className="anl-activityText">Vegen Cooking Workshop</div>
-                   </div>
-                </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -206,20 +206,20 @@ export default function Analytics() {
           <div>
             <div className="anl-topRightContainer">
               <div className="anl-filterButton2" onClick={toggleFilterMenu3}>
-                  Filter
-                  {showFilterMenu3 && (
-                    <div className="anl-filter-menu">
-                        <div className="anl-filter-container">Daily</div>
-                        <div className="anl-filter-container">Weekly</div>
-                        <div className="anl-filter-container">Monthly</div>
-                        <div className="anl-filter-container">Yearly</div>
-                    </div>
-                  )}
+                Filter
+                {showFilterMenu3 && (
+                  <div className="anl-filter-menu">
+                    <div className="anl-filter-container">Daily</div>
+                    <div className="anl-filter-container">Weekly</div>
+                    <div className="anl-filter-container">Monthly</div>
+                    <div className="anl-filter-container">Yearly</div>
+                  </div>
+                )}
               </div>
               <div className='pie-chart-container'>
-                <ResponsiveContainer width={450} height={450}>
+                <ResponsiveContainer width={300} height={450}>
                   <PieChart>
-                    <Pie data={data} cx={210} cy={130} innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
+                    <Pie data={data} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
                       {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
@@ -241,7 +241,7 @@ export default function Analytics() {
           </div>
           <div>
             <div className="anl-bottomRightContainer">
-            <div className="anl-filterButton2" onClick={toggleFilterMenu4}>
+              <div className="anl-filterButton2" onClick={toggleFilterMenu4}>
                 Filter
                 {showFilterMenu4 && (
                   <div className="anl-filter-menu">
@@ -249,26 +249,26 @@ export default function Analytics() {
                     <div className="anl-filter-container">Weekly</div>
                     <div className="anl-filter-container">Monthly</div>
                     <div className="anl-filter-container">Yearly</div>
-                 </div>
+                  </div>
                 )}
-             </div>
-            <div className='pie-chart-container'>
-            <ResponsiveContainer width={450} height={450}>
-              <PieChart>
-                <Pie data={expensesData} cx={210} cy={130} innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
-                  {expensesData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
-                  ))}
-                </Pie>
-                <Tooltip content={<CustomTooltip />} />
-              </PieChart>
-            </ResponsiveContainer>
-            {/* {activeExpensesIndex !== null && (
-              <div className="selected-label">
-                Selected: {expensesData[activeExpensesIndex].name}
               </div>
-            )} */}
-          </div>
+              <div className='pie-chart-container'>
+                <ResponsiveContainer width={300} height={450}>
+                  <PieChart>
+                    <Pie data={expensesData} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={10} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
+                      {expensesData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip content={<CustomTooltip />} />
+                  </PieChart>
+                </ResponsiveContainer>
+                {/* {activeExpensesIndex !== null && (
+                  <div className="selected-label">
+                    Selected: {expensesData[activeExpensesIndex].name}
+                  </div>
+                )} */}
+              </div>
             </div>
           </div>
         </div>
