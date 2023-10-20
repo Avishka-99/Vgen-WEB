@@ -97,7 +97,7 @@ export default function Analytics() {
           <div className="anl-subContainer">
             <div className="anl-topLeftContainer">
               <div className="anl-bodyText">Overview of Latest Month</div>
-              <div className="anl-summaryButton">Last Month Summary</div>
+              <div className="anl-summary">Last Month Summary</div>
               <ResponsiveContainer width={700} height={200}>
                 <BarChart data={bardata}>
                   <XAxis dataKey="name" />
@@ -201,7 +201,7 @@ export default function Analytics() {
         <div className="anl-right">
           <div className="anl-subHeadingText">
             Web Surfers
-            <div className="anl-summaryButton">Last Month Summary</div>
+            <div className="anl-summary">Last Month Summary</div>
           </div>
           <div>
             <div className="anl-topRightContainer">
@@ -237,7 +237,7 @@ export default function Analytics() {
           </div>
           <div className="anl-subHeadingText">
             Expenses
-            <div className="anl-summaryButton">Last Month Summary</div>
+            <div className="anl-summary">Last Month Summary</div>
           </div>
           <div>
             <div className="anl-bottomRightContainer">
