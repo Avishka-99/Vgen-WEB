@@ -5,8 +5,8 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis
 
 export default function Analytics() {
   const bardata = [
-    { name: 'Total Sales', value: 550},
-    { name: 'Total Revenue', value: 300},
+    { name: 'Total Sales', value: 150000},
+    { name: 'Total Revenue', value: 250000},
   ];
   
   const data = [
