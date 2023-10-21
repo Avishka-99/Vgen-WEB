@@ -219,7 +219,7 @@
 
 /* Webkit-based browsers (Google Chrome) */
 .Prof-rightContainer::-webkit-scrollbar {
-    width: 5px; /* Width of the entire scrollbar */
+    width: 8px; /* Width of the entire scrollbar */
   }
   
 .Prof-rightContainer::-webkit-scrollbar-thumb {
@@ -284,7 +284,7 @@
 
 /* Webkit-based browsers (Google Chrome) */
 .Prof-BottomLeftContainer::-webkit-scrollbar {
-    width: 5px; /* Width of the entire scrollbar */
+    width: 8px; /* Width of the entire scrollbar */
   }
   
 .Prof-BottomLeftContainer::-webkit-scrollbar-thumb {
@@ -325,7 +325,7 @@
 }
 
 .Prof-Activities {
-    width: 350px;
+    width: 300px;
     height: 50px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -359,8 +359,8 @@
 .Prof-ActivityText {
     margin-top: -25px;
     padding-top: -10px;
-    margin-left: 65px;
-    font-size: 15px;
+    margin-left: 55px;
+    font-size: 12px;
     font-weight: bold;
     color: #000000;
 }
