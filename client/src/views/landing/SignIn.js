@@ -10,6 +10,8 @@ import googleiMG from '../../assets/icons/google.png';
 import facebookiMG from '../../assets/icons/facebook.png';
 import * as ToastMessages from '../../components/ToastMessages';
 import Toast from '../../components/Toast';
+import FontAwesome from '../../components/FontAwesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function SignIn() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState('');
@@ -79,6 +81,7 @@ export default function SignIn() {
 					<label className='placeholder'>Email*</label>
 					<input className='signInInput' type='password' onChange={(event) => setPassword(event.target.value)} value={password} required></input>
 					<label className='placeholder'>Password*</label>
+
 					<div className='checkBoxAndPswdForget'>
 						<div className='row_1'>
 							<input type='checkbox' className='checkbox'></input>
