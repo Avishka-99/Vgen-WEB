@@ -364,3 +364,19 @@
     font-weight: bold;
     color: #000000;
 }
+
+.Prof-Detail {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+.Prof-Divider {
+    border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
+    height: 30px; /* Adjust the height of the divider as needed */
+    margin: 10 0px; /* Adjust the margin to control spacing */
+  }
