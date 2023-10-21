@@ -39,38 +39,162 @@ export default function Riders() {
           <div className="Prof-SubHeadingText">
             Your Activities
           </div>
-          <div className="Prof-FilterButton">Filter</div>
+          <div className="Prof-FilterButton">Filter by Date</div>
           <div>
             <div className="Prof-RightContainer">
-              <div className="Prof-Detail">Some Information</div>
+             <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
               <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">More Information</div>
-              <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Additional Information</div>
-              <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Some Information</div>
-              <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">More Information</div>
-              <div className="Prof-Divider"></div>
-              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Detail">
+                <div className="Prof-DetailLeft">
+                  <span>Some Information</span>
+                </div>
+                <div className="Prof-DetailRight">
+                  <div>
+                     <time className="DetailDate">2023.10.20</time>
+                  </div>
+                  <div>
+                     <time className="DetailTime">10:30 AM</time>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

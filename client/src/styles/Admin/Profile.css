@@ -96,7 +96,7 @@
     padding-right: 15px;
     margin-top: 5px;
     height: 30px;
-    width: 90px;
+    width: 110px;
     background-color: #bcdac8;
     border-radius: 10px;
     font-size: 12px;
@@ -366,17 +366,38 @@
 }
 
 .Prof-Detail {
-    font-size: 16px;
-    margin-bottom: 10px;
-    padding: 5px;
+    display: flex;
+    justify-content: space-between;
     border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
     background-color: #f9f9f9;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+  
+.Prof-DetailLeft {
+    flex: 1;
+}
+  
+.Prof-DetailRight {
+    flex: 1;
+    font-weight: bold;
+    text-align: right;
+}
+
+.DetailDate {
+    font-size: 14px; /* Adjust the font size as needed */
+    color: #116A7B; /* Adjust the color as needed */
   }
+  
+.DetailTime {
+    font-size: 12px; /* Adjust the font size for time */
+    color: #777; /* Adjust the color for time */
+}
   
 .Prof-Divider {
     border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
-    height: 30px; /* Adjust the height of the divider as needed */
+    height: 5px; /* Adjust the height of the divider as needed */
     margin: 10 0px; /* Adjust the margin to control spacing */
-  }
+}
