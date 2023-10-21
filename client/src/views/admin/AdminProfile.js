@@ -14,7 +14,7 @@ export default function Riders() {
           </div>
           <div>
             <div className="Prof-DateText">Friday 20 October 2023</div>
-			<div className="Prof-EditButton">Edit Profile</div>
+            <div className="Prof-EditButton">Edit Profile</div>
           </div>
           <div className="Prof-SubContainer">
             <div className="Prof-TopLeftContainer">
@@ -30,7 +30,6 @@ export default function Riders() {
               </div>
               <div className="Prof-SubContainer">
                 <div className="Prof-BottomLeftContainer">
-				    
                 </div>
               </div>
             </div>
@@ -40,57 +39,38 @@ export default function Riders() {
           <div className="Prof-SubHeadingText">
             Your Activities
           </div>
-		  <div className="Prof-FilterButton">Filter</div>
+          <div className="Prof-FilterButton">Filter</div>
           <div>
             <div className="Prof-RightContainer">
-			   <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-				<div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
-                <div className="Prof-Activities">
-                    <div className="Prof-ActivityIconContainer"></div>
-                    <div className="Prof-ActivityText">Added a New Food Category</div>
-                </div>
+              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Additional Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Some Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">More Information</div>
+              <div className="Prof-Divider"></div>
+              <div className="Prof-Detail">Additional Information</div>
             </div>
           </div>
         </div>
