@@ -57,7 +57,7 @@ const CommunityOrganizerForm = () => {
   };
 
   return (
-    <div className="create-form">
+    <div className="commynuty-create-form">
         <h1>Community Organizer Form</h1>
       <form onSubmit={handleSubmit}>
         <label>
