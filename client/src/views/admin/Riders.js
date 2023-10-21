@@ -40,13 +40,9 @@ export default function Riders() {
               <div className="Ride-IconContainer"></div>
               <div className="Ride-nameText">Nayomi Karunaratne</div>
               <div className="Ride-subNameText">Product Manufacturer</div>
-              {/* <div className="Ride-subContainer">
-                <div>
-                <span className="anl-countGoesDown"> -1.15% </span>
-                Total Expenses         
-                </div>
-              </div> */}
             </div>
+          </div>
+          <div className="Ride-subContainer">
           </div>
           <div className="Ride-bottom">
             <div className="Ride-bottomLeft">
@@ -73,7 +69,7 @@ export default function Riders() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#FF4848" />
+                  <Bar dataKey="value" fill="#183D3D" />
                 </BarChart>
               </ResponsiveContainer>
                 </div>
