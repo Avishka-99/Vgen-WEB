@@ -214,7 +214,28 @@
     height: 90%;
     background-color: #F4FFF8;
     border-radius: 30px;
+    overflow-y: scroll; /* Add a vertical scrollbar */
 }
+
+/* Webkit-based browsers (Google Chrome) */
+.Prof-rightContainer::-webkit-scrollbar {
+    width: 5px; /* Width of the entire scrollbar */
+  }
+  
+.Prof-rightContainer::-webkit-scrollbar-thumb {
+    background: #7EB693; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners of the thumb */
+  }
+  
+.Prof-rightContainer::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color of the thumb on hover */
+  }
+  
+.Prof-rightContainer::-webkit-scrollbar-track {
+    background: #bcdac8; /* Color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners of the track */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }  
 
 .Prof-MidLine {
     padding-top: 2%;
@@ -258,7 +279,28 @@
     height: 220px;
     background-color: #F4FFF8;
     border-radius: 30px;
+    overflow-y: scroll; /* Add a vertical scrollbar */
 }
+
+/* Webkit-based browsers (Google Chrome) */
+.Prof-BottomLeftContainer::-webkit-scrollbar {
+    width: 5px; /* Width of the entire scrollbar */
+  }
+  
+.Prof-BottomLeftContainer::-webkit-scrollbar-thumb {
+    background: #7EB693; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners of the thumb */
+  }
+  
+.Prof-BottomLeftContainer::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color of the thumb on hover */
+  }
+  
+.Prof-BottomLeftContainer::-webkit-scrollbar-track {
+    background: #bcdac8; /* Color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners of the track */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }  
 
 .Prof-SearchBar {
     width: 250px;
