@@ -33,4 +33,5 @@ import recipeForm from '../views/customer/recipeForm';
 import location from '../views/customer/location';
 import communityOrganizerForm from '../views/customer/CommunityOrganizerForm';
 import SearchResults from '../views/customer/SearchResults';
-export {Sales, StaffHome, Payments, Complains, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Feed, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd,Cart, ManufactureHome,RowProducts,RowOrderView,ManufactureComplains,RestaurantComplain,About,View_Profile,SelectedRestaurant,Recipe,recipeForm,location,communityOrganizerForm,SearchResults};
+import AdminProfile from '../views/admin/AdminProfile';
+export {Sales, StaffHome, Payments, Complains, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Feed, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd,Cart, ManufactureHome,RowProducts,RowOrderView,ManufactureComplains,RestaurantComplain,About,View_Profile,SelectedRestaurant,Recipe,recipeForm,location,communityOrganizerForm,SearchResults,AdminProfile};
