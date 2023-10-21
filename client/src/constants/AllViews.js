@@ -20,7 +20,8 @@ import Profile from '../views/common/Profile';
 import About from '../views/customer/About';
 import StaffHome from '../views/staff/StaffHome';
 import Payments from '../views/staff/Payments';
-import Complains from '../views/staff/Complains';
+import Complaints from '../views/staff/Complaints';
+import Users from '../views/staff/Users';
 import Sales from '../views/admin/Sales';
 import ManufactureHome from '../views/manufacture/ManufactureHome'
 import RowProducts from '../views/manufacture/RowProducts'

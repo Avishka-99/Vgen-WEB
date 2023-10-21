@@ -69,10 +69,11 @@ const ShowSidebar = (props) => {
 	];
 	const staff = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Home", link: 'home', index: '1'},
-		{id: 2, icon: <EuroIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Payments", link: 'payments', index: '2'},
-		{id: 3, icon: <RecordVoiceOverIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Complains", link: 'complains', index: '3'},
-		{id: 4, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Profile", link: 'profile', index: '4'},
-		{id: 5, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Logout", link: 'logout', index: '5'},
+		{id: 2, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Users", link: 'users', index: '2'},
+		{id: 3, icon: <EuroIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Payments", link: 'payments', index: '3'},
+		{id: 4, icon: <RecordVoiceOverIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Complaints", link: 'complaints', index: '4'},
+		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Profile", link: 'profile', index: '5'},
+		{id: 6, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Logout", link: 'logout', index: '6'},
 	];
 	const manufacture = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},

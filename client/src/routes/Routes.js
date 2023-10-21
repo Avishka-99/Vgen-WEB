@@ -38,9 +38,10 @@ export const adminRoutes = [
 ];
 export const staffRoutes = [
   { id: 1, path: "/home", element: <UserViews.StaffHome/> },
-  { id: 2, path: "/payments", element: <UserViews.Payments/> },
-  { id: 3, path: "/complains", element: <UserViews.Complains/> },
-  { id: 4, path: "/profile", element: <UserViews.Profile/> },
+  { id: 2, path: "/users", element: <UserViews.Users/> },
+  { id: 3, path: "/payments", element: <UserViews.Payments/> },
+  { id: 4, path: "/complaints", element: <UserViews.Complaints/> },
+  { id: 5, path: "/profile", element: <UserViews.Profile/> },
 ];
 export const manufactureRoutes = [
   { id: 1, path: "/home", element: <UserViews.ManufactureHome/> },
