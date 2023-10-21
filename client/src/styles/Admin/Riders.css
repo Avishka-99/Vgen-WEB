@@ -407,3 +407,27 @@
     color: #000000;
   }
   
+  .Ride-textContainer {
+    width: 50%;
+  }
+  
+  .Ride-textInfo {
+    margin-top: -25px;
+    padding-top: -10px;
+    margin-left: 65px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    width: 50%;
+  }
+
+  .Ride-subTextInfo {
+    margin-top: -20px;
+    padding-top: 0px;
+    margin-left: 220px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+  }
