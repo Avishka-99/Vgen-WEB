@@ -26,6 +26,15 @@
     display: flex;
     text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.paymentcardcontainer:hover{
+  background: linear-gradient(to bottom right, #bcdac8, #bcdac8, #f3ffd7, #fff);
+  /* Scale and slightly elevate the card on hover */
+  transform: scale(1.05) translateY(-5px);
+  cursor: pointer;
 }
 
 .pay-dash-icon{
@@ -62,4 +71,72 @@
   height: 110px;
   font-weight: bold;
   font-size: 15px;
+}
+
+
+.db-tbl {
+  max-width: 960px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 960px;
+}
+
+.db-tbl th {
+  background-color: #BCDAC8;
+  color: black;
+  font-size: 15px;
+}
+
+.db-tbl th:first-child {
+  border-top-left-radius: 25px;
+}
+
+.db-tbl th:last-child {
+  border-top-right-radius: 25px;
+}
+
+.db-tbl th,
+.db-tbl td {
+  padding: 8px;
+  text-align: center;
+  width: max-content; /* Adjust the width as needed */
+  height: 40px;
+  color: black;
+  font-size: 13px;
+  text-align: center;
+}
+
+.db-tbl tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+.db-tbl tbody tr:nth-child(odd) {
+  background-color: #F4FFF8;
+  color: white;
+}
+
+.table-area {
+  padding-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+.table-area table {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.customer{
+display: flex;
+}
+
+.img-icon{
+  margin-top: -4px;
+  margin-left: 5px;
+  margin-right: 10px;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #7EB693;
+  border-radius: 50%;
 }
