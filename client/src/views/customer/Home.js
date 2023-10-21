@@ -1,9 +1,10 @@
-import React, {useEffect, useState, useRef} from 'react';
-import Popup from 'reactjs-popup';
-import {useSelector, useDispatch} from 'react-redux';
-import {RiAddLine, RiSubtractLine} from 'react-icons/ri';
-import {addToCart, incrementCounter} from '../../reducers/SetUserReducer';
-import Axios from '../../api/Axios';
+import React, { useEffect, useState, useRef } from "react";
+import Popup from "reactjs-popup";
+import { useSelector, useDispatch } from "react-redux";
+import { RiAddLine, RiSubtractLine } from "react-icons/ri";
+import { addToCart,incrementCounter } from "../../reducers/SetUserReducer";
+import { GoogleMap, LoadScript, Marker,Maps }  from "@react-google-maps/api";
+
 // import Button from '../../components/Button';
 import {useNavigate} from 'react-router-dom';
 //import Axios from 'axios';
@@ -15,29 +16,48 @@ import '../../styles/Home.css';
 import Button from '../../components/Button';
 import * as ToastMessages from '../../components/ToastMessages';
 import Toast from '../../components/Toast';
-import Navbar from '../../components/Navbar';
-import getGeolocationAddress from './geoAddress';
-import {dark} from '@mui/material/styles/createPalette';
-import {consumers} from 'stream';
-import ButtonFillBorder from '../../components/ButtonFillBorder';
+import Navbar from "../../components/Navbar";
+import getGeolocationAddress from "./geoAddress";
+import { dark } from "@mui/material/styles/createPalette";
+import { consumers } from "stream";
+import {SphericalUtil} from 'node-geometry-library';
 
 function Home() {
-	const [resolvedAddresses, setResolvedAddresses] = useState([]);
-	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [selectedProduct, setSelectedProduct] = useState(null);
-	const [SelectedRestaurantId, setSelectedRestaurantId] = useState(null);
-	const [limitError, setLimitError] = useState('');
-	const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
+  const [resolvedAddresses, setResolvedAddresses] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [SelectedRestaurantId, setSelectedRestaurantId] = useState(null);
+  const [limitError, setLimitError] = useState('');
+  const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
+  useEffect(() => {
+    const fetchGoogleMapsScript = async () => {
+      const googleMapsScript = document.createElement("script");
+      googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDGf0EXb4I0BQoE2t_IsJmkOJXYTc0S5bA&libraries=geometry`;
+      googleMapsScript.onload = initGoogleMaps;
+      document.head.appendChild(googleMapsScript);
+    };
+
+    fetchGoogleMapsScript();
+  }, []);
+
+  const initGoogleMaps = () => {
+    // Google Maps API has been loaded, you can use its functions here
+
+    // Display the map
+
+  };
+
 
 	const toggleModal = (product) => {
 		setSelectedProduct(product);
 		setIsModalOpen(!isModalOpen);
 	};
 
-	const closeModal = () => {
-		setSelectedProduct(null);
-		setIsModalOpen(false);
-	};
+  const closeModal = () => {
+    setSelectedProduct(null);
+    setIsModalOpen(false);
+  };
+
 
 	//var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
 
@@ -60,12 +80,13 @@ function Home() {
 	const addToCartHandler = (product) => {
 		dispatch(addToCart(product));
 
-		closeModal();
-		navigateTo('cart');
-	};
+    closeModal();
+    navigateTo("cart");
+  };
+ 
 
-	const [formData, setFormData] = useState([]);
-	const [formData_1, setFormData_1] = useState([]);
+    const [formData,setFormData]=useState([])
+    const [formData_1,setFormData_1]=useState([])
 
 	const fetchData = async () => {
 		try {
@@ -81,13 +102,40 @@ function Home() {
 	}, []);
 	const [quantity, setQuantity] = useState(1);
 
-	const incrementQuantity = () => {
-		if (quantity < selectedProduct.sell_products[0].quantity) {
-			setQuantity(quantity + 1);
-		} else {
-			ToastMessages.warning('Quantity limit reached');
-		}
-	};
+const incrementQuantity = () => {
+ if(quantity<selectedProduct.sell_products[0].quantity){
+  setQuantity(quantity + 1);
+  }
+  else{
+    
+    ToastMessages.warning('Quantity limit reached');
+  }
+
+};
+
+const getDistance = (data) => {
+  // Extract latitude and longitude from the data object
+  const latitude = data.latitude;
+  const longitude = data.longitude;
+  
+  // Retrieve user ID and coordinates from localStorage
+
+  const lat1 = localStorage.getItem("latitude");
+  const lon1 = localStorage.getItem("longitude");
+ 
+  // Calculate distance between user and restaurant in google maps
+  
+    const point1 = new window.google.maps.LatLng(latitude, longitude);
+    const point2 = new window.google.maps.LatLng(lat1, lon1);
+  
+    const distance = window.google.maps.geometry.spherical.computeDistanceBetween(point1, point2);
+    
+    return (distance/1000).toFixed(2); // Distance in km
+  
+
+ 
+   
+};
 
 	const decrementQuantity = () => {
 		if (quantity > 1) {
@@ -274,37 +322,42 @@ function Home() {
 					<p>See More</p>
 				</div>
 
-				{/* Restaurants */}
-				<div className='vision_1'>
-					<p>Taste out :</p>
-					<h3>Vegan Delight Near Me</h3>
-				</div>
-				<div>
-					<Carousel className='carousel' responsive={responsive1}>
-						{formData_1.map((data, index) => (
-							<div className='card' key={data.restaurantManagerId}>
-								<p className='vegan_type'>{data.resturantType}</p>
-								<img className='product--image' src={`http://localhost:5001/uploads/restaurants/${data.image}`} alt={data.resturantName} />
-								<p style={{fontFamily: 'poppins-medium'}} className='product_name'>
-									{data.resturantName}
-								</p>
-								<p className='prices'>Location:{resolvedAddresses[index] || 'Loading address..'}</p>
-								<button onClick={() => viewRestaurant(data)} className='btn_res'>
-									View Restaurant
-								</button>
-							</div>
-						))}
-					</Carousel>
-				</div>
-				<div className='seeMore' onClick={() => navigateTo('restaurants')}>
-					<p>See More</p>
-				</div>
-			</div>
-			<div onClick={() => callBackend()} style={{width: 100, height: 40, outline: '3px solid red', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4em'}}>
-				Click me
-			</div>
-		</div>
-	);
+        {/* Restaurants */}
+        <div className='vision_1'>
+          <p>Taste out :</p>
+          <h3>Vegan Delight Near Me</h3>
+        </div>
+        <div >
+        
+          <Carousel className="carousel" responsive={responsive1}>
+            {formData_1.map((data,index) => (
+              <div className='card' key={data.restaurantManagerId}>
+                <p className='vegan_type'>{data.resturantType}</p>
+                <img
+                  className='product--image'
+                  src={`http://localhost:5001/uploads/restaurants/${data.image}`}
+                  alt={data.resturantName}
+                />
+                <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data.resturantName}</p>
+                <p className='prices'>
+
+                Location:{resolvedAddresses[index]||'Loading address..'}</p>
+                <p className='prices'>distance:{getDistance(data)}km</p>
+                <button onClick={() => viewRestaurant(data)} className='btn_res'>
+                  View Restaurant
+                </button>
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <div className='seeMore' onClick={() => navigateTo('restaurants')}>
+            <p>
+              See More
+            </p>
+          </div>
+      </div>
+    </div>
+  );
 
 	// return ( )
 }

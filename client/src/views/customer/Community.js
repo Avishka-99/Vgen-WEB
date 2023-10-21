@@ -1,8 +1,13 @@
 import React from 'react'
 import '../../styles/Community.css'
+import { Button } from 'bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export default function Community() {
-
+  const navigate = useNavigate();
+  const navigateTo = (page) => {
+    navigate('/' + page);
+  };
   const groups = [
     { id: 1, name: 'group1', description: 'description1', members: 10 },
     { id: 2, name: 'group2', description: 'description2', members: 20 },
@@ -15,7 +20,12 @@ export default function Community() {
   return (
     <div>
       <p>Join for life</p>
+      <div>
+        <p>Request for Community Organizer</p>
+        <button onClick={()=>navigateTo('communityOrganizerForm')}>Request</button>
+      </div>
       <div className="groups-container">
+
         {groups.map((group) => (
           <div key={group.id} className='group-card'>
             <div className='group-card__image'></div>

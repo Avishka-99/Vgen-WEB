@@ -32,6 +32,7 @@ export const resetCart=()=>{
 const initialState = {
     user:"null"
 }
+
 const SetUserReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
@@ -45,4 +46,6 @@ const SetUserReducer = (state = initialState, action) => {
     }
     
 }
+
+
 export default SetUserReducer;
