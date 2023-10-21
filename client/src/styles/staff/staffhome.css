@@ -79,7 +79,7 @@
   padding-right: 15px;
   margin-top: 5px;
   height: 30px;
-  width: 90px;
+  width: 110px;
   /* border: 1px solid #7EB693; */
   background-color: #bcdac8;
   border-radius: 10px;
@@ -113,6 +113,15 @@
   align-items: center;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.cardcontainer:hover{
+  background: linear-gradient(to bottom right, #bcdac8, #bcdac8, #f3ffd7, #fff);
+  /* Scale and slightly elevate the card on hover */
+  transform: scale(1.05) translateY(-5px);
+  cursor: pointer;
 }
 
 .devider1 {
@@ -125,10 +134,10 @@
 }
 
 .cardiconcontainer {
-  margin-top: 20px;
-  margin-left: 20px;
-  height: 100px;
-  width: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 125px;
+  width: 125px;
   /* border: 1px solid black; */
   border-radius: 50%;
   /* Set the background image */
@@ -136,14 +145,13 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
 .cardiconcontainer2 {
-  margin-top: 20px;
-  margin-left: 20px;
-  height: 100px;
-  width: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 130px;
+  width: 130px;
   /* border: 1px solid black; */
   border-radius: 50%;
   /* Set the background image */
@@ -151,22 +159,20 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
 .cardiconcontainer3 {
-  margin-top: 20px;
-  margin-left: 20px;
-  height: 100px;
-  width: 100px;
+  margin-top: 10px;
+  margin-left: 15px;
+  height: 120px;
+  width: 120px;
   /* border: 1px solid black; */
-  border-radius: 50%;
+  /* border-radius: 50%; */
   /* Set the background image */
   background-image: url("../../assets/images/staff/cardicon3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
 .devider2 {
@@ -195,7 +201,7 @@
   padding-right: 25px;
   width: 380px;
   height: 200px;
-  background-color: F4FFF8;
+  background-color: #F4FFF8;
   border-radius: 30px;
 }
 
@@ -226,82 +232,17 @@
   text-align: right;
 }
 
-.table-area{
+.chart-area{
   margin-top: 1%;
-  padding-left: -500px;
-  display: flex;
+  padding: 25px;
+  align-items: center;
   justify-content: space-between;
-  max-width: 800px;
-  max-height: 350px;
-  overflow-y: auto;
-}
-
-.db-tbl {
-  max-width: 960px;
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 960px;
-}
-
-.db-tbl th {
-  background-color: #BCDAC8;
-  color: black;
-  font-size: 15px;
-}
-
-.db-tbl th:first-child {
-  border-top-left-radius: 25px;
-}
-
-.db-tbl th:last-child {
-  border-top-right-radius: 25px;
-}
-
-.db-tbl th,
-.db-tbl td {
-  padding: 8px;
-  text-align: center;
-  width: max-content; /* Adjust the width as needed */
-  height: 40px;
-  color: black;
-  font-size: 13px;
-  text-align: center;
-}
-
-.db-tbl tbody tr:nth-child(even) {
-  background-color: white;
-}
-
-.db-tbl tbody tr:nth-child(odd) {
+  width: 800px;
+  height: 350px;
   background-color: #F4FFF8;
-  color: white;
+  border-radius: 25px;
 }
 
-.table-area {
-  padding-top: 2%;
-  display: flex;
-  justify-content: space-between;
-  max-width: 800px;
-}
-
-.table-area table {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.customer{
-display: flex;
-}
-
-.img-icon{
-  margin-top: -4px;
-  margin-left: 5px;
-  margin-right: 10px;
-  height: 28px;
-  width: 28px;
-  border: 1px solid #7EB693;
-  border-radius: 50%;
-}
 
 .bottom-right-container{
   margin-top: 10px;
