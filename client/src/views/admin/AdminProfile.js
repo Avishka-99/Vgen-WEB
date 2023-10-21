@@ -30,6 +30,7 @@ export default function Riders() {
               </div>
               <div className="Prof-SubContainer">
                 <div className="Prof-BottomLeftContainer">
+				    
                 </div>
               </div>
             </div>
@@ -42,6 +43,54 @@ export default function Riders() {
 		  <div className="Prof-FilterButton">Filter</div>
           <div>
             <div className="Prof-RightContainer">
+			   <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+				<div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
+                <div className="Prof-Activities">
+                    <div className="Prof-ActivityIconContainer"></div>
+                    <div className="Prof-ActivityText">Added a New Food Category</div>
+                </div>
             </div>
           </div>
         </div>
