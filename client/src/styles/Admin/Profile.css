@@ -164,6 +164,9 @@
     font-size: 15px;
     font-weight: bold;
     color: #000000;
+    display: flex;
+    justify-content: flex-end; /* Move Prof-Details to the right */
+
 }
 
 .Prof-SubContainer {
@@ -343,18 +346,18 @@
     margin-bottom: 20px;
 }
 
-.Prof-ActivityIconContainer {
-    margin-left: 10px;
-    margin-top: 5px;
-    height: 35px;
-    width: 35px;
+.Prof-IconContainer {
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/event.jpg");
+    background-image: url("../../assets/images/Admin/Rider.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-}
+  }
 
 .Prof-ActivityText {
     margin-top: -25px;
@@ -400,4 +403,49 @@
     border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
     height: 5px; /* Adjust the height of the divider as needed */
     margin: 10 0px; /* Adjust the margin to control spacing */
+}
+
+.Prof-Details {
+    display: flex;
+    margin-right: 120px;
+    margin-left: 300px;
+    margin-top: -230px;
+    text-align: left;
+    flex-direction: column;
+}
+  
+.Prof-Name {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.NameLabel {
+    font-size: 16px;
+    color: #000;
+    /* Add any other styles you want for the label */
+}
+  
+.NameValue {
+    font-size: 15px;
+    font-weight: bold;
+    color: #888;
+    /* Add any other styles you want for the value */
+}
+
+.Prof-nameText {
+    padding-top: 10px;
+    margin-left: 25px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+  }
+
+.Prof-subNameText {
+    padding-top: 10px;
+    margin-left: 80px;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #8b7e74;
 }

@@ -100,7 +100,7 @@
 
   .Ride-subNameText {
     padding-top: 10px;
-    margin-left: 60px;
+    margin-left: 80px;
     font-size: 12px;
     font-weight: bolder;
     color: #8b7e74;
@@ -223,7 +223,7 @@
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/DP.jpg");
+    background-image: url("../../assets/images/Admin/Admin.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -391,7 +391,7 @@
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/event.jpg");
+    background-image: url("../../assets/images/Admin/Admin.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -402,7 +402,7 @@
     margin-top: -25px;
     padding-top: -10px;
     margin-left: 65px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     color: #000000;
   }
@@ -425,7 +425,7 @@
   .Ride-subTextInfo {
     margin-top: -20px;
     padding-top: 0px;
-    margin-left: 220px;
+    margin-left: 250px;
     font-size: 15px;
     font-weight: bold;
     color: #000000;
