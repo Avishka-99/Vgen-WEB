@@ -33,7 +33,7 @@ export const adminRoutes = [
 	{id: 3, path: '/analytics', element: <UserViews.Analytics />},
 	{id: 4, path: '/riders', element: <UserViews.Riders />},
 	// { id: 5, path: "/shopping", element: <UserViews.Shopping/> },
-	{id: 5, path: '/profile', element: <UserViews.Profile />},
+	{id: 5, path: '/profile', element: <UserViews.AdminProfile />},
 	{id: 6, path: '/sales', element: <UserViews.Sales />},
 ];
 export const staffRoutes = [
