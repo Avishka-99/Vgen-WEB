@@ -16,7 +16,7 @@ const data = [
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
-export default function Complains() {
+export default function Complaints() {
   return (
     <div className="AdminContainer">
       <div class="top">

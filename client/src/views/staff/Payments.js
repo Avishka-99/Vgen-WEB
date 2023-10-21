@@ -95,7 +95,9 @@ export default function Payments() {
                   <td>#3417950</td>
                   <td>Delivery Payment</td>
                   <td class="customer">
-                    <div class="img-icon"></div>
+                    <div class="img-icon">
+                      {/* <img src="../../assets/images/staff/user.jpg" alt="User Image" /> */}
+                    </div>
                     Avishka Fernando
                   </td>
                   <td>Rs. 725.00</td>

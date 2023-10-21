@@ -201,6 +201,14 @@
   border: 1px solid #C8DBBE;
   border-radius: 25px;
   border-collapse: separate;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.faq-tbl:hover{
+  /* Scale and slightly elevate the card on hover */
+  transform: scale(1.05) translateY(-5px);
+  cursor: pointer;
 }
 
 .faq-tbl-tdL{
