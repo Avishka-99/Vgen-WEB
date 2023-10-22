@@ -10,8 +10,6 @@ import googleiMG from '../../assets/icons/google.png';
 import facebookiMG from '../../assets/icons/facebook.png';
 import * as ToastMessages from '../../components/ToastMessages';
 import Toast from '../../components/Toast';
-import FontAwesome from '../../components/FontAwesome';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function SignIn() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState('');
