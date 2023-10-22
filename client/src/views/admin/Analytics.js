@@ -23,7 +23,7 @@ export default function Analytics() {
     { name: 'Donations', value: 300 },
   ];
 
-  const expensesColors = ['#5f5fa9', '#3e7cb7', '#199ac6'];
+  const expensesColors = ['#5f5fa9', '#3e7cb7', '#3e7cb7'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -216,10 +216,10 @@ export default function Analytics() {
                   </div>
                 )}
               </div>
-              <div className='pie-chart-container'>
-                <ResponsiveContainer width={300} height={450}>
-                  <PieChart margin={{ top: 20, right: 20, left: 20, bottom: 20 }}>
-                    <Pie data={data} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
+              <div className='anl-pie-chart-container'>
+                <ResponsiveContainer>
+                  <PieChart>
+                    <Pie data={data}  innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
                       {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
@@ -252,10 +252,10 @@ export default function Analytics() {
                   </div>
                 )}
               </div>
-              <div className='pie-chart-container'>
-                <ResponsiveContainer width={300} height={450}>
-                  <PieChart margin={{ top: 20, right: 20, left: 20, bottom: 10 }}>
-                    <Pie data={expensesData} cx="65%" cy="60%" innerRadius={60} outerRadius={100} fill='#8884d8' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
+              <div className='anl-pie-chart-container'>
+                <ResponsiveContainer>
+                  <PieChart>
+                    <Pie data={expensesData} innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
                       {expensesData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
                       ))}
