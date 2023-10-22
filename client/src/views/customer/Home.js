@@ -111,10 +111,11 @@ function Home() {
 		// Display the map
 	};
 
-	const toggleModal = (product) => {
-		setSelectedProduct(product);
-		setIsModalOpen(!isModalOpen);
-	};
+  const toggleModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(!isModalOpen);
+  };
+
 
 	const closeModal = () => {
 		setSelectedProduct(null);
@@ -214,96 +215,113 @@ function Home() {
 					<h3>Vegan Delight Near Me</h3>
 				</div>
 
-				{/* Food items */}
-				<div>
-					<Carousel className='carousel' responsive={responsive}>
-						{formData.map((data1) => (
-							<div className='card' key={data1.productId}>
-								{/* ...existing card content */}
-								<div className='card-body'>
-									<p className='vegan_type'>{data1.vegan_category}</p>
-									<img className='product--image' src={`http://localhost:5001/uploads/products/${data1.productImage}`} alt={data1.productName} />
-									<p style={{fontFamily: 'poppins-medium'}} className='product_name'>
-										{data1.productName}
-									</p>
-									{data1.sell_products.map((sellProduct, index) => (
-										<div key={index}>
-											<p className='prices'>Price: Rs.{sellProduct.price}</p>
+        {/* Food items */}
+        <div>
+          <Carousel className="carousel" responsive={responsive}>
+            {formData.map((data1,) => (
+              <div className='card' key={data1.productId}>
+                {/* ...existing card content */}
+                <div className='card-body'>
+                <p className='vegan_type'>{data1.vegan_category}</p>
+                <img
+                  className='product--image'
+                  src={`http://localhost:5001/uploads/products/${data1.productImage}`}
+                  alt={data1.productName}
+                />
+                <p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data1.productName}</p>
+                {data1.sell_products.map((sellProduct, index) => (
+      <div key={index}>
+        <p className='prices'>Price: Rs.{sellProduct.price}</p>
+      
+        <p className='prices'>Quantity: {sellProduct.quantity}</p>
+        
+        
+      
+        
+      </div>
+    ))}
+    
 
-											<p className='prices'>Quantity: {sellProduct.quantity}</p>
-										</div>
-									))}
+    
+                <button className='btn_cart_cus' onClick={() => toggleModal(data1)}>
+                  View Product
+                </button>
+                </div>
+              </div>
+            ))}
+          </Carousel>
 
-									<button className='btn_cart_cus' onClick={() => toggleModal(data1)}>
-										View Product
-									</button>
-								</div>
-							</div>
-						))}
-					</Carousel>
+          {isModalOpen && (
+            <div className='modal'>
+              <div className='modal-content'>
+                <button className='modal-close-btn' onClick={closeModal}>
+                X
+                </button>
+                {selectedProduct && (
+                  <div className='modal-product-details'>
+                    <p style={{fontFamily: 'poppins-medium'}}>{selectedProduct.productName}</p>
+                    <img
+                      className='product--image1'
+                      src={`http://localhost:5001/uploads/products/${selectedProduct.productImage}`}
+                      alt={selectedProduct.productName}
+                    />
 
-					{isModalOpen && (
-						<div className='modal'>
-							<div className='modal-content'>
-								<button className='modal-close-btn' onClick={closeModal}>
-									X
-								</button>
-								{selectedProduct && (
-									<div className='modal-product-details'>
-										<p style={{fontFamily: 'poppins-medium'}}>{selectedProduct.productName}</p>
-										<img className='product--image1' src={`http://localhost:5001/uploads/products/${selectedProduct.productImage}`} alt={selectedProduct.productName} />
+                    {/* Render other product details here */}
+                    <div className='modal-product-details'>
+                    <p className='prices'>Description:{selectedProduct.description}</p>
+                    <p className="prices">Ingredients:{selectedProduct.ingredient}</p>
+                    <p className='prices'>Vegan Type:{selectedProduct.vegan_category}</p>
+                    <p className='prices'>Category:{selectedProduct.row_category}</p>
+                    {selectedProduct.sell_products.map((sellProduct, index) => (
+                    <div key={index}>
+                    <p className='prices'>Rs.{sellProduct.price}</p>
+                    <p className='prices'>Quantity:{sellProduct.quantity}</p>
+                    
+                    </div>
+                    
+                ))}
+                
+                </div>
+                <div className="quantity-controls">
+                  <button className="quantity-btn" onClick={decrementQuantity}>
+                    <RiSubtractLine />
+                  </button>
+                  <span className="quantity">{quantity}</span>
+                  
+                  <button className="quantity-btn" onClick={incrementQuantity}>
+                    <RiAddLine />
+                  </button>      
+                  {limitError && <p className="limit-error">{limitError}</p>}      
+          
+                
+                </div>
+              
+                    <div className='btn_cart_cus' onClick={()=>addToCartHandler({
+                      productId: selectedProduct.productId,
+                      productName: selectedProduct.productName,
+                      productImage: selectedProduct.productImage,
+                      price: selectedProduct.sell_products[0].price,
+                      quantity: quantity,
+            
+                    })} >
+                      Add to Cart
+                    </div>
+                
+                  </div>
+                )}
+              </div>
+              <Toast duration={3000} />
+            </div>
+          )}
+          </div>
 
-										{/* Render other product details here */}
-										<div className='modal-product-details'>
-											<p className='prices'>Description:{selectedProduct.description}</p>
-											<p className='prices'>Ingredients:{selectedProduct.ingredient}</p>
-											<p className='prices'>Vegan Type:{selectedProduct.vegan_category}</p>
-											<p className='prices'>Category:{selectedProduct.row_category}</p>
-											{selectedProduct.sell_products.map((sellProduct, index) => (
-												<div key={index}>
-													<p className='prices'>Rs.{sellProduct.price}</p>
-													<p className='prices'>Quantity:{sellProduct.quantity}</p>
-												</div>
-											))}
-										</div>
-										<div className='quantity-controls'>
-											<button className='quantity-btn' onClick={decrementQuantity}>
-												<RiSubtractLine />
-											</button>
-											<span className='quantity'>{quantity}</span>
-
-											<button className='quantity-btn' onClick={incrementQuantity}>
-												<RiAddLine />
-											</button>
-											{limitError && <p className='limit-error'>{limitError}</p>}
-										</div>
-
-										<div
-											className='btn_cart_cus'
-											onClick={() =>
-												addToCartHandler({
-													productId: selectedProduct.productId,
-													productName: selectedProduct.productName,
-													productImage: selectedProduct.productImage,
-													price: selectedProduct.sell_products[0].price,
-													quantity: quantity,
-												})
-											}
-										>
-											Add to Cart
-										</div>
-									</div>
-								)}
-							</div>
-							<Toast duration={3000} />
-						</div>
-					)}
-				</div>
-
-				{/* Go to category */}
-				<div className='seeMore' onClick={() => navigateTo('category')}>
-					<p>See More</p>
-				</div>
+          {/* Go to category */}
+          <div className='seeMore' onClick={() => navigateTo('category')}>
+            <p>
+              See More
+            </p>
+          </div>
+        
 
 				{/* Restaurants */}
 				<div className='vision_1'>
@@ -335,7 +353,7 @@ function Home() {
 		</div>
 	);
 
-	// return ( )
+  // return ( )
 }
 
 export default Home;

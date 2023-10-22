@@ -38,8 +38,8 @@ export default function Riders() {
           <div className="Ride-subContainer">
             <div className="Ride-topLeftContainer">
               <div className="Ride-IconContainer"></div>
-              <div className="Ride-nameText">Nayomi Karunaratne</div>
-              <div className="Ride-subNameText">Product Manufacturer</div>
+              <div className="Ride-nameText">Jeremiah Christopher</div>
+              <div className="Ride-subNameText">Area : Colombo</div>
               {/* <div className="Ride-subContainer">
                 <div>
                 <span className="anl-countGoesDown"> -1.15% </span>
@@ -73,7 +73,7 @@ export default function Riders() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#FF4848" />
+                  <Bar dataKey="value" fill="#088395" />
                 </BarChart>
               </ResponsiveContainer>
                 </div>
@@ -99,51 +99,51 @@ export default function Riders() {
           <div className="Ride-RightContainer">
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                <div className="Ride-ActivityIconContainer "></div>
-               <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+               <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
             <div className="Ride-Activities">
                <div className="Ride-ActivityIconContainer "></div>
-               <div className="Ride-ActivityText">Daweendri Thilakarathne</div>
+               <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
           </div>
         </div>

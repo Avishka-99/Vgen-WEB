@@ -96,7 +96,7 @@
     padding-right: 15px;
     margin-top: 5px;
     height: 30px;
-    width: 90px;
+    width: 110px;
     background-color: #bcdac8;
     border-radius: 10px;
     font-size: 12px;
@@ -164,6 +164,9 @@
     font-size: 15px;
     font-weight: bold;
     color: #000000;
+    display: flex;
+    justify-content: flex-end; /* Move Prof-Details to the right */
+
 }
 
 .Prof-SubContainer {
@@ -343,18 +346,18 @@
     margin-bottom: 20px;
 }
 
-.Prof-ActivityIconContainer {
-    margin-left: 10px;
-    margin-top: 5px;
-    height: 35px;
-    width: 35px;
+.Prof-IconContainer {
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/event.jpg");
+    background-image: url("../../assets/images/Admin/Rider.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-}
+  }
 
 .Prof-ActivityText {
     margin-top: -25px;
@@ -363,4 +366,86 @@
     font-size: 12px;
     font-weight: bold;
     color: #000000;
+}
+
+.Prof-Detail {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+  
+.Prof-DetailLeft {
+    flex: 1;
+}
+  
+.Prof-DetailRight {
+    flex: 1;
+    font-weight: bold;
+    text-align: right;
+}
+
+.DetailDate {
+    font-size: 14px; /* Adjust the font size as needed */
+    color: #116A7B; /* Adjust the color as needed */
+  }
+  
+.DetailTime {
+    font-size: 12px; /* Adjust the font size for time */
+    color: #777; /* Adjust the color for time */
+}
+  
+.Prof-Divider {
+    border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
+    height: 5px; /* Adjust the height of the divider as needed */
+    margin: 10 0px; /* Adjust the margin to control spacing */
+}
+
+.Prof-Details {
+    display: flex;
+    margin-right: 120px;
+    margin-left: 300px;
+    margin-top: -230px;
+    text-align: left;
+    flex-direction: column;
+}
+  
+.Prof-Name {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.NameLabel {
+    font-size: 16px;
+    color: #000;
+    /* Add any other styles you want for the label */
+}
+  
+.NameValue {
+    font-size: 15px;
+    font-weight: bold;
+    color: #888;
+    /* Add any other styles you want for the value */
+}
+
+.Prof-nameText {
+    padding-top: 10px;
+    margin-left: 25px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+  }
+
+.Prof-subNameText {
+    padding-top: 10px;
+    margin-left: 80px;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #8b7e74;
 }
