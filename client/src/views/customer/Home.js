@@ -29,6 +29,22 @@ function Home() {
 	const [SelectedRestaurantId, setSelectedRestaurantId] = useState(null);
 	const [limitError, setLimitError] = useState('');
 	const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
+	const [formData, setFormData] = useState([]);
+	const [formData_1, setFormData_1] = useState([]);
+	const [quantity, setQuantity] = useState(1);
+	const dispatch = useDispatch();
+	const [itemAdded, setItemAdded] = useState(false);
+	const [name, setName] = useState('');
+	const [cart, setCart] = useState([]);
+	const modalRef = useRef(null);
+	const navigate = useNavigate();
+	const number = useSelector((state) => state.CounterReducer.counter);
+	const val = useSelector((state) => state.ValueReducer.value);
+
+	var num = '';
+	const navigateTo = (page) => {
+		navigate('/' + page);
+	};
 	useEffect(() => {
 		const fetchGoogleMapsScript = async () => {
 			const googleMapsScript = document.createElement('script');
@@ -39,7 +55,57 @@ function Home() {
 
 		fetchGoogleMapsScript();
 	}, []);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await Axios.post('/api/getallproducts');
+				console.log(res.data);
+				setFormData(res.data);
+			} catch (err) {
+				console.log('Error fetching data:', err);
+			}
+		};
+		fetchData();
+	}, []);
 
+	//var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
+
+	//console.log(localStorage.getItem('type'))
+	//console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
+
+	useEffect(() => {
+		const fetchData1 = async () => {
+			try {
+				const res = await Axios.get('/api/restaurantGet');
+				console.log(res.data);
+				setFormData_1(res.data);
+			} catch (err) {
+				console.log('Error fetching data:', err);
+			}
+		};
+		fetchData1();
+	}, []);
+	useEffect(() => {
+		const fetchRestaurantAddresses = async () => {
+			const addressesPromises = formData_1.map((data) => {
+				return getGeolocationAddress(data.latitude, data.longitude, apiKey);
+			});
+
+			try {
+				const resolved = await Promise.all(addressesPromises);
+				setResolvedAddresses(resolved);
+			} catch (error) {
+				console.error('Error fetching restaurant addresses:', error);
+			}
+		};
+
+		fetchRestaurantAddresses();
+	}, [formData_1]);
+	const addToCartHandler = (product) => {
+		dispatch(addToCart(product));
+		closeModal();
+		navigateTo('cart');
+	};
 	const initGoogleMaps = () => {
 		// Google Maps API has been loaded, you can use its functions here
 		// Display the map
@@ -55,53 +121,6 @@ function Home() {
 		setSelectedProduct(null);
 		setIsModalOpen(false);
 	};
-
-  //var userID = JSON.parse(atob(localStorage.getItem('token').split('.')))
-
-  //console.log(localStorage.getItem('type'))
-  //console.log(JSON.parse(atob(localStorage.getItem('token').split('.'))))
-  const dispatch = useDispatch();
-  const number = useSelector((state) => state.CounterReducer.counter);
-  const [name, setName] = useState("");
-
-  const val = useSelector((state) => state.ValueReducer.value);
-  const modalRef = useRef(null);
-  const navigate = useNavigate();
-  const [itemAdded, setItemAdded] = useState(false);
-  var num = "";
-  const navigateTo = (page) => {
-	
-			navigate('/' + page);
-		
-	};
-  const [cart, setCart] = useState([]);
-
-
-  const addToCartHandler = (product) => {
-    dispatch(addToCart(product));
-
-		closeModal();
-		navigateTo('cart');
-	};
-
-	const [formData, setFormData] = useState([]);
-	const [formData_1, setFormData_1] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const res = await Axios.get("http://localhost:5001/api/productGet");
-      console.log(res.data);
-      setFormData(res.data);
-    } catch (err) {
-      console.log("Error fetching data:", err);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-
-  },[]);
-  const [quantity, setQuantity] = useState(1);
-
 	const incrementQuantity = () => {
 		if (quantity < selectedProduct.sell_products[0].quantity) {
 			setQuantity(quantity + 1);
@@ -130,85 +149,62 @@ function Home() {
 		return (distance / 1000).toFixed(2); // Distance in km
 	};
 
-const decrementQuantity = () => {
-  if (quantity > 1) {
-    setQuantity(quantity - 1);
-  }
-};
-  const fetchData1 = async () => {
-    try {
-      const res = await Axios.get("http://localhost:5001/api/restaurantGet");
-      console.log(res.data);
-      setFormData_1(res.data);
-    } catch (err) {
-      console.log("Error fetching data:", err);
-    }
-  };
-  useEffect(() => {
-    fetchData1();
+	const decrementQuantity = () => {
+		if (quantity > 1) {
+			setQuantity(quantity - 1);
+		}
+	};
 
-  },[]);
-  const viewRestaurant = (data) => {
- 
-    const restaurantId = data.resturantManagerId;
-    console.log(restaurantId);
-    localStorage.setItem('restaurantId',data.resturantManagerId);
-    navigateTo("SelectedRestaurant");
-  
-    };
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
-      const responsive1 = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
-      //get address
-useEffect(() => {
-  const fetchRestaurantAddresses = async () => {
-    const addressesPromises = formData_1.map((data) => {
-      return getGeolocationAddress(data.latitude, data.longitude, apiKey);
-    });
-
-		fetchRestaurantAddresses();
-	}, [formData_1]);
+	const viewRestaurant = (data) => {
+		const restaurantId = data.resturantManagerId;
+		console.log(restaurantId);
+		localStorage.setItem('restaurantId', data.resturantManagerId);
+		navigateTo('SelectedRestaurant');
+	};
 	const callBackend = () => {
 		const result = Axios.post('/api/test', {
 			user: 1,
 		}).then((result) => {
 			console.log(result.data);
 		});
+	};
+	const responsive = {
+		superLargeDesktop: {
+			// the naming can be any, depends on you.
+			breakpoint: {max: 4000, min: 3000},
+			items: 5,
+		},
+		desktop: {
+			breakpoint: {max: 3000, min: 1024},
+			items: 3,
+		},
+		tablet: {
+			breakpoint: {max: 1024, min: 464},
+			items: 2,
+		},
+		mobile: {
+			breakpoint: {max: 464, min: 0},
+			items: 1,
+		},
+	};
+	const responsive1 = {
+		superLargeDesktop: {
+			// the naming can be any, depends on you.
+			breakpoint: {max: 4000, min: 3000},
+			items: 5,
+		},
+		desktop: {
+			breakpoint: {max: 3000, min: 1024},
+			items: 3,
+		},
+		tablet: {
+			breakpoint: {max: 1024, min: 464},
+			items: 2,
+		},
+		mobile: {
+			breakpoint: {max: 464, min: 0},
+			items: 1,
+		},
 	};
 	return (
 		<div className='home'>
@@ -218,18 +214,6 @@ useEffect(() => {
 					<p>Taste out :</p>
 					<h3>Vegan Delight Near Me</h3>
 				</div>
-
-  fetchRestaurantAddresses();
-}, [formData_1]);
-    
-    return (
-      <div className='home'>
-      <div className='bottom_content'>
-        {/* The rest of your home page content */}
-        <div className='vision_1'>
-          <p>Taste out :</p>
-          <h3>Vegan Delight Near Me</h3>
-        </div>
 
         {/* Food items */}
         <div>
