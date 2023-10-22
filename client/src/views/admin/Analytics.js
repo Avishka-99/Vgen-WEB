@@ -105,7 +105,7 @@ export default function Analytics() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#76549A" />
+                  <Bar dataKey="value" fill="#74257b" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
