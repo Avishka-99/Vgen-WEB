@@ -213,7 +213,7 @@
 	padding-top: 2%;
 	display: flex;
 	justify-content: space-between;
-	max-width: 800px;
+	max-width: 100%;
   }
   
   .Home-CardContainer {
@@ -326,5 +326,85 @@
 	font-weight: bold;
 	text-align: center;
 	color: crimson;
+  }
+  
+  /* Styles for the table area */
+  .Home-tableArea {
+	margin-top: 1%;
+	display: flex;
+	justify-content: left;
+	max-width: 100%;
+	width: 100%;
+	max-height: 400px;
+	margin-top: 3px;
+	overflow-y: scroll;
+  }
+
+  /* Webkit-based browsers (Google Chrome) */
+  .Home-tableArea::-webkit-scrollbar {
+	width: 8px; /* Width of the entire scrollbar */
+  }
+  
+  .Home-tableArea::-webkit-scrollbar-thumb {
+	background: #7EB693; /* Color of the scrollbar thumb */
+	border-radius: 5px; /* Rounded corners of the thumb */
+  }
+  
+  .Home-tableArea::-webkit-scrollbar-thumb:hover {
+	background: #888; /* Color of the thumb on hover */
+  }
+  
+  .Home-tableArea::-webkit-scrollbar-track {
+	background: #bcdac8; /* Color of the scrollbar track */
+	border-radius: 10px; /* Rounded corners of the track */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Styles for the database table */
+  .Home-dbTable {
+	max-width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+	table-layout: auto;
+	overflow-y: scroll;
+  }
+  
+  /* Styles for table headers */
+  .Home-dbTable th {
+	background-color: #BCDAC8;
+	color: black;
+	font-size: 15px;
+  }
+  
+  /* Styles for first and last table headers */
+  .Home-dbTable th:first-child {
+	border-top-left-radius: 25px;
+  }
+  
+  .Home-dbTable th:last-child {
+	border-top-right-radius: 25px;
+  }
+  
+  /* Styles for table headers and data cells */
+  .Home-dbTable th,
+  .Home-dbTable td {
+	padding: 8px;
+	text-align: center;
+	width: max-content; /* Adjust the width as needed */
+	height: 40px;
+	color: black;
+	font-size: 13px;
+	text-align: center;
+  }
+  
+  /* Styles for even and odd rows in the table */
+  .Home-dbTable tbody tr:nth-child(even) {
+	background-color: white;
+  }
+  
+  .Home-dbTable tbody tr:nth-child(odd) {
+	background-color: #F4FFF8;
+	color: white;
   }
   

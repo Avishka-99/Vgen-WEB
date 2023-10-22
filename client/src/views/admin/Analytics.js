@@ -23,7 +23,7 @@ export default function Analytics() {
     { name: 'Donations', value: 300 },
   ];
 
-  const expensesColors = ['#5f5fa9', '#3e7cb7', '#3e7cb7'];
+  const expensesColors = ['#502c80', '#a17bb7', '#9f55a7'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
