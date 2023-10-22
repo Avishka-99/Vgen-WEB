@@ -352,7 +352,7 @@
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/Rider.png");
+    background-image: url("../../assets/images/Admin/admin2.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -424,14 +424,12 @@
 .NameLabel {
     font-size: 16px;
     color: #000;
-    /* Add any other styles you want for the label */
 }
   
 .NameValue {
     font-size: 15px;
     font-weight: bold;
     color: #888;
-    /* Add any other styles you want for the value */
 }
 
 .Prof-nameText {
@@ -444,8 +442,8 @@
 
 .Prof-subNameText {
     padding-top: 10px;
-    margin-left: 80px;
-    font-size: 12px;
+    margin-left: 90px;
+    font-size: 13px;
     font-weight: bolder;
-    color: #8b7e74;
+    color: #116A7B;
 }

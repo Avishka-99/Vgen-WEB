@@ -40,12 +40,40 @@ export default function Riders() {
               <div className="Ride-IconContainer"></div>
               <div className="Ride-nameText">Jeremiah Christopher</div>
               <div className="Ride-subNameText">Area : Colombo</div>
-              {/* <div className="Ride-subContainer">
-                <div>
-                <span className="anl-countGoesDown"> -1.15% </span>
-                Total Expenses         
+              <div className="Ride-Details">
+                <div className="Ride-Name">
+                  <span className="NameLabel">First Name : </span>
+                  <span className="NameValue">Jeremiah</span>
                 </div>
-              </div> */}
+                <div className="Ride-Name">
+                  <span className="NameLabel">Last Name : </span>
+                  <span className="NameValue">Christopher</span>
+                </div>
+               <div className="Ride-Name">
+                  <span className="NameLabel">Email : </span>
+                  <span className="NameValue">jeremiahchris123@gmail.com</span>
+               </div>
+               <div className="Ride-Name">
+                  <span className="NameLabel">Contact Number : </span>
+                  <span className="NameValue">+94717654321</span>
+               </div>
+               <div className="Ride-Name">
+                  <span className="NameLabel">Address : </span>
+                  <span className="NameValue">No : 15, 2nd Lane, Narahenpita</span>
+               </div>
+               <div className="Ride-Name">
+                  <span className="NameLabel">NIC : </span>
+                  <span className="NameValue">987654321V</span>
+               </div>
+               <div className="Ride-Name">
+                  <span className="NameLabel">Working Area : </span>
+                  <span className="NameValue">Colombo</span>
+               </div>
+               <div className="Ride-Name">
+                  <span className="NameLabel">ID : </span>
+                  <span className="NameValue">Rider123</span>
+               </div>
+              </div>
             </div>
           </div>
           <div className="Ride-bottom">
@@ -73,7 +101,7 @@ export default function Riders() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#088395" />
+                  <Bar dataKey="value" fill="#4477CE" />
                 </BarChart>
               </ResponsiveContainer>
                 </div>
