@@ -3,6 +3,8 @@
 }
 
 .AdminContainer {
+  width: 100%;
+  height: 100%;
   font-family: "poppins-regular";
   padding-left: 5%;
   padding-right: 2%;
@@ -12,7 +14,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
 .top {
