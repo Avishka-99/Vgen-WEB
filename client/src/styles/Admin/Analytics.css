@@ -539,3 +539,15 @@
   font-weight: bold;
   color: #000000;
 }
+
+.anl-pie-chart-container {
+  /* Set the pie chart container to take up the full width and height of its parent container */
+  width: 100%;
+  height: 100%;
+
+  /* Center the pie chart both horizontally and vertically within the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

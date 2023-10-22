@@ -1,246 +1,330 @@
-.Admin_bg {
-	width: auto;
-	height: 90%;
-}
-.AdminContainer {
+* {
+	font-family: "poppins-regular";
+  }
+  
+  .Home-Container {
+	font-family: "poppins-regular";
+	padding-left: 5%;
+	padding-right: 2%;
+	display: inline-block;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-}
-.AdminWrapContainer {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	display: flex;
-	flex-direction: row;
-}
-.AdminContainer .Row_1 {
-	width: 70%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
-.AdminContainer .Row_1 .AdminRow_1Row1 {
-	width: 100%;
-	height: 7%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-.AdminContainer .Row_1 .AdminRow_1Row2 {
-	width: 100%;
-	height: 7%;
-	display: flex;
-	align-items: center;
-}
-.AdminContainer .Row_1 .AdminRow_1Row3 {
-	width: 100%;
-	height: 19%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-.AdminContainer .Row_1 .AdminRow_1Row4 {
-	width: 100%;
-	height: 7%;
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
-}
-.AdminContainer .Row_1 .AdminRow_1Row5 {
-	width: 100%;
-	height: 60%;
-	max-height: 60%;
-	overflow-y: auto;
-}
-.AdminRow_1Row5 table {
-	border-collapse: collapse;
-}
-.AdminRow_1Row5 th,
-.AdminRow_1Row5 td {
-	/* border: 1px solid black; */
-	text-align: left;
-}
-.AdminRow_1Row5 th {
-	position: sticky;
-	top: 0;
-	background-color: #bcdac8;
-}
-.AdminRow_1Row5 th:first-child {
-	border-top-left-radius: 15px;
-}
-.AdminRow_1Row5 th:last-child {
-	border-top-right-radius: 15px;
-}
-/* tbody td:last-child{
-    width: 20px;
-} */
-.AdminDashboardTable {
-	width: 100%;
-	height: 90%;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-}
-.AdminDashboardTableHeadings {
-	width: 100%;
-	height: 15%;
-	background-color: #bcdac8;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	display: flex;
-	flex-direction: row;
-}
-.AdminTableRowHeadingTitle {
-	width: 20%;
-	height: 100%;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-}
-.AdminDashboardTableContent {
-	background-color: burlywood;
-	width: 100%;
-	height: 85%;
-}
+	background-image: url("../../assets/images/Admin/background-image.png");
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+  }
 
-.AdminContainer .Row_2 {
-	width: 30%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-
-}
-.AdminRow_2Row1{
-	width: 100%;
-	height: 50%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-/* Styling for the main card view container */
-.AdminRow_2Row1 .card_view {
-    font-family: Arial, sans-serif;
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling for the "Most Orders" heading */
-.AdminRow_2Row1 .vegan_type {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Styling for the card container */
-.AdminRow_2Row1 .card-container {
-    flex-wrap: wrap;
-
-}
-
-/* Styling for each individual card */
-.AdminRow_2Row1 .card {
-    flex: 0.5;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling for the card body (name and value) */
-.AdminRow_2Row1 .card-body {
-    margin-top: 10px;
-	display: flex;
-}
-
-/* Styling for the restaurant name */
-.AdminRow_2Row1 .card-body h5 {
-    font-size: 16px;
-    margin: 0;
-    color: #333;
-}
-
-/* Styling for the value */
-.AdminRow_2Row1 .card-body p {
-    font-size: 14px;
-    margin: 5px 0;
-    color: #777;
-}
-.card-most{
- width: 50%;
- object-fit: cover;
- border-radius: 5px;
-}
-.img3{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 5px;
-	margin-right: 20px;
-}
-.card-img{
-	width: 50%;
-	height: 50%;
-	object-fit: cover;
-	border-radius: 5px;
-	margin-right: 20px;
-}
-
-.AdminRow_2Row2 {
-    flex-direction: column;
-    align-items: center;
-	justify-content: center;
-	display: flex
-}
-.pie-chart-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-
-	align-items: center;
-}
-
-.pie-chart {
-	align-items: center;
-}
-
-.pie-chart-title {
-	font-size: 16px;
-	margin-right: 8px;
-}
-
-.pie-chart-color {
-	width: 20px;
-	height: 20px;
+  .Home-CardIconContainer {
+	margin-top: 20px;
+	margin-left: 20px;
+	height: 80px;
+	width: 80px;
 	border-radius: 50%;
-}
-.pie-chart-container1 {
+	background-image: url("../../assets/images/Admin/Total Sales2.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Styles for card icon container 2*/
+  .Home-CardIconContainer2 {
+	margin-top: 20px;
+	margin-left: 20px;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	background-image: url("../../assets/images/Admin/Total Revenue2.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Styles for card icon container 3*/
+  .Home-CardIconContainer3 {
+	margin-top: 20px;
+	margin-left: 20px;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	background-image: url("../../assets/images/Admin/Expenses2.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .Home-Top {
+	max-width: 1920px;
+	margin-top: 2%;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
+  }
+  
+  .Home-Right {
+	margin-left: 2%;
+	display: inline-block;
+  }
+  
+  .Home-TopLeft {
+	width: 800px;
+  }
+  
+  .Home-TopRight {
+	width: 380px;
+	height: 300px;
+	background-color: #F4FFF8;
+	border-radius: 25px;
+	padding: 25px;
+  }
+  
+  .Home-Bottom {
+	max-width: 1920px;
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .Home-BottomLeft {
+	width: 800px;
+  }
+  
+  .Home-TopRight-heading {
+	margin-bottom: 15px;
+	font-weight: bolder;
+  }
+  
+  .Home-BottomRight-heading {
+	margin-top: 25px;
+	margin-bottom: 15px;
+	font-weight: bolder;
+  }
+  
+  .Home-TopLine {
+	max-width: 800px;
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .Home-HeadingText {
+	font-size: 30px;
+	font-weight: bold;
+	color: black;
+  }
+  
+  .Home-NotificationButton {
+	margin-top: 10px;
+	height: 30px;
+	width: 30px;
+	border: 1px solid #7eb693;
+	border-radius: 50%;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .Home-SubHeadingText {
+	padding-top: 10px;
+	font-size: 20px;
+	font-weight: bolder;
+	color: black;
+  }
+  
+  .Home-FilterButton1 {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 15px;
+	margin-top: 5px;
+	height: 30px;
+	width: 90px;
+	background-color: #bcdac8;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+	margin-left: auto;
+	margin-top: -25px;
+	cursor: pointer;
+	align-self: flex-start;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+	position: relative;
+  }
+  
+  .Home-FilterButton2 {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 15px;
+	margin-top: 5px;
+	height: 30px;
+	width: 90px;
+	background-color: #bcdac8;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+	margin-left: auto;
+	margin-top: -10px;
+	cursor: pointer;
+	align-self: flex-start;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+	position: relative;
+  }
+  
+  .Home-Filter-menu {
+	position: absolute;
+	top: 35px;
+	right: 0;
+	width: 120px;
+	background-color: #bcdac8;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	text-align: center;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+  }
+  
+  .Home-Filter-container {
+	padding: 10px;
+	border-bottom: 1px solid #fff;
+	cursor: pointer;
+  }
+  
+  .Home-Filter-container:last-child {
+	border-bottom: none;
+  }
+  
+  .Home-DateText {
+	padding-top: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #8b7e74;
+  }
+  
+  .Home-BodyText {
+	padding-top: 10px;
+	margin-left: 15px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+  }
+  
+  .Home-SubContainer {
+	padding-top: 2%;
+	display: flex;
+	justify-content: space-between;
+	max-width: 800px;
+  }
+  
+  .Home-CardContainer {
+	width: 250px;
+	height: 150px;
+	background-color: #bcdac8;
+	border-radius: 25px;
+	display: flex;
+	justify-content: space between;
+	max-width: 250px;
 	align-items: center;
-}
-.card-most {
-	width: 50%;
-	object-fit: cover;
-	border-radius: 5px;
-}
-.img3 {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 5px;
-	margin-right: 20px;
-}
-.card-img {
-	width: 50%;
-	height: 50%;
-	object-fit: cover;
-	border-radius: 5px;
-	margin-right: 20px;
-}
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .Home-FirstDivider {
+	width: 125px;
+	height: 150px;
+	align-items: center;
+	text-align: center;
+  }
+  
+  .Home-SecondDivider {
+	padding-right: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 125px;
+	height: 150px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: right;
+  }
+  
+  .Home-rightContainer {
+	margin-top: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	width: 380px;
+	height: 320px;
+	background-color: #F4FFF8;
+	border-radius: 30px;
+  }
+  
+  .Home-MidLine {
+	padding-top: 2%;
+	display: flex;
+	justify-content: space between;
+  }
+  
+  .Home-Customer {
+	display: flex;
+  }
+  
+  .Home-ImgIcon {
+	margin-top: -4px;
+	margin-left: 5px;
+	margin-right: 10px;
+	height: 28px;
+	width: 28px;
+	border: 1px solid #7EB693;
+	border-radius: 50%;
+  }
+  
+  .Home-TopLeftContainer {
+	margin-top: 3px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	width: 800px;
+	height: 250px;
+	background-color: #F4FFF8;
+	border-radius: 30px;
+  }
+  
+  .Home-BottomLeftContainer {
+	margin-top: 3px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	width: 800px;
+	height: 250px;
+	background-color: #F4FFF8;
+	border-radius: 30px;
+  }  
+
+  .Home-CountText {
+	font-family: "poppins-extrabold";
+	font-size: 30px;
+	text-align: center;
+	margin-left: 40px;
+  }
+  
+  /* Styles for count goes up */
+  .Home-countGoesUp {
+	font-family: "poppins-extrabold";
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	color: green;
+  }
+  
+  /* Styles for count goes down */
+  .Home-CountGoesDown {
+	font-family: "poppins-extrabold";
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	color: crimson;
+  }
+  
