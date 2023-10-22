@@ -62,8 +62,90 @@ export default function AdminHome() {
                 <div className="Home-SubHeadingText">Recent Orders</div>
               </div>
               <div className="Home-SubContainer">
-                <div className="Home-BottomLeftContainer">
-                </div>
+			  <div class="Home-tableArea">
+			  <table class="Home-dbTable">
+                <thead>
+                  <tr>
+                    <th>Customer ID</th>
+                    <th>Order ID</th>
+                    <th>Order Type</th>
+                    <th>Payment</th>
+                    <th>Order Status</th>
+                 </tr>
+                </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dewmini</td>
+                      <td>101</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+                    <tr>
+                      <td>Janadi</td>
+                      <td>103</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+                    <tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+                    <tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+                    <tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+					<tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+					<tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+					<tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+					<tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr><tr>
+                      <td>Tharindu</td>
+                      <td>104</td>
+                      <td>Delivery</td>
+                      <td>COD</td>
+                      <td>Preparing</td>
+                    </tr>
+                  </tbody>
+              </table>
+			  </div>
               </div>
             </div>
           </div>
