@@ -15,7 +15,7 @@ export default function Analytics() {
     { name: 'Reposts', value: 150 },
   ];
 
-  const COLORS = ['#78D6C6', '#419197', '#12486B'];
+  const COLORS = ['#2c8bbc', '#14a4cc', '#4c6cb3'];
 
   const expensesData = [
     { name: 'Vegan Products', value: 1000 },
@@ -23,7 +23,7 @@ export default function Analytics() {
     { name: 'Donations', value: 300 },
   ];
 
-  const expensesColors = ['#CD6688', '#7A316F', '#461959'];
+  const expensesColors = ['#5f5fa9', '#3e7cb7', '#199ac6'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -105,7 +105,7 @@ export default function Analytics() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#74257b" />
+                  <Bar dataKey="value" fill="#5f5fa9" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
