@@ -152,7 +152,7 @@ export default function Analytics() {
             <div className="anl-bottomLeft">
               <div className="anl-midLine"></div>
               <div>
-                <div className="anl-subHeadingText">Recent Activities</div>
+                <div className="anl-subHeadingText">Recent Activities - Analytics</div>
                 <div className="anl-filterButton1" onClick={toggleFilterMenu2}>
                   Filter
                   {showFilterMenu2 && (

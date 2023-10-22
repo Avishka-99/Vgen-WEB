@@ -114,7 +114,7 @@ export default function Riders() {
         </div>
         <div className="Prof-Right">
           <div className="Prof-SubHeadingText">
-            Upcoming Activities 
+            Recent Activities 
           </div>
           <div className="Prof-FilterButton">Filter by Date</div>
           <div>
