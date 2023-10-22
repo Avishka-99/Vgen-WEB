@@ -129,50 +129,62 @@ export default function Riders() {
                 <div className="Ride-ActivityIconContainer"></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                <div className="Ride-ActivityIconContainer "></div>
                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer"></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                 <div className="Ride-ActivityIconContainer "></div>
                 <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
             <div className="Ride-Activities">
                <div className="Ride-ActivityIconContainer "></div>
                <div className="Ride-ActivityText">Jeremiah Christopher</div>
             </div>
+            <div className="Ride-Divider"></div>
           </div>
         </div>
       </div>

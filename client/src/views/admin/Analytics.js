@@ -219,7 +219,7 @@ export default function Analytics() {
               <div className='anl-pie-chart-container'>
                 <ResponsiveContainer>
                   <PieChart>
-                    <Pie data={data}  innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
+                    <Pie data={data}  innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={5} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
                       {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
@@ -255,7 +255,7 @@ export default function Analytics() {
               <div className='anl-pie-chart-container'>
                 <ResponsiveContainer>
                   <PieChart>
-                    <Pie data={expensesData} innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={20} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
+                    <Pie data={expensesData} innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={5} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
                       {expensesData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
                       ))}

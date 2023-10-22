@@ -405,6 +405,7 @@
     font-size: 14px;
     font-weight: bold;
     color: #000000;
+    text-align: center;
   }
   
   .Ride-textContainer {
@@ -458,3 +459,9 @@
     font-weight: bold;
     color: #888;
   }
+ 
+  .Ride-Divider {
+    border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
+    height: 5px; /* Adjust the height of the divider as needed */
+    margin: 10 0px; /* Adjust the margin to control spacing */
+}
