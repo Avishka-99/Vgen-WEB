@@ -352,7 +352,7 @@
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/admin2.png");
+    background-image: url("../../assets/images/Admin/admin3.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -391,7 +391,7 @@
 
 .DetailDate {
     font-size: 14px; /* Adjust the font size as needed */
-    color: #116A7B; /* Adjust the color as needed */
+    color: #9a2172; /* Adjust the color as needed */
   }
   
 .DetailTime {
@@ -445,5 +445,5 @@
     margin-left: 90px;
     font-size: 13px;
     font-weight: bolder;
-    color: #116A7B;
+    color: #9a2172;
 }
