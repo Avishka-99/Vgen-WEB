@@ -73,11 +73,11 @@ export default function Payments() {
             <table class="db-tbl">
               <thead>
                 <tr>
-                  <th style={{width: '130px'}}>Transaction ID</th>
-                  <th style={{width: '180px'}}>Transaction Type</th>
-                  <th style={{width: '230px'}}>Recipient</th>
-                  <th style={{width: '100px'}}>Amount</th>
-                  <th style={{width: '160px'}}>Transaction Status</th>
+                  <th style={{ width: "130px" }}>Transaction ID</th>
+                  <th style={{ width: "180px" }}>Transaction Type</th>
+                  <th style={{ width: "230px" }}>Recipient</th>
+                  <th style={{ width: "100px" }}>Amount</th>
+                  <th style={{ width: "160px" }}>Transaction Status</th>
                 </tr>
               </thead>
               <tbody>
