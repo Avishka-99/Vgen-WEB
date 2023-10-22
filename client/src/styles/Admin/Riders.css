@@ -223,7 +223,7 @@
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/Admin.png");
+    background-image: url("../../assets/images/Admin/rider2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -391,7 +391,7 @@
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/Admin.png");
+    background-image: url("../../assets/images/Admin/rider2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -430,4 +430,31 @@
     font-weight: bold;
     color: #000000;
     text-align: left;
+  }
+
+  .Ride-Details {
+    display: flex;
+    margin-right: 120px;
+    margin-left: 300px;
+    margin-top: -250px;
+    text-align: left;
+    flex-direction: column;
+  }
+
+  .Ride-Name {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+
+  .NameLabel {
+    font-size: 16px;
+    color: #000;
+  }
+
+  .NameValue {
+    font-size: 15px;
+    font-weight: bold;
+    color: #888;
   }

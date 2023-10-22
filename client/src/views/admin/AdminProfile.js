@@ -20,7 +20,7 @@ export default function Riders() {
             <div className="Prof-TopLeftContainer">
             <div className="Prof-IconContainer"></div>
               <div className="Prof-nameText">Daweendri Himasha</div>
-              <div className="Prof-subNameText">Area : Colombo</div>
+              <div className="Prof-subNameText">Admin User</div>
               <div className="Prof-Details">
                 <div className="Prof-Name">
                   <span className="NameLabel">First Name : </span>
