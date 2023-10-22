@@ -20,10 +20,10 @@
   .Home-CardIconContainer {
 	margin-top: 20px;
 	margin-left: 20px;
-	height: 80px;
-	width: 80px;
+	height: 100px;
+	width: 100px;
 	border-radius: 50%;
-	background-image: url("../../assets/images/Admin/Total Sales2.png");
+	background-image: url("../../assets/images/Admin/orders.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -34,10 +34,10 @@
   .Home-CardIconContainer2 {
 	margin-top: 20px;
 	margin-left: 20px;
-	height: 80px;
-	width: 80px;
+	height: 100px;
+	width: 100px;
 	border-radius: 50%;
-	background-image: url("../../assets/images/Admin/Total Revenue2.png");
+	background-image: url("../../assets/images/Admin/Fulfilled.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -48,10 +48,10 @@
   .Home-CardIconContainer3 {
 	margin-top: 20px;
 	margin-left: 20px;
-	height: 80px;
-	width: 80px;
+	height: 100px;
+	width: 100px;
 	border-radius: 50%;
-	background-image: url("../../assets/images/Admin/Expenses2.png");
+	background-image: url("../../assets/images/Admin/cancelled.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -257,6 +257,27 @@
 	height: 320px;
 	background-color: #F4FFF8;
 	border-radius: 30px;
+	overflow-y: scroll;
+  }
+
+  /* Webkit-based browsers (Google Chrome) */
+  .Home-topRightContainer::-webkit-scrollbar {
+	width: 8px; /* Width of the entire scrollbar */
+  }
+  
+  .Home-topRightContainer::-webkit-scrollbar-thumb {
+	background: #7EB693; /* Color of the scrollbar thumb */
+	border-radius: 5px; /* Rounded corners of the thumb */
+  }
+  
+  .Home-topRightContainer::-webkit-scrollbar-thumb:hover {
+	background: #888; /* Color of the thumb on hover */
+  }
+  
+  .Home-topRightContainer::-webkit-scrollbar-track {
+	background: #bcdac8; /* Color of the scrollbar track */
+	border-radius: 10px; /* Rounded corners of the track */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   }
 
   .Home-bottomRightContainer {
@@ -317,9 +338,11 @@
 
   .Home-CountText {
 	font-family: "poppins-extrabold";
-	font-size: 30px;
+	font-size: 50px;
 	text-align: center;
-	margin-left: 40px;
+	margin-right: auto;
+    margin-top: -10px;
+	color: #000000;
   }
   
   /* Styles for count goes up */
@@ -385,8 +408,9 @@
   /* Styles for table headers */
   .Home-dbTable th {
 	background-color: #BCDAC8;
-	color: black;
+	color: #772b8d;
 	font-size: 15px;
+	font-weight: bold;
   }
   
   /* Styles for first and last table headers */
@@ -420,3 +444,62 @@
 	color: white;
   }
   
+  .Home-pie-chart-container {
+	/* Set the pie chart container to take up the full width and height of its parent container */
+	width: 100%;
+	height: 100%;
+  
+	/* Center the pie chart both horizontally and vertically within the container */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+
+  .Home-Activities {
+    width: 300px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+  }
+
+  .Home-Activities-Row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .Home-ActivityIconContainer {
+    margin-left: 10px;
+    margin-top: 5px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-image: url("../../assets/images/Admin/food.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .Home-ActivityText {
+    margin-top: -25px;
+    padding-top: -10px;
+    margin-left: 65px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+	text-align: center;
+  }
+
+  .Home-Divider {
+    border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
+    height: 5px; /* Adjust the height of the divider as needed */
+    margin: 10 0px; /* Adjust the margin to control spacing */
+  }
