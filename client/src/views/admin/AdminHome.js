@@ -106,7 +106,7 @@ export default function AdminHome() {
               <div className="Home-MidLine"></div>
               <div>
                 <div className="Home-SubHeadingText">Recent Orders</div>
-				<div className="Home-filterButton1" onClick={toggleFilterMenu}>
+				        <div className="Home-filterButton1" onClick={toggleFilterMenu}>
                   Filter
                   {showFilterMenu && (
                     <div className="Home-filter-menu">
@@ -210,7 +210,7 @@ export default function AdminHome() {
         </div>
         <div className="Home-Right">
           <div className="Home-SubHeadingText">Most Ordered</div>
-		  <div className="Home-filterButton1" onClick={toggleFilterMenu2}>
+		        <div className="Home-filterButton1" onClick={toggleFilterMenu2}>
                   Filter
                   {showFilterMenu2 && (
                     <div className="Home-filter-menu">
