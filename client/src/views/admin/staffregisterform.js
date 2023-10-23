@@ -45,7 +45,9 @@ const StaffRegistrationForm = ({onClose}) => {
 			<div className='form-div'>
 				<h2>Staff Registration</h2>
 				<p>Please fill this form to create an account.</p>
-				<hr />
+				<div class="horizontal-line"></div>
+				<br />
+				<div class="form-registerIconContainer"></div>
 				<form style={{fontFamily: 'poppins-semibold', fontSize: 13, color: 'black'}} onSubmit={handleSubmit}>
 					<div className='StaffRegFormRow'>
 						<div className='StaffRegFormCol1'>
@@ -84,7 +86,7 @@ const StaffRegistrationForm = ({onClose}) => {
 						</div>
 					</div>
 					<div className='StaffRegFormRow'>
-						<button type='submit'>Register</button>
+						<button type='submit' id="submitButton">Register</button>
 					</div>
 					{/* <label>Email:</label>
 					<input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />

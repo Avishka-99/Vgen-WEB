@@ -1,13 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import StaffRegistrationForm from './staffregisterform';
 import '../../styles/Admin/Staff.css';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CloseIcon from '@mui/icons-material/Close';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import Axios from '../../api/Axios';
-import { LineChart, Line, PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import { LineChart, Line, Tooltip, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Staff() {
+	const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const currentDate = new Date();
+	const dayOfWeek = daysOfWeek[currentDate.getDay()];
+	const dayOfMonth = currentDate.getDate();
+	const month = months[currentDate.getMonth()];
+	const year = currentDate.getFullYear();
+	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
+
 	const data = [
 		{
 		  name: 'Monday',
@@ -50,6 +58,21 @@ export default function Staff() {
 	const toggleFilterMenu2 = () => {
 		setShowFilterMenu2(!showFilterMenu2);
 	};
+
+	const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
+	const openRegistrationForm = () => {
+		setIsRegistrationOpen(true);
+	};
+
+	const closeRegistrationForm = () => {
+		setIsRegistrationOpen(false);
+	};
+	useEffect(() => {
+		Axios.post(API_ENDPOINTS.FETCH_ALL_STAFF).then((response) => {
+			console.log(response.data);
+		});
+	},[]);
 	
     return (
         <div className="Staff-Container">
@@ -60,8 +83,8 @@ export default function Staff() {
 				    <div className="Staff-NotificationButton"></div>
                 </div>
                 <div>
-                  <div className="Staff-DateText">Monday 23 October 2023</div>
-				  <div className="Staff-AddButton">Add Member</div>
+                  <div className="Staff-DateText">{formattedDate}</div>
+				  <div className="Staff-AddButton" onClick={openRegistrationForm}>Add Member</div>
                 </div>
                 <div className="Staff-SubContainer">
 				  <div class="Home-tableArea">
@@ -150,6 +173,16 @@ export default function Staff() {
                     </table>
 			      </div>
                 </div>
+				{isRegistrationOpen && (
+				<div className='modal'>
+					<div className='modal-content' style={{width: '70%'}}>
+						<span className='close' onClick={closeRegistrationForm}>
+							<CloseIcon />
+						</span>
+						<StaffRegistrationForm onClose={closeRegistrationForm} />
+					</div>
+				</div>
+			)}
             <div className="Staff-Bottom">
             <div className="Staff-BottomLeft">
               <div>

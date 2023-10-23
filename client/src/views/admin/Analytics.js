@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Analytics.css";
 import { LineChart, Line, PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Analytics() {
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const currentDate = new Date();
+	const dayOfWeek = daysOfWeek[currentDate.getDay()];
+	const dayOfMonth = currentDate.getDate();
+	const month = months[currentDate.getMonth()];
+	const year = currentDate.getFullYear();
+	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
+
   const linedata = [
     {
       name: 'Monday',
@@ -136,7 +144,7 @@ export default function Analytics() {
             <div className="anl-notificationButton"></div>
           </div>
           <div>
-            <div className="anl-dateText">Tuesday 07 July 2023</div>
+            <div className="anl-dateText">{formattedDate}</div>
             <div className="anl-filterButton1" onClick={toggleFilterMenu}>
               Filter
               {showFilterMenu && (
