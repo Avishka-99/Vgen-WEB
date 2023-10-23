@@ -225,6 +225,14 @@
   align-items: center;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.anl-cardContainer:hover {
+	transform: scale(1.05) translateY(-5px);
+	cursor: pointer;
+  background-color: #7eb693;
 }
 
 /* Styles for divider element 1 */

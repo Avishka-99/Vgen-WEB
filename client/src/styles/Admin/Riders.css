@@ -228,6 +228,13 @@
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+	  transition: transform 0.3s;
+  }
+
+  .Ride-IconContainer:hover {
+    transform: scale(1.05) translateY(-5px);
+    cursor: pointer;
   }
 
   .Ride-FirstDivider {
@@ -376,8 +383,16 @@
     padding: 0 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
   }
   
+  .Ride-Activities:hover {
+    transform: scale(1.05) translateY(-5px);
+    cursor: pointer;
+    background-color: #ccc;
+  }
+
   .Ride-Activities-Row {
     display: flex;
     flex-wrap: wrap;

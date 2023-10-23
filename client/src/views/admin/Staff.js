@@ -205,6 +205,66 @@ export default function Staff() {
                 </div>
                 <div>
                   <div className="Staff-RightContainer">
+				     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+					 <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+					 <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+					 <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
+                     <div className="Staff-Activities">
+                        <div className="Staff-ActivityIconContainer"></div>
+                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                     </div>
+                     <div className="Staff-Divider"></div>
                   </div>
                 </div>
             </div>
