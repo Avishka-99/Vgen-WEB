@@ -17,7 +17,8 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EuroIcon from '@mui/icons-material/Euro';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
-import MenuBookIcon from '@mui/icons-material/MenuBook'; 
+import DatasetIcon from '@mui/icons-material/Dataset';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import {useNavigate} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
@@ -47,7 +48,6 @@ const ShowSidebar = (props) => {
 		{id: 4, icon: <PeopleIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Community', link: 'community', index: '4'},
 		{id: 5, icon: <DynamicFeedIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Feeds', link: 'feed', index: '5'},
 		{id: 6, icon: <InfoIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'About', link: 'About', index: '6'},
-        
 	];
 	const restaurant = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
@@ -59,21 +59,21 @@ const ShowSidebar = (props) => {
 		{id: 7, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const admin = [
-		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:'Home', link: 'home', index: '1'},
-		{id: 2, icon: <GroupsIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Staff", link: 'staff', index: '2'},
-		{id: 3, icon: <TrendingUpIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Analytics", link: 'analytics', index: '3'},
-		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Riders", link: 'riders', index: '4'},
-		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Profile", link: 'profile', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"LogOut", link: 'logout', index: '6'},
-	
+		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
+		{id: 2, icon: <GroupsIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Staff', link: 'staff', index: '2'},
+		{id: 3, icon: <TrendingUpIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Analytics', link: 'analytics', index: '3'},
+		{id: 4, icon: <DirectionsBikeIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Riders', link: 'riders', index: '4'},
+		{id: 5, icon: <DatasetIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Categories', link: 'categories', index: '5'},
+		{id: 6, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Profile', link: 'profile', index: '6'},
+		{id: 7, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];
 	const staff = [
-		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Home", link: 'home', index: '1'},
-		{id: 2, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Users", link: 'users', index: '2'},
-		{id: 3, icon: <EuroIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Payments", link: 'payments', index: '3'},
-		{id: 4, icon: <RecordVoiceOverIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Complaints", link: 'complaints', index: '4'},
-		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Profile", link: 'profile', index: '5'},
-		{id: 6, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />,label:"Logout", link: 'logout', index: '6'},
+		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
+		{id: 2, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Users', link: 'users', index: '2'},
+		{id: 3, icon: <EuroIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Payments', link: 'payments', index: '3'},
+		{id: 4, icon: <RecordVoiceOverIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Complaints', link: 'complaints', index: '4'},
+		{id: 5, icon: <AccountCircleIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Profile', link: 'profile', index: '5'},
+		{id: 6, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Logout', link: 'logout', index: '6'},
 	];
 	const manufacture = [
 		{id: 1, icon: <HomeIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
@@ -107,7 +107,7 @@ const ShowSidebar = (props) => {
 	} else if (props.type == 'Staff') {
 		return (
 			<div className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`} onSelect={(item) => console.log(item)}>
-			<div className={expanded ? 'expand-toggle' : 'expand'} onClick={toggleSidebar}>
+				<div className={expanded ? 'expand-toggle' : 'expand'} onClick={toggleSidebar}>
 					{expanded ? <MenuOutlinedIcon /> : <MenuOutlinedIcon />}
 				</div>
 				<div className='menuItemContainer'>

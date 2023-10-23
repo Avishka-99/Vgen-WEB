@@ -7,7 +7,7 @@ const MenuItem = (props) => {
       className={`menuItem ${props.active === props.index ? 'active' : ''}`}
       onClick={() => props.fun(props.link, props.index)}
       tabIndex={props.index}
-      style={{width: '100%', height: '15%'}}
+      style={{width: '100%', height: '12%'}}
     >
     {props.expanded ? (
 				<div style={{height: '100%', display: 'flex', alignItems: 'center', marginLeft: '15%', justifyContent: 'center'}}>

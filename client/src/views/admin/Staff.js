@@ -5,9 +5,40 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CloseIcon from '@mui/icons-material/Close';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import Axios from '../../api/Axios';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import { LineChart, Line, PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Staff() {
+	const data = [
+		{
+		  name: 'Monday',
+		  "Staff Members": 31,  
+		},
+		{
+		  name: 'Tuesday',
+		  "Staff Members": 42,
+		},
+		{
+		  name: 'Wednesday',
+		  "Staff Members": 38,
+		},
+		{
+		  name: 'Thursday',
+		  "Staff Members": 26,
+		},
+		{
+		  name: 'Friday',
+		  "Staff Members": 45,
+		},
+		{
+		  name: 'Saturday',
+		  "Staff Members": 40,
+		},
+		{
+		  name: 'Sunday',
+		  "Staff Members": 50,
+		},
+	];
+
 	const [showFilterMenu, setShowFilterMenu] = useState(false);
 	
 	const toggleFilterMenu = () => {
@@ -122,19 +153,36 @@ export default function Staff() {
             <div className="Staff-Bottom">
             <div className="Staff-BottomLeft">
               <div>
-                <div className="Staff-SubHeadingText">Staff Growth Over Time</div>
+                <div className="Staff-SubHeadingText">Staff Additions Summary</div>
                 <div className="Staff-FilterButton1" onClick={toggleFilterMenu}>
-                  Filter
+                  Weekly
                   {showFilterMenu && (
                     <div className="Staff-Filter-menu">
+
+                      <div className="Staff-Filter-container">Weekly</div>
                       <div className="Staff-Filter-container">Monthly</div>
-                      <div className="Staff-Filter-container">Yearly</div>
                     </div>
                   )}
                 </div>
               </div>
               <div className="Staff-SubContainer">
                 <div className="Staff-BottomLeftContainer">
+                  <ResponsiveContainer width="100%" height="100%">
+                     <LineChart width={800} height={350} data={data} margin={{top: 5, right: 30, left: 0, bottom: 5, }}>
+					   <defs>
+                         <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#a8559e" />
+                            <stop offset="100%" stopColor="#35b8e3" />
+                         </linearGradient>
+                       </defs>
+                       <CartesianGrid strokeDasharray="3 3" />
+                       <XAxis dataKey="name" tick={{ fontSize: 12 }}/>
+                       <YAxis tick={{ fontSize: 12 }}/>
+                       <Tooltip contentStyle={{ fontSize: 12 }}/>
+                       <Legend iconSize={12} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                       <Line type="monotone" dataKey="Staff Members" stroke="url(#lineGradient)" strokeWidth={3} activeDot={{ r: 8 }}/>  
+                     </LineChart>
+                 </ResponsiveContainer>
                 </div>
               </div>
             </div>
@@ -149,8 +197,8 @@ export default function Staff() {
                     <div className="Staff-Filter-menu2">
                       <div className="Staff-Filter-container">Active Now</div>
                       <div className="Staff-Filter-container">Active 5 mins Ago</div>
-					  <div className="Staff-Filter-container">Mont</div>
-                      <div className="Staff-Filter-container">Yearly</div>
+					  <div className="Staff-Filter-container">Active 30 mins ago</div>
+                      <div className="Staff-Filter-container">Recently Active</div>
                     </div>
                   )}
                 </div>

@@ -1,8 +1,61 @@
 import React, { useState } from "react";
+import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Analytics.css";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import { LineChart, Line, PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Analytics() {
+  const linedata = [
+    {
+      name: 'Monday',
+      "Buy Vegan Products": 50,
+      "Vegan Events": 20,
+      "Donations": 31,
+      Other: 10,  
+    },
+    {
+      name: 'Tuesday',
+      "Buy Vegan Products": 80,
+      "Vegan Events": 40,
+      "Donations": 41,  
+      Other: 20,  
+    },
+    {
+      name: 'Wednesday',
+      "Buy Vegan Products": 70,
+      "Vegan Events": 30,
+      "Donations": 38,  
+      Other: 15, 
+    },
+    {
+      name: 'Thursday',
+      "Buy Vegan Products": 50,
+      "Vegan Events": 20,
+      "Donations": 31,  
+      Other: 11,  
+    },
+    {
+      name: 'Friday',
+      "Buy Vegan Products": 90,
+      "Vegan Events": 50,
+      "Donations": 28,  
+      Other: 30, 
+    },
+    {
+      name: 'Saturday',
+      "Buy Vegan Products": 60,
+      "Vegan Events": 70,
+      "Donations": 45, 
+      Other: 40,  
+    },
+    {
+      name: 'Sunday',
+      "Buy Vegan Products": 100,
+      "Vegan Events": 38,
+      "Donations": 50, 
+      Other: 32,  
+    },
+  ];
+
   const bardata = [
     { name: 'Total Sales', value: 150000 },
     { name: 'Total Revenue', value: 250000 },
@@ -25,7 +78,7 @@ export default function Analytics() {
     { name: '1 Stars', value: 3 },
   ];
 
-  const expensesColors = ['#31246a', '#ae8cc4', '#772b8d', '#8b5cac', '#4c2a7e'];
+  const expensesColors = ['#31246a', '#ae8cc4', '#772b8d', '#7e5482', '#4c2a7e'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -98,9 +151,8 @@ export default function Analytics() {
           </div>
           <div className="anl-subContainer">
             <div className="anl-topLeftContainer">
-              <div className="anl-bodyText">Overview of Latest Month</div>
-              <div className="anl-summary">Last Month Summary</div>
-              <ResponsiveContainer width={700} height={200}>
+              <div className="anl-bodyText">Overview of Today</div>
+              <ResponsiveContainer width={700} height={170}>
                 <BarChart data={bardata}>
                   <XAxis dataKey="name" />
                   <YAxis />
@@ -154,7 +206,7 @@ export default function Analytics() {
             <div className="anl-bottomLeft">
               <div className="anl-midLine"></div>
               <div>
-                <div className="anl-subHeadingText">Recent Activities - Analytics</div>
+                <div className="anl-subHeadingText">Expenses Overview(K)</div>
                 <div className="anl-filterButton1" onClick={toggleFilterMenu2}>
                   Filter
                   {showFilterMenu2 && (
@@ -169,32 +221,29 @@ export default function Analytics() {
               </div>
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">
-                  <div className="anl-activities-row">
-                    <div className="anl-activities">
-                      <div className="anl-activityIconContainer"></div>
-                      <div className="anl-activityText">Vegen Cooking Workshop</div>
-                    </div>
-                    <div className="anl-activities">
-                      <div className="anl-activityIconContainer"></div>
-                      <div className="anl-activityText">Vegen Cooking Workshop</div>
-                    </div>
-                    <div className="anl-activities">
-                      <div className="anl-activityIconContainer"></div>
-                      <div className="anl-activityText">Vegen Cooking Workshop</div>
-                    </div>
-                    <div className="anl-activities">
-                      <div className="anl-activityIconContainer"></div>
-                      <div className="anl-activityText">Vegen Cooking Workshop</div>
-                    </div>
-                    <div className="anl-activities">
-                      <div className="anl-activityIconContainer"></div>
-                      <div className="anl-activityText">Vegen Cooking Workshop</div>
-                    </div>
-                    <div className="anl-activities">
-                      <div className="anl-activityIconContainer"></div>
-                      <div className="anl-activityText">Vegen Cooking Workshop</div>
-                    </div>
-                  </div>
+                  <ResponsiveContainer width="100%" height="100%">
+              <LineChart
+                width={800}
+                height={350}
+                data={linedata}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 0,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" tick={{ fontSize: 12 }}/>
+                <YAxis tick={{ fontSize: 12 }}/>
+                <Tooltip contentStyle={{ fontSize: 12 }}/>
+                <Legend iconSize={12} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                <Line type="monotone" dataKey="Buy Vegan Products" stroke="#31246a" strokeWidth={3} activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="Vegan Events" stroke="#6c9fb8" strokeWidth={3} />
+                <Line type="monotone" dataKey="Donations" stroke="#9b50a2"  strokeWidth={3} /> 
+                <Line type="monotone" dataKey="Other" stroke="#4e7484"  strokeWidth={3} />       
+              </LineChart>
+          </ResponsiveContainer>
                 </div>
               </div>
             </div>

@@ -198,7 +198,7 @@
 
 /* Styles for body text */
 .anl-bodyText {
-  padding-top: 10px;
+  padding-top: 1px;
   margin-left: 15px;
   font-size: 15px;
   font-weight: bold;
@@ -431,7 +431,7 @@
   padding-left: 25px;
   padding-right: 25px;
   width: 800px;
-  height: 250px;
+  height: 210px;
   background-color: #F4FFF8;
   border-radius: 30px;
 }
@@ -444,31 +444,11 @@
   padding-left: 25px;
   padding-right: 25px;
   width: 800px;
-  height: 150px;
+  height: 200px;
   background-color: #F4FFF8;
   border-radius: 30px;
-  overflow-y: scroll; /* Add a vertical scrollbar */
 }
 
-/* Webkit-based browsers (Google Chrome) */
-.anl-bottomLeftContainer::-webkit-scrollbar {
-  width: 8px; /* Width of the entire scrollbar */
-}
-
-.anl-bottomLeftContainer::-webkit-scrollbar-thumb {
-  background: #7EB693; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners of the thumb */
-}
-
-.anl-bottomLeftContainer::-webkit-scrollbar-thumb:hover {
-  background: #888; /* Color of the thumb on hover */
-}
-
-.anl-bottomLeftContainer::-webkit-scrollbar-track {
-  background: #bcdac8; /* Color of the scrollbar track */
-  border-radius: 10px; /* Rounded corners of the track */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-}
 
 /* Styles for the search bar container */
 .anl-searchBar {
