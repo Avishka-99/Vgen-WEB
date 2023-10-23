@@ -4,6 +4,15 @@ import "../../styles/Admin/Home.css";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function AdminHome() {
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const currentDate = new Date();
+	const dayOfWeek = daysOfWeek[currentDate.getDay()];
+	const dayOfMonth = currentDate.getDate();
+	const month = months[currentDate.getMonth()];
+	const year = currentDate.getFullYear();
+	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
+
   const data = [
     { name: 'Highly Satisfied', value: 50 },
     { name: 'Satisfied', value: 410 },
@@ -59,7 +68,7 @@ export default function AdminHome() {
             <div className="Home-NotificationButton"></div>
           </div>
           <div>
-            <div className="Home-DateText">Sunday 22 October 2023</div>
+            <div className="Home-DateText">{formattedDate}</div>
           </div>
           <div className="Home-SubContainer">
 		    <div className="Home-CardContainer">
