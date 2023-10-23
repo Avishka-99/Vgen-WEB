@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Analytics.css";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
