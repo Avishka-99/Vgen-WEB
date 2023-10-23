@@ -7,6 +7,7 @@ export default function Analytics() {
   const bardata = [
     { name: 'Total Sales', value: 150000 },
     { name: 'Total Revenue', value: 250000 },
+    { name: 'Expenses', value: 45000 },
   ];
 
   const data = [
@@ -18,12 +19,14 @@ export default function Analytics() {
   const COLORS = ['#2c8bbc', '#14a4cc', '#4c6cb3'];
 
   const expensesData = [
-    { name: 'Vegan Products', value: 1000 },
-    { name: 'Vegan Events', value: 500 },
-    { name: 'Donations', value: 300 },
+    { name: '5 Stars', value: 250 },
+    { name: '4 Stars', value: 640 },
+    { name: '3 Stars', value: 100 },
+	  { name: '2 Stars', value: 7 },
+    { name: '1 Stars', value: 3 },
   ];
 
-  const expensesColors = ['#502c80', '#a17bb7', '#9f55a7'];
+  const expensesColors = ['#31246a', '#ae8cc4', '#772b8d', '#8b5cac', '#4c2a7e'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -236,7 +239,7 @@ export default function Analytics() {
             </div>
           </div>
           <div className="anl-subHeadingText">
-            Expenses
+            Web Ratings
             <div className="anl-summary">Last Month Summary</div>
           </div>
           <div>
