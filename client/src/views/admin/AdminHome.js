@@ -8,7 +8,7 @@ export default function AdminHome() {
     { name: 'Highly Satisfied', value: 50 },
     { name: 'Satisfied', value: 410 },
     { name: 'Neutral', value: 30 },
-	{ name: 'Dissatisfied', value: 7 },
+	  { name: 'Dissatisfied', value: 7 },
     { name: 'Highly Dissatisfied', value: 3 },
   ];
 
@@ -106,110 +106,111 @@ export default function AdminHome() {
               <div className="Home-MidLine"></div>
               <div>
                 <div className="Home-SubHeadingText">Recent Orders</div>
-				<div className="Home-filterButton1" onClick={toggleFilterMenu}>
+				        <div className="Home-filterButton1" onClick={toggleFilterMenu}>
                   Filter
                   {showFilterMenu && (
                     <div className="Home-filter-menu">
                       <div className="Home-filter-container">Customer</div>
+                      <div className="Home-filter-container">Restaurant</div>
                       <div className="Home-filter-container">Order Type</div>
                       <div className="Home-filter-container">Payment</div>
-                      <div className="Home-filter-container">Order Status</div>
                     </div>
                   )}
                 </div>
               </div>
               <div className="Home-SubContainer">
-			  <div class="Home-tableArea">
-			  <table class="Home-dbTable">
-                <thead>
-                  <tr>
-                    <th>Customer ID</th>
-                    <th>Order ID</th>
-                    <th>Order Type</th>
-                    <th>Payment</th>
-                    <th>Order Status</th>
-                 </tr>
-                </thead>
-                  <tbody>
-                    <tr>
-                      <td>Dewmini</td>
-                      <td>101</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-                    <tr>
-                      <td>Janadi</td>
-                      <td>103</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-                    <tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-                    <tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-                    <tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-					<tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-					<tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-					<tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-					<tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr><tr>
-                      <td>Tharindu</td>
-                      <td>104</td>
-                      <td>Delivery</td>
-                      <td>COD</td>
-                      <td>Preparing</td>
-                    </tr>
-                  </tbody>
-              </table>
-			  </div>
+			          <div class="Home-tableArea">
+			            <table class="Home-dbTable">
+                    <thead>
+                      <tr>
+                        <th>Customer ID</th>
+                        <th>Order ID</th>
+                        <th>Restaurant Name</th>
+                        <th>Order Type</th>
+                        <th>Payment</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+                      <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+                      <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+                      <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+                      <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+                      <tr>
+                        <td>Dewmini</td>
+                        <td>101</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+                   </tbody>
+                 </table>
+			         </div>
               </div>
             </div>
           </div>
         </div>
         <div className="Home-Right">
           <div className="Home-SubHeadingText">Most Ordered</div>
-		  <div className="Home-filterButton1" onClick={toggleFilterMenu2}>
+		        <div className="Home-filterButton1" onClick={toggleFilterMenu2}>
                   Filter
                   {showFilterMenu2 && (
                     <div className="Home-filter-menu">
@@ -255,17 +256,17 @@ export default function AdminHome() {
                   Filter
                   {showFilterMenu3 && (
                     <div className="Home-filter-menu">
-					  <div className="Home-filter-container">All</div>
+					            <div className="Home-filter-container">All</div>
                       <div className="Home-filter-container">Today</div>
                       <div className="Home-filter-container">Yesterday</div>
                       <div className="Home-filter-container">Last Week</div>
-					  <div className="Home-filter-container">Last Month</div>
+					            <div className="Home-filter-container">Last Month</div>
                     </div>
                   )}
           </div>
           <div className="Home-SubContainer">
             <div className="Home-bottomRightContainer">
-			  <div className='anl-pie-chart-container'>
+			       <div className='anl-pie-chart-container'>
                 <ResponsiveContainer>
                   <PieChart>
                     <Pie data={data}  innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={5} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handlePieClick}>
@@ -277,8 +278,8 @@ export default function AdminHome() {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-             </div>
-		   </div>
+            </div>
+		     </div>
         </div>
       </div>
     </div>
