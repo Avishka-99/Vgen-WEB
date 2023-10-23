@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
 
@@ -8,7 +8,7 @@ export default function Users() {
       <div class="top">
         <div class="top-left">
           <div class="topline">
-            <div class="headingtext">VGen Payments</div>
+            <div class="headingtext">VGen Users</div>
             <div class="notification-btn"></div>
           </div>
 
@@ -16,40 +16,6 @@ export default function Users() {
 
           <div class="QAtitle">Quick Access</div>
 
-          <div class="paymentsubcontainer">
-            <div class="paymentcardcontainer">
-              <div class="pay-dash-icon pay-dash-icon1">
-                <div class="restuaranticon"></div>
-              </div>
-              <div class="crdtitle">
-                Restaurant <br /> Payments
-              </div>
-            </div>
-            <div class="paymentcardcontainer">
-              <div class="pay-dash-icon pay-dash-icon2">
-                <div class="restuaranticon"></div>
-              </div>
-              <div class="crdtitle">
-                Delivery <br /> Payments
-              </div>
-            </div>
-            <div class="paymentcardcontainer">
-              <div class="pay-dash-icon pay-dash-icon3">
-                <div class="restuaranticon"></div>
-              </div>
-              <div class="crdtitle">
-                Manufacturer <br /> Payments
-              </div>
-            </div>
-            <div class="paymentcardcontainer">
-              <div class="pay-dash-icon pay-dash-icon4">
-                <div class="restuaranticon"></div>
-              </div>
-              <div class="crdtitle">
-                Donation <br /> Details
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="top-right">
@@ -117,5 +83,5 @@ export default function Users() {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -34,6 +34,7 @@
 }
 
 .complaintscardcontainer:hover {
+  background: linear-gradient(to right, #bcdac8, #bcdac8, #bcdac8, #bcdac8, #f3ffd7);
   /* Scale and slightly elevate the card on hover */
   transform: scale(1.05) translateY(-5px);
   cursor: pointer;
