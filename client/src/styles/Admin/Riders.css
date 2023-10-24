@@ -103,7 +103,7 @@
     margin-left: 80px;
     font-size: 12px;
     font-weight: bold;
-    color: #772b8d;
+    color: #3A747C;
   }
   
   .Ride-FilterButton1 {
@@ -222,12 +222,10 @@
     margin-left: 40px;
     height: 180px;
     width: 180px;
-    border-radius: 50%;
-    background-image: url("../../assets/images/Admin/rider3.png");
+    background-image: url("../../assets/images/Admin/delivery.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 	  transition: transform 0.3s;
   }
@@ -406,7 +404,7 @@
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/rider3.png");
+    background-image: url("../../assets/images/Admin/delivery.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
