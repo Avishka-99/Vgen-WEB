@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/staff/staffhome.css";
+import FontAwesomeIcon from '../../components/FontAwesome';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 
 const data = [
   {
@@ -62,7 +62,9 @@ export default function StaffHome() {
         <div class="top-left">
           <div class="topline">
             <div class="headingtext">VGen Dashboard</div>
-            <div class="notification-btn"></div>
+            <div class="notification-btn">
+              <FontAwesomeIcon icon="fa-solid fa-bell" />
+            </div>
           </div>
 
           <div class="datetext">Tuesday 07 July 2023</div>
