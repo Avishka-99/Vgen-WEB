@@ -132,8 +132,8 @@ export default function AdminHome() {
 			            <table class="Home-dbTable">
                     <thead>
                       <tr>
-                        <th>Customer ID</th>
                         <th>Order ID</th>
+                        <th>Customer ID</th>
                         <th>Restaurant Name</th>
                         <th>Order Type</th>
                         <th>Payment</th>
@@ -141,71 +141,71 @@ export default function AdminHome() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
 					            <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
 					            <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
 					            <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
 					            <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>Dewmini</td>
                         <td>101</td>
+                        <td>Dewmini</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
                         <td>COD</td>
