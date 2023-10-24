@@ -76,7 +76,7 @@ export default function Analytics() {
     { name: 'Reposts', value: 150 },
   ];
 
-  const COLORS = ['#2c8bbc', '#14a4cc', '#4c6cb3'];
+  const COLORS = ['#457F8C', '#4B8160', '#7EB693'];
 
   const webData = [
     { name: '5 Stars', value: 250 },
@@ -86,7 +86,7 @@ export default function Analytics() {
     { name: '1 Stars', value: 3 },
   ];
 
-  const webColors = ['#31246a', '#ae8cc4', '#772b8d', '#7e5482', '#4c2a7e'];
+  const webColors = ['#128194', '#7EB693', '#9DB0A3', '#3A4B40', '#5BB6CA'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -167,7 +167,7 @@ export default function Analytics() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#5f5fa9" />
+                  <Bar dataKey="value" fill="#7EB693" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -236,10 +236,10 @@ export default function Analytics() {
                       <YAxis tick={{ fontSize: 12 }}/>
                       <Tooltip contentStyle={{ fontSize: 12 }}/>
                       <Legend iconSize={12} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
-                      <Line type="monotone" dataKey="Buy Vegan Products" stroke="#31246a" strokeWidth={3} activeDot={{ r: 8 }} />
-                      <Line type="monotone" dataKey="Vegan Events" stroke="#6c9fb8" strokeWidth={3} />
-                      <Line type="monotone" dataKey="Donations" stroke="#9b50a2"  strokeWidth={3} /> 
-                      <Line type="monotone" dataKey="Other" stroke="#4e7484"  strokeWidth={3} />       
+                      <Line type="monotone" dataKey="Buy Vegan Products" stroke="#2F4858" strokeWidth={3} activeDot={{ r: 8 }} />
+                      <Line type="monotone" dataKey="Vegan Events" stroke="#6BB2D8" strokeWidth={3} />
+                      <Line type="monotone" dataKey="Donations" stroke="#005B8D"  strokeWidth={3} /> 
+                      <Line type="monotone" dataKey="Other" stroke="#4B8160"  strokeWidth={3} />       
                     </LineChart>
                  </ResponsiveContainer>
                 </div>
