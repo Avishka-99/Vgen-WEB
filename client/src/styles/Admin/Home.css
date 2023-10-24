@@ -19,43 +19,34 @@
 
   .Home-CardIconContainer {
 	margin-top: 20px;
-	margin-left: 20px;
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	background-image: url("../../assets/images/Admin/orders.jpg");
+	margin-left: 10px;
+	height: 128px;
+	background-image: url("../../assets/images/Admin/orders.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   }
   
   /* Styles for card icon container 2*/
   .Home-CardIconContainer2 {
 	margin-top: 20px;
-	margin-left: 20px;
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	background-image: url("../../assets/images/Admin/Fulfilled.jpg");
+	margin-left: 10px;
+	height: 128px;
+	background-image: url("../../assets/images/Admin/Fulfilled.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   }
   
   /* Styles for card icon container 3*/
   .Home-CardIconContainer3 {
 	margin-top: 20px;
-	margin-left: 20px;
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	background-image: url("../../assets/images/Admin/cancelled.jpg");
+	margin-left: 2px;
+	height: 128px;
+	background-image: url("../../assets/images/Admin/cancelled.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   }
   
   .Home-Top {
