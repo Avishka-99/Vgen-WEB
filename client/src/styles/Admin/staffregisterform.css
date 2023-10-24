@@ -18,12 +18,10 @@
 	margin-bottom: 10px;
     height: 125px;
     width: 125px;
-    border-radius: 50%;
-    background-image: url("../../assets/images/Admin/staff.jpg");
+    background-image: url("../../assets/images/Admin/staff.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 .horizontal-line {
     border-top: 2px solid #7EB693;

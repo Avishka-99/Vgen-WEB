@@ -110,7 +110,7 @@ export default function Riders() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="value" fill="#772b8d" />
+                  <Bar dataKey="value" fill="#5FA18F" />
                 </BarChart>
               </ResponsiveContainer>
                 </div>

@@ -21,7 +21,7 @@ export default function AdminHome() {
     { name: 'Highly Dissatisfied', value: 3 },
   ];
 
-  const COLORS = ['#2db6e3', '#a8559e', '#47a2dc', '#6683c4', '#8162aa'];
+  const COLORS = ['#2F4858', '#488A87', '#7EB693', '#5FA18F', '#335E6C'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {

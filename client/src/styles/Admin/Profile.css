@@ -351,12 +351,10 @@
     margin-left: 40px;
     height: 180px;
     width: 180px;
-    border-radius: 50%;
-    background-image: url("../../assets/images/Admin/admin3.png");
+    background-image: url("../../assets/images/Admin/admin.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 	transition: transform 0.3s;
   }
@@ -406,7 +404,7 @@
 
 .DetailDate {
     font-size: 14px; /* Adjust the font size as needed */
-    color: #2c8bbc; /* Adjust the color as needed */
+    color: #335E6C; /* Adjust the color as needed */
   }
   
 .DetailTime {
@@ -460,5 +458,5 @@
     margin-left: 90px;
     font-size: 13px;
     font-weight: bolder;
-    color: #2c8bbc;
+    color: #335E6C;
 }

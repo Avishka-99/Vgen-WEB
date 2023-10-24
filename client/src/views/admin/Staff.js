@@ -204,8 +204,8 @@ export default function Staff() {
                      <LineChart width={800} height={350} data={data} margin={{top: 5, right: 30, left: 0, bottom: 5, }}>
 					   <defs>
                          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stopColor="#a8559e" />
-                            <stop offset="100%" stopColor="#35b8e3" />
+                            <stop offset="0%" stopColor="#2F4858" />
+                            <stop offset="100%" stopColor="#5FA18F" />
                          </linearGradient>
                        </defs>
                        <CartesianGrid strokeDasharray="3 3" />
