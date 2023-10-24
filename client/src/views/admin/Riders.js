@@ -4,6 +4,15 @@ import "../../styles/Admin/Riders.css";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Riders() {
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const currentDate = new Date();
+	const dayOfWeek = daysOfWeek[currentDate.getDay()];
+	const dayOfMonth = currentDate.getDate();
+	const month = months[currentDate.getMonth()];
+	const year = currentDate.getFullYear();
+	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
+  
   const bardata = [
     { name: 'Very Dissatisfied', value: 1 },
     { name: 'Dissatisfied', value: 3 },
@@ -33,7 +42,7 @@ export default function Riders() {
             <div className="Ride-notificationButton"></div>
           </div>
           <div>
-            <div className="Ride-dateText">Friday 20 October 2023</div>
+            <div className="Ride-dateText">{formattedDate}</div>
           </div>
           <div className="Ride-subContainer">
             <div className="Ride-topLeftContainer">

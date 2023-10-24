@@ -357,6 +357,13 @@
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+	transition: transform 0.3s;
+  }
+
+  .Prof-IconContainer:hover {
+	transform: scale(1.05) translateY(-5px);
+	cursor: pointer;
   }
 
 .Prof-ActivityText {
@@ -377,7 +384,15 @@
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+	transition: transform 0.3s;
 }
+
+ .Prof-Detail:hover {
+	transform: scale(1.05) translateY(-5px);
+	cursor: pointer;
+    background-color: #ccc;
+  }
   
 .Prof-DetailLeft {
     flex: 1;

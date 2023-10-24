@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Analytics.css";
 import { LineChart, Line, PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
 export default function Analytics() {
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const currentDate = new Date();
+	const dayOfWeek = daysOfWeek[currentDate.getDay()];
+	const dayOfMonth = currentDate.getDate();
+	const month = months[currentDate.getMonth()];
+	const year = currentDate.getFullYear();
+	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
+
   const linedata = [
     {
       name: 'Monday',
@@ -57,9 +65,9 @@ export default function Analytics() {
   ];
 
   const bardata = [
-    { name: 'Total Sales', value: 150000 },
-    { name: 'Total Revenue', value: 250000 },
-    { name: 'Expenses', value: 45000 },
+    { name: 'Total Sales', value: 150 },
+    { name: 'Total Revenue', value: 250 },
+    { name: 'Expenses', value: 45 },
   ];
 
   const data = [
@@ -70,7 +78,7 @@ export default function Analytics() {
 
   const COLORS = ['#2c8bbc', '#14a4cc', '#4c6cb3'];
 
-  const expensesData = [
+  const webData = [
     { name: '5 Stars', value: 250 },
     { name: '4 Stars', value: 640 },
     { name: '3 Stars', value: 100 },
@@ -78,7 +86,7 @@ export default function Analytics() {
     { name: '1 Stars', value: 3 },
   ];
 
-  const expensesColors = ['#31246a', '#ae8cc4', '#772b8d', '#7e5482', '#4c2a7e'];
+  const webColors = ['#31246a', '#ae8cc4', '#772b8d', '#7e5482', '#4c2a7e'];
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -93,14 +101,14 @@ export default function Analytics() {
   };
 
   const [activeIndex, setActiveIndex] = useState(null);
-  const [activeExpensesIndex, setActiveExpensesIndex] = useState(null);
+  const [activeWebIndex, setActiveWebIndex] = useState(null);
 
   const handlePieClick = (data, index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   const handleExpensesPieClick = (data, index) => {
-    setActiveExpensesIndex(activeExpensesIndex === index ? null : index);
+    setActiveWebIndex(activeWebIndex === index ? null : index);
   };
 
   const [showFilterMenu, setShowFilterMenu] = useState(false);
@@ -136,7 +144,7 @@ export default function Analytics() {
             <div className="anl-notificationButton"></div>
           </div>
           <div>
-            <div className="anl-dateText">Tuesday 07 July 2023</div>
+            <div className="anl-dateText">{formattedDate}</div>
             <div className="anl-filterButton1" onClick={toggleFilterMenu}>
               Filter
               {showFilterMenu && (
@@ -151,7 +159,7 @@ export default function Analytics() {
           </div>
           <div className="anl-subContainer">
             <div className="anl-topLeftContainer">
-              <div className="anl-bodyText">Overview of Today</div>
+              <div className="anl-bodyText">Overview of Today(K)</div>
               <ResponsiveContainer width={700} height={170}>
                 <BarChart data={bardata}>
                   <XAxis dataKey="name" />
@@ -222,28 +230,18 @@ export default function Analytics() {
               <div className="anl-subContainer">
                 <div className="anl-bottomLeftContainer">
                   <ResponsiveContainer width="100%" height="100%">
-              <LineChart
-                width={800}
-                height={350}
-                data={linedata}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 0,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" tick={{ fontSize: 12 }}/>
-                <YAxis tick={{ fontSize: 12 }}/>
-                <Tooltip contentStyle={{ fontSize: 12 }}/>
-                <Legend iconSize={12} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
-                <Line type="monotone" dataKey="Buy Vegan Products" stroke="#31246a" strokeWidth={3} activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="Vegan Events" stroke="#6c9fb8" strokeWidth={3} />
-                <Line type="monotone" dataKey="Donations" stroke="#9b50a2"  strokeWidth={3} /> 
-                <Line type="monotone" dataKey="Other" stroke="#4e7484"  strokeWidth={3} />       
-              </LineChart>
-          </ResponsiveContainer>
+                    <LineChart width={800} height={350} data={linedata} margin={{ top: 5, right: 30, left: 0, bottom: 5, }}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" tick={{ fontSize: 12 }}/>
+                      <YAxis tick={{ fontSize: 12 }}/>
+                      <Tooltip contentStyle={{ fontSize: 12 }}/>
+                      <Legend iconSize={12} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                      <Line type="monotone" dataKey="Buy Vegan Products" stroke="#31246a" strokeWidth={3} activeDot={{ r: 8 }} />
+                      <Line type="monotone" dataKey="Vegan Events" stroke="#6c9fb8" strokeWidth={3} />
+                      <Line type="monotone" dataKey="Donations" stroke="#9b50a2"  strokeWidth={3} /> 
+                      <Line type="monotone" dataKey="Other" stroke="#4e7484"  strokeWidth={3} />       
+                    </LineChart>
+                 </ResponsiveContainer>
                 </div>
               </div>
             </div>
@@ -306,9 +304,9 @@ export default function Analytics() {
               <div className='anl-pie-chart-container'>
                 <ResponsiveContainer>
                   <PieChart>
-                    <Pie data={expensesData} innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={5} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
-                      {expensesData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={expensesColors[index % expensesColors.length]} />
+                    <Pie data={webData} innerRadius={60} outerRadius={100} fill='#ccc' paddingAngle={5} dataKey='value' label={{ fill: 'black', fontSize: 13 }} onClick={handleExpensesPieClick}>
+                      {webData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={webColors[index % webColors.length]} />
                       ))}
                     </Pie>
                     <Tooltip content={<CustomTooltip />} />
