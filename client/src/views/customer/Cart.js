@@ -21,95 +21,68 @@ function Cart() {
   const [paymentType, setPaymentType] = useState("Cash");
   const [showStripeModal, setShowStripeModal] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState("pending");
+
   const navigate = useNavigate();
 
   const removeCartItem = (itemToRemove) => {
     dispatch(removeFromCart(itemToRemove));
   };
 
-  const handlePaymentSuccess = async (token) => {
+ 
+
+
+  const placeOrder = async ()=> {
+
+    
     try {
-      const response = await Axios.post(
-        API_ENDPOINTS.orderPost_URL,
-        {
-          userId: localStorage.getItem("userId"),
-          orderType: orderType,
-          paymentType: paymentType,
-          amount: calculateTotal(),
-          status: 0,
-          date: new Date().toLocaleDateString(),
-          time: new Date().toLocaleTimeString(),
-          products: cartItems.map((item) => ({
-            productId: item.productId,
-            quantity: item.quantity,
-            price: item.price,
-          })),
-          paymentToken: token.id,
-        },
-        {
+      const userId = localStorage.getItem("userId");
+      // ... orderData setup ...
+      const orderData = {
+        userId: userId,
+        orderType: orderType,
+        paymentType: paymentType,
+        amount: calculateTotal(),
+        status: 0,
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+        products: cartItems.map(item => ({
+          productId: item.productId,
+          quantity: parseInt(item.quantity, 10),
+          price: item.price,
+        })),
+      };
+      const response = await Axios.post("http://localhost:5001/api/orderPost/",
+        orderData 
+        ,{
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
-      dispatch(resetCart());
-      dispatch(incrementCounter(0));
-      ToastMessages.success("Order Placed Successfully");
+      if (response.status === 200) {
+        // Handle successful order placement
+        console.log("Order placed successfully:", response.data);
+        dispatch(resetCart());
+        dispatch(incrementCounter(0));
+        ToastMessages.success("Order Placed Successfully");
+        navigate("/Orders");
+      } else {
+        // Handle non-2xx responses here
+        throw new Error("Order placement failed. Please try again.");
+      }
     } catch (error) {
-      console.error("Error processing payment:", error);
-      ToastMessages.error("Payment failed. Please try again.");
+      console.error("Error placing order:", error.response);
+      ToastMessages.error(error.message);
     }
   };
 
-  const handleOrder = () => {
-    if (paymentType === "Cash") {
-      // Handle Cash payment logic here
-      placeOrder();
-    } else if (paymentType === "Online") {
-      setShowStripeModal(true);
 
-      // wait for handlePaymentSuccess to be called
 
-      if (paymentStatus === "success") {
-        handlePaymentSuccess();
-       }
-    }
-  };
+ 
 
-  const placeOrder = async () => {
-    try {
-      const response = await Axios.post(
-        API_ENDPOINTS.orderPost_URL,
-        {
-          userId: localStorage.getItem("userId"),
-          orderType: orderType,
-          paymentType: paymentType,
-          amount: calculateTotal(),
-          status: 0,
-          date: new Date().toLocaleDateString(),
-          time: new Date().toLocaleTimeString(),
-          products: cartItems.map((item) => ({
-            productId: item.productId,
-            quantity: item.quantity,
-            price: item.price,
-          })),
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      dispatch(resetCart());
-      dispatch(incrementCounter(0));
-      ToastMessages.success("Order Placed Successfully");
-    } catch (error) {
-      console.error("Error placing order:", error);
-      ToastMessages.error("Order placement failed. Please try again.");
-    }
-  };
+  
+  
 
   const calculateTotal = () => {
     let total = 0;
@@ -178,22 +151,14 @@ function Cart() {
       <div className="cart-summary">
         <p>Quantity: {cartItems.length}</p>
         <p className="total">Total: Rs.{calculateTotal()}</p>
-        <button className="btn checkout" onClick={handleOrder}>
-          Checkout
-        </button>
+        <button className="btn checkout" onClick={placeOrder}>
+  Checkout
+</button>
       </div>
       <button className="btn continue-shopping" onClick={navigateToHome}>
         Continue Shopping
       </button>
-      {showStripeModal && (
-        <Elements>
-        <StripeCheckout
-          setShowStripeModal={setShowStripeModal}
-          onSuccess={handlePaymentSuccess}
-          amount={calculateTotal() * 100} // Amount in cents for Stripe
-        />
-        </Elements>
-      )}
+  
       <Toast duration={3000} />
     </div>
   );

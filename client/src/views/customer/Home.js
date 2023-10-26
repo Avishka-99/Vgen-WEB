@@ -21,6 +21,7 @@ import getGeolocationAddress from './geoAddress';
 import {dark} from '@mui/material/styles/createPalette';
 import {consumers} from 'stream';
 import {SphericalUtil} from 'node-geometry-library';
+import { GOOGLE_API } from '../../keys/Keys';
 
 function Home() {
 	const [resolvedAddresses, setResolvedAddresses] = useState([]);
@@ -28,7 +29,7 @@ function Home() {
 	const [selectedProduct, setSelectedProduct] = useState(null);
 	const [SelectedRestaurantId, setSelectedRestaurantId] = useState(null);
 	const [limitError, setLimitError] = useState('');
-	const [apiKey, setApiKey] = useState('YOUR_GOOGLE_MAPS_API_KEY');
+	//const [apiKey, setApiKey] = useState();
 	const [formData, setFormData] = useState([]);
 	const [formData_1, setFormData_1] = useState([]);
 	const [quantity, setQuantity] = useState(1);
@@ -88,7 +89,7 @@ function Home() {
 	useEffect(() => {
 		const fetchRestaurantAddresses = async () => {
 			const addressesPromises = formData_1.map((data) => {
-				return getGeolocationAddress(data.latitude, data.longitude, apiKey);
+				return getGeolocationAddress(data.latitude, data.longitude, GOOGLE_API);
 			});
 
 			try {

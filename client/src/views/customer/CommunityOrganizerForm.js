@@ -36,8 +36,6 @@ const CommunityOrganizerForm = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('organizeName', organizerName);
-    formData.append('nic', nicNumber);
-    formData.append('regNo', regNumber);
     formData.append('description', description);
     formData.append('profilePicture', profilePicture);
     formData.append('userId', userId);
@@ -63,16 +61,6 @@ const CommunityOrganizerForm = () => {
         <label>
           Organizer Name:
           <input type="text" value={organizerName} onChange={handleOrganizerNameChange} required />
-        </label>
-        <br />
-        <label>
-          NIC Number:
-          <input type="text" value={nicNumber} onChange={handleNicNumberChange} required />
-        </label>
-        <br />
-        <label>
-          Organizer Registration Number:
-          <input type="text" value={regNumber} onChange={handleRegNumberChange} required />
         </label>
         <br />
         <label>
