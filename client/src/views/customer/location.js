@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker,} from "@react-google-maps/api";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import { GOOGLE_API } from "../../keys/Keys";
 import axios from "axios";
@@ -10,15 +10,19 @@ const mapStyles = {
 };
 
 const defaultCenter = {
-  lat: 0, // Initial latitude
-  lng: 0, // Initial longitude
+  lat: 6.927079, // Initial latitude
+  lng: 79.861244, // Initial longitude
 };
 
 const defaultZoom = 15; // Set the default zoom level
-
+const handleLoadScript = () => {
+  console.log("Script loaded!");
+};
 const Location = () => {
-  const [markerPosition, setMarkerPosition] = useState(defaultCenter);
+  const [markerPosition, setMarkerPosition] = useState();
+
   const [map, setMap] = useState(null);
+
 
   const onMarkerDragEnd = (e) => {
     setMarkerPosition({ lat: e.latLng.lat(), lng: e.latLng.lng() });
@@ -50,7 +54,7 @@ const Location = () => {
     
   };
 const confirmLocation=()=>{
-    axios.post(GOOGLE_API, {
+    axios.post("http://localhost:5001/api/UpdateLocation/", {
     latitude: markerPosition.lat,
     longitude: markerPosition.lng,
     userId: localStorage.getItem("userId"),
@@ -66,7 +70,7 @@ const confirmLocation=()=>{
 
 
 
-  return (
+  return  (
     <div>
       <h1>Choose Your Location</h1>
     <div style={
@@ -78,8 +82,13 @@ const confirmLocation=()=>{
      <button onClick={confirmLocation}>Confirm Location</button>
     </div>  
     
-      <LoadScript googleMapsApiKey={'AIzaSyDGf0EXb4I0BQoE2t_IsJmkOJXYTc0S5bA'}>
+      <LoadScript
+    libraries={['geometry', 'places']}
+   onLoad={handleLoadScript}
+   googleMapsApiKey={GOOGLE_API}
+           >
         <GoogleMap
+          
           mapContainerStyle={mapStyles}
           center={defaultCenter}
           zoom={defaultZoom}
