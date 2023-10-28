@@ -110,11 +110,10 @@
     position: relative;
   }
   
-  .Cat-FilterButton2 {
+  .Cat-SelectedCategory {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-right: 15px;
-    margin-top: 5px;
     height: 30px;
     width: 90px;
     background-color: #bcdac8;
@@ -123,7 +122,7 @@
     font-weight: bold;
     text-align: right;
     margin-left: auto;
-    margin-top: -10px;
+    margin-top: -30px;
     cursor: pointer;
     align-self: flex-start;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -162,8 +161,8 @@
   
   .Cat-BodyText {
     padding-top: 10px;
-    margin-left: 15px;
-    font-size: 15px;
+    margin-left: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #000000;
   }
@@ -176,8 +175,8 @@
   }
   
   .Cat-CardContainer {
-    width: 250px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     background-color: #bcdac8;
     border-radius: 25px;
     display: flex;
@@ -186,6 +185,90 @@
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .Cat-CardContainer:hover {
+    transform: scale(1.05) translateY(-5px);
+    cursor: pointer;
+    background-color: #7eb693;
+  }
+
+  /* Styles for card icon container 1*/
+  .Cat-CardIconContainer {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/cake.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer2 {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/coco-pudding.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer3 {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/apple-pie.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer4 {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/blueberry-crisp.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer5 {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/melon pops.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer6 {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/Chocolate Truffles.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer7 {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90px;
+    background-image: url("../../assets/images/Admin/berry-sorbet.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .Cat-CardIconContainer-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+
+    margin-bottom: 20px; /* Add margin to create spacing between rows */
   }
   
   .Cat-FirstDivider {
@@ -199,21 +282,33 @@
     padding-right: 30px;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 125px;
+    width: 50px;
     height: 150px;
     font-size: 16px;
     font-weight: bold;
     text-align: right;
   }
   
-  .Cat-rightContainer {
+  .Cat-RightContainer {
     margin-top: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 25px;
     padding-right: 25px;
     width: 380px;
-    height: 320px;
+    height: 580px;
+    background-color: #F4FFF8;
+    border-radius: 30px;
+  }
+
+  .Cat-LeftContainer {
+    margin-top: 3px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 800px;
+    height: 470px;
     background-color: #F4FFF8;
     border-radius: 30px;
   }
@@ -236,30 +331,6 @@
     width: 28px;
     border: 1px solid #7EB693;
     border-radius: 50%;
-  }
-  
-  .Cat-TopLeftContainer {
-    margin-top: 3px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 800px;
-    height: 250px;
-    background-color: #F4FFF8;
-    border-radius: 30px;
-  }
-  
-  .Cat-BottomLeftContainer {
-    margin-top: 3px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 800px;
-    height: 180px;
-    background-color: #F4FFF8;
-    border-radius: 30px;
   }
   
   .Cat-SearchBar {
@@ -325,3 +396,34 @@
     color: #000000;
   }
   
+  .square-input {
+    position: relative;
+    width: 150px; 
+    height: 200px; 
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 25px;
+    align-items: center;
+    text-align: center;
+}
+
+.square-input input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.square-input label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* Additional styles for visual enhancement */
+.square-input:hover {
+    border-color: #7EB693;
+}
