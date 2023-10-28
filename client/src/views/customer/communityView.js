@@ -71,6 +71,7 @@ try{
   
   const handleCreatePost=()=>{
    const formData = new FormData();
+   formData.append('communityId', communityId);
     formData.append('title', title);
     formData.append('description', description1);
     formData.append('userId',userId);
@@ -89,9 +90,9 @@ try{
   }
 
   return (
-    <div>
+    <div className="community-view-container">
       <h1>Community View</h1>
-      <button onClick={()=>setShowForm1(true)}>Create Post</button>
+      <button className="create-post-button" onClick={()=>setShowForm1(true)}>Create Post</button>
         
       <div>
       {
@@ -132,27 +133,27 @@ try{
       {posts.length === 0 ? ( <p>No posts found</p>):
       (
       posts.map((post) => (
-        <div key={post.id} className="post">
-          <h2>{post.title}</h2>
-          <p>{post.description}</p>
-          {/* Display post images */}
-{/*             
-          {post.images.map((image, index) => (
-            <div key={index} className="comment">
-              <img src={image} alt="post"/>
-            </div>
-          ))} */}
+        <div key={post.id} className="post-container">
+        <h2 className="post-title">{post.title}</h2>
+                <p className="post-description">{post.description}</p>
+                <div className='post_image_container'>
+                {post.images.map((image, index) => (
+                    <div className="comment" key={index}>
+                        <img className="post-image" src={`http://localhost:5001/uploads/feed/${image.images}`} alt="post" />
+                    </div>
+                ))}
+                </div>
           {/* Display post reactions */}
-          <button onClick={() => handleReaction(post.id, 'like')}>Like</button>
-          <button onClick={() => handleReaction(post.id, 'dislike')}>Dislike</button>
+          {/* <button onClick={() => handleReaction(post.id, 'like')}>Like</button>
+          <button onClick={() => handleReaction(post.id, 'dislike')}>Dislike</button> */}
           {/* Display post reactions */}
-          <p>Reactions: {reactions[post.id]}</p>
+          <p>Reactions:</p>
           {/* Display post comments */}
-          {post.comments.map((comment, index) => (
+          {/* {post.comments.map((comment, index) => (
             <div key={index} className="comment">
               <p>{comment.text}</p>
             </div>
-          ))}
+          ))} */}
           <div className="comment-form">
             <input
               type="text"
@@ -160,7 +161,7 @@ try{
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
             />
-            <button onClick={() => handleCommentSubmit(post.id)}>Submit</button>
+            <button>Submit</button>
           </div>
 
         </div>
