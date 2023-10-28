@@ -1,5 +1,4 @@
 import Modal from './Modal';
-import CreatePostForm from './createPostForm';
 import axios from 'axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import React, { useState, useEffect } from 'react';

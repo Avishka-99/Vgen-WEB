@@ -1,46 +1,67 @@
-.commynuty-create-form > {
-	max-width: 400px;
-	margin: 0 auto;
+/* communityform.css */
+
+.post {
+	margin-bottom: 20px;
 	padding: 20px;
 	border: 1px solid #ccc;
-
+	border-radius: 5px;
+  }
+  
+  .comment {
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #eee;
 	border-radius: 5px;
 	background-color: #f9f9f9;
-}
-
-.commynuty-create-form > form {
-	display: flex;
-	flex-direction: column;
-}
-
-.commynuty-create-form > label {
-	margin-bottom: 10px;
-	font-weight: bold;
-}
-
-.commynuty-create-form > input[type='text'] {
+  }
+  
+  .comment-form {
+	margin-top: 10px;
+  }
+  
+  .comment-form input[type="text"] {
+	width: 80%;
 	padding: 8px;
-	margin-bottom: 15px;
-	font-size: 16px;
+	margin-right: 10px;
 	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-.commynuty-create-form > input[type='file'] {
-	margin-bottom: 15px;
-}
-
-.commynuty-create-form > button {
-	padding: 10px 20px;
-	font-size: 16px;
+	border-radius: 5px;
+  }
+  
+  .comment-form button {
+	padding: 8px 16px;
 	background-color: #4caf50;
 	color: white;
 	border: none;
-	border-radius: 4px;
+	border-radius: 5px;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-.commynuty-create-form > button:hover {
+  }
+  
+  .comment-form button:hover {
 	background-color: #45a049;
-}
+  }
+  
+  /* Styling for reaction buttons */
+  .post button {
+	margin-right: 10px;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  .post button:hover {
+	background-color: #f1f1f1;
+  }
+  /* Add this CSS to your communityform.css file or your stylesheets */
+
+  .image-previews-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .preview-image {
+	width: 100px; /* Set the desired width for the image previews */
+	height: 100px; /* Set the desired height for the image previews */
+	margin: 5px; /* Add margin between the image previews */
+  }
+  
