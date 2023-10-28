@@ -1,67 +1,82 @@
 /* communityform.css */
 
-.post {
-	margin-bottom: 20px;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-  }
-  
-  .comment {
-	margin-top: 10px;
-	padding: 10px;
-	border: 1px solid #eee;
-	border-radius: 5px;
-	background-color: #f9f9f9;
-  }
-  
-  .comment-form {
-	margin-top: 10px;
-  }
-  
-  .comment-form input[type="text"] {
-	width: 80%;
-	padding: 8px;
-	margin-right: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-  }
-  
-  .comment-form button {
-	padding: 8px 16px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-  }
-  
-  .comment-form button:hover {
-	background-color: #45a049;
-  }
-  
-  /* Styling for reaction buttons */
-  .post button {
-	margin-right: 10px;
-	padding: 8px 16px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-  }
-  
-  .post button:hover {
-	background-color: #f1f1f1;
-  }
-  /* Add this CSS to your communityform.css file or your stylesheets */
+.community-view-container {
+    padding: 20px;
+}
 
-  .image-previews-container {
+.create-post-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.form-input {
+    margin-bottom: 10px;
+}
+
+.form-input input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-input input[type="file"] {
+    margin-top: 10px;
+}
+
+.post-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.post-description {
+    margin-bottom: 20px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.comment-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.comment-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.post_image_container{
 	display: flex;
-	flex-wrap: wrap;
-  }
-  
-  .preview-image {
-	width: 100px; /* Set the desired width for the image previews */
-	height: 100px; /* Set the desired height for the image previews */
-	margin: 5px; /* Add margin between the image previews */
-  }
-  
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
