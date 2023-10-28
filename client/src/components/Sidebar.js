@@ -46,7 +46,6 @@ const ShowSidebar = (props) => {
 		{id: 2, icon: <WindowIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Category', link: 'category', index: '2'},
 		{id: 3, icon: <StoreIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Restaurants', link: 'restaurants', index: '3'},
 		{id: 4, icon: <PeopleIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Community', link: 'community', index: '4'},
-		{id: 5, icon: <DynamicFeedIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Feeds', link: 'feed', index: '5'},
 		{id: 6, icon: <InfoIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'About', link: 'About', index: '6'},
 	];
 	const restaurant = [

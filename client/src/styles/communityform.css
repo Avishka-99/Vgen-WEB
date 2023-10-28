@@ -1,46 +1,82 @@
-.commynuty-create-form > {
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 20px;
-	border: 1px solid #ccc;
+/* communityform.css */
 
-	border-radius: 5px;
-	background-color: #f9f9f9;
+.community-view-container {
+    padding: 20px;
 }
 
-.commynuty-create-form > form {
+.create-post-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.form-input {
+    margin-bottom: 10px;
+}
+
+.form-input input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-input input[type="file"] {
+    margin-top: 10px;
+}
+
+.post-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.post-description {
+    margin-bottom: 20px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.comment-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.comment-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.post_image_container{
 	display: flex;
-	flex-direction: column;
-}
-
-.commynuty-create-form > label {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	margin-bottom: 10px;
-	font-weight: bold;
-}
-
-.commynuty-create-form > input[type='text'] {
-	padding: 8px;
-	margin-bottom: 15px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-.commynuty-create-form > input[type='file'] {
-	margin-bottom: 15px;
-}
-
-.commynuty-create-form > button {
-	padding: 10px 20px;
-	font-size: 16px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-.commynuty-create-form > button:hover {
-	background-color: #45a049;
 }
