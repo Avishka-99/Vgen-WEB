@@ -22,32 +22,81 @@ export default function Riders() {
 			<div>
 			  <div className="Cat-DateText">{formattedDate}</div>
 			</div>
-			<div className="Cat-SubContainer">
-			  <div className="Cat-TopLeftContainer">
-				<div className="Cat-BodyText">Contact</div>
-			  </div>
+			<br />
+			<div>
+			   <div className="Cat-SubHeadingText">Manage Categories</div>
+			   <div className="Cat-SelectedCategory">Desserts</div>
 			</div>
 			<div className="Cat-SubContainer">
+                <div className="Cat-LeftContainer">
+				<div className="Cat-CardIconContainer-row">
+				<div class="square-input">
+                    <input type="file" id="fileInput" accept="image/*" />
+                   <label for="fileInput">Add New Item</label>
+                </div>
+				<div className="Cat-SecondDivider"></div>
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer"></div>
+                    <div className="Cat-BodyText">Vegan Cheese Cake</div>
+                  </div>
+                </div>
+				<div className="Cat-SecondDivider"></div>
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer2"></div>
+                    <div className="Cat-BodyText">Chocolate Pudding</div>
+                  </div>
+                </div>
+				<div className="Cat-SecondDivider"></div>
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer3"></div>
+                    <div className="Cat-BodyText">Apple Pie</div>
+                  </div>
+                </div>
+				</div>
+				<div className="Cat-CardIconContainer-row">
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer4"></div>
+                    <div className="Cat-BodyText">Blueberry Crisp</div>
+                  </div>
+                </div>
+				<div className="Cat-SecondDivider"></div>
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer5"></div>
+                    <div className="Cat-BodyText">Melon Pops</div>
+                  </div>
+                </div>
+				<div className="Cat-SecondDivider"></div>
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer6"></div>
+                    <div className="Cat-BodyText">Chocolate Truffles</div>
+                  </div>
+                </div>
+				<div className="Cat-SecondDivider"></div>
+				<div className="Cat-CardContainer">
+                  <div className="Cat-FirstDivider">
+                    <div className="Cat-CardIconContainer7"></div>
+                    <div className="Cat-BodyText">Berry Sorbet</div>
+                  </div>
+                </div>
+				</div>
+				</div>
 			</div>
-			<div className="Cat-Bottom">
-			  <div className="Cat-BottomLeft">
-				<div className="Cat-MidLine"></div>
-				<div>
-				  <div className="Cat-SubHeadingText">Recent Activities</div>
-				</div>
-				<div className="Cat-SubContainer">
-				  <div className="Cat-BottomLeftContainer">
-				  </div>
-				</div>
-			  </div>
+			<div className="Cat-SubContainer">
 			</div>
 		  </div>
 		  <div className="Cat-Right">
 			<div className="Cat-SubHeadingText">
-			  Web Surfers
+			  Select Category
 			</div>
 			<div>
 			  <div className="Cat-RightContainer">
+			    
 			  </div>
 			</div>
 		  </div>

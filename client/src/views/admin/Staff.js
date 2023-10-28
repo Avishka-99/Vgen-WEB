@@ -68,6 +68,7 @@ export default function Staff() {
 	const closeRegistrationForm = () => {
 		setIsRegistrationOpen(false);
 	};
+  
 	useEffect(() => {
 		Axios.post(API_ENDPOINTS.FETCH_ALL_STAFF).then((response) => {
 			console.log(response.data);
@@ -80,15 +81,15 @@ export default function Staff() {
              <div className="Staff-TopLeft">
                 <div className="Staff-TopLine">
                     <div className="Staff-HeadingText">VGen Staff</div>    
-				    <div className="Staff-NotificationButton"></div>
+				            <div className="Staff-NotificationButton"></div>
                 </div>
                 <div>
                   <div className="Staff-DateText">{formattedDate}</div>
-				  <div className="Staff-AddButton" onClick={openRegistrationForm}>Add Member</div>
+				          <div className="Staff-AddButton" onClick={openRegistrationForm}>Add Member</div>
                 </div>
                 <div className="Staff-SubContainer">
-				  <div class="Home-tableArea">
-			        <table class="Home-dbTable">
+				      <div class="Home-tableArea">
+			         <table class="Home-dbTable">
                       <thead>
                         <tr>
                           <th>Staff ID</th>
@@ -107,82 +108,82 @@ export default function Staff() {
                           <td>071-1234567</td>
                         </tr>
                         <tr>
-						  <td>101</td>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
                         <tr>
-						  <td>101</td>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
                         <tr>
-						  <td>101</td>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
                         <tr>
-						  <td>101</td>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
-					    <tr>
-						  <td>101</td>
+					              <tr>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
-					    <tr>
-						  <td>101</td>
+					              <tr>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
-					    <tr>
-						  <td>101</td>
+					              <tr>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
-					    <tr>
-						  <td>101</td>
+					              <tr>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
                         <tr>
-						  <td>101</td>
+						              <td>101</td>
                           <td>Daweendri</td>
                           <td>Himasha</td>
                           <td>123456789v</td>
                           <td>071-1234567</td>
                         </tr>
                       </tbody>
-                    </table>
-			      </div>
-                </div>
-				{isRegistrationOpen && (
-				<div className='modal'>
-					<div className='modal-content' style={{width: '70%'}}>
-						<span className='close' onClick={closeRegistrationForm}>
-							<CloseIcon />
-						</span>
-						<StaffRegistrationForm onClose={closeRegistrationForm} />
-					</div>
-				</div>
-			)}
+                </table>
+			        </div>
+            </div>
+				    {isRegistrationOpen && (
+				      <div className='modal'>
+					    <div className='modal-content' style={{width: '70%'}}>
+						    <span className='close' onClick={closeRegistrationForm}>
+							    <CloseIcon />
+						    </span>
+						      <StaffRegistrationForm onClose={closeRegistrationForm} />
+					    </div>
+				      </div>
+			      )}
             <div className="Staff-Bottom">
             <div className="Staff-BottomLeft">
               <div>
