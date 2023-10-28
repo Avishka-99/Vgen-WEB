@@ -133,7 +133,7 @@ export default function AdminHome() {
                     <thead>
                       <tr>
                         <th>Order ID</th>
-                        <th>Customer ID</th>
+                        <th>Customer</th>
                         <th>Restaurant Name</th>
                         <th>Order Type</th>
                         <th>Payment</th>

@@ -93,10 +93,50 @@ export default function Riders() {
 		  <div className="Cat-Right">
 			<div className="Cat-SubHeadingText">
 			  Select Category
+			  <div className="Cat-FilterButton1">Filter</div>
 			</div>
 			<div>
 			  <div className="Cat-RightContainer">
-			    
+			  <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+               <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Activities">
+                  <div className="Cat-ActivityIconContainer"></div>
+                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
+               </div>
+			   <div className="Cat-Divider"></div>
 			  </div>
 			</div>
 		  </div>
