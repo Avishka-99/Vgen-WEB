@@ -4,7 +4,6 @@ export const customerRoutes = [
 	{id: 1, path: '/home', element: <UserViews.Home />},
 	{id: 2, path: '/category', element: <UserViews.Categories />},
 	{id: 3, path: '/community', element: <UserViews.Community />},
-	{id: 4, path: '/feed', element: <UserViews.Feed />},
 
 	{id: 5, path: '/restaurants', element: <UserViews.Restaurants />},
 	{id: 6, path: '/cart', element: <UserViews.Cart />},
@@ -17,6 +16,7 @@ export const customerRoutes = [
 	{id: 13, path: '/communityOrganizerForm', element: <UserViews.communityOrganizerForm />},
 	{id: 14, path: '/SearchResults', element: <UserViews.SearchResults />},
 	{id: 15, path: '/Orders', element: <UserViews.Orders />},
+	{id: 16, path: '/communityView', element: <UserViews.communityView />},
 ];
 export const restaurantRoutes = [
 	{id: 1, path: '/home', element: <UserViews.RestaurantHome />},
