@@ -1,10 +1,13 @@
 import React from 'react'
 import '../../styles/Community.css'
+import { useState } from 'react';
+import Axios from '../../api/Axios';
 import { Button } from 'bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 export default function Community() {
   const navigate = useNavigate();
+  const [showForm, setShowForm] = useState(false);
   const navigateTo = (page) => {
     navigate('/' + page);
   };
@@ -16,14 +19,69 @@ export default function Community() {
     { id: 5, name: 'group5', description: 'description5', members: 50 },
     { id: 6, name: 'group6', description: 'description6', members: 60 },
   ];
-  
+  const handleRequestClick = () => {
+    setShowForm(true);
+  };
+  const [organizeName, setOrganizeName] = useState('');
+ 
+  const [description, setDescription] = useState('');
+  const userId=localStorage.getItem('userId');
+
+
+  const handleOrganizerNameChange = (e) => {
+    setOrganizeName(e.target.value);
+  };
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const organizerData = {
+      description: description,
+      userId: userId,
+    };
+
+    Axios.post("http://localhost:5001/api/registerCommunityOrganizer", organizerData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+   
+      
+    
+  };
   return (
     <div>
       <p>Join for life</p>
       <div>
         <p>Request for Community Organizer</p>
-        <button onClick={()=>navigateTo('communityOrganizerForm')}>Request</button>
+        <button onClick={handleRequestClick}>Request</button>
+
       </div>
+      {showForm &&(
+      <div className="commynuty-create-form">
+        <h1>Community Organizer Form</h1>
+   
+      
+        <label>
+          Why do you want to be a community organizer:
+          <input type="text" value={description} onChange={handleDescriptionChange} required />
+        </label>
+        <br />
+        <button onClick={handleSubmit} type="submit">Submit</button>
+      
+    </div>
+      )}
       <div className="groups-container">
 
         {groups.map((group) => (
