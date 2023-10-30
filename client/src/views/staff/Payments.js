@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
+import FontAwesomeIcon from '../../components/FontAwesome';
 
 export default function Payments() {
   return (
@@ -9,7 +10,9 @@ export default function Payments() {
         <div class="top-left">
           <div class="topline">
             <div class="headingtext">VGen Payments</div>
-            <div class="notification-btn"></div>
+            <div class="notification-btn">
+              <FontAwesomeIcon icon="fa-solid fa-bell" />
+            </div>
           </div>
 
           <div class="datetext">Tuesday 07 July 2023</div>
@@ -73,11 +76,11 @@ export default function Payments() {
             <table class="db-tbl">
               <thead>
                 <tr>
-                  <th style={{width: '130px'}}>Transaction ID</th>
-                  <th style={{width: '180px'}}>Transaction Type</th>
-                  <th style={{width: '230px'}}>Recipient</th>
-                  <th style={{width: '100px'}}>Amount</th>
-                  <th style={{width: '160px'}}>Transaction Status</th>
+                  <th style={{ width: "130px" }}>Transaction ID</th>
+                  <th style={{ width: "180px" }}>Transaction Type</th>
+                  <th style={{ width: "230px" }}>Recipient</th>
+                  <th style={{ width: "100px" }}>Amount</th>
+                  <th style={{ width: "160px" }}>Transaction Status</th>
                 </tr>
               </thead>
               <tbody>
