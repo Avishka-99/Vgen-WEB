@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/staff/staffhome.css";
+// Import the Review component
+import Review from './Review'; // Adjust the import path as needed
 import FontAwesomeIcon from '../../components/FontAwesome';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -152,12 +154,18 @@ export default function StaffHome() {
         <div class="bottom-right">
         
           <div class="midline">
-            <div class="subheadingtext">Customer Reviews</div>
+            <div class="subheadingtext">Recent Reviews</div>
             <div class="filter-btn">Today</div>
           </div>
 
-          <div class="bottom-right-container">hiiiiiiiii</div>
-
+          <div class="bottom-right-container">
+            <Review
+              rating={3}  
+              userImage= "user.png" 
+              userName="Amalka Palihakkara"
+              reviewText="Outstanding service and quality. Highly recommended!"
+            />
+          </div>
         </div>
       </div>
     </div>
