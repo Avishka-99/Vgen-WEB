@@ -2,6 +2,7 @@ import React from 'react'
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
 import "../../styles/staff/staffcomplaints.css";
+import CurrentDate from './CurrentDate';
 import FontAwesomeIcon from '../../components/FontAwesome';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'; // Import the necessary components
 
@@ -28,7 +29,7 @@ export default function Complaints() {
             </div>
           </div>
 
-          <div class="datetext">Tuesday 07 July 2023</div>
+          <CurrentDate />
 
           <div class="QAtitle">Quick Access</div>
 

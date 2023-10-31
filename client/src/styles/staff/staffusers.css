@@ -3,8 +3,211 @@
 }
 
 .userssubcontainer {
-    padding-top: 3%;
+    margin-top: 3%;
     display: inline-block;
     justify-content: space-between;
-    max-width: 800px;
+    width: 800px;
+}
+
+.user-row{
+    margin-bottom: 20px;
+    padding: 12px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #F4FFF8;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    align-items: center;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-row:hover{
+    transform: scale(1.01) translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.user-icon-cont{
+    width: 50px;
+}
+
+.usericon{
+    margin-left: -25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    background-image: url("../../assets/images/staff/users/manufacturer.png");
+}
+
+.user-type-cont{
+    width: 215px;
+}
+
+.user-name-cont{
+    width: 240px;
+}
+
+.user-space1-cont{
+    width: 155px;
+}
+
+.user-space2-cont{
+    width: 40px;
+}
+
+.user-space3-cont{
+    width: 40px;
+}
+
+.user-space4-cont{
+    width: 10px;
+}
+
+.user-space5-cont{
+    width: 10px;
+}
+
+.user-detail-cont{
+    width: 100px;
+}
+
+.user-accept-cont{
+    width: 40px;
+}
+
+.user-deny-cont{
+    width: 40px;
+}
+
+.btn-detail{
+    width: 100px;
+    padding: 2px;
+    border: none;
+    background-color: #F4FFF8;
+    font-size: 12px;
+}
+
+.btn-detail:hover{
+    border: none;
+    color: #0802A3;
+    cursor: pointer;
+}
+
+.btn-accept{
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    border: 2px solid #54B435;
+    border-radius: 15px;
+    background-color: #F4FFF8;
+    font-size: 15px;
+    font-weight: bold ;
+}
+
+.btn-accept:hover{
+    border: none;
+    color: white;
+    background-color: #54B435;
+    cursor: pointer;
+}
+
+.btn-deny{
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    border: 2px solid #F55050;
+    border-radius: 15px;
+    background-color: #F4FFF8;
+    font-size: 15px;
+    font-weight: bold ;
+}
+
+.btn-deny:hover{
+    border: none;
+    color: white;
+    background-color: #F55050;
+    cursor: pointer;
+}
+
+.users-top-right-container{
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 380px;
+    height: 110px;
+    background-color: #F4FFF8;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-top-icon{
+    width: 180px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.user-v{
+    margin-top: -10px;
+    width: 90px;
+    height: 90px;
+    background-image: url("../../assets/images/staff/users/user.png");
+}
+
+.user-r{
+    margin-top: -10px;
+    width: 90px;
+    height: 90px;
+    background-image: url("../../assets/images/staff/users/restaurant.png");
+}
+
+.user-m{
+    margin-top: -10px;
+    width: 90px;
+    height: 90px;
+    background-image: url("../../assets/images/staff/users/manufacturer.png");
+}
+
+.user-d{
+    margin-top: -10px;
+    width: 90px;
+    height: 90px;
+    background-image: url("../../assets/images/staff/users/delivery.png");
+}
+
+.user-o{
+    margin-top: -10px;
+    width: 90px;
+    height: 90px;
+    background-image: url("../../assets/images/staff/users/organizer.png");
+}
+
+.user-top-line{
+    margin-top: -20px;
+    margin-left: 20px;
+    text-align: center;
+    width: 2px;
+    height: 110px;
+    background-color: #54B435;
+}
+
+.user-top-count{
+    text-align: center;
+    width: 190px;
+    font-size: 13px;
+}
+
+.usercount{
+    font-family: "poppins-bold";
+    font-size: 40px;
 }

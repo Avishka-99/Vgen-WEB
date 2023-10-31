@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
+import CurrentDate from './CurrentDate';
 import FontAwesomeIcon from '../../components/FontAwesome';
 
 export default function Payments() {
@@ -15,7 +16,7 @@ export default function Payments() {
             </div>
           </div>
 
-          <div class="datetext">Tuesday 07 July 2023</div>
+          <CurrentDate />
 
           <div class="QAtitle">Quick Access</div>
 

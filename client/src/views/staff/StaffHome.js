@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/staff/staffhome.css";
-// Import the Review component
-import Review from './Review'; // Adjust the import path as needed
+import Review from './Review';
+import CurrentDate from './CurrentDate';
 import FontAwesomeIcon from '../../components/FontAwesome';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -69,7 +69,7 @@ export default function StaffHome() {
             </div>
           </div>
 
-          <div class="datetext">Tuesday 07 July 2023</div>
+          <CurrentDate />
 
           <div class="subcontainer">
             <div class="cardcontainer">
