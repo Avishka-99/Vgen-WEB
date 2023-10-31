@@ -208,7 +208,7 @@
     margin-top: 20px;
     margin-left: 20px;
     height: 90px;
-    background-image: url("../../assets/images/Admin/coco-pudding.png");
+    /* background-image: url("../../assets/images/Admin/coco-pudding.png"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -409,7 +409,7 @@
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/event.jpg");
+    /* background-image: url("../../assets/images/Admin/event.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
