@@ -2,8 +2,8 @@ import React from 'react'
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
 import "../../styles/staff/staffcomplaints.css";
+import FontAwesomeIcon from '../../components/FontAwesome';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'; // Import the necessary components
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Rating Data
 const data = [
@@ -23,7 +23,9 @@ export default function Complaints() {
         <div class="top-left">
           <div class="topline">
             <div class="headingtext">VGen User Complaints</div>
-            <div class="notification-btn"></div>
+            <div class="notification-btn">
+              <FontAwesomeIcon icon="fa-solid fa-bell" />
+            </div>
           </div>
 
           <div class="datetext">Tuesday 07 July 2023</div>
@@ -43,9 +45,9 @@ export default function Complaints() {
                         07 New Complaints
                       </div>
                     </div>
-                    <div class="comcard-arrowlink">
-                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
-                    </div>
+                    {/* <div class="comcard-arrowlink">
+                      <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
+                    </div> */}
                   </div>
                   <div class="comcard-pending">
                     <div class="comcard-pendinghead"> Pending to Response </div>
@@ -64,9 +66,9 @@ export default function Complaints() {
                       <span style={{ color: '#8b7e74', fontStyle: 'italic' }}>No New Complaints</span>
                       </div>
                     </div>
-                    <div class="comcard-arrowlink">
-                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
-                    </div>
+                    {/* <div class="comcard-arrowlink">
+                      <FontAwesomeIcon icon={solid("circle-arrow-right")} />
+                    </div> */}
                   </div>
                   <div class="comcard-pending">
                     <div class="comcard-pendinghead"> Pending to Response </div>
@@ -88,9 +90,9 @@ export default function Complaints() {
                         14 New Complaints
                       </div>
                     </div>
-                    <div class="comcard-arrowlink">
-                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
-                    </div>
+                    {/* <div class="comcard-arrowlink">
+                      <FontAwesomeIcon icon={solid("circle-arrow-right")} />
+                    </div> */}
                   </div>
                   <div class="comcard-pending">
                     <div class="comcard-pendinghead"> Pending to Response </div>
@@ -109,9 +111,9 @@ export default function Complaints() {
                         20 New Complaints
                       </div>
                     </div>
-                    <div class="comcard-arrowlink">
-                      {/* <FontAwesomeIcon icon={solid("circle-arrow-right")} /> */}
-                    </div>
+                    {/* <div class="comcard-arrowlink">
+                      <FontAwesomeIcon icon={solid("circle-arrow-right")} />
+                    </div> */}
                   </div>
                   <div class="comcard-pending">
                     <div class="comcard-pendinghead"> Pending to Response </div>

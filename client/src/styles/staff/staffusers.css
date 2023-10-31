@@ -1,0 +1,10 @@
+* {
+    font-family: "poppins-regular";
+}
+
+.userssubcontainer {
+    padding-top: 3%;
+    display: inline-block;
+    justify-content: space-between;
+    max-width: 800px;
+}
