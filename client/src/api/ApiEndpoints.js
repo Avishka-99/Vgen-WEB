@@ -70,3 +70,5 @@ export const deleteProduct_URL='api/deleteProduct'
 //
 
 export const FETCH_ALL_STAFF = '/api/fetchstaff';
+export const FETCH_ALL_CATEGORIES = '/api/fetchallcategories';
+export const FETCH_ALL_FOODS = '/api/fetchallfoods';

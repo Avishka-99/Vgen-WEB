@@ -1,7 +1,10 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import "../../styles/Admin/Categories.css";
+import Axios from '../../api/Axios';
+import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 
 export default function Riders() {
+	const [categories,setCategories] = useState();
 	const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	const currentDate = new Date();
@@ -11,6 +14,29 @@ export default function Riders() {
 	const year = currentDate.getFullYear();
 	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
 
+	useEffect(()=>{
+      Axios.post(API_ENDPOINTS.FETCH_ALL_CATEGORIES,{
+    }).then((response)=>{
+	  console.log(response.data)
+	  setCategories(response.data)
+	  //cons
+    })
+	},[])
+	   const showFoods = (id)=>{
+	   console.log(id)
+	}
+	const filterArrayByCategory = (item,option)=>{
+		if(item.vegan_category ==option){
+			return item;
+		}
+
+	}
+	const fetchAllFoods = (name)=>{
+		Axios.post('/api/getallproducts').then((response)=>{
+			const newFoods = response.data.filter((item)=>filterArrayByCategory(item,name))
+			console.log(newFoods)
+		})
+	}
 	return (
 	  <div className="Cat-Container">
 		<div className="Cat-Top">
@@ -29,7 +55,18 @@ export default function Riders() {
 			</div>
 			<div className="Cat-SubContainer">
                 <div className="Cat-LeftContainer">
-				<div className="Cat-CardIconContainer-row">
+				{categories && categories.map((item)=>(
+					<div className="Cat-CardContainer" key={item.id}>
+                  <div className="Cat-FirstDivider" onClick={()=>showFoods(item.name)}>
+                    <div className="Cat-CardIconContainer2">
+						<img src={`http://localhost:5001/uploads/thumbnails/${item.image}`} style={{width:'90px',height:'90px'}}/>
+					</div>
+                    <div className="Cat-BodyText">{item.name}</div>
+                  </div>
+                </div>
+				))}
+				
+				{/* <div className="Cat-CardIconContainer-row">
 				<div class="square-input">
                     <input type="file" id="fileInput" accept="image/*" />
                    <label for="fileInput">Add New Item</label>
@@ -84,7 +121,7 @@ export default function Riders() {
                     <div className="Cat-BodyText">Berry Sorbet</div>
                   </div>
                 </div>
-				</div>
+				</div> */}
 				</div>
 			</div>
 			<div className="Cat-SubContainer">
@@ -97,11 +134,15 @@ export default function Riders() {
 			</div>
 			<div>
 			  <div className="Cat-RightContainer">
-			  <div className="Cat-Activities">
-                  <div className="Cat-ActivityIconContainer"></div>
-                  <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
-               </div>
-			   <div className="Cat-Divider"></div>
+			   {categories && categories.map((item) => (
+              <div className="Cat-Activities" key={item.id} onClick={()=>fetchAllFoods(item.name)}>
+                <div className="Cat-ActivityIconContainer">
+	          <img src={`http://localhost:5001/uploads/thumbnails/${item.image}`} style={{width:'35px',height:'35px'}}/>
+             </div>
+             <div className="Cat-ActivityText">{item.name}</div>
+            </div>
+             ))}
+			   {/* <div className="Cat-Divider"></div>
                <div className="Cat-Activities">
                   <div className="Cat-ActivityIconContainer"></div>
                   <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
@@ -136,7 +177,7 @@ export default function Riders() {
                   <div className="Cat-ActivityIconContainer"></div>
                   <div className="Cat-ActivityText">Spaghetti and Tofu Salad</div>
                </div>
-			   <div className="Cat-Divider"></div>
+			   <div className="Cat-Divider"></div> */}
 			  </div>
 			</div>
 		  </div>

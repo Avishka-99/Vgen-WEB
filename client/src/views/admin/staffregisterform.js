@@ -15,7 +15,9 @@ const StaffRegistrationForm = ({onClose}) => {
 	const [isDisabled, setIsDisabled] = useState(false);
 
 	const handleSubmit = async (e) => {
+		
 		e.preventDefault();
+		console.log("sddsad")
 		if (password !== confirmpassword) {
 			alert('Password and Confirm Password are not matching');
 			return;
