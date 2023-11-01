@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/staff/staffhome.css";
 import "../../styles/staff/staffpayments.css";
+import CurrentDate from './CurrentDate';
 import FontAwesomeIcon from '../../components/FontAwesome';
 
 export default function Payments() {
@@ -15,7 +16,7 @@ export default function Payments() {
             </div>
           </div>
 
-          <div class="datetext">Tuesday 07 July 2023</div>
+          <CurrentDate />
 
           <div class="QAtitle">Quick Access</div>
 
@@ -105,6 +106,56 @@ export default function Payments() {
                   </td>
                   <td>Rs. 725.00</td>
                   <td>Pending</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
                 </tr>
               </tbody>
             </table>
