@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Riders.css";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import {Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import Axios from "../../api/Axios";
 
 export default function Riders() {
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -11,6 +12,8 @@ export default function Riders() {
 	const dayOfMonth = currentDate.getDate();
 	const month = months[currentDate.getMonth()];
 	const year = currentDate.getFullYear();
+  const [delivery,setDelivery]=useState([]);
+  const [selectDelivery,setSelectDelivery]=useState([]);
 	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
   
   const bardata = [
@@ -32,7 +35,22 @@ export default function Riders() {
   const toggleFilterMenu2 = () => {
     setShowFilterMenu2(!showFilterMenu2);
   };
-
+useEffect (() => {
+  Axios.get("http://localhost:5001/api/get_deliveryperson").then((response) => {
+    console.log(response.data);
+    setDelivery(response.data);
+  });
+}, []);
+const ViewDelivery = (userId) => {
+  Axios.get("http://localhost:5001/api/get_delivery",{
+    params: {
+      userId: userId,
+    },
+  }).then((response) => {
+    console.log(response.data);
+    setSelectDelivery(response.data);
+  });
+}
   return (
     <div className="Ride-Container">
       <div className="Ride-top">
@@ -45,38 +63,40 @@ export default function Riders() {
             <div className="Ride-dateText">{formattedDate}</div>
           </div>
           <div className="Ride-subContainer">
+          {selectDelivery.map((val, key) => (
             <div className="Ride-topLeftContainer">
               <div className="Ride-IconContainer"></div>
-              <div className="Ride-nameText">Jeremiah Christopher</div>
+              
+              <div className="Ride-nameText">{val.firstName} {val.lastName}</div>
               <div className="Ride-subNameText">Area : Colombo</div>
               <div className="Ride-Details">
                 <div className="Ride-Name">
                   <span className="NameLabel">First Name : </span>
-                  <span className="NameValue">Jeremiah</span>
+                  <span className="NameValue">{val.firstName}</span>
                 </div>
                 <div className="Ride-Name">
                   <span className="NameLabel">Last Name : </span>
-                  <span className="NameValue">Christopher</span>
+                  <span className="NameValue">{val.lastName}</span>
                 </div>
                <div className="Ride-Name">
                   <span className="NameLabel">Email : </span>
-                  <span className="NameValue">jeremiahchris123@gmail.com</span>
+                  <span className="NameValue">{val.email}</span>
                </div>
                <div className="Ride-Name">
                   <span className="NameLabel">Contact Number : </span>
-                  <span className="NameValue">+94717654321</span>
+                  <span className="NameValue">{val.contactNo}</span>
                </div>
                <div className="Ride-Name">
                   <span className="NameLabel">Address : </span>
-                  <span className="NameValue">No : 15, 2nd Lane, Narahenpita</span>
+                  <span className="NameValue">{val.city}</span>
                </div>
                <div className="Ride-Name">
                   <span className="NameLabel">NIC : </span>
-                  <span className="NameValue">987654321V</span>
+                  <span className="NameValue">{val.nic}</span>
                </div>
                <div className="Ride-Name">
                   <span className="NameLabel">Working Area : </span>
-                  <span className="NameValue">Colombo</span>
+                  <span className="NameValue">{val.city}</span>
                </div>
                <div className="Ride-Name">
                   <span className="NameLabel">ID : </span>
@@ -84,6 +104,7 @@ export default function Riders() {
                </div>
               </div>
             </div>
+          ))}
           </div>
           <div className="Ride-bottom">
             <div className="Ride-bottomLeft">
@@ -133,68 +154,15 @@ export default function Riders() {
                     </div>
                   )}
                 </div>
-          <div className="Ride-RightContainer">
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-               <div className="Ride-ActivityIconContainer "></div>
-               <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer"></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-                <div className="Ride-ActivityIconContainer "></div>
-                <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-            <div className="Ride-Activities">
-               <div className="Ride-ActivityIconContainer "></div>
-               <div className="Ride-ActivityText">Jeremiah Christopher</div>
-            </div>
-            <div className="Ride-Divider"></div>
-          </div>
+                <div className="Ride-RightContainer">
+  {delivery.map((val, key) => (
+    <div className="Ride-Activities"  onClick={()=>ViewDelivery(val.userId)} key={key}>
+      <div className="Ride-ActivityIconContainer"  ></div>
+      <div className="Ride-ActivityText">{val.firstName} {val.lastName}</div>
+    </div>
+  ))}
+  <div className="Ride-Divider"></div>
+</div>
         </div>
       </div>
     </div>

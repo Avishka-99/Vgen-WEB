@@ -2,13 +2,13 @@ import React,{useEffect} from 'react'
 import '../../styles/LandingPage.css'
 import ButtonFillBorder from '../../components/ButtonFillBorder'
 import ButtonFillInside from '../../components/ButtonFillInside'
-import image1 from './partners/1.png'
-import image2 from './partners/2.png'
-import image3 from './partners/3.png'
-import image4 from './partners/4.png'
-import image5 from './partners/5.png'
-import image6 from './partners/6.png'
-import image7 from './partners/7.jpeg'
+import image1 from './partners/zen-kitchen.jpg'
+import image2 from './partners/cafens.jpg'
+import image3 from './partners/Vegan.jpg'
+import image4 from './partners/Heavan-eats.jpg'
+import image5 from './partners/leaf&ladle.jpg'
+import image6 from './partners/cafee.jpg'
+
 
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
@@ -41,7 +41,7 @@ const carouselData = [
 		{id: 4, image: image4},
 		{id: 5, image: image5},
 		{id: 6, image: image6},
-		{id: 7, image: image7},
+		
 ];
 const settings = {
 			dots: true,

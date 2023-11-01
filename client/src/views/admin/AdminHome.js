@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import TuneIcon from '@mui/icons-material/Tune';
 import "../../styles/Admin/Home.css";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import Axios from "../../api/Axios";
 
 export default function AdminHome() {
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -11,6 +12,9 @@ export default function AdminHome() {
 	const dayOfMonth = currentDate.getDate();
 	const month = months[currentDate.getMonth()];
 	const year = currentDate.getFullYear();
+  const [orders, setOrders] = useState([]);
+  const [count, setCount] = useState(0);
+  const [completed, setCompleted] = useState(0);
 	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
 
   const data = [
@@ -59,6 +63,29 @@ export default function AdminHome() {
   const toggleFilterMenu3 = () => {
     setShowFilterMenu3(!showFilterMenu3);
   };
+  useEffect(() => {
+    Axios.get("http://localhost:5001/api/getOrder_recent").then((response) => {
+      console.log(response.data);
+      setOrders(response.data);
+    });
+  }
+  , []);
+  useEffect(() => {
+    Axios.get("http://localhost:5001/api/getOrder_count").then((response) => {
+      //get count of orders
+      console.log(response.data);
+      setCount(response.data);
+    
+    });
+  }
+  , []);
+  useEffect(() => {
+    Axios.get("http://localhost:5001/api/completed_order").then((response) => {
+      console.log(response.data);
+      setCompleted(response.data);
+    });
+  }
+  , []);
   return (
     <div className="Home-Container">
       <div className="Home-Top">
@@ -80,7 +107,9 @@ export default function AdminHome() {
                 <span className="Home-CountGoesUp"> +11.15% </span>
                 <br />
                 Total Orders
-				<div className="Home-CountText">500</div>
+                {
+				<div className="Home-CountText">{count.length}</div>
+                }
               </div>
             </div>
             <div className="Home-CardContainer">
@@ -92,7 +121,7 @@ export default function AdminHome() {
                 <span className="Home-CountGoesUp"> +11.15% </span>
                 <br />
                 Fulfilled Orders
-				<div className="Home-CountText">490</div>
+				<div className="Home-CountText">{completed.length}</div>
               </div>
             </div>
             <div className="Home-CardContainer">
@@ -140,76 +169,18 @@ export default function AdminHome() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-                      <tr>
-                        <td>102</td>
-                        <td>Devindya</td>
-                        <td>KFC</td>
-                        <td>Delivery</td>
-                        <td>Online</td>
-                      </tr>
-                      <tr>
-                        <td>103</td>
-                        <td>Hiruni</td>
-                        <td>Spoons</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-                      <tr>
-                        <td>104</td>
-                        <td>Nayomi</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>Online</td>
-                      </tr>
-                      <tr>
-                        <td>105</td>
-                        <td>Madhawa</td>
-                        <td>McDonalds</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>106</td>
-                        <td>Avishka</td>
-                        <td>Daiya Foods</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>107</td>
-                        <td>Nirupana</td>
-                        <td>KFC</td>
-                        <td>Delivery</td>
-                        <td>Online</td>
-                      </tr>
-					            <tr>
-                        <td>108</td>
-                        <td>Dhanusha</td>
-                        <td>Vegan Plaza</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>109</td>
-                        <td>Ishini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>Online</td>
-                      </tr>
-                      <tr>
-                        <td>110</td>
-                        <td>Sewmi</td>
-                        <td>KFC</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
+                    
+    {orders.map((data, index) => (
+      <tr key={index}>
+        <td>{data.Order.orderId}</td>
+        <td>{data.User.firstName}</td>
+        <td>{data.Restaurant.resturantName}</td>
+        <td>{data.Order.orderType}</td>
+        <td>{data.Order.paymentType}</td>
+      </tr>
+    ))}
+ 
+                  
                    </tbody>
                  </table>
 			         </div>

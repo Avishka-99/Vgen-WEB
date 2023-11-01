@@ -51,16 +51,19 @@
     font-family: luckiest-guy ;
     font-size: 38px;
     color: #2C2C2C;
+    margin-bottom: 5px;
 }
 .partners{
-    width: 70%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     background-color: #08A045;
-    margin-left: 5%;
+    margin-left: 20%;
+    border-radius: 40%;
 }
 .image_partner{
     width: 100%;
     height: 100%;
+
 }
 .landingRight{
     width: 50%;
