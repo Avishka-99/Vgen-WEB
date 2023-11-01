@@ -22,6 +22,7 @@ import {dark} from '@mui/material/styles/createPalette';
 import {consumers} from 'stream';
 import {SphericalUtil} from 'node-geometry-library';
 import { GOOGLE_API } from '../../keys/Keys';
+import communityImage from '../../assets/images/community/commu.jpg';
 
 function Home() {
 	const [resolvedAddresses, setResolvedAddresses] = useState([]);
@@ -37,6 +38,7 @@ function Home() {
 	const [itemAdded, setItemAdded] = useState(false);
 	const [name, setName] = useState('');
 	const [cart, setCart] = useState([]);
+	const [formData3, setFormData3] = useState([]);
 	const modalRef = useRef(null);
 	const navigate = useNavigate();
 	const number = useSelector((state) => state.CounterReducer.counter);
@@ -116,7 +118,18 @@ function Home() {
     setSelectedProduct(product);
     setIsModalOpen(!isModalOpen);
   };
-
+   useEffect(() => {
+	const fetchData3 = async () => {
+		try {
+			const res = await Axios.get('/api/fetchcategories');
+			console.log(res.data);
+			setFormData3(res.data);
+		} catch (err) {
+			console.log('Error fetching data:', err);
+		}
+	};
+	fetchData3();
+}, []);
 
 	const closeModal = () => {
 		setSelectedProduct(null);
@@ -209,7 +222,24 @@ function Home() {
 	};
 	return (
 		<div className='home'>
+		
 			<div className='bottom_content'>
+			<div className='categories_content'>
+            {
+		formData3.map((data, index) => (
+			<div className='card' key={data.id}>
+				{/* ...existing card content */}
+				<div className='card-body'>
+					<img className='product--image' src={`http://localhost:5001/uploads/thumbnails/${data.image}`} alt={data.categoryName} />
+					<p style={{fontFamily: 'poppins-medium'}} className='product_name'>{data.name}</p>
+					<button className='btn_cart_cus' onClick={() => navigateTo('category')}>
+						View Category
+					</button>
+			</div>
+			</div>
+			
+		))}
+		</div>
 				{/* The rest of your home page content */}
 				<div className='vision_1'>
 					<p>Taste out :</p>
@@ -236,11 +266,13 @@ function Home() {
       
         <p className='prices'>Quantity: {sellProduct.quantity}</p>
         
-        
+     
       
         
       </div>
     ))}
+
+	
     
 
     
@@ -351,6 +383,20 @@ function Home() {
 					<p>See More</p>
 				</div>
 			</div>
+			<div className='vision_1'>
+					<p>Are you Alone :</p>
+					<h3>Join with us</h3>
+				</div>
+				<div className='communties'>
+					<div className='communties_1'>
+						<img className='product--image' src={communityImage} alt='community' />
+						<div className='vision_1'>
+						<p onClick={()=>navigateTo('community')}>Click Here</p>
+						</div>
+						
+					</div>
+				
+				</div>
 		</div>
 	);
 

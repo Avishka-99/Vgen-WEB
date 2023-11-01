@@ -17,6 +17,7 @@ export const customerRoutes = [
 	{id: 14, path: '/SearchResults', element: <UserViews.SearchResults />},
 	{id: 15, path: '/Orders', element: <UserViews.Orders />},
 	{id: 16, path: '/communityView', element: <UserViews.communityView />},
+	{id: 17, path: '/destination', element: <UserViews.destination />},
 ];
 export const restaurantRoutes = [
 	{id: 1, path: '/home', element: <UserViews.RestaurantHome />},

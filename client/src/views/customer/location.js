@@ -28,6 +28,7 @@ const Location = () => {
     setMarkerPosition({ lat: e.latLng.lat(), lng: e.latLng.lng() });
   };
 
+
   const setDefaultLocation = () => {
     // Get user's current location using geolocation API
     if (navigator.geolocation) {
@@ -54,6 +55,7 @@ const Location = () => {
     
   };
 const confirmLocation=()=>{
+  if(markerPosition){
     axios.post("http://localhost:5001/api/UpdateLocation/", {
     latitude: markerPosition.lat,
     longitude: markerPosition.lng,
@@ -66,6 +68,9 @@ const confirmLocation=()=>{
     .catch((error) => {
       console.log(error);
     });
+  }else{
+    alert("Please Select Location");
+  }
 }
 
 
