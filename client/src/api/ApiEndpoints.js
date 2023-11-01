@@ -67,8 +67,8 @@ export const getManufactureOrderDetailsInSortedByType_URL='api/getManufactureOrd
 export const getManufactureAcceptedOrderDetailsInTableToday_URL='api//getManufactureAcceptedOrderDetailsInTableToday'
 export const getManufactureOrderDetailsInSortedByTypeWithAccepted_URL='api/getManufactureOrderDetailsInSortedByTypeWithAccepted'
 export const deleteProduct_URL='api/deleteProduct'
-//
 
+//admin apis
 export const FETCH_ALL_STAFF = '/api/fetchstaff';
 export const FETCH_ALL_CATEGORIES = '/api/fetchallcategories';
 export const FETCH_ALL_FOODS = '/api/fetchallfoods';
