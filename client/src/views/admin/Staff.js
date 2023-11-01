@@ -13,6 +13,7 @@ export default function Staff() {
 	const dayOfWeek = daysOfWeek[currentDate.getDay()];
 	const dayOfMonth = currentDate.getDate();
 	const month = months[currentDate.getMonth()];
+  const [staff, setStaff] = useState([]);
 	const year = currentDate.getFullYear();
 	const formattedDate = `${dayOfWeek} ${dayOfMonth.toString().padStart(2, '0')},  ${month} ${year}`;
 
@@ -69,12 +70,23 @@ export default function Staff() {
 		setIsRegistrationOpen(false);
 	};
   
-	useEffect(() => {
-		Axios.post(API_ENDPOINTS.FETCH_ALL_STAFF).then((response) => {
-			console.log(response.data);
-		});
-	},[]);
+	// useEffect(() => {
+	// 	Axios.post(API_ENDPOINTS.FETCH_ALL_STAFF).then((response) => {
+	// 		console.log(response.data);
+  //     setStaff(response.data);
+	// 	});
+	// },[]);
 	
+useEffect(() => {
+  Axios.get('http://localhost:5001/api/fetchstaff').then((response) => {
+    console.log(response.data);
+    setStaff(response.data);
+  }
+  );
+}
+,[]);
+
+
     return (
         <div className="Staff-Container">
           <div className="Staff-Top">
@@ -89,89 +101,29 @@ export default function Staff() {
                 </div>
                 <div className="Staff-SubContainer">
 				      <div class="Home-tableArea">
-			         <table class="Home-dbTable">
-                      <thead>
-                        <tr>
-                          <th>Staff ID</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>NIC</th>
-                          <th>Contact</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-                        <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-                        <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-                        <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-                        <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-					              <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-					              <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-					              <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-					              <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-                        <tr>
-						              <td>101</td>
-                          <td>Daweendri</td>
-                          <td>Himasha</td>
-                          <td>123456789v</td>
-                          <td>071-1234567</td>
-                        </tr>
-                      </tbody>
-                </table>
+              <table className="Home-dbTable">
+  <thead>
+    <tr>
+      <th>Staff ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>NIC</th>
+      <th>Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    {staff.map((staff) => (
+      <tr key={staff.userId}>
+        <td>{staff.userId}</td>
+        <td>{staff.firstName}</td>
+        <td>{staff.lastName}</td>
+        <td>{staff.nic}</td>
+        <td>{staff.contactNo}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 			        </div>
             </div>
 				    {isRegistrationOpen && (
@@ -246,59 +198,40 @@ export default function Staff() {
                      <div className="Staff-Divider"></div>
                      <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Madhawa Samarasinghe</div>
                      </div>
                      <div className="Staff-Divider"></div>
                      <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Danusha Thilakarathne</div>
                      </div>
                      <div className="Staff-Divider"></div>
 					 <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Avishka Prabath</div>
                      </div>
                      <div className="Staff-Divider"></div>
                      <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Ranil de Soysa</div>
                      </div>
                      <div className="Staff-Divider"></div>
                      <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Sadun Perera</div>
                      </div>
                      <div className="Staff-Divider"></div>
 					 <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Kasun Soysa</div>
                      </div>
                      <div className="Staff-Divider"></div>
                      <div className="Staff-Activities">
                         <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
+                        <div className="Staff-ActivityText">Amal Perera</div>
                      </div>
                      <div className="Staff-Divider"></div>
-                     <div className="Staff-Activities">
-                        <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
-                     </div>
-                     <div className="Staff-Divider"></div>
-					 <div className="Staff-Activities">
-                        <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
-                     </div>
-                     <div className="Staff-Divider"></div>
-                     <div className="Staff-Activities">
-                        <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
-                     </div>
-                     <div className="Staff-Divider"></div>
-                     <div className="Staff-Activities">
-                        <div className="Staff-ActivityIconContainer"></div>
-                        <div className="Staff-ActivityText">Daweendri Himasha</div>
-                     </div>
-                     <div className="Staff-Divider"></div>
+                    
                   </div>
                 </div>
             </div>
