@@ -35,6 +35,7 @@ export const adminRoutes = [
 	{id: 6, path: '/categories', element: <UserViews.AddCategories />},
 	{id: 7, path: '/profile', element: <UserViews.AdminProfile />},
 	{id: 8, path: '/sales', element: <UserViews.Sales />},
+	
 ];
 export const staffRoutes = [
 	{id: 1, path: '/home', element: <UserViews.StaffHome />},

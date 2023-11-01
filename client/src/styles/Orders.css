@@ -2,6 +2,7 @@
 .orders-container {
   font-family: Arial, sans-serif;
   padding: 20px;
+  min-height: calc(100% - 160px);
 }
 
 /* Order item styles */
