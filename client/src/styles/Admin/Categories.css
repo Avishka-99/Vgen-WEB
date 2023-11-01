@@ -208,7 +208,7 @@
     margin-top: 20px;
     margin-left: 20px;
     height: 90px;
-    background-image: url("../../assets/images/Admin/coco-pudding.png");
+    /* background-image: url("../../assets/images/Admin/coco-pudding.png"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -299,8 +299,29 @@
     height: 580px;
     background-color: #F4FFF8;
     border-radius: 30px;
+    overflow-y: scroll;
   }
 
+    /* Webkit-based browsers (Google Chrome) */
+  .Cat-RightContainer::-webkit-scrollbar {
+	width: 8px; /* Width of the entire scrollbar */
+  }
+  
+  .Cat-RightContainer::-webkit-scrollbar-thumb {
+	background: #7EB693; /* Color of the scrollbar thumb */
+	border-radius: 5px; /* Rounded corners of the thumb */
+  }
+  
+  .Cat-RightContainer::-webkit-scrollbar-thumb:hover {
+	background: #888; /* Color of the thumb on hover */
+  }
+  
+  .Cat-RightContainer::-webkit-scrollbar-track {
+	background: #bcdac8; /* Color of the scrollbar track */
+	border-radius: 10px; /* Rounded corners of the track */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
   .Cat-LeftContainer {
     margin-top: 3px;
     padding-top: 20px;
@@ -356,7 +377,7 @@
   }
   
   .Cat-Activities {
-    width: 350px;
+    width: 300px;
     height: 50px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -365,6 +386,14 @@
     padding: 0 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .Cat-Activities:hover {
+    transform: scale(1.05) translateY(-5px);
+    cursor: pointer;
+    background-color: #ccc;
   }
   
   .Cat-Activities-Row {
@@ -380,7 +409,7 @@
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    background-image: url("../../assets/images/Admin/event.jpg");
+    /* background-image: url("../../assets/images/Admin/event.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -395,7 +424,13 @@
     font-weight: bold;
     color: #000000;
   }
-  
+
+  .Cat-Divider {
+    border-top: 1px solid #7EB693; /* Adjust color and thickness as needed */
+    height: 5px; /* Adjust the height of the divider as needed */
+    margin: 10 0px; /* Adjust the margin to control spacing */
+  }
+
   .square-input {
     position: relative;
     width: 150px; 

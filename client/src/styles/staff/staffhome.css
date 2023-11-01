@@ -3,6 +3,8 @@
 }
 
 .AdminContainer {
+  width: 100%;
+  height: 100%;
   font-family: "poppins-regular";
   padding-left: 5%;
   padding-right: 2%;
@@ -12,7 +14,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
 }
 
 .top {
@@ -59,6 +60,8 @@
 }
 
 .notification-btn {
+  text-align: center;
+  padding-top: 5px;
   margin-top: 10px;
   height: 30px;
   width: 30px;
@@ -254,4 +257,121 @@
   height: 350px;
   background-color: #F4FFF8;
   border-radius: 30px;
+}
+
+/* Define styles for the Review component */
+
+.review {
+  padding: 15px;
+  border-radius: 15px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ffcc00; /* Yellow color for stars */
+  margin-bottom: 5px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  margin-right: 10px;
+}
+
+.user-image img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; /* Round the user image */
+}
+
+.user-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-text {
+  font-style: italic;
+  font-size: 12px;
+  color: #666;
+}
+
+.staff-user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.staff-user-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.staff-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.staff-user-name {
+  width: 140px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 30px;
+  color: #333; 
+}
+
+.staff-user-see{
+  width: 65px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 7px;
+  background-color: #7eb693;
+  font-size: 9px;
+  margin-left: 70px;
+  color: white;
+}
+
+.staff-user-see:hover{
+  color: #333;
+  border: 1px solid #7eb693;
+  background-color: #F4FFF8;
+  cursor: pointer;
+}
+
+
+.sm-top-right-container {
+  margin-top: 10px;
+  padding: 25px 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 380px;
+  height: 200px;
+  background-color: #F4FFF8;
+  border-radius: 30px;
+  overflow-y: auto; 
+  scrollbar-width: thin;
+  scrollbar-color: #7eb693 #f4fff8;
+}
+
+.sm-top-right-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sm-top-right-container::-webkit-scrollbar-track {
+  background: #f4fff8;
+}
+
+.sm-top-right-container::-webkit-scrollbar-thumb {
+  background: #7eb693; 
+  border-radius: 3px;
 }

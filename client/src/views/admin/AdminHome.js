@@ -133,7 +133,7 @@ export default function AdminHome() {
                     <thead>
                       <tr>
                         <th>Order ID</th>
-                        <th>Customer ID</th>
+                        <th>Customer</th>
                         <th>Restaurant Name</th>
                         <th>Order Type</th>
                         <th>Payment</th>
@@ -148,65 +148,65 @@ export default function AdminHome() {
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
+                        <td>102</td>
+                        <td>Devindya</td>
+                        <td>KFC</td>
+                        <td>Delivery</td>
+                        <td>Online</td>
+                      </tr>
+                      <tr>
+                        <td>103</td>
+                        <td>Hiruni</td>
+                        <td>Spoons</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
                       <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
+                        <td>104</td>
+                        <td>Nayomi</td>
                         <td>Pizza Hut</td>
                         <td>Delivery</td>
-                        <td>COD</td>
+                        <td>Online</td>
                       </tr>
                       <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
+                        <td>105</td>
+                        <td>Madhawa</td>
+                        <td>McDonalds</td>
                         <td>Delivery</td>
                         <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>106</td>
+                        <td>Avishka</td>
+                        <td>Daiya Foods</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>107</td>
+                        <td>Nirupana</td>
+                        <td>KFC</td>
+                        <td>Delivery</td>
+                        <td>Online</td>
+                      </tr>
+					            <tr>
+                        <td>108</td>
+                        <td>Dhanusha</td>
+                        <td>Vegan Plaza</td>
+                        <td>Delivery</td>
+                        <td>COD</td>
+                      </tr>
+					            <tr>
+                        <td>109</td>
+                        <td>Ishini</td>
+                        <td>Pizza Hut</td>
+                        <td>Delivery</td>
+                        <td>Online</td>
                       </tr>
                       <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-					            <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
-                        <td>Delivery</td>
-                        <td>COD</td>
-                      </tr>
-                      <tr>
-                        <td>101</td>
-                        <td>Dewmini</td>
-                        <td>Pizza Hut</td>
+                        <td>110</td>
+                        <td>Sewmi</td>
+                        <td>KFC</td>
                         <td>Delivery</td>
                         <td>COD</td>
                       </tr>
@@ -218,7 +218,7 @@ export default function AdminHome() {
           </div>
         </div>
         <div className="Home-Right">
-          <div className="Home-SubHeadingText">Most Ordered</div>
+          <div className="Home-SubHeadingText">Food Partners</div>
 		        <div className="Home-filterButton1" onClick={toggleFilterMenu2}>
                   Filter
                   {showFilterMenu2 && (
@@ -235,27 +235,27 @@ export default function AdminHome() {
             <div className="Home-topRightContainer">
 			   <div className="Home-Activities">
                   <div className="Home-ActivityIconContainer"></div>
-                  <div className="Home-ActivityText">Spaghetti and Tofu Salad</div>
+                  <div className="Home-ActivityText">KFC</div>
                </div>
 			   <div className="Home-Divider"></div>
                <div className="Home-Activities">
                   <div className="Home-ActivityIconContainer"></div>
-                  <div className="Home-ActivityText">Spaghetti and Tofu Salad</div>
+                  <div className="Home-ActivityText">McDonalds</div>
                </div>
 			   <div className="Home-Divider"></div>
 			   <div className="Home-Activities">
                   <div className="Home-ActivityIconContainer"></div>
-                  <div className="Home-ActivityText">Spaghetti and Tofu Salad</div>
+                  <div className="Home-ActivityText">Daiya Foods</div>
                </div>
 			   <div className="Home-Divider"></div>
 			   <div className="Home-Activities">
                   <div className="Home-ActivityIconContainer"></div>
-                  <div className="Home-ActivityText">Spaghetti and Tofu Salad</div>
+                  <div className="Home-ActivityText">Spoons</div>
                </div>
 			   <div className="Home-Divider"></div>
 			   <div className="Home-Activities">
                   <div className="Home-ActivityIconContainer"></div>
-                  <div className="Home-ActivityText">Spaghetti and Tofu Salad</div>
+                  <div className="Home-ActivityText">Pizza Hut</div>
                </div>
 			   <div className="Home-Divider"></div>
             </div>

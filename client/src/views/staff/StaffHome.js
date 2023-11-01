@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/staff/staffhome.css";
+import Review from './Review';
+import CurrentDate from './CurrentDate';
+// import React, { useState, useEffect } from "react";
+// import StaffMember from "./StaffMember";
+import FontAwesomeIcon from '../../components/FontAwesome';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 
 const data = [
   {
@@ -55,6 +59,15 @@ const data = [
   },
 ];
 
+// const [StaffMembers, setStaffMembers] = useState([]);
+
+//   useEffect(() => {
+//     fetch("your-backend-api-endpoint")
+//       .then((response) => response.json())
+//       .then((data) => setStaffMembers(data));
+//   }, []);
+
+
 export default function StaffHome() {
   return (
     <div className="AdminContainer">
@@ -62,10 +75,12 @@ export default function StaffHome() {
         <div class="top-left">
           <div class="topline">
             <div class="headingtext">VGen Dashboard</div>
-            <div class="notification-btn"></div>
+            <div class="notification-btn">
+              <FontAwesomeIcon icon="fa-solid fa-bell" />
+            </div>
           </div>
 
-          <div class="datetext">Tuesday 07 July 2023</div>
+          <CurrentDate />
 
           <div class="subcontainer">
             <div class="cardcontainer">
@@ -104,11 +119,56 @@ export default function StaffHome() {
         <div class="top-right">
 
           <div class="topline">
-            <div class="subheadingtext">Most Ordered</div>
-            <div class="filter-btn">Today</div>
+            <div class="subheadingtext">Staff Members</div>
+            {/* <div class="filter-btn">Today</div> */}
           </div>
 
-          <div class="top-right-container">hiiiiiiiii</div>
+          <div class="sm-top-right-container">
+            {/* {StaffMembers.map((member, index) => (
+              <StaffMember
+                key={index}
+                imageUrl={member.imageUrl}
+                name={member.name}
+              />
+            ))} */}
+
+            <div className="staff-user-info">
+              <div className="staff-user-image">
+                <img src="../../assets/images/staff/cardicon1.png" alt="staffuser" />
+              </div>
+              <div className="staff-user-name">
+                Dewmini Devindya
+              </div>
+              <div className="staff-user-see">
+                See Details
+              </div>
+            </div>
+
+            <div className="staff-user-info">
+              <div className="staff-user-image">
+                <img src="../../assets/images/staff/cardicon1.png" alt="staffuser" />
+              </div>
+              <div className="staff-user-name">
+                Daweendri Himasha
+              </div>
+              <div className="staff-user-see">
+                See Details
+              </div>
+            </div>
+
+            <div className="staff-user-info">
+              <div className="staff-user-image">
+                <img src="../../assets/images/staff/cardicon1.png" alt="staffuser" />
+              </div>
+              <div className="staff-user-name">
+                Induwara Fernando
+              </div>
+              <div className="staff-user-see">
+                See Details
+              </div>
+            </div>
+
+          </div>
 
         </div>
       </div>
@@ -150,12 +210,25 @@ export default function StaffHome() {
         <div class="bottom-right">
         
           <div class="midline">
-            <div class="subheadingtext">Customer Reviews</div>
-            <div class="filter-btn">Today</div>
+            <div class="subheadingtext">Recent Reviews</div>
+            {/* <div class="filter-btn">Today</div> */}
           </div>
 
-          <div class="bottom-right-container">hiiiiiiiii</div>
+          <div class="bottom-right-container">
+            <Review
+              rating={4.5}  
+              userImage= "user.png" 
+              userName="Ravindu Sandeepa"
+              reviewText="Outstanding service and quality. Highly recommended!"
+            />
 
+            <Review
+              rating={3}  
+              userImage= "user.png" 
+              userName="Omeshi Ruvindya"
+              reviewText="Recommended for Vegan Lovers!"
+            />
+          </div>
         </div>
       </div>
     </div>
