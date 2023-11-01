@@ -87,13 +87,13 @@ const Destination = () => {
           directionsRenderer.setDirections(result);
         }
       });
-    };
+    }; 
 
     calculateRoute();
     directionsRenderer.setMap(map);
   }, [origin, destination]);
 
-  return <div ref={mapRef} style={{ height: '400px', width: '100%' }}></div>;
+  return <div ref={mapRef} style={{ height: '400px', width: '100%' ,'min-height': 'calc(100% - 160px)'}}></div>;
 };
 
 export default Destination;

@@ -6,7 +6,11 @@ import Axios from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import {useNavigate} from 'react-router-dom';
 class recipeForm extends Component {
-  
+ 
+ navigate = useNavigate();
+
+
+
 userId = localStorage.getItem('userId');
 
   state = {
@@ -51,7 +55,8 @@ userId = localStorage.getItem('userId');
     
       .then((res) => {
         console.log(res.data);
-      
+        
+        this.navigate('/recipe');
         alert('Recipe Added Successfully');
       }
       )

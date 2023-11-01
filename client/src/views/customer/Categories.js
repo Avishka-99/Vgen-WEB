@@ -136,9 +136,9 @@ const decrementQuantity = () => {
               onChange={event => setSelectedRawCategory(event.target.value)}
             >
               <option value='milk'>Milk</option>
-              <option value='Seed'>Seed</option>
-              <option value='fruits'>Fruits</option>
-              <option value='Vegetable'>Vegetables</option>
+              <option value='Grains'>Grains</option>
+              <option value='Fruits'>Fruits</option>
+              <option value='Vegetables'>Vegetables</option>
             </select>
           </div>
         )}

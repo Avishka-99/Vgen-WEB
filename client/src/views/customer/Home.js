@@ -22,7 +22,7 @@ import {dark} from '@mui/material/styles/createPalette';
 import {consumers} from 'stream';
 import {SphericalUtil} from 'node-geometry-library';
 import { GOOGLE_API } from '../../keys/Keys';
-import communityImage from '../../assets/images/community/commu.jpg';
+import communityImage from '../../assets/images/community/vvvvv.png';
 
 function Home() {
 	const [resolvedAddresses, setResolvedAddresses] = useState([]);
@@ -387,12 +387,14 @@ function Home() {
 					<p>Are you Alone :</p>
 					<h3>Join with us</h3>
 				</div>
-				<div className='communties'>
-					<div className='communties_1'>
-						<img className='product--image' src={communityImage} alt='community' />
-						<div className='vision_1'>
+				<div className='vision_1'>
 						<p onClick={()=>navigateTo('community')}>Click Here</p>
 						</div>
+				<div className='communties'>
+					<div className='communties_1'>
+	
+						<img className='product--image' src={communityImage} alt='community' />
+						
 						
 					</div>
 				

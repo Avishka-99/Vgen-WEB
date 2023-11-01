@@ -1,50 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import '../../styles/Admin/Categories.css';
 import Axios from '../../api/Axios';
-import * as API_ENDPOINTS from '../../api/ApiEndpoints';
+import AddCategoryForm from './addNewCategories';
+import '../../styles/Admin/Categories.css';
+
+const daysOfWeek = [
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+];
+
+const months = [
+  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+];
 
 export default function AddCategories() {
-  const daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  const currentDate = new Date();
-  const dayOfWeek = daysOfWeek[currentDate.getDay()];
-  const dayOfMonth = currentDate.getDate();
-  const month = months[currentDate.getMonth()];
-  const year = currentDate.getFullYear();
-  const formattedDate = `${dayOfWeek} ${dayOfMonth
-    .toString()
-    .padStart(2, '0')},  ${month} ${year}`;
-
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(''); // State to store selected category
   const [foods, setFoods] = useState([]);
+  const [addCategoriesForm, setAddCategoriesForm] = useState(false);
 
   useEffect(() => {
-    Axios.post(API_ENDPOINTS.FETCH_ALL_CATEGORIES, {})
+    Axios.get('http://localhost:5001/api/get_category')
       .then((response) => {
-        console.log(response.data);
         setCategories(response.data);
       })
       .catch((error) => {
@@ -52,20 +26,29 @@ export default function AddCategories() {
       });
   }, []);
 
-  const fetchAllFoods = (name) => {
-    Axios.post('/api/fetchallfoods', { category: name })
-      .then((response) => {
-        const newFoods = response.data;
-        console.log(newFoods);
+  const currentDate = new Date();
+  const dayOfWeek = daysOfWeek[currentDate.getDay()];
+  const dayOfMonth = currentDate.getDate().toString().padStart(2, '0');
+  const month = months[currentDate.getMonth()];
+  const year = currentDate.getFullYear();
+  const formattedDate = `${dayOfWeek} ${dayOfMonth}, ${month} ${year}`;
 
-        if (newFoods.length > 0) {
-          setFoods(newFoods);
-          setSelectedCategory(name); // Update the selectedCategory state when an activity container is clicked
-        } else {
-          console.log('No food items found for this category.');
-        }
-      });
+  const openForm = () => {
+    setAddCategoriesForm(true);
   };
+
+  const closeForm = () => {
+    setAddCategoriesForm(false);
+  };
+  const getFoods = (name) => {
+    Axios.get(`http://localhost:5001/api/get_products/`, { params: { name } })
+      .then((response) => {
+        setFoods(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching foods:', error);
+      });
+  }
 
   return (
     <div className="Cat-Container">
@@ -81,7 +64,17 @@ export default function AddCategories() {
           <br />
           <div>
             <div className="Cat-SubHeadingText">Manage Categories</div>
-            <div className="Cat-SelectedCategory">{selectedCategory}</div>
+            <div onClick={openForm} className="Cat-SelectedCategory">Add Categories</div>
+            {addCategoriesForm && (
+              <div className='modal'>
+                <div className='modal-content' style={{ width: '70%' }}>
+                  <span className='close' onClick={closeForm}>
+                   X
+                  </span>
+                  <AddCategoryForm onClose={closeForm} />
+                </div>
+              </div>
+            )}
           </div>
           <div className="Cat-SubContainer">
             <div className="Cat-LeftContainer">
@@ -112,11 +105,12 @@ export default function AddCategories() {
             <div className="Cat-RightContainer">
               {categories.map((item, index) => (
                 <React.Fragment key={item.id}>
-                  <div className="Cat-Activities" onClick={() => fetchAllFoods(item.name)}>
-                    <div className="Cat-ActivityIconContainer">
+                  <div className="Cat-Activities" >
+                    <div className="Cat-ActivityIconContainer" onClick={()=>getFoods(item.name)}>
                       <img
                         src={`http://localhost:5001/uploads/thumbnails/${item.image}`}
                         style={{ width: '35px', height: '35px' }}
+                        alt={item.name}
                       />
                     </div>
                     <div className="Cat-ActivityText">{item.name}</div>
@@ -131,3 +125,4 @@ export default function AddCategories() {
     </div>
   );
 }
+
