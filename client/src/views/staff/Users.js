@@ -263,7 +263,7 @@ export default function Users() {
             <div class="user-top-line"></div>
             <div class="user-top-count">
               Community Event Organizers <br />
-              <div class="usercount">15</div>
+              <div class="usercount">12</div>
             </div></div>
         </div>
       </div>

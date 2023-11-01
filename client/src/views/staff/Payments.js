@@ -107,6 +107,56 @@ export default function Payments() {
                   <td>Rs. 725.00</td>
                   <td>Pending</td>
                 </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>#4754093</td>
+                  <td>Manufacturer Payment</td>
+                  <td class="customer">
+                    <div class="img-icon"></div>
+                    ALP Manufacturers
+                  </td>
+                  <td>Rs. 2658.00</td>
+                  <td>Completed</td>
+                </tr>
               </tbody>
             </table>
           </div>
