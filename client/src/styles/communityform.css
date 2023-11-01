@@ -14,7 +14,6 @@
     border-radius: 5px;
 }
 
-
 .form-input {
     margin-bottom: 10px;
 }
@@ -31,11 +30,13 @@
 }
 
 .post-container {
+    border: 1px solid #ccc;
     margin-bottom: 20px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
 .post-title {
@@ -53,8 +54,36 @@
     margin-bottom: 10px;
 }
 
+.post_image_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.post-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.comment-container {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
+
+.comment p {
+    margin: 0;
+}
+
 .comment-form {
     display: flex;
+    align-items: center;
     margin-top: 10px;
 }
 
@@ -62,7 +91,7 @@
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
 }
 
 .comment-form button {
@@ -72,11 +101,11 @@
     padding: 10px 20px;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
-.post_image_container{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 10px;
+
+.comment-form button:hover {
+    background-color: #45a049;
 }
+
+/* Add more styles as needed */

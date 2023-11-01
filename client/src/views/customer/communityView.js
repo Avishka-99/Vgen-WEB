@@ -7,6 +7,7 @@ import '../../styles/communityform.css';
 const CommunityView = () => {
   const [posts, setPosts] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const [comments, setComments] = useState([]);
   const [reactions, setReactions] = useState({});
   const [showForm1,setShowForm1]=useState(false);
   const [title, setTitle] = useState('');
@@ -14,7 +15,8 @@ const CommunityView = () => {
   const [image,setImage]=useState([]);
   const [imagePreviews,setImagePreviews]=useState([]);
   const communityId=localStorage.getItem('communityId');
-
+const [like,setLike]=useState(0);
+const [isLike,setIsLike]=useState(false);
    // Assuming you track reactions for each post here
    const [isCreatePostPopupOpen, setIsCreatePostPopupOpen] = useState(false);
 
@@ -50,18 +52,7 @@ try{
     //   });
   };
 
-  const handleCommentSubmit = (postId) => {
-    // Implement logic to submit a new comment for the given post
-    // Example:
-    // Axios.post(API_ENDPOINTS.ADD_COMMENT_ENDPOINT, { postId, comment: newComment })
-    //   .then((response) => {
-    //     // Handle success, update the posts state to include the new comment
-    //     // Fetch updated posts from the server if necessary
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-  };
+
   // Function to open the create post modal
   const handleImageChange = (e) => {
     setImage(e.target.files);
@@ -88,8 +79,85 @@ try{
       });
 
   }
+  const onLikeButton=(postId)=>{
+   Axios.post('http://localhost:5001/api/likedPost',{
+      userId:userId,
+      postId:postId,
+      like:!isLike
+    })
+    .then((response) => {
+     const updatedLike=posts.map((post)=>{
+       if(post.postId===postId){
+         return{
+           ...post,
+            isLike:!post.isLike,
+           likeCount:response.data.likeCount
+         }
+         }
+         return post;
+        });
+        setPosts(updatedLike);
+        setIsLike(!isLike);
 
-  return (
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+  const commentSubmit=(postId)=>{
+    Axios.post('http://localhost:5001/api//commentPost',{
+      userId:userId,
+      postId:postId,
+      comment:newComment
+    })
+    .then((response) => {
+       const updatedComment=posts.map((post)=>{
+          if(post.postId===postId){
+            return{
+              ...post,
+              comments:response.data
+            }
+          }
+          return post;
+        });
+        setPosts(updatedComment);
+        setNewComment('');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+  useEffect(() => {
+    const fetchComments = async (postId) => {
+      try {
+        const res = await Axios.get(`http://localhost:5001/api/getComment/${postId}`);
+        console.log(res.data.comments);
+        setComments(res.data.comments);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const fetchReactions = async (postId) => {
+      try {
+        const res = await Axios.get(`http://localhost:5001/api/getLike/${postId}`);
+        console.log(res.data);
+        setLike(res.data);
+        if (res.data !== null) {
+          setIsLike(true);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    // Fetch comments and reactions for each post
+    posts.forEach((post) => {
+      fetchComments(post.postId);
+      fetchReactions(post.postId);
+    });
+  }, [posts]);
+
+    return (
     <div className="community-view-container">
       <h1>Community View</h1>
       <button className="create-post-button" onClick={()=>setShowForm1(true)}>Create Post</button>
@@ -143,25 +211,38 @@ try{
                     </div>
                 ))}
                 </div>
-          {/* Display post reactions */}
-          {/* <button onClick={() => handleReaction(post.id, 'like')}>Like</button>
-          <button onClick={() => handleReaction(post.id, 'dislike')}>Dislike</button> */}
-          {/* Display post reactions */}
+                <div  className='comment-container'>
+                {comments.map((comment, index) => (
+                    <div  className="comment">
+                        <p>{comment.comment}</p>
+                    </div>
+                ))}
+                </div>
+  
           <p>Reactions:</p>
-          {/* Display post comments */}
-          {/* {post.comments.map((comment, index) => (
-            <div key={index} className="comment">
-              <p>{comment.text}</p>
-            </div>
-          ))} */}
+          
+          <i   
+              className={isLike ? 'fa fa-heart' : 'fa fa-heart-o'}
+              style={{
+                fontSize: '20px',
+                color: 'red',
+                cursor: 'pointer',
+              }}
+              onClick={() => onLikeButton(post.postId)} // Pass postId to the like button click handler
+            />
+            <span>{post.likeCount}</span>
+       
           <div className="comment-form">
             <input
+              key={post.postId}
+
               type="text"
               placeholder="Add a comment..."
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
+             
             />
-            <button>Submit</button>
+            <button onClick={()=>commentSubmit(post.postId)}>Submit</button>
           </div>
 
         </div>

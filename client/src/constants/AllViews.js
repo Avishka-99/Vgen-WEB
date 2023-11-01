@@ -38,4 +38,5 @@ import AdminProfile from '../views/admin/AdminProfile';
 import AddCategories from '../views/admin/AddCategories';
 import Orders from '../views/customer/Orders';
 import communityView from '../views/customer/communityView';
-export {Sales, StaffHome, Payments, Complaints, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd, Cart, ManufactureHome, RowProducts, RowOrderView, ManufactureComplains, RestaurantComplain, About, View_Profile, SelectedRestaurant, Recipe, recipeForm, location, communityOrganizerForm, SearchResults, AdminProfile, Users, AddCategories,Orders,communityView};
+import destination from '../views/customer/destination';
+export {Sales, StaffHome, Payments, Complaints, AdminHome, Staff, Analytics, Riders, Profile, Home, Order, Categories, Community, Restaurants, RestaurantHome, RestaurantProducts, OrdersView, Shopping, Reservation, RestaurantProductAdd, Cart, ManufactureHome, RowProducts, RowOrderView, ManufactureComplains, RestaurantComplain, About, View_Profile, SelectedRestaurant, Recipe, recipeForm, location, communityOrganizerForm, SearchResults, AdminProfile, Users, AddCategories,Orders,communityView,destination};

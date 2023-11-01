@@ -1,0 +1,69 @@
+/* Add this CSS in your Stripe.css file or create a new CSS file for Stripe styles */
+
+.stripe_modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto; /* Center the modal horizontally */
+    z-index: 999;
+  }
+  
+  .stripe-card-element {
+    margin-bottom: 20px;
+  }
+  
+  .stripe-card-element .CardElement {
+    height: 40px;
+    padding: 10px 12px;
+    color: #32325d;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    transition: box-shadow 150ms ease;
+  }
+  
+  .stripe-card-element .CardElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .stripe-card-element .CardElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .stripe-card-element .error-message {
+    color: #fa755a;
+  }
+  
+  .stripe-modal button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .stripe-modal button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .stripe-modal button:hover {
+    background-color: #45a049;
+  }
+  
+  .stripe-modal button[type="button"] {
+    background-color: #f44336;
+  }
+  
+  .stripe-modal button[type="button"]:hover {
+    background-color: #d32f2f;
+  }
+  

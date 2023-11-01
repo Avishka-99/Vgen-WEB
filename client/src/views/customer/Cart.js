@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Axios from "../../api/Axios";
-import StripeCheckout from "./StripeCheckout";
 import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import {STRIPE_KEY} from "../../keys/Keys";
 import {
   removeFromCart,
   resetCart,
@@ -13,7 +14,7 @@ import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import * as ToastMessages from "../../components/ToastMessages";
 import Toast from "../../components/Toast";
 import "../../styles/Cart.css";
-
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 function Cart() {
   const cartItems = useSelector((state) => state.cartReducer.cart);
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function Cart() {
   const [paymentType, setPaymentType] = useState("Cash");
   const [showStripeModal, setShowStripeModal] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState("pending");
-
+  const stripePromise = loadStripe(STRIPE_KEY);
   const navigate = useNavigate();
 
   const removeCartItem = (itemToRemove) => {
@@ -51,33 +52,22 @@ function Cart() {
           price: item.price,
         })),
       };
-      const response = await Axios.post("http://localhost:5001/api/orderPost/",
-        orderData 
-        ,{
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
+      if (paymentType === "Cash") {
+      const response = await Axios.post('http://localhost:5001/api/orderPost', orderData);
       if (response.status === 200) {
-        // Handle successful order placement
-        console.log("Order placed successfully:", response.data);
         dispatch(resetCart());
-        dispatch(incrementCounter(0));
-        ToastMessages.success("Order Placed Successfully");
-        navigate("/Orders");
+        ToastMessages.success("Order placed successfully!");
+        navigate("/orders");
       } else {
-        // Handle non-2xx responses here
-        throw new Error("Order placement failed. Please try again.");
+        ToastMessages.error("Something went wrong!");
       }
-    } catch (error) {
-      console.error("Error placing order:", error.response);
-      ToastMessages.error(error.message);
     }
+      
+  } catch (error) {
+    console.error(error);
+  }
+
   };
-
-
 
  
 
@@ -95,6 +85,7 @@ function Cart() {
   const navigateToHome = () => {
     navigate("/");
   };
+
 
   return (
     <div className="cart-container">
@@ -158,11 +149,17 @@ function Cart() {
       <button className="btn continue-shopping" onClick={navigateToHome}>
         Continue Shopping
       </button>
-  
+\
+     
       <Toast duration={3000} />
-    </div>
+      
+    
+       
+      </div>
+  
   );
 }
+
 
 export default Cart;
 

@@ -6,6 +6,7 @@ import Axios from '../../api/Axios';
 import { Button } from 'bootstrap';
 import { useNavigate } from 'react-router-dom';
 import communityView from './communityView';
+import community from '../../assets/images/community/commu.jpg';
 
 
 
@@ -52,8 +53,14 @@ export default function Community() {
   };
   useEffect(() => {
   const isregister=()=>{
-    Axios.get("http://localhost:5001/api//checkCommunityOrganizer/"+userId).then((response) => {
+    Axios.get("http://localhost:5001/api//checkCommunityOrganizer/",{
+      params:{
+        userId:userId,
+      }
+    }).then((response) => {
       console.log(response);
+      setIsEligible(!response.data.map
+        (item=>item.userId===userId));
     
     })
     .catch((error) => {
@@ -62,12 +69,7 @@ export default function Community() {
   }
 
 
-  if(!isregister){
-    setIsEligible(true);
-  }
-  else{ 
-    setIsEligible(false);
-  }
+  isregister();
   }, []);
 
   const handleSubmit = (e) => {
@@ -191,15 +193,22 @@ const check=(communityId)=>{
 
   return (
     <div>
-      <p>Join for life</p>
-      <div>
+    
+      <p className='title'>Join for life</p>
+      <div className='community-header'>
+     <img className='community-header__image' src={community} alt='community' />
+      </div>
+      {isEligible && (
+      <div className='topic'>
         <p>Request for Community Organizer</p>
-        <button onClick={handleRequestClick}>Request</button>
+        <button className='requestButton' onClick={handleRequestClick}>Request</button>
 
       </div>
-      <button onClick={()=>setShowForm1(true)}>
+      )}
+      <button className='requestButton' onClick={()=>setShowForm1(true)}>
             Create Community
           </button>
+    
       {showForm &&(
       <div className="community-create-form">
       <i className="close-icon" onClick={() => setShowForm(false)}>X</i>

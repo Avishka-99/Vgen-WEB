@@ -198,4 +198,49 @@
 .join-confirmation-popup button:hover {
   background-color: #0056b3;
 }
+/* Community.css */
 
+/* ... (your existing CSS code) */
+
+/* Styles for the new elements */
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.topic {
+  margin-bottom: 20px;
+}
+
+.requestButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.requestButton:hover {
+  background-color: #45a049;
+}
+
+/* ... (your existing CSS code) */
+.community-header__image{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.community-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}

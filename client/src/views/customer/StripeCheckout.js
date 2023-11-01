@@ -1,67 +1,55 @@
-import React, { useState } from "react";
-import{CardElement,Elements,
-    useStripe,
-    useElements,} from "@stripe/react-stripe-js";
+import React from "react";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import "../../styles/Stripe.css";
+import Axios from "../../api/Axios";
 
-import Axios from 'axios'; // Import Axios instance configured for your API calls
 
-const StripeCheckout = ({ amount, onPaymentSuccess }) => {
+function StripeCheckout({ onSuccess, onCancel }) {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
+     
+
       return;
     }
 
-    const cardElement = elements.getElement(CardElement);
+    const { token, error } = await stripe.createToken(elements.getElement(CardElement));
 
-    // Create a payment intent on your server
-    try {
-      const response = await Axios.post('http://localhost:5001/api/intents', {
-        amount: amount * 100, // Convert amount to cents (Stripe expects amount in smallest currency unit)
-      });
-
-      const { client_secret } = response.data.paymentIntent;
-
-      const { token, error } = await stripe.confirmCardPayment(client_secret, {
-        payment_method: {
-          card: cardElement,
-        },
-      });
-
-      if (error) {
-        setError(error.message);
-      } else {
-        // Handle the payment success on the client side
-        onPaymentSuccess(token);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setError("Failed to process payment. Please try again.");
+    if (error) {
+      // Handle error (e.g., display error message to the user)
+      console.error(error);
+    } else {
+      // Send the token to your server or handle the token as needed
+      // For this example, let's assume you send the token to your server
+      // Server-side logic will handle the payment using the token
+      onSuccess(token);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Card details
-        <CardElement />
-      </label>
-      <div className="error" role="alert">
-        {error}
-      </div>
-      <button type="submit" disabled={!stripe}>
-        Pay ${amount}
-      </button>
-    </form>
+    <div className="stripe_modal">
+      <h2>Payment Details</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="stripe-card-element">
+          <CardElement />
+        </div>
+        <button type="submit" disabled={!stripe}>
+          Pay Now
+        </button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+      </form>
+    </div>
   );
-};
+}
 
 export default StripeCheckout;
+
 
 
 
