@@ -15,6 +15,7 @@ export default function AddCategories() {
   const [categories, setCategories] = useState([]);
   const [foods, setFoods] = useState([]);
   const [addCategoriesForm, setAddCategoriesForm] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null); 
 
   useEffect(() => {
     Axios.get('http://localhost:5001/api/get_category')
@@ -41,9 +42,14 @@ export default function AddCategories() {
     setAddCategoriesForm(false);
   };
   const getFoods = (name) => {
-    Axios.get(`http://localhost:5001/api/get_products/`, { params: { name } })
+    Axios.get('http://localhost:5001/api/get_foods',{
+      params: {
+        name: name
+      
+        } } )
       .then((response) => {
         setFoods(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error('Error fetching foods:', error);
@@ -78,20 +84,24 @@ export default function AddCategories() {
           </div>
           <div className="Cat-SubContainer">
             <div className="Cat-LeftContainer">
-              {foods.map((food, index) => (
+            {foods.length === 0 ? (
+          <div className="No-Item-View">No items available for the selected category.</div>
+        )
+             
+            : (foods.map((food, index) => (
                 <div className="Cat-CardContainer" key={index}>
                   <div className="Cat-FirstDivider">
                     <div className="Cat-CardIconContainer">
                       <img
-                        src={`http://localhost:5001/uploads/products/${food.image}`}
-                        alt={food.name}
+                        src={`http://localhost:5001/uploads/products/${food.productImage}`}
+                        alt={food.productName}
                         style={{ width: '80px', height: '80px' }}
                       />
                     </div>
-                    <div className="Cat-BodyText">{food.name}</div>
+                    <div className="Cat-BodyText">{food.productName}</div>
                   </div>
                 </div>
-              ))}
+              )))}
             </div>
           </div>
           <div className="Cat-SubContainer"></div>
@@ -105,15 +115,16 @@ export default function AddCategories() {
             <div className="Cat-RightContainer">
               {categories.map((item, index) => (
                 <React.Fragment key={item.id}>
-                  <div className="Cat-Activities" >
-                    <div className="Cat-ActivityIconContainer" onClick={()=>getFoods(item.name)}>
+                  <div className="Cat-Activities" onClick={()=>{getFoods(item.name);
+                    setSelectedCategory(item.name);}}>
+                    <div className="Cat-ActivityIconContainer" >
                       <img
                         src={`http://localhost:5001/uploads/thumbnails/${item.image}`}
                         style={{ width: '35px', height: '35px' }}
                         alt={item.name}
                       />
                     </div>
-                    <div className="Cat-ActivityText">{item.name}</div>
+                    <div className={`Cat-ActivityText ${selectedCategory === item.name ? 'active' : ''}`}>{item.name}</div>
                   </div>
                   {index < categories.length - 1 && <div className="Cat-Divider"></div>}
                 </React.Fragment>
