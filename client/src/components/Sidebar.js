@@ -54,7 +54,7 @@ const ShowSidebar = (props) => {
 		{id: 2, icon: <FastfoodIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Products', link: 'products', index: '2'},
 		{id: 3, icon: <GradingIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Orders', link: 'orders', index: '3'},
 		{id: 4, icon: <EventSeatIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Reservation', link: 'reservation', index: '4'},
-		{id: 5, icon: <ShoppingCartIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Shopping', link: 'shopping', index: '5'},
+		// {id: 5, icon: <ShoppingCartIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'Shopping', link: 'shopping', index: '5'},
 		{id: 6, icon: <EditCalendarIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'complains', link: 'Restaurant_complain', index: '6'},
 		{id: 7, icon: <LogoutIcon sx={{fontSize: 30, fill: '#6F767F'}} />, label: 'LogOut', link: 'logout', index: '7'},
 	];

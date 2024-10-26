@@ -106,11 +106,11 @@ button {
   background-color: #4caf50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   margin-top: 10px;
   cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
   background-color: #45a049;
-}
+} */

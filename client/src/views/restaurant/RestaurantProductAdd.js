@@ -3,6 +3,9 @@ import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import Axios from '../../api/Axios';
 import CloseIcon from '@mui/icons-material/Close';
 import '../../styles/Restaurant/RestaurantProduct.css';
+import OrderMoreDetails from './OrderMoreDetails'
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 
 const RestaurantProductAdd = (props) => {
     // const [formData,setFormData]=useState([])
@@ -15,7 +18,7 @@ const RestaurantProductAdd = (props) => {
     const user_id=localStorage.getItem('userId');
     
    
-   const handleSubmit=(e)=>{
+   const handleSubmit= async (e)=>{
       //upload image    
       const formData=new FormData();
       formData.append('category',category);
@@ -26,7 +29,18 @@ const RestaurantProductAdd = (props) => {
       formData.append('productName',productName);
       formData.append('price',price);
    
-      Axios.post(API_ENDPOINTS.productUpload_URL,formData);
+      const response = await Axios.post(API_ENDPOINTS.itemAdd_url,formData).then((response)=>showToast(response.data));;
+    }
+
+    const showToast=(data)=>{
+ 
+      if(data.type==='success'){
+        props.getProducts();
+        ToastMessages.success(data.message);
+      }else{
+        ToastMessages.error(data.message);
+      }
+  
     }
      
     const handleFiles=(e)=>{
@@ -97,6 +111,7 @@ const RestaurantProductAdd = (props) => {
         </div>    
         <button className="submit-button" onClick={() => { handleSubmit(); props.setTrigger(false)} }>Submit</button>          
       </div> 
+      <Toast duration={3000} />
     </div> 
     ):null;
 };

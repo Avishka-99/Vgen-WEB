@@ -55,10 +55,10 @@
     cursor: not-allowed;
   }
   
-  .stripe-modal button:hover {
+  /* .stripe-modal button:hover {
     background-color: #45a049;
   }
-  
+   */
   .stripe-modal button[type="button"] {
     background-color: #f44336;
   }
