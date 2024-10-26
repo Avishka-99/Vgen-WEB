@@ -50,6 +50,11 @@ export const getAllRawProductsDetails="api/getAllRawProductsDetails"
 export const deleteComplain_URL="api/deleteComplain"
 export const updateReservationState_URL='api/updateReservationState'
 export const getAcceptedReservationDetails_URL='api/acceptedReservationDetails'
+export const getSearchForValue_URL = 'api/searchForValue'
+export const getSearchForChart_URL = 'api/searchForChart'
+export const getSearchData_URL = 'api/searchData'
+export const updateProductL = 'api/updateProductDetails'
+
 //
 //product manufacture apis
 export const addRowProducts_URL='/api/rowProductStore';
@@ -67,6 +72,9 @@ export const getManufactureOrderDetailsInSortedByType_URL='api/getManufactureOrd
 export const getManufactureAcceptedOrderDetailsInTableToday_URL='api//getManufactureAcceptedOrderDetailsInTableToday'
 export const getManufactureOrderDetailsInSortedByTypeWithAccepted_URL='api/getManufactureOrderDetailsInSortedByTypeWithAccepted'
 export const deleteProduct_URL='api/deleteProduct'
+export const getRawSearchForValue_URL = 'api/rawSearchForValue'
+export const getRawSearchForChart_URL = 'api/rawSearchForChart'
+export const getRawSearchData_URL = 'api/rawSearchData'
 
 //admin apis
 export const FETCH_ALL_STAFF = '/api/fetchstaff';

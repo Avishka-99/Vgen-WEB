@@ -10,6 +10,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import SearchResultList from './SearchResultList';
 import RestaurantOneItem from './RestaurantOneItem';
 import CommonPopupMessage from './CommonPopupMessage'
+import * as ToastMessages from '../../components/ToastMessages';
+import Toast from '../../components/Toast';
 
 export default function RestaurantProducts() {
 	const [popup, setPopup] = useState(false);
@@ -102,9 +104,28 @@ export default function RestaurantProducts() {
 		searchData(value);
 	};
 
-	const handleDelete=(id)=>{
-		console.log("hi",id)
+	const handleDelete = async(id)=>{
+
+		try {
+			const response= await Axios.post(API_ENDPOINTS.deleteProduct_URL,{
+				id:id,
+			}).then((response)=>showToast(response.data));
+		  } catch (err) {
+			console.log('Error fetching data:', err);
+		  }
 	}
+
+	const showToast=(data)=>{
+ 
+		if(data.type==='success'){
+		setDeletePopup(false)
+		getProducts();
+		  ToastMessages.success(data.message);
+		}else{
+		  ToastMessages.error(data.message);
+		}
+	
+	  }
 
 	return (
 		<div className='product-details'>
@@ -122,7 +143,7 @@ export default function RestaurantProducts() {
 			<div className='product-details-content'>
 				{popup === true ? (
 					<div className='popup'>
-						<RestaurantProductAdd trigger={popup} setTrigger={setPopup}></RestaurantProductAdd>
+						<RestaurantProductAdd trigger={popup} setTrigger={setPopup} getProducts={getProducts}></RestaurantProductAdd>
 					</div>
 				) : isSearching === true ? (
 					searchResult.length === 0 ? (
@@ -147,7 +168,10 @@ export default function RestaurantProducts() {
 					</div>
 				)}
 			</div>
+			
 			<CommonPopupMessage setTriggerNew={setDeletePopup} triggerNew={deletePopup} action={'delete'} type={'product'} myFunction={()=>handleDelete(del_productId)} getProducts={getProducts} ></CommonPopupMessage> 
+			<Toast duration={3000} />
 		</div>
+
 	);
 }

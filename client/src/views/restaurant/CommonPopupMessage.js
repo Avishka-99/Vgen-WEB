@@ -7,11 +7,11 @@ const  CommonPopupMessage= (props) => {
             <div className="messageContainerInner">
                 <button className='Close-Btn' onClick={() => props.setTriggerNew(false)}><CloseIcon/></button>
                 <h1 className="popup_message" style={{marginLeft:"0%"}}>Are you sure you want to {props.action} this {props.type} ?</h1><br />
-                <button className="msg_cancel_btn" onClick={() => props.setTriggerNew(false)}>cancel</button>
+                <button className="msg_cancel_btn" onClick={() => props.setTriggerNew(false)} style={{padding:"0"}}>cancel</button>
                 {props.action==='delete'?(
-                    <button className="msg_delete_btn" onClick={()=>{props.myFunction()}}>delete</button>
+                    <button className="msg_delete_btn" onClick={()=>{props.myFunction()}} style={{padding:"0"}}>delete</button>
                 ):(
-                    <button className="msg_delete_btn" onClick={()=>{props.myFunction()}} style={{backgroundColor:"#16bb58"}}>update</button>
+                    <button className="msg_delete_btn" onClick={()=>{props.myFunction()}} style={{backgroundColor:"#16bb58", padding:"0"}}>update</button>
                 )}
                 
             </div>

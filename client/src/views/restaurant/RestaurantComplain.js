@@ -110,7 +110,7 @@ const handleDelete= async (id)=>{
                           <p style={{color:'green'}}>{o.action}</p>
                         )
                         }</td>
-                        <td><button className='complain-delete' onClick={()=>{setDeletePopup(true);setComplain(o.complainId)}}>Delete</button></td>
+                        <td><button className='complain-delete' onClick={()=>{setDeletePopup(true);setComplain(o.complainId)}} style={{padding:"0"}}>Delete</button></td>
                     </tr>
                   ))}
                 </tbody>

@@ -89,7 +89,7 @@ export default function OrdersView() {
           }
       });
   }
-  console.log(result)
+
   
     
   //   //row click function
@@ -273,14 +273,13 @@ export default function OrdersView() {
   }
   const handleAcceptPre= async (orderId,orderState)=>{
     var newOrderState=orderState+1;
-    console.log(newOrderState);
-    console.log(orderId);
+
     try {
       const response= await Axios.post(API_ENDPOINTS.updateOrderStateToFinal_URL,{
           order_id:orderId,
           order_state:newOrderState,
-      }).then((response)=>showToast(response.data));;
-      console.log("Axios Response:", response.data);
+      }).then((response)=>showToast(response.data));
+      
     } catch (err) {
       console.log('Error fetching data:', err);
       
@@ -296,7 +295,7 @@ export default function OrdersView() {
         const response= await Axios.post(API_ENDPOINTS.updateOrderRejectState_URL,{
             order_id:orderId,
             order_state:newOrderState,
-        }).then((response)=>showToast(response.data));;
+        }).then((response)=>showToast(response.data));
         console.log("Axios Response:", response.data);
       } catch (err) {
         console.log('Error fetching data:', err);
